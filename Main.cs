@@ -44,7 +44,7 @@ namespace ZBase
             else
             {
                 MessageBox.Show("Please start CSGO Running the cheat", "Error", MessageBoxButtons.OK);
-                Environment.Exit(1);
+                //Environment.Exit(1);
                 return false;
             }
         }

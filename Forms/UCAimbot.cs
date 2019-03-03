@@ -1303,5 +1303,15 @@ namespace ZBase.Forms
             else
                 Main.S.ShootteammatesEnabled = false;
         }
+
+        private void RageBotCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RageBotCheck.Checked)
+            {
+                Main.S.RageBotEnabled = true;
+            }
+            else
+                Main.S.RageBotEnabled = false;
+        }
     }
 }

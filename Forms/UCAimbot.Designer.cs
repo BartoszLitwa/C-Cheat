@@ -48,6 +48,7 @@
             this.SmartAimbotCheck = new System.Windows.Forms.CheckBox();
             this.SilentAimCheck = new System.Windows.Forms.CheckBox();
             this.ShootTeammatesCheck = new System.Windows.Forms.CheckBox();
+            this.RageBotCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.AimbotFOVTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -293,10 +294,22 @@
             this.ShootTeammatesCheck.UseVisualStyleBackColor = true;
             this.ShootTeammatesCheck.CheckedChanged += new System.EventHandler(this.ShootTeammatesCheck_CheckedChanged);
             // 
+            // RageBotCheck
+            // 
+            this.RageBotCheck.AutoSize = true;
+            this.RageBotCheck.Location = new System.Drawing.Point(165, 181);
+            this.RageBotCheck.Name = "RageBotCheck";
+            this.RageBotCheck.Size = new System.Drawing.Size(68, 17);
+            this.RageBotCheck.TabIndex = 138;
+            this.RageBotCheck.Text = "RageBot";
+            this.RageBotCheck.UseVisualStyleBackColor = true;
+            this.RageBotCheck.CheckedChanged += new System.EventHandler(this.RageBotCheck_CheckedChanged);
+            // 
             // UCAimbot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.RageBotCheck);
             this.Controls.Add(this.ShootTeammatesCheck);
             this.Controls.Add(this.SilentAimCheck);
             this.Controls.Add(this.SmartAimbotCheck);
@@ -347,5 +360,6 @@
         private System.Windows.Forms.CheckBox SmartAimbotCheck;
         private System.Windows.Forms.CheckBox SilentAimCheck;
         private System.Windows.Forms.CheckBox ShootTeammatesCheck;
+        private System.Windows.Forms.CheckBox RageBotCheck;
     }
 }

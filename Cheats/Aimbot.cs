@@ -18,25 +18,26 @@ namespace ZBase.Cheats
             {
                 string activeweapon = G.Engine.LocalPlayer.WeaponName;
                 int WeaponID = (int)G.Engine.LocalPlayer.WeaponID;
+                if (!Main.S.RageBotEnabled)
+                {
+                     if (G.Engine.LocalPlayer.IsRifle(WeaponID) && Main.S.AimbotEnabledRifle)
+                         UseAimbot(activeweapon, Main.S.AimbotEnabledRifle, Main.S.AimbotSpottedByMaskRifle, Main.S.RecoilPredictionEnabledRifle, Main.S.aimbotSmoothRifle, Main.S.SmartAimbotRifle, Main.S.SilentAImEnabled, Main.S.ShootteammatesEnabled, Main.S.DrawDisplayFovAimbotValueRifle, Main.S.AimbotBoneIDRifle, Main.S.aimbotSmoothValueRifle);
 
-                if (G.Engine.LocalPlayer.IsRifle(WeaponID) && Main.S.AimbotEnabledRifle)
-                    UseAimbot(activeweapon, Main.S.AimbotEnabledRifle, Main.S.AimbotSpottedByMaskRifle, Main.S.RecoilPredictionEnabledRifle, Main.S.aimbotSmoothRifle, Main.S.SmartAimbotRifle, Main.S.SilentAImEnabled, Main.S.ShootteammatesEnabled, Main.S.DrawDisplayFovAimbotValueRifle, Main.S.AimbotBoneIDRifle, Main.S.aimbotSmoothValueRifle);
+                     if (G.Engine.LocalPlayer.IsPistol(WeaponID) && Main.S.AimbotEnabledPistols)
+                         UseAimbot(activeweapon, Main.S.AimbotEnabledPistols, Main.S.AimbotSpottedByMaskPistols, Main.S.RecoilPredictionEnabledPistols, Main.S.aimbotSmoothPistols, Main.S.SmartAimbotPistols, Main.S.SilentAImEnabled, Main.S.ShootteammatesEnabled, Main.S.DrawDisplayFovAimbotValuePistols, Main.S.AimbotBoneIDPistols, Main.S.aimbotSmoothValuePistols);
 
-                if (G.Engine.LocalPlayer.IsPistol(WeaponID) && Main.S.AimbotEnabledPistols)
-                    UseAimbot(activeweapon, Main.S.AimbotEnabledPistols, Main.S.AimbotSpottedByMaskPistols, Main.S.RecoilPredictionEnabledPistols, Main.S.aimbotSmoothPistols, Main.S.SmartAimbotPistols, Main.S.SilentAImEnabled, Main.S.ShootteammatesEnabled, Main.S.DrawDisplayFovAimbotValuePistols, Main.S.AimbotBoneIDPistols, Main.S.aimbotSmoothValuePistols);
+                     if (G.Engine.LocalPlayer.IsSniper(WeaponID) && Main.S.AimbotEnabledSnipers)
+                         UseAimbot(activeweapon, Main.S.AimbotEnabledSnipers, Main.S.AimbotSpottedByMaskSnipers, Main.S.RecoilPredictionEnabledSnipers, Main.S.aimbotSmoothSnipers, Main.S.SmartAimbotSnipers, Main.S.SilentAImEnabled, Main.S.ShootteammatesEnabled, Main.S.DrawDisplayFovAimbotValueSnipers, Main.S.AimbotBoneIDSnipers, Main.S.aimbotSmoothValueSnipers);
 
-                if (G.Engine.LocalPlayer.IsSniper(WeaponID) && Main.S.AimbotEnabledSnipers)
-                    UseAimbot(activeweapon, Main.S.AimbotEnabledSnipers, Main.S.AimbotSpottedByMaskSnipers, Main.S.RecoilPredictionEnabledSnipers, Main.S.aimbotSmoothSnipers, Main.S.SmartAimbotSnipers, Main.S.SilentAImEnabled, Main.S.ShootteammatesEnabled, Main.S.DrawDisplayFovAimbotValueSnipers, Main.S.AimbotBoneIDSnipers, Main.S.aimbotSmoothValueSnipers);
+                     if (G.Engine.LocalPlayer.IsShotgun(WeaponID) && Main.S.AimbotEnabledShotGuns)
+                         UseAimbot(activeweapon, Main.S.AimbotEnabledShotGuns, Main.S.AimbotSpottedByMaskShotGuns, Main.S.RecoilPredictionEnabledShotGuns, Main.S.aimbotSmoothShotGuns, Main.S.SmartAimbotShotGuns, Main.S.SilentAImEnabled, Main.S.ShootteammatesEnabled, Main.S.DrawDisplayFovAimbotValueShotGuns, Main.S.AimbotBoneIDShotGuns, Main.S.aimbotSmoothValueShotGuns);
 
-                if (G.Engine.LocalPlayer.IsShotgun(WeaponID) && Main.S.AimbotEnabledShotGuns)
-                    UseAimbot(activeweapon, Main.S.AimbotEnabledShotGuns, Main.S.AimbotSpottedByMaskShotGuns, Main.S.RecoilPredictionEnabledShotGuns, Main.S.aimbotSmoothShotGuns, Main.S.SmartAimbotShotGuns, Main.S.SilentAImEnabled, Main.S.ShootteammatesEnabled, Main.S.DrawDisplayFovAimbotValueShotGuns, Main.S.AimbotBoneIDShotGuns, Main.S.aimbotSmoothValueShotGuns);
+                     if (G.Engine.LocalPlayer.IsMachineGun(WeaponID) && Main.S.AimbotEnabledMachineGuns)
+                         UseAimbot(activeweapon, Main.S.AimbotEnabledMachineGuns, Main.S.AimbotSpottedByMaskMachineGuns, Main.S.RecoilPredictionEnabledMachineGuns, Main.S.aimbotSmoothMachineGuns, Main.S.SmartAimbotMachineGuns, Main.S.SilentAImEnabled, Main.S.ShootteammatesEnabled, Main.S.DrawDisplayFovAimbotValueMachineGuns, Main.S.AimbotBoneIDMachineGuns, Main.S.aimbotSmoothValueMachineGuns);
 
-                if (G.Engine.LocalPlayer.IsMachineGun(WeaponID) && Main.S.AimbotEnabledMachineGuns)
-                    UseAimbot(activeweapon, Main.S.AimbotEnabledMachineGuns, Main.S.AimbotSpottedByMaskMachineGuns, Main.S.RecoilPredictionEnabledMachineGuns, Main.S.aimbotSmoothMachineGuns, Main.S.SmartAimbotMachineGuns, Main.S.SilentAImEnabled, Main.S.ShootteammatesEnabled, Main.S.DrawDisplayFovAimbotValueMachineGuns, Main.S.AimbotBoneIDMachineGuns, Main.S.aimbotSmoothValueMachineGuns);
-
-                if (G.Engine.LocalPlayer.IsMP(WeaponID) && Main.S.AimbotEnabledSMG) // SMG
-                    UseAimbot(activeweapon, Main.S.AimbotEnabledSMG, Main.S.AimbotSpottedByMaskSMG, Main.S.RecoilPredictionEnabledSMG, Main.S.aimbotSmoothSMG, Main.S.SmartAimbotSMG, Main.S.SilentAImEnabled, Main.S.ShootteammatesEnabled, Main.S.DrawDisplayFovAimbotValueSMG, Main.S.AimbotBoneIDSMG, Main.S.aimbotSmoothValueSMG);
-
+                     if (G.Engine.LocalPlayer.IsMP(WeaponID) && Main.S.AimbotEnabledSMG) // SMG
+                         UseAimbot(activeweapon, Main.S.AimbotEnabledSMG, Main.S.AimbotSpottedByMaskSMG, Main.S.RecoilPredictionEnabledSMG, Main.S.aimbotSmoothSMG, Main.S.SmartAimbotSMG, Main.S.SilentAImEnabled, Main.S.ShootteammatesEnabled, Main.S.DrawDisplayFovAimbotValueSMG, Main.S.AimbotBoneIDSMG, Main.S.aimbotSmoothValueSMG);
+                }
                 if (Main.S.BunnyhopEnabled)
                 {
                     if (Tools.HoldingKey(Keys.VK_SPACE))
@@ -66,6 +67,17 @@ namespace ZBase.Cheats
                         Thread.Sleep(Main.S.TriggerbotValue);
                         G.Engine.Shoot();
                     }
+                }
+                if (Main.S.RageBotEnabled && activeweapon != "Knife" && activeweapon != "C4" && activeweapon != "Incendiary Grenade"
+                            && activeweapon != "Molotov" && activeweapon != "Decoy" && activeweapon != "Smoke Grenade" && activeweapon != "Grenade" && activeweapon != "Flashbang")
+                {
+                    Entity Player = Tools.GetPlayerbyDistance();
+                    Vector2 AimAngle = Tools.CalcAngle(G.Engine.LocalPlayer.EyePosition, Player.HeadPosition);
+                    Vector2 PunchAngle = G.Engine.LocalPlayer.AimPunchAngle * 2;
+                    AimAngle -= PunchAngle;
+                    AimAngle = Tools.NormalizeAngles(AimAngle);
+                    AimAngle = Tools.ClampAngle(AimAngle);
+                    G.Engine.ViewAngles = AimAngle;
                 }
                 Thread.Sleep(1);
             }

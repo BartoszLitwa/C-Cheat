@@ -250,6 +250,25 @@ namespace ZBase.Utilities
             return false;
         }
 
+        public static Entity GetPlayerbyDistance()
+        {
+            Entity e = null;
+            float dis = 5000f;
+            foreach (Entity Player in G.EntityList)
+            {
+                if (Player.Valid && !Player.IsTeammate)
+                {
+                    float distance = Player.Distance;
+                    if (distance < dis && Player != null)
+                    {
+                        e = Player;
+                        dis = distance;
+                    }
+                }
+            }
+            return e;
+        }
+
         public static Entity GetFovPlayer(int FOV)
         {
             Entity e = null;
