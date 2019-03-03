@@ -109,13 +109,13 @@ namespace ZBase.Utilities
             {
                 vec.Y += 360.0f;
             }
-            if (vec.X > 90.0f)
+            if (vec.X > 89.0f)
             {
-                vec.X -= 180.0f;
+                vec.X -= 178.0f;
             }
-            if (vec.X < -90.0f)
+            if (vec.X < -89.0f)
             {
-                vec.X += 180.0f;
+                vec.X += 178.0f;
             }
             return vec;
         }

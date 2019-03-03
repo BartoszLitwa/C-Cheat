@@ -43,6 +43,10 @@ namespace ZBase.Forms
                 ShootTeammatesCheck.CheckState = CheckState.Checked;
             if (!Main.S.ShootteammatesEnabled)
                 ShootTeammatesCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.RageBotEnabled)
+                RageBotCheck.CheckState = CheckState.Checked;
+            if (!Main.S.RageBotEnabled)
+                RageBotCheck.CheckState = CheckState.Unchecked;
             if (Main.S.AimbotTypeofGun == 0)
             {
                 if (Main.S.AimbotEnabledRifle)
@@ -1312,6 +1316,14 @@ namespace ZBase.Forms
             }
             else
                 Main.S.RageBotEnabled = false;
+        }
+
+        private void RageBotDownCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RageBotDownCheck.Checked)
+                Main.S.RageBotLookDownEnabled = true;
+            else
+                Main.S.RageBotLookDownEnabled = false;
         }
     }
 }

@@ -201,9 +201,9 @@
             // 
             // ucSkinChanger1
             // 
-            this.ucSkinChanger1.Location = new System.Drawing.Point(130, 56);
+            this.ucSkinChanger1.Location = new System.Drawing.Point(129, 52);
             this.ucSkinChanger1.Name = "ucSkinChanger1";
-            this.ucSkinChanger1.Size = new System.Drawing.Size(496, 279);
+            this.ucSkinChanger1.Size = new System.Drawing.Size(386, 279);
             this.ucSkinChanger1.TabIndex = 121;
             // 
             // ucMisc1
@@ -217,7 +217,7 @@
             // 
             this.ucAimbot1.Location = new System.Drawing.Point(127, 56);
             this.ucAimbot1.Name = "ucAimbot1";
-            this.ucAimbot1.Size = new System.Drawing.Size(488, 212);
+            this.ucAimbot1.Size = new System.Drawing.Size(488, 279);
             this.ucAimbot1.TabIndex = 119;
             // 
             // ucesp1

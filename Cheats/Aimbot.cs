@@ -71,13 +71,20 @@ namespace ZBase.Cheats
                 if (Main.S.RageBotEnabled && activeweapon != "Knife" && activeweapon != "C4" && activeweapon != "Incendiary Grenade"
                             && activeweapon != "Molotov" && activeweapon != "Decoy" && activeweapon != "Smoke Grenade" && activeweapon != "Grenade" && activeweapon != "Flashbang")
                 {
+                    Vector2 AimAngle = new Vector2(89,0);
+                    if (Main.S.RageBotLookDownEnabled)
+                        G.Engine.ViewAngles = AimAngle;
+
                     Entity Player = Tools.GetPlayerbyDistance();
-                    Vector2 AimAngle = Tools.CalcAngle(G.Engine.LocalPlayer.EyePosition, Player.HeadPosition);
-                    Vector2 PunchAngle = G.Engine.LocalPlayer.AimPunchAngle * 2;
-                    AimAngle -= PunchAngle;
-                    AimAngle = Tools.NormalizeAngles(AimAngle);
-                    AimAngle = Tools.ClampAngle(AimAngle);
-                    G.Engine.ViewAngles = AimAngle;
+                    if (Player != null)
+                    {
+                        AimAngle = Tools.CalcAngle(G.Engine.LocalPlayer.EyePosition, Player.HeadPosition);
+                        Vector2 PunchAngle = G.Engine.LocalPlayer.AimPunchAngle * 2;
+                        AimAngle -= PunchAngle;
+                        AimAngle = Tools.NormalizeAngles(AimAngle);
+                        AimAngle = Tools.ClampAngle(AimAngle);
+                        G.Engine.ViewAngles = AimAngle;
+                    }
                 }
                 Thread.Sleep(1);
             }

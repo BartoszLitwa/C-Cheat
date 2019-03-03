@@ -69,6 +69,7 @@ namespace ZBase.Classes
         public bool SilentAImEnabled { get; set; }
         public bool ShootteammatesEnabled { get; set; }
         public bool RageBotEnabled { get; set; }
+        public bool RageBotLookDownEnabled { get; set; }
         ////////////////////////////////////////////////////
         public bool AimbotEnabledRifle { get; set; }
         public bool DrawDisplayFovAimbotRifle { get; set; }
