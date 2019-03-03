@@ -1,11 +1,7 @@
 # ZBase-CSGO
-A C# CS:GO Cheat base, with sample bunnyhop.\
+A C# CS:GO Cheat created by CRNYY\
 
-![yes](https://i.imgur.com/HGvmcWP.png)
+![yes](https://i.imgur.com/h3V0l3y.png)
 
-## Credit:
-Base - Coopyy  
-GameOverlay.net - https://github.com/michel-pi  
-W2S - Unknowncheats
 
 
