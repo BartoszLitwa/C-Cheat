@@ -42,6 +42,8 @@
             this.LoadSettingsButton = new System.Windows.Forms.Button();
             this.SaveSettingsButton = new System.Windows.Forms.Button();
             this.ChoosenSettingsComboBox = new System.Windows.Forms.ComboBox();
+            this.ColorButton = new System.Windows.Forms.Button();
+            this.ucColors1 = new ZBase.Forms.UCColors();
             this.ucSkinChanger1 = new ZBase.Forms.UCSkinChanger();
             this.ucMisc1 = new ZBase.Forms.UCMisc();
             this.ucAimbot1 = new ZBase.Forms.UCAimbot();
@@ -61,10 +63,11 @@
             this.LeftSidePanel.Controls.Add(this.MiscButton);
             this.LeftSidePanel.Controls.Add(this.AimbotButton);
             this.LeftSidePanel.Controls.Add(this.ESPButton);
+            this.LeftSidePanel.Controls.Add(this.ColorButton);
             this.LeftSidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.LeftSidePanel.Location = new System.Drawing.Point(0, 0);
             this.LeftSidePanel.Name = "LeftSidePanel";
-            this.LeftSidePanel.Size = new System.Drawing.Size(127, 366);
+            this.LeftSidePanel.Size = new System.Drawing.Size(127, 370);
             this.LeftSidePanel.TabIndex = 13;
             // 
             // panel3
@@ -89,7 +92,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel2.Location = new System.Drawing.Point(0, 130);
+            this.panel2.Location = new System.Drawing.Point(0, 127);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 43);
             this.panel2.TabIndex = 14;
@@ -98,7 +101,7 @@
             // 
             this.SkinChangerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SkinChangerButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SkinChangerButton.Location = new System.Drawing.Point(0, 292);
+            this.SkinChangerButton.Location = new System.Drawing.Point(0, 274);
             this.SkinChangerButton.Name = "SkinChangerButton";
             this.SkinChangerButton.Size = new System.Drawing.Size(127, 43);
             this.SkinChangerButton.TabIndex = 17;
@@ -110,7 +113,7 @@
             // 
             this.MiscButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MiscButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MiscButton.Location = new System.Drawing.Point(0, 241);
+            this.MiscButton.Location = new System.Drawing.Point(0, 225);
             this.MiscButton.Name = "MiscButton";
             this.MiscButton.Size = new System.Drawing.Size(127, 43);
             this.MiscButton.TabIndex = 16;
@@ -122,7 +125,7 @@
             // 
             this.AimbotButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AimbotButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AimbotButton.Location = new System.Drawing.Point(0, 188);
+            this.AimbotButton.Location = new System.Drawing.Point(0, 176);
             this.AimbotButton.Name = "AimbotButton";
             this.AimbotButton.Size = new System.Drawing.Size(127, 43);
             this.AimbotButton.TabIndex = 15;
@@ -134,7 +137,7 @@
             // 
             this.ESPButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ESPButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ESPButton.Location = new System.Drawing.Point(0, 130);
+            this.ESPButton.Location = new System.Drawing.Point(0, 127);
             this.ESPButton.Name = "ESPButton";
             this.ESPButton.Size = new System.Drawing.Size(127, 43);
             this.ESPButton.TabIndex = 14;
@@ -199,6 +202,25 @@
             this.ChoosenSettingsComboBox.TabIndex = 150;
             this.ChoosenSettingsComboBox.SelectedIndexChanged += new System.EventHandler(this.ChoosenSettingsComboBox_SelectedIndexChanged);
             // 
+            // ColorButton
+            // 
+            this.ColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColorButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ColorButton.Location = new System.Drawing.Point(0, 323);
+            this.ColorButton.Name = "ColorButton";
+            this.ColorButton.Size = new System.Drawing.Size(127, 43);
+            this.ColorButton.TabIndex = 23;
+            this.ColorButton.Text = "Colors";
+            this.ColorButton.UseVisualStyleBackColor = true;
+            this.ColorButton.Click += new System.EventHandler(this.ColorButton_Click);
+            // 
+            // ucColors1
+            // 
+            this.ucColors1.Location = new System.Drawing.Point(127, 52);
+            this.ucColors1.Name = "ucColors1";
+            this.ucColors1.Size = new System.Drawing.Size(386, 283);
+            this.ucColors1.TabIndex = 151;
+            // 
             // ucSkinChanger1
             // 
             this.ucSkinChanger1.Location = new System.Drawing.Point(129, 52);
@@ -231,7 +253,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 366);
+            this.ClientSize = new System.Drawing.Size(513, 370);
+            this.Controls.Add(this.ucColors1);
             this.Controls.Add(this.ChoosenSettingsComboBox);
             this.Controls.Add(this.ucSkinChanger1);
             this.Controls.Add(this.ucMisc1);
@@ -273,6 +296,8 @@
         private Forms.UCMisc ucMisc1;
         private Forms.UCSkinChanger ucSkinChanger1;
         private System.Windows.Forms.ComboBox ChoosenSettingsComboBox;
+        private System.Windows.Forms.Button ColorButton;
+        private Forms.UCColors ucColors1;
     }
 }
 

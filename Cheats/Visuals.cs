@@ -85,7 +85,6 @@ namespace ZBase.Cheats
                 Color CrosshairColor = Color.Green;
                 int PlayerHealth = 100;
                 int TypeOfGun = (int)G.Engine.LocalPlayer.WeaponID;
-                player_info_s playerinfo = new player_info_s();
                 if (Main.S.ESP)
                 {
                     //////////

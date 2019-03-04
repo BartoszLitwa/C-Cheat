@@ -98,6 +98,12 @@
     <Compile Include="Forms\UCAimbot.Designer.cs">
       <DependentUpon>UCAimbot.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UCColors.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\UCColors.Designer.cs">
+      <DependentUpon>UCColors.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UCESP.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UCAimbot.resx">
       <DependentUpon>UCAimbot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UCColors.resx">
+      <DependentUpon>UCColors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UCESP.resx">
       <DependentUpon>UCESP.cs</DependentUpon>

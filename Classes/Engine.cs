@@ -104,6 +104,14 @@ namespace ZBase.Classes
             }
         }
 
+        public int DeltaTick
+        {
+            get
+            {
+                return Memory.ReadMemory<int>(ClientState + Main.O.signatures.clientstate_delta_ticks);
+            }
+        }
+
         public float[] ViewMatrix
         {
             get

@@ -164,7 +164,7 @@ namespace ZBase.Utilities
             return Color.FromArgb(Red, Green, 0);
         }
 
-        public static Color Rainbow() //percent hp
+        public static Color Rainbow()
         {
             int x = 0, y = 0;
             int r = 0, g = 0, b = 0;
@@ -263,6 +263,25 @@ namespace ZBase.Utilities
                     {
                         e = Player;
                         dis = distance;
+                    }
+                }
+            }
+            return e;
+        }
+
+        public static Entity GetPlayerbyHealth()
+        {
+            Entity e = null;
+            int hel = 150;
+            foreach (Entity Player in G.EntityList)
+            {
+                if (Player.Valid && !Player.IsTeammate)
+                {
+                    int Helth = Player.Health;
+                    if (Helth < hel && Player != null)
+                    {
+                        e = Player;
+                        hel = Helth;
                     }
                 }
             }

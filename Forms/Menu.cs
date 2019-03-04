@@ -30,6 +30,7 @@ namespace ZBase
                 ucAimbot1.UCAimbot_Load();
                 ucMisc1.UCMisc_Load();
                 ucSkinChanger1.UCSkinChanger_Load();
+                ucColors1.UCColors_Load();
                 ///////////////////////////////////////
                 LeftSidePanel.Height = ESPButton.Height;
                 ucesp1.BringToFront();
@@ -38,6 +39,7 @@ namespace ZBase
                 ucAimbot1.Hide();
                 ucMisc1.Hide();
                 ucSkinChanger1.Hide();
+                ucColors1.Hide();
                 #region Start Threads
                 // found the process and everything, lets start our cheats in a new thread
 
@@ -98,6 +100,7 @@ namespace ZBase
             ucAimbot1.UCAimbot_Load();
             ucMisc1.UCMisc_Load();
             ucSkinChanger1.UCSkinChanger_Load();
+            ucColors1.UCColors_Load();
         }
 
         private void ESPButton_Click(object sender, EventArgs e)
@@ -110,6 +113,7 @@ namespace ZBase
             ucAimbot1.Hide();
             ucMisc1.Hide();
             ucSkinChanger1.Hide();
+            ucColors1.Hide();
         }
 
         private void AimbotButton_Click(object sender, EventArgs e)
@@ -122,6 +126,7 @@ namespace ZBase
             ucesp1.Hide();
             ucMisc1.Hide();
             ucSkinChanger1.Hide();
+            ucColors1.Hide();
         }
 
         private void MiscButton_Click(object sender, EventArgs e)
@@ -134,6 +139,7 @@ namespace ZBase
             ucesp1.Hide();
             ucAimbot1.Hide();
             ucSkinChanger1.Hide();
+            ucColors1.Hide();
         }
 
         private void SkinChangerButton_Click(object sender, EventArgs e)
@@ -146,6 +152,20 @@ namespace ZBase
             ucesp1.Hide();
             ucAimbot1.Hide();
             ucMisc1.Hide();
+            ucColors1.Hide();
+        }
+
+        private void ColorButton_Click(object sender, EventArgs e)
+        {
+            panel2.Height = ColorButton.Height;
+            panel2.Top = ColorButton.Top;
+            ucColors1.BringToFront();
+            ucColors1.Show();
+            //////////////////////////////////////
+            ucesp1.Hide();
+            ucAimbot1.Hide();
+            ucMisc1.Hide();
+            ucSkinChanger1.Hide();
         }
 
         private void ChoosenSettingsComboBox_SelectedIndexChanged(object sender, EventArgs e)

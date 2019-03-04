@@ -47,6 +47,10 @@ namespace ZBase.Forms
                 RageBotCheck.CheckState = CheckState.Checked;
             if (!Main.S.RageBotEnabled)
                 RageBotCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.RageBotLookDownEnabled)
+                RageBotDownCheck.CheckState = CheckState.Checked;
+            if (!Main.S.RageBotLookDownEnabled)
+               RageBotDownCheck.CheckState = CheckState.Unchecked;
             if (Main.S.AimbotTypeofGun == 0)
             {
                 if (Main.S.AimbotEnabledRifle)

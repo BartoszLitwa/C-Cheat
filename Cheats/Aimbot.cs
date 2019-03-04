@@ -135,7 +135,7 @@ namespace ZBase.Cheats
                         AimAngle = Tools.NormalizeAngles(AimAngle);
                         AimAngle = Tools.ClampAngle(AimAngle);
                         G.Engine.ViewAngles = AimAngle;
-                        if (SilentAim && Player.Dead)
+                        if (SilentAim)
                         {
                             Thread.Sleep(1);
                             G.Engine.ViewAngles = OldAngle;
