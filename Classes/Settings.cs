@@ -36,9 +36,50 @@ namespace ZBase.Classes
         public bool DrawBoneIDs { get; set; }
         public bool CrosshairSniperEnabled { get; set; }
         public bool DrawDistanceString { get; set; }
+        ///////////////////////////////////////////////////////
         public bool GlowEnabled { get; set; }
         public int GlowValue { get; set; }
         public bool GlowTeammates { get; set; }
+        public bool GlowPlayers { get; set; }
+        public bool GlowAK47 { get; set; }
+        public bool GlowDeagle { get; set; }
+        public bool GlowAUG { get; set; }
+        public bool GlowAWP { get; set; }
+        public bool GlowBerettas { get; set; }
+        public bool GlowBizon { get; set; }
+        public bool GlowC4 { get; set; }
+        public bool GlowChicken { get; set; }
+        public bool GlowFamas { get; set; }
+        public bool GlowFiveSeven { get; set; }
+        public bool GlowG3SG1 { get; set; }
+        public bool GlowGalil { get; set; }
+        public bool GlowGlock18 { get; set; }
+        public bool GlowM249 { get; set; }
+        public bool GlowM4 { get; set; }
+        public bool GlowMac10 { get; set; }
+        public bool GlowMag7 { get; set; }
+        public bool GlowMP5 { get; set; }
+        public bool GlowMP7 { get; set; }
+        public bool GlowMP9 { get; set; }
+        public bool GlowNegev { get; set; }
+        public bool GlowNova { get; set; }
+        public bool GlowP2000 { get; set; }
+        public bool GlowP250 { get; set; }
+        public bool GlowP90 { get; set; }
+        public bool GlowSawedOff { get; set; }
+        public bool GlowSCAR20 { get; set; }
+        public bool GlowSSG08 { get; set; }
+        public bool GlowTec9 { get; set; }
+        public bool GlowUMP45 { get; set; }
+        public bool GlowXM1014 { get; set; }
+        public bool GlowCZ75 { get; set; }
+        public bool GlowTaser { get; set; }
+        public bool GlowHEGrenade { get; set; }
+        public bool GlowMolo { get; set; }
+        public bool GlowDecoy { get; set; }
+        public bool GlowSmoke { get; set; }
+        public bool GlowFlash { get; set; }
+        ///////////////////////////////////////////////////////
         public bool NoHandsEnabled { get; set; }
         public bool SkinChangerEnabled { get; set; }
         public bool KnifeChangerEnabled { get; set; }

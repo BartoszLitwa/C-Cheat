@@ -192,174 +192,298 @@ namespace ZBase.Cheats
                             switch (ClassID)
                             {
                                 case 1: //AK47
-                                    Main.I.PosAK47 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("AK47", Main.I.PosAK47.X, Main.I.PosAK47.Y, 8, Color.White);
+                                    if (Main.S.GlowAK47)
+                                    {
+                                        Main.I.PosAK47 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("AK47", Main.I.PosAK47.X, Main.I.PosAK47.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 44: //Deagle
-                                    Main.I.PosDeagle = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Deagle", Main.I.PosDeagle.X, Main.I.PosDeagle.Y, 8, Color.White);
+                                    if (Main.S.GlowDeagle)
+                                    {
+                                        Main.I.PosDeagle = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Deagle", Main.I.PosDeagle.X, Main.I.PosDeagle.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 228: //AUG
-                                    Main.I.PosAUG = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("AUG", Main.I.PosAUG.X, Main.I.PosAUG.Y, 8, Color.White);
+                                    if (Main.S.GlowAUG)
+                                    {
+                                        Main.I.PosAUG = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("AUG", Main.I.PosAUG.X, Main.I.PosAUG.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 229: //AWP
-                                    Main.I.PosAWP = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("AWP", Main.I.PosAWP.X, Main.I.PosAWP.Y, 8, Color.White);
+                                    if (Main.S.GlowAWP)
+                                    {
+                                        Main.I.PosAWP = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("AWP", Main.I.PosAWP.X, Main.I.PosAWP.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 245: //M4
-                                    Main.I.PosM4 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("M4", Main.I.PosM4.X, Main.I.PosM4.Y, 8, Color.White);
+                                    if (Main.S.GlowM4)
+                                    {
+                                        Main.I.PosM4 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("M4", Main.I.PosM4.X, Main.I.PosM4.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 231: //Bizon
-                                    Main.I.PosBizon = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Bizon", Main.I.PosBizon.X, Main.I.PosBizon.Y, 8, Color.White);
+                                    if (Main.S.GlowBizon)
+                                    {
+                                        Main.I.PosBizon = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Bizon", Main.I.PosBizon.X, Main.I.PosBizon.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 235: //Elite Berettas
-                                    Main.I.PosBerettas = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Berettas", Main.I.PosBerettas.X, Main.I.PosBerettas.Y, 8, Color.White);
+                                    if (Main.S.GlowBerettas)
+                                    {
+                                        Main.I.PosBerettas = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Berettas", Main.I.PosBerettas.X, Main.I.PosBerettas.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 236: //Famas
-                                    Main.I.PosFamas = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Famas", Main.I.PosFamas.X, Main.I.PosFamas.Y, 8, Color.White);
+                                    if (Main.S.GlowFamas)
+                                    {
+                                        Main.I.PosFamas = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Famas", Main.I.PosFamas.X, Main.I.PosFamas.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 237: //Five-Seven
-                                    Main.I.PosFiveSeven = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Five-Seven", Main.I.PosFiveSeven.X, Main.I.PosFiveSeven.Y, 8, Color.White);
+                                    if (Main.S.GlowFiveSeven)
+                                    {
+                                        Main.I.PosFiveSeven = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Five-Seven", Main.I.PosFiveSeven.X, Main.I.PosFiveSeven.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 238: //G3SG1
-                                    Main.I.PosG3SG1 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("G3SG1", Main.I.PosG3SG1.X, Main.I.PosG3SG1.Y, 8, Color.White);
+                                    if (Main.S.GlowG3SG1)
+                                    {
+                                        Main.I.PosG3SG1 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("G3SG1", Main.I.PosG3SG1.X, Main.I.PosG3SG1.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 240: //GalilAR
-                                    Main.I.PosGalilAR = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("GalilAR", Main.I.PosGalilAR.X, Main.I.PosGalilAR.Y, 8, Color.White);
+                                    if (Main.S.GlowGalil)
+                                    {
+                                        Main.I.PosGalilAR = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("GalilAR", Main.I.PosGalilAR.X, Main.I.PosGalilAR.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 241: //Glock
-                                    Main.I.PosGlock = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Glock-18", Main.I.PosGlock.X, Main.I.PosGlock.Y, 8, Color.White);
+                                    if (Main.S.GlowGlock18)
+                                    {
+                                        Main.I.PosGlock = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Glock-18", Main.I.PosGlock.X, Main.I.PosGlock.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 242: //P2000
-                                    Main.I.PosP2000 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("P2000", Main.I.PosP2000.X, Main.I.PosP2000.Y, 8, Color.White);
+                                    if (Main.S.GlowP2000)
+                                    {
+                                        Main.I.PosP2000 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("P2000", Main.I.PosP2000.X, Main.I.PosP2000.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 243: //M249
-                                    Main.I.PosM249 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("M249", Main.I.PosM249.X, Main.I.PosM249.Y, 8, Color.White);
+                                    if (Main.S.GlowM249)
+                                    {
+                                        Main.I.PosM249 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("M249", Main.I.PosM249.X, Main.I.PosM249.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 246: //Mac10
-                                    Main.I.PosMac10 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Mac10", Main.I.PosMac10.X, Main.I.PosMac10.Y, 8, Color.White);
+                                    if (Main.S.GlowMac10)
+                                    {
+                                        Main.I.PosMac10 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Mac10", Main.I.PosMac10.X, Main.I.PosMac10.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 247: //Mag-7
-                                    Main.I.PosMag7 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Mag-7", Main.I.PosMag7.X, Main.I.PosMag7.Y, 8, Color.White);
+                                    if (Main.S.GlowMag7)
+                                    {
+                                        Main.I.PosMag7 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Mag-7", Main.I.PosMag7.X, Main.I.PosMag7.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 248: //MP5
-                                    Main.I.PosMP5 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("MP5", Main.I.PosMP5.X, Main.I.PosMP5.Y, 8, Color.White);
+                                    if (Main.S.GlowMP5)
+                                    {
+                                        Main.I.PosMP5 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("MP5", Main.I.PosMP5.X, Main.I.PosMP5.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 249: //MP7
-                                    Main.I.PosMP7 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("MP7", Main.I.PosMP7.X, Main.I.PosMP7.Y, 8, Color.White);
+                                    if (Main.S.GlowMP7)
+                                    {
+                                        Main.I.PosMP7 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("MP7", Main.I.PosMP7.X, Main.I.PosMP7.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 250: //MP9
-                                    Main.I.PosMP9 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("MP9", Main.I.PosMP9.X, Main.I.PosMP9.Y, 8, Color.White);
+                                    if (Main.S.GlowMP9)
+                                    {
+                                        Main.I.PosMP9 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("MP9", Main.I.PosMP9.X, Main.I.PosMP9.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 251: //Negev
-                                    Main.I.PosNegev = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Negev", Main.I.PosNegev.X, Main.I.PosNegev.Y, 8, Color.White);
+                                    if (Main.S.GlowNegev)
+                                    {
+                                        Main.I.PosNegev = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Negev", Main.I.PosNegev.X, Main.I.PosNegev.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 252: //Nova
-                                    Main.I.PosNova = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Nova", Main.I.PosNova.X, Main.I.PosNova.Y, 8, Color.White);
+                                    if (Main.S.GlowNova)
+                                    {
+                                        Main.I.PosNova = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Nova", Main.I.PosNova.X, Main.I.PosNova.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 254: //CZ75
-                                    Main.I.PosCZ75 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("CZ75", Main.I.PosCZ75.X, Main.I.PosCZ75.Y, 8, Color.White);
+                                    if (Main.S.GlowCZ75)
+                                    {
+                                        Main.I.PosCZ75 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("CZ75", Main.I.PosCZ75.X, Main.I.PosCZ75.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 255: //P90
-                                    Main.I.PosP90 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("P90", Main.I.PosP90.X, Main.I.PosP90.Y, 8, Color.White);
+                                    if (Main.S.GlowP90)
+                                    {
+                                        Main.I.PosP90 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("P90", Main.I.PosP90.X, Main.I.PosP90.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 256: //Sawed-Off
-                                    Main.I.PosSawedOff = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Sawed-Off", Main.I.PosSawedOff.X, Main.I.PosSawedOff.Y, 8, Color.White);
+                                    if (Main.S.GlowSawedOff)
+                                    {
+                                        Main.I.PosSawedOff = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Sawed-Off", Main.I.PosSawedOff.X, Main.I.PosSawedOff.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 257: //Scar20
-                                    Main.I.PosScar20 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Scar20", Main.I.PosScar20.X, Main.I.PosScar20.Y, 8, Color.White);
+                                    if (Main.S.GlowSCAR20)
+                                    {
+                                        Main.I.PosScar20 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Scar20", Main.I.PosScar20.X, Main.I.PosScar20.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 258: //Scout
-                                    Main.I.PosScout = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Scout", Main.I.PosScout.X, Main.I.PosScout.Y, 8, Color.White);
+                                    if (Main.S.GlowSSG08)
+                                    {
+                                        Main.I.PosScout = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Scout", Main.I.PosScout.X, Main.I.PosScout.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 262: //SSG08
-                                    Main.I.PosSSG08 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("SSG08", Main.I.PosSSG08.X, Main.I.PosSSG08.Y, 8, Color.White);
+                                    if (Main.S.GlowSSG08)
+                                    {
+                                        Main.I.PosSSG08 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("SSG08", Main.I.PosSSG08.X, Main.I.PosSSG08.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 263: //Taser
-                                    Main.I.PosTaser = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Taser", Main.I.PosTaser.X, Main.I.PosTaser.Y, 8, Color.White);
+                                    if (Main.S.GlowTaser)
+                                    {
+                                        Main.I.PosTaser = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Taser", Main.I.PosTaser.X, Main.I.PosTaser.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 264: //Tec-9
-                                    Main.I.PosTec9 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Tec-9", Main.I.PosTec9.X, Main.I.PosTec9.Y, 8, Color.White);
+                                    if (Main.S.GlowTec9)
+                                    {
+                                        Main.I.PosTec9 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Tec-9", Main.I.PosTec9.X, Main.I.PosTec9.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 266: //UMP45
-                                    Main.I.PosUMP45 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("UMP45", Main.I.PosUMP45.X, Main.I.PosUMP45.Y, 8, Color.White);
+                                    if (Main.S.GlowUMP45)
+                                    {
+                                        Main.I.PosUMP45 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("UMP45", Main.I.PosUMP45.X, Main.I.PosUMP45.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 267: //USP-S
-                                    Main.I.PosUSP = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Deagle", Main.I.PosUSP.X, Main.I.PosUSP.Y, 8, Color.White);
+                                    if (Main.S.GlowP2000)
+                                    {
+                                        Main.I.PosUSP = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Deagle", Main.I.PosUSP.X, Main.I.PosUSP.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 268: //XM1014
-                                    Main.I.PosXM1014 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("XM1014", Main.I.PosXM1014.X, Main.I.PosXM1014.Y, 8, Color.White);
+                                    if (Main.S.GlowXM1014)
+                                    {
+                                        Main.I.PosXM1014 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("XM1014", Main.I.PosXM1014.X, Main.I.PosXM1014.Y, 8, Color.White);
+                                    }
                                     break;
                                 //////////////////////// Grenades /////////////////////////////////////////////
                                 case 75: //Flash
-                                    
-                                    break;
+                                    if (Main.S.GlowFlash)
+                                    {
+                                    }
+                                        break;
                                 case 152: //Smoke
-                                    
+                                    if (Main.S.GlowSmoke)
+                                    {
+                                    }
                                     break;
                                 case 110: //Molo
-                                    
+                                    if (Main.S.GlowMolo)
+                                    {
+                                    }
                                     break;
                                 case 94: //HeGrenade
-                                    
+                                    if (Main.S.GlowHEGrenade)
+                                    {
+                                    }
                                     break;
                                 case 45: //Decoy
-                                    
+                                    if (Main.S.GlowDecoy)
+                                    {
+                                    }
                                     break;
                                 case 204: //Flash
-                                    
+                                    if (Main.S.GlowFlash)
+                                    {
+                                    }
                                     break;
                                 case 153: //Smoke
-                                    
+                                    if (Main.S.GlowSmoke)
+                                    {
+                                    }
                                     break;
                                 case 111: //Molo
-                                    
+                                    if (Main.S.GlowMolo)
+                                    {
+                                    }
                                     break;
                                 case 97: //incendiary
-                                    
+                                    if (Main.S.GlowMolo)
+                                    {
+                                    }
                                     break;
                                 case 46: //Decoy
-                                    
+                                    if (Main.S.GlowDecoy)
+                                    {
+                                    }
                                     break;
                                 case 32: //C4
-                                    Main.I.PosC4 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("C4", Main.I.PosC4.X, Main.I.PosC4.Y, 8, Color.White);
+                                    if (Main.S.GlowC4)
+                                    {
+                                        Main.I.PosC4 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("C4", Main.I.PosC4.X, Main.I.PosC4.Y, 8, Color.White);
+                                    }
                                     break;
                                 case 126: //Planted C4
-                                    
-                                    break;
+                                    if (Main.S.GlowC4)
+                                    {
+                                    } 
+                                        break;
                                 case 34: //Chicken
-                                    Main.I.PosChicken = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                    DrawText("Chicken", Main.I.PosChicken.X, Main.I.PosChicken.Y, 8, Color.White);
+                                    if (Main.S.GlowChicken)
+                                    {
+                                        Main.I.PosChicken = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
+                                        DrawText("Chicken", Main.I.PosChicken.X, Main.I.PosChicken.Y, 8, Color.White);
+                                    }
                                     break;
 
                             }
