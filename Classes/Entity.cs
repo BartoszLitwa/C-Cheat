@@ -400,7 +400,7 @@ namespace ZBase.Classes
                     case WeaponID.REVOLVER:
                         return "R8 Revolver";
                     default:
-                        return "Knife";
+                        return "Unknown";
                 }
             }
         }

@@ -154,6 +154,13 @@ namespace ZBase.Classes
             Memory.WriteMemory<int>((int)Memory.Client + Main.O.signatures.dwForceAttack, 4);
         }
 
+        public void Shoot2()
+        {
+            Memory.WriteMemory<int>((int)Memory.Client + Main.O.signatures.dwForceAttack2, 5);
+            Thread.Sleep(1);
+            Memory.WriteMemory<int>((int)Memory.Client + Main.O.signatures.dwForceAttack2, 4);
+        }
+
         public void Jump()
         {
             Memory.WriteMemory<int>((int)Memory.Client + Main.O.signatures.dwForceJump, 6);

@@ -50,13 +50,18 @@
             this.ShootTeammatesCheck = new System.Windows.Forms.CheckBox();
             this.RageBotCheck = new System.Windows.Forms.CheckBox();
             this.RageBotDownCheck = new System.Windows.Forms.CheckBox();
+            this.ClosestBoneCheck = new System.Windows.Forms.CheckBox();
+            this.CheckInAirCheck = new System.Windows.Forms.CheckBox();
+            this.CheckFlashedCheck = new System.Windows.Forms.CheckBox();
+            this.KnifeBotCheck = new System.Windows.Forms.CheckBox();
+            this.ZeusBotCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.AimbotFOVTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // DrawAimspotCheck
             // 
             this.DrawAimspotCheck.AutoSize = true;
-            this.DrawAimspotCheck.Location = new System.Drawing.Point(104, 181);
+            this.DrawAimspotCheck.Location = new System.Drawing.Point(93, 181);
             this.DrawAimspotCheck.Name = "DrawAimspotCheck";
             this.DrawAimspotCheck.Size = new System.Drawing.Size(63, 17);
             this.DrawAimspotCheck.TabIndex = 130;
@@ -76,7 +81,7 @@
             // 
             // TriggerBotTXT
             // 
-            this.TriggerBotTXT.Location = new System.Drawing.Point(104, 155);
+            this.TriggerBotTXT.Location = new System.Drawing.Point(93, 156);
             this.TriggerBotTXT.Name = "TriggerBotTXT";
             this.TriggerBotTXT.Size = new System.Drawing.Size(38, 20);
             this.TriggerBotTXT.TabIndex = 128;
@@ -96,7 +101,7 @@
             // 
             // RCSTXT
             // 
-            this.RCSTXT.Location = new System.Drawing.Point(104, 129);
+            this.RCSTXT.Location = new System.Drawing.Point(93, 130);
             this.RCSTXT.Name = "RCSTXT";
             this.RCSTXT.Size = new System.Drawing.Size(38, 20);
             this.RCSTXT.TabIndex = 126;
@@ -317,10 +322,70 @@
             this.RageBotDownCheck.UseVisualStyleBackColor = true;
             this.RageBotDownCheck.CheckedChanged += new System.EventHandler(this.RageBotDownCheck_CheckedChanged);
             // 
+            // ClosestBoneCheck
+            // 
+            this.ClosestBoneCheck.AutoSize = true;
+            this.ClosestBoneCheck.Location = new System.Drawing.Point(6, 204);
+            this.ClosestBoneCheck.Name = "ClosestBoneCheck";
+            this.ClosestBoneCheck.Size = new System.Drawing.Size(88, 17);
+            this.ClosestBoneCheck.TabIndex = 140;
+            this.ClosestBoneCheck.Text = "Closest Bone";
+            this.ClosestBoneCheck.UseVisualStyleBackColor = true;
+            this.ClosestBoneCheck.CheckedChanged += new System.EventHandler(this.ClosestBoneCheck_CheckedChanged);
+            // 
+            // CheckInAirCheck
+            // 
+            this.CheckInAirCheck.AutoSize = true;
+            this.CheckInAirCheck.Location = new System.Drawing.Point(279, 134);
+            this.CheckInAirCheck.Name = "CheckInAirCheck";
+            this.CheckInAirCheck.Size = new System.Drawing.Size(84, 17);
+            this.CheckInAirCheck.TabIndex = 141;
+            this.CheckInAirCheck.Text = "Check In Air";
+            this.CheckInAirCheck.UseVisualStyleBackColor = true;
+            this.CheckInAirCheck.CheckedChanged += new System.EventHandler(this.CheckInAirCheck_CheckedChanged);
+            // 
+            // CheckFlashedCheck
+            // 
+            this.CheckFlashedCheck.AutoSize = true;
+            this.CheckFlashedCheck.Location = new System.Drawing.Point(279, 155);
+            this.CheckFlashedCheck.Name = "CheckFlashedCheck";
+            this.CheckFlashedCheck.Size = new System.Drawing.Size(97, 17);
+            this.CheckFlashedCheck.TabIndex = 142;
+            this.CheckFlashedCheck.Text = "Check Flashed";
+            this.CheckFlashedCheck.UseVisualStyleBackColor = true;
+            this.CheckFlashedCheck.CheckedChanged += new System.EventHandler(this.CheckFlashedCheck_CheckedChanged);
+            // 
+            // KnifeBotCheck
+            // 
+            this.KnifeBotCheck.AutoSize = true;
+            this.KnifeBotCheck.Location = new System.Drawing.Point(279, 178);
+            this.KnifeBotCheck.Name = "KnifeBotCheck";
+            this.KnifeBotCheck.Size = new System.Drawing.Size(66, 17);
+            this.KnifeBotCheck.TabIndex = 143;
+            this.KnifeBotCheck.Text = "KnifeBot";
+            this.KnifeBotCheck.UseVisualStyleBackColor = true;
+            this.KnifeBotCheck.CheckedChanged += new System.EventHandler(this.KnifeBotCheck_CheckedChanged);
+            // 
+            // ZeusBotCheck
+            // 
+            this.ZeusBotCheck.AutoSize = true;
+            this.ZeusBotCheck.Location = new System.Drawing.Point(279, 201);
+            this.ZeusBotCheck.Name = "ZeusBotCheck";
+            this.ZeusBotCheck.Size = new System.Drawing.Size(66, 17);
+            this.ZeusBotCheck.TabIndex = 144;
+            this.ZeusBotCheck.Text = "ZeusBot";
+            this.ZeusBotCheck.UseVisualStyleBackColor = true;
+            this.ZeusBotCheck.CheckedChanged += new System.EventHandler(this.ZeusBotCheck_CheckedChanged);
+            // 
             // UCAimbot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ZeusBotCheck);
+            this.Controls.Add(this.KnifeBotCheck);
+            this.Controls.Add(this.CheckFlashedCheck);
+            this.Controls.Add(this.CheckInAirCheck);
+            this.Controls.Add(this.ClosestBoneCheck);
             this.Controls.Add(this.RageBotDownCheck);
             this.Controls.Add(this.RageBotCheck);
             this.Controls.Add(this.ShootTeammatesCheck);
@@ -375,5 +440,10 @@
         private System.Windows.Forms.CheckBox ShootTeammatesCheck;
         private System.Windows.Forms.CheckBox RageBotCheck;
         private System.Windows.Forms.CheckBox RageBotDownCheck;
+        private System.Windows.Forms.CheckBox ClosestBoneCheck;
+        private System.Windows.Forms.CheckBox CheckInAirCheck;
+        private System.Windows.Forms.CheckBox CheckFlashedCheck;
+        private System.Windows.Forms.CheckBox KnifeBotCheck;
+        private System.Windows.Forms.CheckBox ZeusBotCheck;
     }
 }

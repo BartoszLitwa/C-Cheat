@@ -107,10 +107,15 @@ namespace ZBase.Classes
         public bool NightMode { get; set; }
         public bool AntiAimEnabled { get; set; }
         public int AimbotTypeofGun { get; set; }
+        public bool KnifeBotEnabled { get; set; }
+        public bool ZeusBotEnabled { get; set; }
         public bool SilentAImEnabled { get; set; }
         public bool ShootteammatesEnabled { get; set; }
         public bool RageBotEnabled { get; set; }
         public bool RageBotLookDownEnabled { get; set; }
+        public bool ClosesBoneAimbotEnabled { get; set; }
+        public bool CheckFlashedEnabled { get; set; }
+        public bool CheckInAirEnabled { get; set; }
         ////////////////////////////////////////////////////
         public bool AimbotEnabledRifle { get; set; }
         public bool DrawDisplayFovAimbotRifle { get; set; }

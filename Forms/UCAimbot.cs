@@ -51,6 +51,26 @@ namespace ZBase.Forms
                 RageBotDownCheck.CheckState = CheckState.Checked;
             if (!Main.S.RageBotLookDownEnabled)
                RageBotDownCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.CheckInAirEnabled)
+                CheckInAirCheck.CheckState = CheckState.Checked;
+            if (!Main.S.CheckInAirEnabled)
+                CheckInAirCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.CheckFlashedEnabled)
+                CheckFlashedCheck.CheckState = CheckState.Checked;
+            if (!Main.S.CheckFlashedEnabled)
+                CheckFlashedCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.ClosesBoneAimbotEnabled)
+                ClosestBoneCheck.CheckState = CheckState.Checked;
+            if (!Main.S.ClosesBoneAimbotEnabled)
+                ClosestBoneCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.KnifeBotEnabled)
+                KnifeBotCheck.CheckState = CheckState.Checked;
+            if (!Main.S.KnifeBotEnabled)
+                KnifeBotCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.ZeusBotEnabled)
+                ZeusBotCheck.CheckState = CheckState.Checked;
+            if (!Main.S.ZeusBotEnabled)
+                ZeusBotCheck.CheckState = CheckState.Unchecked;
             if (Main.S.AimbotTypeofGun == 0)
             {
                 if (Main.S.AimbotEnabledRifle)
@@ -1328,6 +1348,46 @@ namespace ZBase.Forms
                 Main.S.RageBotLookDownEnabled = true;
             else
                 Main.S.RageBotLookDownEnabled = false;
+        }
+
+        private void ClosestBoneCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ClosestBoneCheck.Checked)
+                Main.S.ClosesBoneAimbotEnabled = true;
+            else
+                Main.S.ClosesBoneAimbotEnabled = false;
+        }
+
+        private void CheckInAirCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckInAirCheck.Checked)
+                Main.S.CheckInAirEnabled = true;
+            else
+                Main.S.CheckInAirEnabled = false;
+        }
+
+        private void CheckFlashedCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckFlashedCheck.Checked)
+                Main.S.CheckFlashedEnabled = true;
+            else
+                Main.S.CheckFlashedEnabled = false;
+        }
+
+        private void KnifeBotCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (KnifeBotCheck.Checked)
+                Main.S.KnifeBotEnabled = true;
+            else
+                Main.S.KnifeBotEnabled = false;
+        }
+
+        private void ZeusBotCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ZeusBotCheck.Checked)
+                Main.S.ZeusBotEnabled = true;
+            else
+                Main.S.ZeusBotEnabled = false;
         }
     }
 }
