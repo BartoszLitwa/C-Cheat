@@ -43,68 +43,74 @@ namespace ZBase.Cheats
                     if (activeweapon == "Knife")
                     {
                         Entity Player = Tools.GetPlayerbyDistance();
-                        if (Player.Distance < 81)
+                        if (Player != null)
                         {
-                            Vector2 AimAngle = Tools.CalcAngle(G.Engine.LocalPlayer.EyePosition, Player.HeadPosition);
-                            AimAngle = Tools.NormalizeAngles(AimAngle);
-                            AimAngle = Tools.ClampAngle(AimAngle);
-                            G.Engine.ViewAngles = AimAngle;
+                            if (Player.Distance < 81)
+                            {
+                                Vector2 AimAngle = Tools.CalcAngle(G.Engine.LocalPlayer.EyePosition, Player.HeadPosition);
+                                AimAngle = Tools.NormalizeAngles(AimAngle);
+                                AimAngle = Tools.ClampAngle(AimAngle);
+                                G.Engine.ViewAngles = AimAngle;
 
-                            G.Engine.Shoot();
-                            G.Engine.Shoot2();
+                                G.Engine.Shoot();
+                                G.Engine.Shoot2();
+                            }
                         }
                     }
                 }
                 if (Main.S.ZeusBotEnabled)
                 {
-                    if (activeweapon == "Unknown")
+                    if (activeweapon == "Taser")
                     {
                         Entity Player = Tools.GetPlayerbyDistance();
-                        int health = Player.Health;
-                        Vector2 AimAngle = Tools.CalcAngle(G.Engine.LocalPlayer.EyePosition, Player.HeadPosition);
-                        AimAngle = Tools.NormalizeAngles(AimAngle);
-                        AimAngle = Tools.ClampAngle(AimAngle);
-                        if (Player.Distance < 230 && health < 67)
+                        if (Player != null)
                         {
-                            G.Engine.ViewAngles = AimAngle;
+                            int health = Player.Health;
+                            Vector2 AimAngle = Tools.CalcAngle(G.Engine.LocalPlayer.EyePosition, Player.HeadPosition);
+                            AimAngle = Tools.NormalizeAngles(AimAngle);
+                            AimAngle = Tools.ClampAngle(AimAngle);
+                            if (Player.Distance < 230 && health < 67)
+                            {
+                                G.Engine.ViewAngles = AimAngle;
 
-                            G.Engine.Shoot();
-                            G.Engine.Shoot2();
-                        }
-                        if (Player.Distance < 220 && health < 80)
-                        {
-                            G.Engine.ViewAngles = AimAngle;
+                                G.Engine.Shoot();
+                                G.Engine.Shoot2();
+                            }
+                            if (Player.Distance < 220 && health < 80)
+                            {
+                                G.Engine.ViewAngles = AimAngle;
 
-                            G.Engine.Shoot();
-                            G.Engine.Shoot2();
-                        }
-                        if (Player.Distance < 210 && health < 90)
-                        {
-                            G.Engine.ViewAngles = AimAngle;
+                                G.Engine.Shoot();
+                                G.Engine.Shoot2();
+                            }
+                            if (Player.Distance < 210 && health < 90)
+                            {
+                                G.Engine.ViewAngles = AimAngle;
 
-                            G.Engine.Shoot();
-                            G.Engine.Shoot2();
-                        }
-                        if (Player.Distance < 200 && health < 92)
-                        {
-                            G.Engine.ViewAngles = AimAngle;
+                                G.Engine.Shoot();
+                                G.Engine.Shoot2();
+                            }
+                            if (Player.Distance < 200 && health < 92)
+                            {
+                                G.Engine.ViewAngles = AimAngle;
 
-                            G.Engine.Shoot();
-                            G.Engine.Shoot2();
-                        }
-                        if (Player.Distance < 190 && health < 95)
-                        {
-                            G.Engine.ViewAngles = AimAngle;
+                                G.Engine.Shoot();
+                                G.Engine.Shoot2();
+                            }
+                            if (Player.Distance < 190 && health < 95)
+                            {
+                                G.Engine.ViewAngles = AimAngle;
 
-                            G.Engine.Shoot();
-                            G.Engine.Shoot2();
-                        }
-                        if (Player.Distance < 185)
-                        {
-                            G.Engine.ViewAngles = AimAngle;
+                                G.Engine.Shoot();
+                                G.Engine.Shoot2();
+                            }
+                            if (Player.Distance < 185)
+                            {
+                                G.Engine.ViewAngles = AimAngle;
 
-                            G.Engine.Shoot();
-                            G.Engine.Shoot2();
+                                G.Engine.Shoot();
+                                G.Engine.Shoot2();
+                            }
                         }
                     }
                 }
@@ -138,7 +144,7 @@ namespace ZBase.Cheats
                         G.Engine.Shoot();
                     }
                 }
-                if (Main.S.RageBotEnabled && activeweapon != "Knife" && activeweapon != "C4" && activeweapon != "Incendiary Grenade"
+                if (Main.S.RageBotEnabled && activeweapon != "Knife" && activeweapon != "C4" && activeweapon != "Incendiary Grenade" && activeweapon != "Unknown"
                             && activeweapon != "Molotov" && activeweapon != "Decoy" && activeweapon != "Smoke Grenade" && activeweapon != "Grenade" && activeweapon != "Flashbang")
                 {
                     Vector2 AimAngle = new Vector2(89,0);

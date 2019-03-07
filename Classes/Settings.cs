@@ -36,6 +36,7 @@ namespace ZBase.Classes
         public bool DrawBoneIDs { get; set; }
         public bool CrosshairSniperEnabled { get; set; }
         public bool DrawDistanceString { get; set; }
+        public bool DebugEnabled { get; set; }
         ///////////////////////////////////////////////////////
         public bool GlowEnabled { get; set; }
         public int GlowValue { get; set; }

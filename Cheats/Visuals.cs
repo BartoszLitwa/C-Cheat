@@ -80,14 +80,14 @@ namespace ZBase.Cheats
                 gfx.BeginScene();
                 gfx.ClearScene();
                 // start drawings here
-
-                //DrawTextWithBackground("CRNYY", 10 , 0, 10, Color.Maroon, Color.Black);
                 Color CrosshairColor = Color.Green;
                 int PlayerHealth = 100;
                 int TypeOfGun = (int)G.Engine.LocalPlayer.WeaponID;
-                DrawTextWithBackground(G.Engine.LocalPlayer.WeaponName, 10, 0, 10, Color.Maroon, Color.Black);
+                DrawTextWithBackground("CRNYY's Cheat", 10, 0, 10, Color.Maroon, Color.Black);
                 if (Main.S.ESP)
                 {
+                    if(Main.S.DebugEnabled)
+                        DrawTextWithBackground(TypeOfGun.ToString(), Main.MidScreen.X, 0, 10, Color.Maroon, Color.Black);
                     //////////
                     if (Main.S.DrawDisplayFovAimbotRifle && G.Engine.LocalPlayer.IsRifle(TypeOfGun))
                     {
@@ -308,21 +308,21 @@ namespace ZBase.Cheats
                                             DrawText("Mag-7", Main.I.PosMag7.X, Main.I.PosMag7.Y, 8, Color.White);
                                         }
                                         break;
-                                    case 248: //MP5
+                                    case 249: //MP5
                                         if (Main.S.GlowMP5)
                                         {
                                             Main.I.PosMP5 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             DrawText("MP5", Main.I.PosMP5.X, Main.I.PosMP5.Y, 8, Color.White);
                                         }
                                         break;
-                                    case 249: //MP7
+                                    case 250: //MP7
                                         if (Main.S.GlowMP7)
                                         {
                                             Main.I.PosMP7 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             DrawText("MP7", Main.I.PosMP7.X, Main.I.PosMP7.Y, 8, Color.White);
                                         }
                                         break;
-                                    case 250: //MP9
+                                    case 248: //MP9
                                         if (Main.S.GlowMP9)
                                         {
                                             Main.I.PosMP9 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));

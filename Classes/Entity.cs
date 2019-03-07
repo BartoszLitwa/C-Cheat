@@ -280,8 +280,8 @@ namespace ZBase.Classes
         }
 
         public bool IsRifle(int id)
-            => id == (int)WeaponID.M4A1S || id == (int)WeaponID.M4A4 || id == (int)WeaponID.SG556 || id == (int)WeaponID.AUG || id == (int)WeaponID.GALILAR
-            || id == (int)WeaponID.FAMAS || id == (int)WeaponID.AK47;
+            => id == (int)WeaponID.M4A1S || id == (int)WeaponID.M4A1SOnline || id == (int)WeaponID.M4A1SOnline2 || id == (int)WeaponID.M4A4 || id == (int)WeaponID.SG556
+            || id == (int)WeaponID.AUG || id == (int)WeaponID.GALILAR || id == (int)WeaponID.FAMAS || id == (int)WeaponID.AK47;
 
         public bool IsSniper(int id)
             => id == (int)WeaponID.AWP || id == (int)WeaponID.SCAR20 || id == (int)WeaponID.SSG08 || id == (int)WeaponID.G3SG1;
@@ -290,8 +290,10 @@ namespace ZBase.Classes
             => id == (int)WeaponID.C4;
 
         public bool IsPistol(int id)
-            => id == (int)WeaponID.DEAGLE || id == (int)WeaponID.FIVESEVEN || id == (int)WeaponID.TEC9 || id == (int)WeaponID.USPS || id == (int)WeaponID.P2000
-            || id == (int)WeaponID.P250 || id == (int)WeaponID.GLOCK || id == (int)WeaponID.BERETTAS || id == (int)WeaponID.CZ75A || id == (int)WeaponID.REVOLVER;
+            => id == (int)WeaponID.DEAGLE || id == (int)WeaponID.FIVESEVEN || id == (int)WeaponID.TEC9 || id == (int)WeaponID.USPS || id == (int)WeaponID.USPSOnline 
+            || id == (int)WeaponID.USPSOnline2 || id == (int)WeaponID.P2000|| id == (int)WeaponID.P250 || id == (int)WeaponID.GLOCK || id == (int)WeaponID.BERETTAS
+            || id == (int)WeaponID.CZ75A || id == (int)WeaponID.CZ75AOnline || id == (int)WeaponID.CZ75AOnline2 || id == (int)WeaponID.REVOLVER || id == (int)WeaponID.REVOLVEROnline
+            || id == (int)WeaponID.REVOLVEROnline2;
 
         public bool IsShotgun(int id)
            => id == (int)WeaponID.XM1014 || id == (int)WeaponID.NOVA || id == (int)WeaponID.MAG7 || id == (int)WeaponID.SAWEDOFF;
@@ -357,6 +359,8 @@ namespace ZBase.Classes
                         return "Tec-9";
                     case WeaponID.TASER:
                         return "Taser";
+                    case WeaponID.TASEROnline:
+                        return "Taser";
                     case WeaponID.P2000:
                         return "P2000";
                     case WeaponID.MP7:
@@ -395,9 +399,21 @@ namespace ZBase.Classes
                         return "M4A1-S";
                     case WeaponID.USPS:
                         return "USP-S";
+                    case WeaponID.USPSOnline:
+                        return "USP-S";
+                    case WeaponID.USPSOnline2:
+                        return "USP-S";
                     case WeaponID.CZ75A:
                         return "CZ75-Auto";
+                    case WeaponID.CZ75AOnline:
+                        return "CZ75-Auto";
+                    case WeaponID.CZ75AOnline2:
+                        return "CZ75-Auto";
                     case WeaponID.REVOLVER:
+                        return "R8 Revolver";
+                    case WeaponID.REVOLVEROnline:
+                        return "R8 Revolver";
+                    case WeaponID.REVOLVEROnline2:
                         return "R8 Revolver";
                     default:
                         return "Unknown";

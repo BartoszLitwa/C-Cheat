@@ -581,5 +581,13 @@ namespace ZBase.Forms
                 Main.S.SnapLinesPos = "Mid";
             }
         }
+
+        private void DebugCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DebugCheck.Checked)
+                Main.S.DebugEnabled = true;
+            else
+                Main.S.DebugEnabled = false;
+        }
     }
 }

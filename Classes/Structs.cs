@@ -114,6 +114,7 @@ namespace ZBase.Classes
         SAWEDOFF = 29,
         TEC9 = 30,
         TASER = 31,
+        TASEROnline = 196639,
         P2000 = 32,
         MP7 = 33,
         MP9 = 34,
@@ -131,9 +132,17 @@ namespace ZBase.Classes
         INCGRENADE = 48,
         C4 = 49,
         M4A1S = 60,
+        M4A1SOnline = 262204,
+        M4A1SOnline2 = 196668,
         USPS = 61,
+        USPSOnline = 262205,
+        USPSOnline2 = 196669,
         CZ75A = 63,
+        CZ75AOnline = 262207,
+        CZ75AOnline2 = 196671,
         REVOLVER = 64,
+        REVOLVEROnline = 262208,
+        REVOLVEROnline2 = 196672,
     }
 
     public enum CLASSID

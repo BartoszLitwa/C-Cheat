@@ -60,6 +60,7 @@
             this.SnapLinesTeammatesCheck = new System.Windows.Forms.CheckBox();
             this.WeaponESPCheck = new System.Windows.Forms.CheckBox();
             this.SnapLinesPoscomboBox = new System.Windows.Forms.ComboBox();
+            this.DebugCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.SnapLineThicTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -454,10 +455,22 @@
             this.SnapLinesPoscomboBox.TabIndex = 149;
             this.SnapLinesPoscomboBox.SelectedIndexChanged += new System.EventHandler(this.SnapLinesPoscomboBox_SelectedIndexChanged);
             // 
+            // DebugCheck
+            // 
+            this.DebugCheck.AutoSize = true;
+            this.DebugCheck.Location = new System.Drawing.Point(255, 146);
+            this.DebugCheck.Name = "DebugCheck";
+            this.DebugCheck.Size = new System.Drawing.Size(58, 17);
+            this.DebugCheck.TabIndex = 150;
+            this.DebugCheck.Text = "Debug";
+            this.DebugCheck.UseVisualStyleBackColor = true;
+            this.DebugCheck.CheckedChanged += new System.EventHandler(this.DebugCheck_CheckedChanged);
+            // 
             // UCESP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.DebugCheck);
             this.Controls.Add(this.SnapLinesPoscomboBox);
             this.Controls.Add(this.WeaponESPCheck);
             this.Controls.Add(this.SnapLinesTeammatesCheck);
@@ -532,5 +545,6 @@
         private System.Windows.Forms.CheckBox SnapLinesTeammatesCheck;
         private System.Windows.Forms.CheckBox WeaponESPCheck;
         private System.Windows.Forms.ComboBox SnapLinesPoscomboBox;
+        private System.Windows.Forms.CheckBox DebugCheck;
     }
 }
