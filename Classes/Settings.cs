@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -37,6 +38,15 @@ namespace ZBase.Classes
         public bool CrosshairSniperEnabled { get; set; }
         public bool DrawDistanceString { get; set; }
         public bool DebugEnabled { get; set; }
+        ///////////////////////////////////////////////////////
+        public Color ESPColorEnemies { get; set; }
+        public Color ESPColorTeammates { get; set; }
+        public Color ESPColorRifles { get; set; }
+        public Color ESPColorPistols { get; set; }
+        public Color ESPColorSnipers { get; set; }
+        public Color ESPColorShotGuns { get; set; }
+        public Color ESPColorMachineGuns { get; set; }
+        public Color ESPColorSMG { get; set; }
         ///////////////////////////////////////////////////////
         public bool GlowEnabled { get; set; }
         public int GlowValue { get; set; }

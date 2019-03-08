@@ -300,7 +300,7 @@ namespace ZBase.Classes
 
         public bool IsMP(int id)
             => id == (int)WeaponID.UMP45 || id == (int)WeaponID.P90 || id == (int)WeaponID.MP9 || id == (int)WeaponID.MP7 || id == (int)WeaponID.MAC10
-            || id == (int)WeaponID.BIZON || id == (int)WeaponID.MP5SD;
+            || id == (int)WeaponID.BIZON || id == (int)WeaponID.MP5SD || id == (int)WeaponID.MP5SDOnline || id == (int)WeaponID.MP5SDOnline2;
 
         public bool IsGrenade(int id)
             => id == (int)WeaponID.HEGRENADE || id == (int)WeaponID.SMOKEGRENADE || id == (int)WeaponID.INCGRENADE || id == (int)WeaponID.MOLOTOV
@@ -372,6 +372,10 @@ namespace ZBase.Classes
                     case WeaponID.P250:
                         return "P250";
                     case WeaponID.MP5SD:
+                        return "MP5-SD";
+                    case WeaponID.MP5SDOnline:
+                        return "MP5-SD";
+                    case WeaponID.MP5SDOnline2:
                         return "MP5-SD";
                     case WeaponID.SCAR20:
                         return "SCAR-20";

@@ -148,6 +148,8 @@ namespace ZBase.Cheats
                             && activeweapon != "Molotov" && activeweapon != "Decoy" && activeweapon != "Smoke Grenade" && activeweapon != "Grenade" && activeweapon != "Flashbang")
                 {
                     Vector2 AimAngle = new Vector2(89,0);
+                    AimAngle = Tools.NormalizeAngles(AimAngle);
+                    AimAngle = Tools.ClampAngle(AimAngle);
                     if (Main.S.RageBotLookDownEnabled)
                         G.Engine.ViewAngles = AimAngle;
 
@@ -187,6 +189,8 @@ namespace ZBase.Cheats
                         Player = Tools.GetFovPlayerEnemies(DrawDisplayFovAimbotValue);
                     }
                     Vector2 AimAngle = new Vector2();
+                    AimAngle = Tools.NormalizeAngles(AimAngle);
+                    AimAngle = Tools.ClampAngle(AimAngle);
                     Vector2 OldAngle = G.Engine.ViewAngles;
                     if (Player != null && Player.SpottedByMask && AimbotSpottedByMask && !Player.Dormant)
                     {

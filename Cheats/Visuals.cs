@@ -89,29 +89,32 @@ namespace ZBase.Cheats
                     if(Main.S.DebugEnabled)
                         DrawTextWithBackground(TypeOfGun.ToString(), Main.MidScreen.X, 0, 10, Color.Maroon, Color.Black);
                     //////////
-                    if (Main.S.DrawDisplayFovAimbotRifle && G.Engine.LocalPlayer.IsRifle(TypeOfGun))
+                    if (!Main.S.RageBotEnabled)
                     {
-                        DrawCircle(Main.MidScreen.X, Main.MidScreen.Y, Main.S.DrawDisplayFovAimbotValueRifle, Color.White);
-                    }
-                    if (Main.S.DrawDisplayFovAimbotPistols && G.Engine.LocalPlayer.IsPistol(TypeOfGun))
-                    {
-                        DrawCircle(Main.MidScreen.X, Main.MidScreen.Y, Main.S.DrawDisplayFovAimbotValuePistols, Color.White);
-                    }
-                    if (Main.S.DrawDisplayFovAimbotSnipers && G.Engine.LocalPlayer.IsSniper(TypeOfGun))
-                    {
-                        DrawCircle(Main.MidScreen.X, Main.MidScreen.Y, Main.S.DrawDisplayFovAimbotValueSnipers, Color.White);
-                    }
-                    if (Main.S.DrawDisplayFovAimbotShotGuns && G.Engine.LocalPlayer.IsShotgun(TypeOfGun))
-                    {
-                        DrawCircle(Main.MidScreen.X, Main.MidScreen.Y, Main.S.DrawDisplayFovAimbotValueShotGuns, Color.White);
-                    }
-                    if (Main.S.DrawDisplayFovAimbotMachineGuns && G.Engine.LocalPlayer.IsMachineGun(TypeOfGun))
-                    {
-                        DrawCircle(Main.MidScreen.X, Main.MidScreen.Y, Main.S.DrawDisplayFovAimbotValueMachineGuns, Color.White);
-                    }
-                    if (Main.S.DrawDisplayFovAimbotSMG && G.Engine.LocalPlayer.IsMP(TypeOfGun))
-                    {
-                        DrawCircle(Main.MidScreen.X, Main.MidScreen.Y, Main.S.DrawDisplayFovAimbotValueSMG, Color.White);
+                        if (Main.S.DrawDisplayFovAimbotRifle && G.Engine.LocalPlayer.IsRifle(TypeOfGun))
+                        {
+                            DrawCircle(Main.MidScreen.X, Main.MidScreen.Y, Main.S.DrawDisplayFovAimbotValueRifle, Color.White);
+                        }
+                        if (Main.S.DrawDisplayFovAimbotPistols && G.Engine.LocalPlayer.IsPistol(TypeOfGun))
+                        {
+                            DrawCircle(Main.MidScreen.X, Main.MidScreen.Y, Main.S.DrawDisplayFovAimbotValuePistols, Color.White);
+                        }
+                        if (Main.S.DrawDisplayFovAimbotSnipers && G.Engine.LocalPlayer.IsSniper(TypeOfGun))
+                        {
+                            DrawCircle(Main.MidScreen.X, Main.MidScreen.Y, Main.S.DrawDisplayFovAimbotValueSnipers, Color.White);
+                        }
+                        if (Main.S.DrawDisplayFovAimbotShotGuns && G.Engine.LocalPlayer.IsShotgun(TypeOfGun))
+                        {
+                            DrawCircle(Main.MidScreen.X, Main.MidScreen.Y, Main.S.DrawDisplayFovAimbotValueShotGuns, Color.White);
+                        }
+                        if (Main.S.DrawDisplayFovAimbotMachineGuns && G.Engine.LocalPlayer.IsMachineGun(TypeOfGun))
+                        {
+                            DrawCircle(Main.MidScreen.X, Main.MidScreen.Y, Main.S.DrawDisplayFovAimbotValueMachineGuns, Color.White);
+                        }
+                        if (Main.S.DrawDisplayFovAimbotSMG && G.Engine.LocalPlayer.IsMP(TypeOfGun))
+                        {
+                            DrawCircle(Main.MidScreen.X, Main.MidScreen.Y, Main.S.DrawDisplayFovAimbotValueSMG, Color.White);
+                        }
                     }
                     if (Main.S.DrawSmartCrosshairEnabled)
                     {

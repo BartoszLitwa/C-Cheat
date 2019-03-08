@@ -106,6 +106,8 @@ namespace ZBase.Classes
         MAC10 = 17,
         P90 = 19,
         MP5SD = 23,
+        MP5SDOnline = 262167,
+        MP5SDOnline2 = 196631,
         UMP45 = 24,
         XM1014 = 25,
         BIZON = 26,

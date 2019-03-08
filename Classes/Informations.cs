@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -12,6 +13,7 @@ namespace ZBase.Classes
         public int Selectedskin;
         public int SelectedKnife;
         public string ChoosenSettings;
+        public Color ColorRGB;
         public Vector2 PosAK47;
         public Vector2 PosDeagle;
         public Vector2 PosAUG;

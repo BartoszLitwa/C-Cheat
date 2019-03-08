@@ -908,6 +908,59 @@ namespace ZBase.Forms
                 listBox2.Items.Add("C4");
             if (Main.S.GlowChicken)
                 listBox2.Items.Add("Chicken");
+
+            //////////////////////////////////////////////////////
+            ComboBoxESPColors.Items.Add("Enemies");
+            ComboBoxESPColors.Items.Add("Teammates");
+            ComboBoxESPColors.Items.Add("Rifles");
+            ComboBoxESPColors.Items.Add("Pistols");
+            ComboBoxESPColors.Items.Add("Snipers");
+            ComboBoxESPColors.Items.Add("ShotGuns");
+            ComboBoxESPColors.Items.Add("MachineGuns");
+            ComboBoxESPColors.Items.Add("SMG");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            PanelColor.BackColor = Color.FromArgb(TrackBarColorRed.Value, TrackBarColorGreen.Value, TrackBarColorBlue.Value);
+            Main.I.ColorRGB = Color.FromArgb(TrackBarColorRed.Value, TrackBarColorGreen.Value, TrackBarColorBlue.Value);
+            LBL_RED.Text = TrackBarColorRed.Value.ToString();
+            LBL_GREEN.Text = TrackBarColorGreen.Value.ToString();
+            LBL_BLUE.Text = TrackBarColorBlue.Value.ToString();
+        }
+
+        private void ComboBoxESPColors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (ButtonSetColor.)
+            switch (ComboBoxESPColors.SelectedItem.ToString())
+            {
+                case "Enemies":
+                    Main.S.ESPColorEnemies = Main.I.ColorRGB;
+                    break;
+                case "Teammates":
+                    Main.S.ESPColorTeammates = Main.I.ColorRGB;
+                    break;
+                case "Rifles":
+                    Main.S.ESPColorRifles = Main.I.ColorRGB;
+                    break;
+                case "Pistols":
+                    Main.S.ESPColorPistols = Main.I.ColorRGB;
+                    break;
+                case "Snipers":
+                    Main.S.ESPColorSnipers = Main.I.ColorRGB;
+                    break;
+                case "ShotGuns":
+                    Main.S.ESPColorShotGuns = Main.I.ColorRGB;
+                    break;
+                case "MachineGuns":
+                    Main.S.ESPColorMachineGuns = Main.I.ColorRGB;
+                    break;
+                case "SMG":
+                    Main.S.ESPColorSMG = Main.I.ColorRGB;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

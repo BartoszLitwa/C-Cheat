@@ -34,6 +34,7 @@ namespace ZBase.Cheats
                 }
                if (Main.S.GlowEnabled)
                {
+                    #region Glow
                     int gp = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwGlowObjectManager);
                     int ObjectCount = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwGlowObjectManager + 0x4);
                     for (int i = 0; i < ObjectCount; i++)
@@ -47,6 +48,12 @@ namespace ZBase.Cheats
                         int ClassID = Memory.ReadMemory<int>(three + 0x14);
                         switch (ClassID)
                         {
+                            case 136:
+                                Memory.WriteMemory<int>(EntityBase + Main.O.netvars.m_clrRender, 255);
+                                Memory.WriteMemory<int>(EntityBase + Main.O.netvars.m_clrRender + 1, 0);
+                                Memory.WriteMemory<int>(EntityBase + Main.O.netvars.m_clrRender + 2, 0);
+                                Memory.WriteMemory<int>(EntityBase + Main.O.netvars.m_clrRender + 3, 255);
+                                break;
                             case 1: //AK47
                                 if (Main.S.GlowAK47)
                                     glow(gp, i, 255, 0, 0, 255, 0);
@@ -243,7 +250,8 @@ namespace ZBase.Cheats
                         }
                            
                     }
-               }
+                    #endregion Glow
+                }
                 foreach (Entity Player in G.EntityList)
                 {
                     float Health = Player.Health;
