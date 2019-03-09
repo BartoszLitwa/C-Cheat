@@ -86,8 +86,14 @@ namespace ZBase.Cheats
                 DrawTextWithBackground("CRNYY's Cheat", 10, 0, 10, Color.Maroon, Color.Black);
                 if (Main.S.ESP)
                 {
-                    if(Main.S.DebugEnabled)
-                        DrawTextWithBackground(TypeOfGun.ToString(), Main.MidScreen.X, 0, 10, Color.Maroon, Color.Black);
+                    if (Main.S.DebugEnabled)
+                    {
+
+                            //DrawTextWithBackground(.ToString(), Main.MidScreen.X, 0, 10, Color.Maroon, Color.White);
+                           // DrawTextWithBackground(Chestdis.ToString(), Main.MidScreen.X, 20, 10, Color.Maroon, Color.White);
+                           // DrawTextWithBackground(Stomachdis.ToString(), Main.MidScreen.X, 40, 10, Color.Maroon, Color.White);
+
+                    }
                     //////////
                     if (!Main.S.RageBotEnabled)
                     {
@@ -194,8 +200,10 @@ namespace ZBase.Cheats
                             int three = Memory.ReadMemory<int>(two + 0x1);
                             int ClassID = Memory.ReadMemory<int>(three + 0x14);
                             Vector3 pos0 = new Vector3(0, 0, 0);
+                            Vector2 pos02 = new Vector2(0, 0);
                             Vector3 entitypos = Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin);
-                            if (entitypos != pos0)
+                            Vector2 entityw2spos = Tools.WorldToScreen(entitypos);
+                            if (entitypos != pos0 && Tools.InScreenPos(entityw2spos.X,entityw2spos.Y))
                             {
                                 switch (ClassID)
                                 {
@@ -203,224 +211,256 @@ namespace ZBase.Cheats
                                         if (Main.S.GlowAK47)
                                         {
                                             Main.I.PosAK47 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("AK47", Main.I.PosAK47.X, Main.I.PosAK47.Y, 8, Color.White);
+                                            if (Main.I.PosAK47 != pos02)
+                                                DrawText("AK47", Main.I.PosAK47.X, Main.I.PosAK47.Y, 8, Color.White);
                                         }
                                         break;
                                     case 44: //Deagle
                                         if (Main.S.GlowDeagle)
                                         {
                                             Main.I.PosDeagle = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Deagle", Main.I.PosDeagle.X, Main.I.PosDeagle.Y, 8, Color.White);
+                                            if (Main.I.PosDeagle != pos02)
+                                                DrawText("Deagle", Main.I.PosDeagle.X, Main.I.PosDeagle.Y, 8, Color.White);
                                         }
                                         break;
                                     case 228: //AUG
                                         if (Main.S.GlowAUG)
                                         {
                                             Main.I.PosAUG = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("AUG", Main.I.PosAUG.X, Main.I.PosAUG.Y, 8, Color.White);
+                                            if (Main.I.PosAUG != pos02)
+                                                DrawText("AUG", Main.I.PosAUG.X, Main.I.PosAUG.Y, 8, Color.White);
                                         }
                                         break;
                                     case 229: //AWP
                                         if (Main.S.GlowAWP)
                                         {
                                             Main.I.PosAWP = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("AWP", Main.I.PosAWP.X, Main.I.PosAWP.Y, 8, Color.White);
+                                            if (Main.I.PosAWP != pos02)
+                                                DrawText("AWP", Main.I.PosAWP.X, Main.I.PosAWP.Y, 8, Color.White);
                                         }
                                         break;
                                     case 245: //M4
                                         if (Main.S.GlowM4)
                                         {
                                             Main.I.PosM4 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("M4", Main.I.PosM4.X, Main.I.PosM4.Y, 8, Color.White);
+                                            if (Main.I.PosM4 != pos02)
+                                                DrawText("M4", Main.I.PosM4.X, Main.I.PosM4.Y, 8, Color.White);
                                         }
                                         break;
                                     case 231: //Bizon
                                         if (Main.S.GlowBizon)
                                         {
                                             Main.I.PosBizon = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Bizon", Main.I.PosBizon.X, Main.I.PosBizon.Y, 8, Color.White);
+                                            if (Main.I.PosBizon != pos02)
+                                                DrawText("Bizon", Main.I.PosBizon.X, Main.I.PosBizon.Y, 8, Color.White);
                                         }
                                         break;
                                     case 235: //Elite Berettas
                                         if (Main.S.GlowBerettas)
                                         {
                                             Main.I.PosBerettas = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Berettas", Main.I.PosBerettas.X, Main.I.PosBerettas.Y, 8, Color.White);
+                                            if (Main.I.PosBerettas != pos02)
+                                                DrawText("Berettas", Main.I.PosBerettas.X, Main.I.PosBerettas.Y, 8, Color.White);
                                         }
                                         break;
                                     case 236: //Famas
                                         if (Main.S.GlowFamas)
                                         {
                                             Main.I.PosFamas = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Famas", Main.I.PosFamas.X, Main.I.PosFamas.Y, 8, Color.White);
+                                            if (Main.I.PosFamas != pos02)
+                                                DrawText("Famas", Main.I.PosFamas.X, Main.I.PosFamas.Y, 8, Color.White);
                                         }
                                         break;
                                     case 237: //Five-Seven
                                         if (Main.S.GlowFiveSeven)
                                         {
                                             Main.I.PosFiveSeven = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Five-Seven", Main.I.PosFiveSeven.X, Main.I.PosFiveSeven.Y, 8, Color.White);
+                                            if (Main.I.PosFiveSeven != pos02)
+                                                DrawText("Five-Seven", Main.I.PosFiveSeven.X, Main.I.PosFiveSeven.Y, 8, Color.White);
                                         }
                                         break;
                                     case 238: //G3SG1
                                         if (Main.S.GlowG3SG1)
                                         {
                                             Main.I.PosG3SG1 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("G3SG1", Main.I.PosG3SG1.X, Main.I.PosG3SG1.Y, 8, Color.White);
+                                            if (Main.I.PosG3SG1 != pos02)
+                                                DrawText("G3SG1", Main.I.PosG3SG1.X, Main.I.PosG3SG1.Y, 8, Color.White);
                                         }
                                         break;
                                     case 240: //GalilAR
                                         if (Main.S.GlowGalil)
                                         {
                                             Main.I.PosGalilAR = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("GalilAR", Main.I.PosGalilAR.X, Main.I.PosGalilAR.Y, 8, Color.White);
+                                            if (Main.I.PosGalilAR != pos02)
+                                                DrawText("GalilAR", Main.I.PosGalilAR.X, Main.I.PosGalilAR.Y, 8, Color.White);
                                         }
                                         break;
                                     case 241: //Glock
                                         if (Main.S.GlowGlock18)
                                         {
                                             Main.I.PosGlock = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Glock-18", Main.I.PosGlock.X, Main.I.PosGlock.Y, 8, Color.White);
+                                            if (Main.I.PosGlock != pos02)
+                                                DrawText("Glock-18", Main.I.PosGlock.X, Main.I.PosGlock.Y, 8, Color.White);
                                         }
                                         break;
                                     case 242: //P2000
                                         if (Main.S.GlowP2000)
                                         {
                                             Main.I.PosP2000 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("P2000", Main.I.PosP2000.X, Main.I.PosP2000.Y, 8, Color.White);
+                                            if (Main.I.PosP2000 != pos02)
+                                                DrawText("P2000", Main.I.PosP2000.X, Main.I.PosP2000.Y, 8, Color.White);
                                         }
                                         break;
                                     case 243: //M249
                                         if (Main.S.GlowM249)
                                         {
                                             Main.I.PosM249 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("M249", Main.I.PosM249.X, Main.I.PosM249.Y, 8, Color.White);
+                                            if (Main.I.PosM249 != pos02)
+                                                DrawText("M249", Main.I.PosM249.X, Main.I.PosM249.Y, 8, Color.White);
                                         }
                                         break;
                                     case 246: //Mac10
                                         if (Main.S.GlowMac10)
                                         {
                                             Main.I.PosMac10 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Mac10", Main.I.PosMac10.X, Main.I.PosMac10.Y, 8, Color.White);
+                                            if (Main.I.PosMac10 != pos02)
+                                                DrawText("Mac10", Main.I.PosMac10.X, Main.I.PosMac10.Y, 8, Color.White);
                                         }
                                         break;
                                     case 247: //Mag-7
                                         if (Main.S.GlowMag7)
                                         {
                                             Main.I.PosMag7 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Mag-7", Main.I.PosMag7.X, Main.I.PosMag7.Y, 8, Color.White);
+                                            if (Main.I.PosMag7 != pos02)
+                                                DrawText("Mag-7", Main.I.PosMag7.X, Main.I.PosMag7.Y, 8, Color.White);
                                         }
                                         break;
                                     case 249: //MP5
                                         if (Main.S.GlowMP5)
                                         {
                                             Main.I.PosMP5 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("MP5", Main.I.PosMP5.X, Main.I.PosMP5.Y, 8, Color.White);
+                                            if (Main.I.PosMP5 != pos02)
+                                                DrawText("MP5", Main.I.PosMP5.X, Main.I.PosMP5.Y, 8, Color.White);
                                         }
                                         break;
                                     case 250: //MP7
                                         if (Main.S.GlowMP7)
                                         {
                                             Main.I.PosMP7 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("MP7", Main.I.PosMP7.X, Main.I.PosMP7.Y, 8, Color.White);
+                                            if (Main.I.PosMP7 != pos02)
+                                                DrawText("MP7", Main.I.PosMP7.X, Main.I.PosMP7.Y, 8, Color.White);
                                         }
                                         break;
                                     case 248: //MP9
                                         if (Main.S.GlowMP9)
                                         {
                                             Main.I.PosMP9 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("MP9", Main.I.PosMP9.X, Main.I.PosMP9.Y, 8, Color.White);
+                                            if (Main.I.PosMP9 != pos02)
+                                                DrawText("MP9", Main.I.PosMP9.X, Main.I.PosMP9.Y, 8, Color.White);
                                         }
                                         break;
                                     case 251: //Negev
                                         if (Main.S.GlowNegev)
                                         {
                                             Main.I.PosNegev = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Negev", Main.I.PosNegev.X, Main.I.PosNegev.Y, 8, Color.White);
+                                            if (Main.I.PosNegev != pos02)
+                                                DrawText("Negev", Main.I.PosNegev.X, Main.I.PosNegev.Y, 8, Color.White);
                                         }
                                         break;
                                     case 252: //Nova
                                         if (Main.S.GlowNova)
                                         {
                                             Main.I.PosNova = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Nova", Main.I.PosNova.X, Main.I.PosNova.Y, 8, Color.White);
+                                            if (Main.I.PosNova != pos02)
+                                                DrawText("Nova", Main.I.PosNova.X, Main.I.PosNova.Y, 8, Color.White);
                                         }
                                         break;
                                     case 254: //CZ75
                                         if (Main.S.GlowCZ75)
                                         {
                                             Main.I.PosCZ75 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("CZ75", Main.I.PosCZ75.X, Main.I.PosCZ75.Y, 8, Color.White);
+                                            if (Main.I.PosCZ75 != pos02)
+                                                DrawText("CZ75", Main.I.PosCZ75.X, Main.I.PosCZ75.Y, 8, Color.White);
                                         }
                                         break;
                                     case 255: //P90
                                         if (Main.S.GlowP90)
                                         {
                                             Main.I.PosP90 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("P90", Main.I.PosP90.X, Main.I.PosP90.Y, 8, Color.White);
+                                            if (Main.I.PosP90 != pos02)
+                                                DrawText("P90", Main.I.PosP90.X, Main.I.PosP90.Y, 8, Color.White);
                                         }
                                         break;
                                     case 256: //Sawed-Off
                                         if (Main.S.GlowSawedOff)
                                         {
                                             Main.I.PosSawedOff = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Sawed-Off", Main.I.PosSawedOff.X, Main.I.PosSawedOff.Y, 8, Color.White);
+                                            if (Main.I.PosSawedOff != pos02)
+                                                DrawText("Sawed-Off", Main.I.PosSawedOff.X, Main.I.PosSawedOff.Y, 8, Color.White);
                                         }
                                         break;
                                     case 257: //Scar20
                                         if (Main.S.GlowSCAR20)
                                         {
                                             Main.I.PosScar20 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Scar20", Main.I.PosScar20.X, Main.I.PosScar20.Y, 8, Color.White);
+                                            if (Main.I.PosScar20 != pos02)
+                                                DrawText("Scar20", Main.I.PosScar20.X, Main.I.PosScar20.Y, 8, Color.White);
                                         }
                                         break;
                                     case 258: //Scout
                                         if (Main.S.GlowSSG08)
                                         {
                                             Main.I.PosScout = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Scout", Main.I.PosScout.X, Main.I.PosScout.Y, 8, Color.White);
+                                            if (Main.I.PosScout != pos02)
+                                                DrawText("Scout", Main.I.PosScout.X, Main.I.PosScout.Y, 8, Color.White);
                                         }
                                         break;
                                     case 262: //SSG08
                                         if (Main.S.GlowSSG08)
                                         {
                                             Main.I.PosSSG08 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("SSG08", Main.I.PosSSG08.X, Main.I.PosSSG08.Y, 8, Color.White);
+                                            if (Main.I.PosSSG08 != pos02)
+                                                DrawText("SSG08", Main.I.PosSSG08.X, Main.I.PosSSG08.Y, 8, Color.White);
                                         }
                                         break;
                                     case 263: //Taser
                                         if (Main.S.GlowTaser)
                                         {
                                             Main.I.PosTaser = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Taser", Main.I.PosTaser.X, Main.I.PosTaser.Y, 8, Color.White);
+                                            if (Main.I.PosTaser != pos02)
+                                                DrawText("Taser", Main.I.PosTaser.X, Main.I.PosTaser.Y, 8, Color.White);
                                         }
                                         break;
                                     case 264: //Tec-9
                                         if (Main.S.GlowTec9)
                                         {
                                             Main.I.PosTec9 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Tec-9", Main.I.PosTec9.X, Main.I.PosTec9.Y, 8, Color.White);
+                                            if (Main.I.PosTec9 != pos02)
+                                                DrawText("Tec-9", Main.I.PosTec9.X, Main.I.PosTec9.Y, 8, Color.White);
                                         }
                                         break;
                                     case 266: //UMP45
                                         if (Main.S.GlowUMP45)
                                         {
                                             Main.I.PosUMP45 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("UMP45", Main.I.PosUMP45.X, Main.I.PosUMP45.Y, 8, Color.White);
+                                            if (Main.I.PosUMP45 != pos02)
+                                                DrawText("UMP45", Main.I.PosUMP45.X, Main.I.PosUMP45.Y, 8, Color.White);
                                         }
                                         break;
                                     case 267: //USP-S
                                         if (Main.S.GlowP2000)
                                         {
                                             Main.I.PosUSP = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Deagle", Main.I.PosUSP.X, Main.I.PosUSP.Y, 8, Color.White);
+                                            if (Main.I.PosUSP != pos02)
+                                                DrawText("Deagle", Main.I.PosUSP.X, Main.I.PosUSP.Y, 8, Color.White);
                                         }
                                         break;
                                     case 268: //XM1014
                                         if (Main.S.GlowXM1014)
                                         {
                                             Main.I.PosXM1014 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("XM1014", Main.I.PosXM1014.X, Main.I.PosXM1014.Y, 8, Color.White);
+                                            if (Main.I.PosXM1014 != pos02)
+                                                DrawText("XM1014", Main.I.PosXM1014.X, Main.I.PosXM1014.Y, 8, Color.White);
                                         }
                                         break;
                                     //////////////////////// Grenades /////////////////////////////////////////////
@@ -478,7 +518,8 @@ namespace ZBase.Cheats
                                         if (Main.S.GlowC4)
                                         {
                                             Main.I.PosC4 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("C4", Main.I.PosC4.X, Main.I.PosC4.Y, 8, Color.White);
+                                            if (Main.I.PosC4 != pos02)
+                                                DrawText("C4", Main.I.PosC4.X, Main.I.PosC4.Y, 8, Color.White);
                                         }
                                         break;
                                     case 126: //Planted C4
@@ -490,7 +531,8 @@ namespace ZBase.Cheats
                                         if (Main.S.GlowChicken)
                                         {
                                             Main.I.PosChicken = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
-                                            DrawText("Chicken", Main.I.PosChicken.X, Main.I.PosChicken.Y, 8, Color.White);
+                                            if (Main.I.PosChicken != pos02)
+                                                DrawText("Chicken", Main.I.PosChicken.X, Main.I.PosChicken.Y, 8, Color.White);
                                         }
                                         break;
                                 }
@@ -547,9 +589,9 @@ namespace ZBase.Cheats
                                 //wierd ass calculations for box height, dont judge
                                 Color drawcolor;
                                 if (Player.IsTeammate)
-                                    drawcolor = Color.Blue;
+                                    drawcolor = Main.S.ESPColorTeammates;
                                 else
-                                    drawcolor = Color.Red;
+                                    drawcolor = Main.S.ESPColorEnemies;
                                 ////////////////////////////////////////////////////////////////
                                 if(Main.S.DrawAimspotEnabled)
                                 {
@@ -610,7 +652,7 @@ namespace ZBase.Cheats
                                 }
                                 if (Main.S.DrawBoneIDs)
                                     DrawBoneIDs(Player);
-                                if (Main.S.BoneEnabled) //Zle bone ID kazdy model postaci ma inne bone id
+                                if (Main.S.BoneEnabled) //kazdy model postaci ma inne bone id
                                 {
                                     #region BoneESP
                                     if (Player.IsTeammate && Main.S.BoneTeammates)
@@ -861,13 +903,15 @@ namespace ZBase.Cheats
                                 ////SnapLine
                                 if (Main.S.DrawSnaplines)
                                 {
+                                    if (!Main.S.SnaplinesHealthBased)
+                                        HealthColor = Main.S.SnapLinesColorEnemies;
                                     #region Snaplines
                                     switch (Main.S.SnapLinesPos)
                                     {
                                         case "Top":
                                             if (Player.IsTeammate && Main.S.SnapLinesTeammates)
                                             {
-                                                DrawLine(Main.MidScreen.X, 0, Player2DPos.X, Player2DPos.Y, Color.Blue, Main.S.SnaplinesValue);
+                                                DrawLine(Main.MidScreen.X, 0, Player2DPos.X, Player2DPos.Y, Main.S.SnapLinesColorTeammates, Main.S.SnaplinesValue);
                                             }
                                             if (!Player.IsTeammate)
                                                 DrawLine(Main.MidScreen.X, 0, Player2DPos.X, Player2DPos.Y, HealthColor, Main.S.SnaplinesValue);
@@ -875,7 +919,7 @@ namespace ZBase.Cheats
                                         case "Bottom":
                                             if (Player.IsTeammate && Main.S.SnapLinesTeammates)
                                             {
-                                                DrawLine(Main.MidScreen.X, Main.MidScreen.Y + Main.MidScreen.Y, Player2DPos.X, Player2DPos.Y, Color.Blue, Main.S.SnaplinesValue);
+                                                DrawLine(Main.MidScreen.X, Main.MidScreen.Y + Main.MidScreen.Y, Player2DPos.X, Player2DPos.Y, Main.S.SnapLinesColorTeammates, Main.S.SnaplinesValue);
                                             }
                                             if (!Player.IsTeammate)
                                                 DrawLine(Main.MidScreen.X, Main.MidScreen.Y + Main.MidScreen.Y, Player2DPos.X, Player2DPos.Y, HealthColor, Main.S.SnaplinesValue);
@@ -883,7 +927,7 @@ namespace ZBase.Cheats
                                         case "Right":
                                             if (Player.IsTeammate && Main.S.SnapLinesTeammates)
                                             {
-                                                DrawLine(Main.MidScreen.X + Main.MidScreen.X, Main.MidScreen.Y, Player2DPos.X, Player2DPos.Y, Color.Blue, Main.S.SnaplinesValue);
+                                                DrawLine(Main.MidScreen.X + Main.MidScreen.X, Main.MidScreen.Y, Player2DPos.X, Player2DPos.Y, Main.S.SnapLinesColorTeammates, Main.S.SnaplinesValue);
                                             }
                                             if (!Player.IsTeammate)
                                                 DrawLine(Main.MidScreen.X + Main.MidScreen.X, Main.MidScreen.Y, Player2DPos.X, Player2DPos.Y, HealthColor, Main.S.SnaplinesValue);
@@ -891,7 +935,7 @@ namespace ZBase.Cheats
                                         case "Left":
                                             if (Player.IsTeammate && Main.S.SnapLinesTeammates)
                                             {
-                                                DrawLine(0, Main.MidScreen.Y, Player2DPos.X, Player2DPos.Y, Color.Blue, Main.S.SnaplinesValue);
+                                                DrawLine(0, Main.MidScreen.Y, Player2DPos.X, Player2DPos.Y, Main.S.SnapLinesColorTeammates, Main.S.SnaplinesValue);
                                             }
                                             if (!Player.IsTeammate)
                                                 DrawLine(0, Main.MidScreen.Y, Player2DPos.X, Player2DPos.Y, HealthColor, Main.S.SnaplinesValue);
@@ -899,7 +943,7 @@ namespace ZBase.Cheats
                                         case "Mid":
                                             if (Player.IsTeammate && Main.S.SnapLinesTeammates)
                                             {
-                                                DrawLine(Main.MidScreen.X, Main.MidScreen.Y, Player2DPos.X, Player2DPos.Y, Color.Blue, Main.S.SnaplinesValue);
+                                                DrawLine(Main.MidScreen.X, Main.MidScreen.Y, Player2DPos.X, Player2DPos.Y, Main.S.SnapLinesColorTeammates, Main.S.SnaplinesValue);
                                             }
                                             if (!Player.IsTeammate)
                                                 DrawLine(Main.MidScreen.X, Main.MidScreen.Y, Player2DPos.X, Player2DPos.Y, HealthColor, Main.S.SnaplinesValue);

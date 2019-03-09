@@ -910,14 +910,33 @@ namespace ZBase.Forms
                 listBox2.Items.Add("Chicken");
 
             //////////////////////////////////////////////////////
-            ComboBoxESPColors.Items.Add("Enemies");
-            ComboBoxESPColors.Items.Add("Teammates");
-            ComboBoxESPColors.Items.Add("Rifles");
-            ComboBoxESPColors.Items.Add("Pistols");
-            ComboBoxESPColors.Items.Add("Snipers");
-            ComboBoxESPColors.Items.Add("ShotGuns");
-            ComboBoxESPColors.Items.Add("MachineGuns");
-            ComboBoxESPColors.Items.Add("SMG");
+            HealthBasedButton.Hide();
+            if (!ComboBoxESPColors.Items.Contains("ESP Enemies"))
+                ComboBoxESPColors.Items.Add("ESP Enemies");
+            if (!ComboBoxESPColors.Items.Contains("ESP Teammates"))
+                ComboBoxESPColors.Items.Add("ESP Teammates");
+            if (!ComboBoxESPColors.Items.Contains("Glow Enemies"))
+                ComboBoxESPColors.Items.Add("Glow Enemies");
+            if (!ComboBoxESPColors.Items.Contains("Glow Teammates"))
+                ComboBoxESPColors.Items.Add("Glow Teammates");
+            if (!ComboBoxESPColors.Items.Contains("Chams Enemies"))
+                ComboBoxESPColors.Items.Add("Chams Enemies");
+            if (!ComboBoxESPColors.Items.Contains("Chams Teammates"))
+                ComboBoxESPColors.Items.Add("Chams Teammates");
+            if (!ComboBoxESPColors.Items.Contains("Rifles"))
+                ComboBoxESPColors.Items.Add("Rifles");
+            if (!ComboBoxESPColors.Items.Contains("Pistols"))
+                ComboBoxESPColors.Items.Add("Pistols");
+            if (!ComboBoxESPColors.Items.Contains("Snipers"))
+                ComboBoxESPColors.Items.Add("Snipers");
+            if (!ComboBoxESPColors.Items.Contains("ShotGuns"))
+                ComboBoxESPColors.Items.Add("ShotGuns");
+            if (!ComboBoxESPColors.Items.Contains("MachineGuns"))
+                ComboBoxESPColors.Items.Add("MachineGuns");
+            if (!ComboBoxESPColors.Items.Contains("SMG"))
+                ComboBoxESPColors.Items.Add("SMG");
+            if (!ComboBoxESPColors.Items.Contains("Nothing"))
+                ComboBoxESPColors.Items.Add("Nothing");
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -931,34 +950,122 @@ namespace ZBase.Forms
 
         private void ComboBoxESPColors_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (ButtonSetColor.)
             switch (ComboBoxESPColors.SelectedItem.ToString())
             {
-                case "Enemies":
-                    Main.S.ESPColorEnemies = Main.I.ColorRGB;
+                case "ESP Enemies":
+                    HealthBasedButton.Show();
+                    PanelColor.BackColor = Main.S.ESPColorEnemies;
+                    TrackBarColorRed.Value = Main.S.ESPColorEnemies.R;
+                    TrackBarColorGreen.Value = Main.S.ESPColorEnemies.G;
+                    TrackBarColorBlue.Value = Main.S.ESPColorEnemies.B;
                     break;
-                case "Teammates":
-                    Main.S.ESPColorTeammates = Main.I.ColorRGB;
+                case "SnapLines Enemies":
+                    HealthBasedButton.Show();
+                    PanelColor.BackColor = Main.S.SnapLinesColorEnemies;
+                    TrackBarColorRed.Value = Main.S.SnapLinesColorEnemies.R;
+                    TrackBarColorGreen.Value = Main.S.SnapLinesColorEnemies.G;
+                    TrackBarColorBlue.Value = Main.S.SnapLinesColorEnemies.B;
                     break;
-                case "Rifles":
-                    Main.S.ESPColorRifles = Main.I.ColorRGB;
+                case "Glow Enemies":
+                    HealthBasedButton.Show();
+                    PanelColor.BackColor = Main.S.GlowColorEnemies;
+                    TrackBarColorRed.Value = Main.S.GlowColorEnemies.R;
+                    TrackBarColorGreen.Value = Main.S.GlowColorEnemies.G;
+                    TrackBarColorBlue.Value = Main.S.GlowColorEnemies.B;
                     break;
-                case "Pistols":
-                    Main.S.ESPColorPistols = Main.I.ColorRGB;
-                    break;
-                case "Snipers":
-                    Main.S.ESPColorSnipers = Main.I.ColorRGB;
-                    break;
-                case "ShotGuns":
-                    Main.S.ESPColorShotGuns = Main.I.ColorRGB;
-                    break;
-                case "MachineGuns":
-                    Main.S.ESPColorMachineGuns = Main.I.ColorRGB;
-                    break;
-                case "SMG":
-                    Main.S.ESPColorSMG = Main.I.ColorRGB;
+                case "Chams Enemies":
+                    HealthBasedButton.Show();
+                    PanelColor.BackColor = Main.S.ChamsColorEnemies;
+                    TrackBarColorRed.Value = Main.S.ChamsColorEnemies.R;
+                    TrackBarColorGreen.Value = Main.S.ChamsColorEnemies.G;
+                    TrackBarColorBlue.Value = Main.S.ChamsColorEnemies.B;
                     break;
                 default:
+                    HealthBasedButton.Hide();
+                    break;
+            }
+            if (Main.I.SetColor)
+            {
+                switch (ComboBoxESPColors.SelectedItem.ToString())
+                {
+                    case "ESP Enemies":
+                        Main.S.ESPColorEnemies = Main.I.ColorRGB;
+                        break;
+                    case "ESP Teammates":
+                        Main.S.ESPColorTeammates = Main.I.ColorRGB;
+                        break;
+                    case "SnapLines Enemies":
+                        Main.S.SnapLinesColorEnemies = Main.I.ColorRGB;
+                        break;
+                    case "SnapLines Teammates":
+                        Main.S.SnapLinesColorTeammates = Main.I.ColorRGB;
+                        break;
+                    case "Glow Enemies":
+                        Main.S.GlowColorEnemies = Main.I.ColorRGB;
+                        break;
+                    case "Glow Teammates":
+                        Main.S.GlowColorTeammates = Main.I.ColorRGB;
+                        break;
+                    case "Chams Enemies":
+                        Main.S.ChamsColorEnemies = Main.I.ColorRGB;
+                        break;
+                    case "Chams Teammates":
+                        Main.S.ChamsColorTeammates = Main.I.ColorRGB;
+                        break;
+                    case "Rifles":
+                        Main.S.ESPColorRifles = Main.I.ColorRGB;
+                        break;
+                    case "Pistols":
+                        Main.S.ESPColorPistols = Main.I.ColorRGB;
+                        break;
+                    case "Snipers":
+                        Main.S.ESPColorSnipers = Main.I.ColorRGB;
+                        break;
+                    case "ShotGuns":
+                        Main.S.ESPColorShotGuns = Main.I.ColorRGB;
+                        break;
+                    case "MachineGuns":
+                        Main.S.ESPColorMachineGuns = Main.I.ColorRGB;
+                        break;
+                    case "SMG":
+                        Main.S.ESPColorSMG = Main.I.ColorRGB;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void ButtonSetColor_Click(object sender, EventArgs e)
+        {
+            string currentitem = ComboBoxESPColors.SelectedItem.ToString();
+            ComboBoxESPColors.SelectedItem = "Nothing";
+            Main.I.SetColor = true;
+            ComboBoxESPColors.SelectedItem = currentitem;
+            Thread.Sleep(10);
+            Main.I.SetColor = false;
+            ComboBoxESPColors.SelectedItem = "Nothing";
+            ComboBoxESPColors.SelectedItem = currentitem;
+        }
+
+        private void HealthBasedButton_Click(object sender, EventArgs e)
+        {
+            switch (ComboBoxESPColors.SelectedItem.ToString())
+            {
+                case "ESP Enemies":
+                    
+                    break;
+                case "SnapLines Enemies":
+
+                    break;
+                case "Glow Enemies":
+
+                    break;
+                case "Chams Enemies":
+
+                    break;
+                default:
+
                     break;
             }
         }

@@ -288,14 +288,14 @@ namespace ZBase.Utilities
             return e;
         }
 
-        public static Entity GetFovPlayer(int FOV)
+        public static Entity GetFovPlayer(int FOV, int bone)
         {
             Entity e = null;
             foreach (Entity Player in G.EntityList)
             {
                 if (Player.Valid)
                 {
-                    Vector2 vector = WorldToScreen(Player.HeadPosition);
+                    Vector2 vector = WorldToScreen(Player.GetBonePosition(bone));
                     if (!IsNullVector2(vector))
                     {
                         float dist = Vector2.Distance(Main.MidScreen, vector);
@@ -305,7 +305,7 @@ namespace ZBase.Utilities
                         }
                         else if (dist < FOV)
                         {
-                            Vector2 vector3 = WorldToScreen(e.HeadPosition);
+                            Vector2 vector3 = WorldToScreen(e.GetBonePosition(bone));
                             Vector2 vector4;
                             vector4 = new Vector2(vector3.X, vector3.Y);
                             if (Vector2.Distance(Main.MidScreen, vector4) > dist)
@@ -318,14 +318,14 @@ namespace ZBase.Utilities
             }
             return e;
         }
-        public static Entity GetFovPlayerEnemies(int FOV)
+        public static Entity GetFovPlayerEnemies(int FOV, int bone)
         {
             Entity e = null;
             foreach (Entity Player in G.EntityList)
             {
                 if (Player.Valid && !Player.IsTeammate)
                 {
-                    Vector2 vector = WorldToScreen(Player.HeadPosition);
+                    Vector2 vector = WorldToScreen(Player.GetBonePosition(bone));
                     if (!IsNullVector2(vector))
                     {
                         float dist = Vector2.Distance(Main.MidScreen, vector);
@@ -335,7 +335,7 @@ namespace ZBase.Utilities
                         }
                         else if (dist < FOV)
                         {
-                            Vector2 vector3 = WorldToScreen(e.HeadPosition);
+                            Vector2 vector3 = WorldToScreen(e.GetBonePosition(bone));
                             Vector2 vector4;
                             vector4 = new Vector2(vector3.X, vector3.Y);
                             if (Vector2.Distance(Main.MidScreen, vector4) > dist)

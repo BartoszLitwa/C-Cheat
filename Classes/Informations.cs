@@ -13,6 +13,7 @@ namespace ZBase.Classes
         public int Selectedskin;
         public int SelectedKnife;
         public string ChoosenSettings;
+        public bool SetColor;
         public Color ColorRGB;
         public Vector2 PosAK47;
         public Vector2 PosDeagle;

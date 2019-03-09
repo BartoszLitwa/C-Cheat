@@ -35,6 +35,7 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.ComboBoxESPColors = new System.Windows.Forms.ComboBox();
             this.PanelColor = new System.Windows.Forms.Panel();
+            this.ButtonSetColor = new System.Windows.Forms.Button();
             this.TrackBarColorRed = new System.Windows.Forms.TrackBar();
             this.TrackBarColorGreen = new System.Windows.Forms.TrackBar();
             this.TrackBarColorBlue = new System.Windows.Forms.TrackBar();
@@ -45,7 +46,7 @@
             this.LBL_GREEN = new System.Windows.Forms.Label();
             this.LBL_BLUE = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.ButtonSetColor = new System.Windows.Forms.Button();
+            this.HealthBasedButton = new System.Windows.Forms.Button();
             this.PanelColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TrackBarColorRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrackBarColorGreen)).BeginInit();
@@ -84,7 +85,7 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(92, 27);
+            this.listBox2.Location = new System.Drawing.Point(95, 27);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(93, 199);
             this.listBox2.TabIndex = 3;
@@ -105,11 +106,22 @@
             // 
             // PanelColor
             // 
+            this.PanelColor.Controls.Add(this.HealthBasedButton);
             this.PanelColor.Controls.Add(this.ButtonSetColor);
             this.PanelColor.Location = new System.Drawing.Point(198, 32);
             this.PanelColor.Name = "PanelColor";
             this.PanelColor.Size = new System.Drawing.Size(184, 96);
             this.PanelColor.TabIndex = 124;
+            // 
+            // ButtonSetColor
+            // 
+            this.ButtonSetColor.Location = new System.Drawing.Point(106, 70);
+            this.ButtonSetColor.Name = "ButtonSetColor";
+            this.ButtonSetColor.Size = new System.Drawing.Size(75, 23);
+            this.ButtonSetColor.TabIndex = 0;
+            this.ButtonSetColor.Text = "Set Color";
+            this.ButtonSetColor.UseVisualStyleBackColor = true;
+            this.ButtonSetColor.Click += new System.EventHandler(this.ButtonSetColor_Click);
             // 
             // TrackBarColorRed
             // 
@@ -213,14 +225,15 @@
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // ButtonSetColor
+            // HealthBasedButton
             // 
-            this.ButtonSetColor.Location = new System.Drawing.Point(106, 70);
-            this.ButtonSetColor.Name = "ButtonSetColor";
-            this.ButtonSetColor.Size = new System.Drawing.Size(75, 23);
-            this.ButtonSetColor.TabIndex = 0;
-            this.ButtonSetColor.Text = "Set Color";
-            this.ButtonSetColor.UseVisualStyleBackColor = true;
+            this.HealthBasedButton.Location = new System.Drawing.Point(3, 70);
+            this.HealthBasedButton.Name = "HealthBasedButton";
+            this.HealthBasedButton.Size = new System.Drawing.Size(81, 23);
+            this.HealthBasedButton.TabIndex = 1;
+            this.HealthBasedButton.Text = "HealthBased";
+            this.HealthBasedButton.UseVisualStyleBackColor = true;
+            this.HealthBasedButton.Click += new System.EventHandler(this.HealthBasedButton_Click);
             // 
             // UCColors
             // 
@@ -271,5 +284,6 @@
         private System.Windows.Forms.Label LBL_BLUE;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button ButtonSetColor;
+        private System.Windows.Forms.Button HealthBasedButton;
     }
 }

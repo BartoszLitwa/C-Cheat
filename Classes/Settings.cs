@@ -41,6 +41,16 @@ namespace ZBase.Classes
         ///////////////////////////////////////////////////////
         public Color ESPColorEnemies { get; set; }
         public Color ESPColorTeammates { get; set; }
+        public bool ESPHealthBased { get; set; }
+        public Color SnapLinesColorEnemies { get; set; }
+        public Color SnapLinesColorTeammates { get; set; }
+        public bool SnaplinesHealthBased { get; set; }
+        public Color GlowColorEnemies { get; set; }
+        public Color GlowColorTeammates { get; set; }
+        public bool GlowHealthBased { get; set; }
+        public Color ChamsColorEnemies { get; set; }
+        public Color ChamsColorTeammates { get; set; }
+        public bool ChamsHealthBased { get; set; }
         public Color ESPColorRifles { get; set; }
         public Color ESPColorPistols { get; set; }
         public Color ESPColorSnipers { get; set; }

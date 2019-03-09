@@ -133,23 +133,10 @@ namespace ZBase.Cheats
                         G.Engine.Shoot();
                     }
                 }
-                if (Main.S.TriggerbotEnabled)
-                {
-                    int myteam = G.Engine.LocalPlayer.Team;
-                    var crosshairEntity = Tools.GetEntityBaseFromCrosshair(G.Engine.LocalPlayer.CrosshairID);
-                    int EntityTeam = Memory.ReadMemory<int>(crosshairEntity + Main.O.netvars.m_iTeamNum);
-                    if (EntityTeam != myteam)
-                    {
-                        Thread.Sleep(Main.S.TriggerbotValue);
-                        G.Engine.Shoot();
-                    }
-                }
                 if (Main.S.RageBotEnabled && activeweapon != "Knife" && activeweapon != "C4" && activeweapon != "Incendiary Grenade" && activeweapon != "Unknown"
                             && activeweapon != "Molotov" && activeweapon != "Decoy" && activeweapon != "Smoke Grenade" && activeweapon != "Grenade" && activeweapon != "Flashbang")
                 {
                     Vector2 AimAngle = new Vector2(89,0);
-                    AimAngle = Tools.NormalizeAngles(AimAngle);
-                    AimAngle = Tools.ClampAngle(AimAngle);
                     if (Main.S.RageBotLookDownEnabled)
                         G.Engine.ViewAngles = AimAngle;
 
@@ -166,6 +153,8 @@ namespace ZBase.Cheats
                 }
                 Thread.Sleep(1);
             }
+
+
             void UseAimbot(string activeweapon, bool aimbotenabled, bool AimbotSpottedByMask, bool RecoilPredictionEnabled, bool aimbotSmooth, bool smartaimbot, bool SilentAim, bool ShootTeammates,
                             bool closestbone, int DrawDisplayFovAimbotValue, int AimbotBoneID, int aimbotSmoothValue)
             {
@@ -182,15 +171,13 @@ namespace ZBase.Cheats
                     Entity Player = null;
                     if (ShootTeammates)
                     {
-                        Player = Tools.GetFovPlayer(DrawDisplayFovAimbotValue);
+                        Player = Tools.GetFovPlayer(DrawDisplayFovAimbotValue, AimbotBoneID);
                     }
                     if (!ShootTeammates)
                     {
-                        Player = Tools.GetFovPlayerEnemies(DrawDisplayFovAimbotValue);
+                        Player = Tools.GetFovPlayerEnemies(DrawDisplayFovAimbotValue, AimbotBoneID);
                     }
                     Vector2 AimAngle = new Vector2();
-                    AimAngle = Tools.NormalizeAngles(AimAngle);
-                    AimAngle = Tools.ClampAngle(AimAngle);
                     Vector2 OldAngle = G.Engine.ViewAngles;
                     if (Player != null && Player.SpottedByMask && AimbotSpottedByMask && !Player.Dormant)
                     {
@@ -210,17 +197,18 @@ namespace ZBase.Cheats
                             Vector3 HeadAngle = Player.GetBonePosition(8);
                             Vector3 ChestAngle = Player.GetBonePosition(6);
                             Vector3 StomachAngle = Player.GetBonePosition(5);
-                            Vector2 HeadAngle2; HeadAngle2.X = HeadAngle.X; HeadAngle2.Y = HeadAngle.Y;
-                            Vector2 ChestAngle2; ChestAngle2.X = ChestAngle.X; ChestAngle2.Y = ChestAngle.Y;
-                            Vector2 StomachAngle2; StomachAngle2.X = StomachAngle.X; StomachAngle2.Y = StomachAngle.Y;
-                            float Headdis = Vector2.Distance(G.Engine.ViewAngles, HeadAngle2);
-                            float Chestdis = Vector2.Distance(G.Engine.ViewAngles, ChestAngle2);
-                            float Stomachdis = Vector2.Distance(G.Engine.ViewAngles, StomachAngle2);
-                            if (Headdis < Chestdis || Headdis < Stomachdis)
+                            Vector2 w2sHead = Tools.WorldToScreen(HeadAngle);
+                            Vector2 w2sChest = Tools.WorldToScreen(ChestAngle);
+                            Vector2 w2sStomach = Tools.WorldToScreen(StomachAngle);
+                            Vector2 viewangles = G.Engine.ViewAngles;
+                            float Headdis = Vector2.Distance(viewangles, w2sHead);
+                            float Chestdis = Vector2.Distance(viewangles, w2sChest);
+                            float Stomachdis = Vector2.Distance(viewangles, w2sStomach);
+                            if (Headdis < Chestdis && Headdis < Stomachdis)
                                 AimAngle = Tools.CalcAngle(G.Engine.LocalPlayer.EyePosition, Player.GetBonePosition(8)); ;
-                            if (Chestdis < Headdis || Chestdis < Stomachdis)
+                            if (Chestdis < Headdis && Chestdis < Stomachdis)
                                 AimAngle = Tools.CalcAngle(G.Engine.LocalPlayer.EyePosition, Player.GetBonePosition(6)); ;
-                            if (Stomachdis < Chestdis || Stomachdis < Headdis)
+                            if (Stomachdis < Chestdis && Stomachdis < Headdis)
                                 AimAngle = Tools.CalcAngle(G.Engine.LocalPlayer.EyePosition, Player.GetBonePosition(5)); ;
                         }
                         if (RecoilPredictionEnabled)

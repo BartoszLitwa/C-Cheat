@@ -64,6 +64,17 @@ namespace ZBase.Cheats
                     //    }
                     //}
                 }
+                if (Main.S.TriggerbotEnabled)
+                {
+                    int myteam = G.Engine.LocalPlayer.Team;
+                    var crosshairEntity = Tools.GetEntityBaseFromCrosshair(G.Engine.LocalPlayer.CrosshairID);
+                    int EntityTeam = Memory.ReadMemory<int>(crosshairEntity + Main.O.netvars.m_iTeamNum);
+                    if (EntityTeam != myteam && crosshairEntity < 64 && crosshairEntity != 0)
+                    {
+                        Thread.Sleep(Main.S.TriggerbotValue);
+                        G.Engine.Shoot();
+                    }
+                }
                 if (Main.S.FAKELAGEnabled)//Broken
                 {
                     Memory.WriteMemory<bool>((int)Memory.Engine + Main.O.signatures.dwbSendPackets, false);
