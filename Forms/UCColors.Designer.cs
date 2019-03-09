@@ -46,7 +46,7 @@
             this.LBL_GREEN = new System.Windows.Forms.Label();
             this.LBL_BLUE = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.HealthBasedButton = new System.Windows.Forms.Button();
+            this.HealthBasedCheck = new System.Windows.Forms.CheckBox();
             this.PanelColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TrackBarColorRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrackBarColorGreen)).BeginInit();
@@ -106,7 +106,7 @@
             // 
             // PanelColor
             // 
-            this.PanelColor.Controls.Add(this.HealthBasedButton);
+            this.PanelColor.Controls.Add(this.HealthBasedCheck);
             this.PanelColor.Controls.Add(this.ButtonSetColor);
             this.PanelColor.Location = new System.Drawing.Point(198, 32);
             this.PanelColor.Name = "PanelColor";
@@ -225,15 +225,16 @@
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // HealthBasedButton
+            // HealthBasedCheck
             // 
-            this.HealthBasedButton.Location = new System.Drawing.Point(3, 70);
-            this.HealthBasedButton.Name = "HealthBasedButton";
-            this.HealthBasedButton.Size = new System.Drawing.Size(81, 23);
-            this.HealthBasedButton.TabIndex = 1;
-            this.HealthBasedButton.Text = "HealthBased";
-            this.HealthBasedButton.UseVisualStyleBackColor = true;
-            this.HealthBasedButton.Click += new System.EventHandler(this.HealthBasedButton_Click);
+            this.HealthBasedCheck.AutoSize = true;
+            this.HealthBasedCheck.Location = new System.Drawing.Point(4, 75);
+            this.HealthBasedCheck.Name = "HealthBasedCheck";
+            this.HealthBasedCheck.Size = new System.Drawing.Size(90, 17);
+            this.HealthBasedCheck.TabIndex = 1;
+            this.HealthBasedCheck.Text = "Health Based";
+            this.HealthBasedCheck.UseVisualStyleBackColor = true;
+            this.HealthBasedCheck.CheckedChanged += new System.EventHandler(this.HealthBasedCheck_CheckedChanged);
             // 
             // UCColors
             // 
@@ -257,6 +258,7 @@
             this.Name = "UCColors";
             this.Size = new System.Drawing.Size(397, 336);
             this.PanelColor.ResumeLayout(false);
+            this.PanelColor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TrackBarColorRed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrackBarColorGreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrackBarColorBlue)).EndInit();
@@ -284,6 +286,6 @@
         private System.Windows.Forms.Label LBL_BLUE;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button ButtonSetColor;
-        private System.Windows.Forms.Button HealthBasedButton;
+        private System.Windows.Forms.CheckBox HealthBasedCheck;
     }
 }

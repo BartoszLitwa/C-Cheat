@@ -37,12 +37,12 @@
             this.MiscButton = new System.Windows.Forms.Button();
             this.AimbotButton = new System.Windows.Forms.Button();
             this.ESPButton = new System.Windows.Forms.Button();
+            this.ColorButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.LoadSettingsButton = new System.Windows.Forms.Button();
             this.SaveSettingsButton = new System.Windows.Forms.Button();
             this.ChoosenSettingsComboBox = new System.Windows.Forms.ComboBox();
-            this.ColorButton = new System.Windows.Forms.Button();
             this.ucColors1 = new ZBase.Forms.UCColors();
             this.ucSkinChanger1 = new ZBase.Forms.UCSkinChanger();
             this.ucMisc1 = new ZBase.Forms.UCMisc();
@@ -145,6 +145,18 @@
             this.ESPButton.UseVisualStyleBackColor = true;
             this.ESPButton.Click += new System.EventHandler(this.ESPButton_Click);
             // 
+            // ColorButton
+            // 
+            this.ColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColorButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ColorButton.Location = new System.Drawing.Point(0, 323);
+            this.ColorButton.Name = "ColorButton";
+            this.ColorButton.Size = new System.Drawing.Size(127, 43);
+            this.ColorButton.TabIndex = 23;
+            this.ColorButton.Text = "Colors";
+            this.ColorButton.UseVisualStyleBackColor = true;
+            this.ColorButton.Click += new System.EventHandler(this.ColorButton_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
@@ -202,18 +214,6 @@
             this.ChoosenSettingsComboBox.TabIndex = 150;
             this.ChoosenSettingsComboBox.SelectedIndexChanged += new System.EventHandler(this.ChoosenSettingsComboBox_SelectedIndexChanged);
             // 
-            // ColorButton
-            // 
-            this.ColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColorButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ColorButton.Location = new System.Drawing.Point(0, 323);
-            this.ColorButton.Name = "ColorButton";
-            this.ColorButton.Size = new System.Drawing.Size(127, 43);
-            this.ColorButton.TabIndex = 23;
-            this.ColorButton.Text = "Colors";
-            this.ColorButton.UseVisualStyleBackColor = true;
-            this.ColorButton.Click += new System.EventHandler(this.ColorButton_Click);
-            // 
             // ucColors1
             // 
             this.ucColors1.Location = new System.Drawing.Point(127, 52);
@@ -269,6 +269,7 @@
             this.MaximizeBox = false;
             this.Name = "Menu";
             this.Text = "CRNYY\'s Cheat";
+            this.Load += new System.EventHandler(this.Menu_Load);
             this.LeftSidePanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

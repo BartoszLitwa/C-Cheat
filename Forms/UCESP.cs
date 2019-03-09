@@ -147,6 +147,9 @@ namespace ZBase.Forms
                 case 7:
                     BoneESPMapComboBox.SelectedIndex = 7;
                     break;
+                case 8:
+                    BoneESPMapComboBox.SelectedIndex = 8;
+                    break;
                 default:
                     break;
             }
@@ -368,6 +371,9 @@ namespace ZBase.Forms
                     break;
                 case "Nuke":
                     Main.S.BoneESPMap = 7;
+                    break;
+                case "Office":
+                    Main.S.BoneESPMap = 8;
                     break;
                 default:
                     break;

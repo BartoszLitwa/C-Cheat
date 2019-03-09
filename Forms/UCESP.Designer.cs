@@ -230,7 +230,8 @@
             "Cobblestone",
             "Train",
             "Overpass",
-            "Nuke"});
+            "Nuke",
+            "Office"});
             this.BoneESPMapComboBox.Location = new System.Drawing.Point(1, 97);
             this.BoneESPMapComboBox.Name = "BoneESPMapComboBox";
             this.BoneESPMapComboBox.Size = new System.Drawing.Size(95, 21);

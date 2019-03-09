@@ -745,6 +745,17 @@ namespace ZBase.Cheats
                                                 DrawBoneESP(Player, 73, 82, 72, 81, 0, 6, 11, 39, 12, 40, 13, 42, 8);
                                             }
                                         }
+                                        if (Main.S.BoneESPMap == 8) //Office
+                                        {
+                                            if (Player.Team == 2) //tt
+                                            {
+                                                DrawBoneESP(Player, 69, 76, 68, 75, 0, 6, 12, 40, 13, 41, 36, 64, 8);
+                                            }
+                                            if (Player.Team == 3) //ct
+                                            {
+                                                DrawBoneESP(Player, 73, 82, 72, 81, 0, 6, 11, 39, 12, 40, 13, 41, 8);
+                                            }
+                                        }
                                     }
                                     if (!Player.IsTeammate)
                                     {
@@ -834,6 +845,17 @@ namespace ZBase.Cheats
                                             if (Player.Team == 3)
                                             {
                                                 DrawBoneESP(Player, 73, 82, 72, 81, 0, 6, 11, 39, 12, 40, 13, 42, 8);
+                                            }
+                                        }
+                                        if (Main.S.BoneESPMap == 8) //Office
+                                        {
+                                            if (Player.Team == 2) //tt
+                                            {
+                                                DrawBoneESP(Player, 69, 76, 68, 75, 0, 6, 12, 40, 13, 41, 36, 64, 8);
+                                            }
+                                            if (Player.Team == 3) //ct
+                                            {
+                                                DrawBoneESP(Player, 73, 82, 72, 81, 0, 6, 11, 39, 12, 40, 13, 41, 8);
                                             }
                                         }
                                     }

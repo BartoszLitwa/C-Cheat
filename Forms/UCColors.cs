@@ -910,11 +910,15 @@ namespace ZBase.Forms
                 listBox2.Items.Add("Chicken");
 
             //////////////////////////////////////////////////////
-            HealthBasedButton.Hide();
+            HealthBasedCheck.Hide();
             if (!ComboBoxESPColors.Items.Contains("ESP Enemies"))
                 ComboBoxESPColors.Items.Add("ESP Enemies");
             if (!ComboBoxESPColors.Items.Contains("ESP Teammates"))
                 ComboBoxESPColors.Items.Add("ESP Teammates");
+            if (!ComboBoxESPColors.Items.Contains("SnapLines Enemies"))
+                ComboBoxESPColors.Items.Add("SnapLines Enemies");
+            if (!ComboBoxESPColors.Items.Contains("SnapLines Teammates"))
+                ComboBoxESPColors.Items.Add("SnapLines Teammates");
             if (!ComboBoxESPColors.Items.Contains("Glow Enemies"))
                 ComboBoxESPColors.Items.Add("Glow Enemies");
             if (!ComboBoxESPColors.Items.Contains("Glow Teammates"))
@@ -953,35 +957,51 @@ namespace ZBase.Forms
             switch (ComboBoxESPColors.SelectedItem.ToString())
             {
                 case "ESP Enemies":
-                    HealthBasedButton.Show();
+                    HealthBasedCheck.Show();
                     PanelColor.BackColor = Main.S.ESPColorEnemies;
                     TrackBarColorRed.Value = Main.S.ESPColorEnemies.R;
                     TrackBarColorGreen.Value = Main.S.ESPColorEnemies.G;
                     TrackBarColorBlue.Value = Main.S.ESPColorEnemies.B;
+                    if (Main.S.ESPHealthBased)
+                        HealthBasedCheck.CheckState = CheckState.Checked;
+                    if (!Main.S.ESPHealthBased)
+                        HealthBasedCheck.CheckState = CheckState.Unchecked;
                     break;
                 case "SnapLines Enemies":
-                    HealthBasedButton.Show();
+                    HealthBasedCheck.Show();
                     PanelColor.BackColor = Main.S.SnapLinesColorEnemies;
                     TrackBarColorRed.Value = Main.S.SnapLinesColorEnemies.R;
                     TrackBarColorGreen.Value = Main.S.SnapLinesColorEnemies.G;
                     TrackBarColorBlue.Value = Main.S.SnapLinesColorEnemies.B;
+                    if (Main.S.SnaplinesHealthBased)
+                        HealthBasedCheck.CheckState = CheckState.Checked;
+                    if (!Main.S.SnaplinesHealthBased)
+                        HealthBasedCheck.CheckState = CheckState.Unchecked;
                     break;
                 case "Glow Enemies":
-                    HealthBasedButton.Show();
+                    HealthBasedCheck.Show();
                     PanelColor.BackColor = Main.S.GlowColorEnemies;
                     TrackBarColorRed.Value = Main.S.GlowColorEnemies.R;
                     TrackBarColorGreen.Value = Main.S.GlowColorEnemies.G;
                     TrackBarColorBlue.Value = Main.S.GlowColorEnemies.B;
+                    if (Main.S.GlowHealthBased)
+                        HealthBasedCheck.CheckState = CheckState.Checked;
+                    if (!Main.S.GlowHealthBased)
+                        HealthBasedCheck.CheckState = CheckState.Unchecked;
                     break;
                 case "Chams Enemies":
-                    HealthBasedButton.Show();
+                    HealthBasedCheck.Show();
                     PanelColor.BackColor = Main.S.ChamsColorEnemies;
                     TrackBarColorRed.Value = Main.S.ChamsColorEnemies.R;
                     TrackBarColorGreen.Value = Main.S.ChamsColorEnemies.G;
                     TrackBarColorBlue.Value = Main.S.ChamsColorEnemies.B;
+                    if (Main.S.ChamsHealthBased)
+                        HealthBasedCheck.CheckState = CheckState.Checked;
+                    if (!Main.S.ChamsHealthBased)
+                        HealthBasedCheck.CheckState = CheckState.Unchecked;
                     break;
                 default:
-                    HealthBasedButton.Hide();
+                    HealthBasedCheck.Hide();
                     break;
             }
             if (Main.I.SetColor)
@@ -1048,21 +1068,33 @@ namespace ZBase.Forms
             ComboBoxESPColors.SelectedItem = currentitem;
         }
 
-        private void HealthBasedButton_Click(object sender, EventArgs e)
+        private void HealthBasedCheck_CheckedChanged(object sender, EventArgs e)
         {
             switch (ComboBoxESPColors.SelectedItem.ToString())
             {
                 case "ESP Enemies":
-                    
+                    if (HealthBasedCheck.Checked)
+                        Main.S.ESPHealthBased = true;
+                    else
+                        Main.S.ESPHealthBased = false;
                     break;
                 case "SnapLines Enemies":
-
+                    if (HealthBasedCheck.Checked)
+                        Main.S.SnaplinesHealthBased = true;
+                    else
+                        Main.S.SnaplinesHealthBased = false;
                     break;
                 case "Glow Enemies":
-
+                    if (HealthBasedCheck.Checked)
+                        Main.S.GlowHealthBased = true;
+                    else
+                        Main.S.GlowHealthBased = false;
                     break;
                 case "Chams Enemies":
-
+                    if (HealthBasedCheck.Checked)
+                        Main.S.ChamsHealthBased = true;
+                    else
+                        Main.S.ChamsHealthBased = false;
                     break;
                 default:
 
