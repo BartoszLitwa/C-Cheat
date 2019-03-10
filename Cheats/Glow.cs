@@ -233,11 +233,11 @@ namespace ZBase.Cheats
                                 break;
                             case 32: //C4
                                 if (Main.S.GlowC4)
-                                    glow(gp, i, 255, 255, 255, 255, 0);
+                                    glow(gp, i, 255, 255, 0, 255, 0);
                                 break;
                             case 126: //Planted C4
                                 if (Main.S.GlowC4)
-                                    glow(gp, i, 255, 255, 255, 255, 0);
+                                    glow(gp, i, 255, 255, 0, 255, 0);
                                 break;
                             case 34: //Chicken
                                 if (Main.S.GlowChicken)

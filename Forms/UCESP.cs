@@ -110,8 +110,20 @@ namespace ZBase.Forms
                 GlowTeammatesCheck.CheckState = CheckState.Checked;
             if (Main.S.DrawWeaponESP)
                 WeaponESPCheck.CheckState = CheckState.Checked;
-            if (Main.S.DrawWeaponESP)
-                WeaponESPCheck.CheckState = CheckState.Checked;
+            if (!Main.S.DrawWeaponESP)
+                WeaponESPCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.DebugEnabled)
+                DebugCheck.CheckState = CheckState.Checked;
+            if (!Main.S.DebugEnabled)
+                DebugCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.ShowWinsEnabled)
+                ShowWinsCheck.CheckState = CheckState.Checked;
+            if (!Main.S.ShowWinsEnabled)
+                ShowWinsCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.ShowRanksEnabled)
+                ShowRanksCheck.CheckState = CheckState.Checked;
+            if (!Main.S.ShowRanksEnabled)
+                ShowRanksCheck.CheckState = CheckState.Unchecked;
             //////////////////////////////////////////////////////////////
             if (Main.S.SnaplinesValue > 0 && Main.S.SnaplinesValue < 16)
                 SnapLineThicTrackBar.Value = Main.S.SnaplinesValue;
@@ -594,6 +606,22 @@ namespace ZBase.Forms
                 Main.S.DebugEnabled = true;
             else
                 Main.S.DebugEnabled = false;
+        }
+
+        private void ShowRanksCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ShowRanksCheck.Checked)
+                Main.S.ShowRanksEnabled = true;
+            else
+                Main.S.ShowRanksEnabled = false;
+        }
+
+        private void ShowWinsCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ShowWinsCheck.Checked)
+                Main.S.ShowWinsEnabled = true;
+            else
+                Main.S.ShowWinsEnabled = false;
         }
     }
 }

@@ -967,6 +967,13 @@ namespace ZBase.Forms
                     if (!Main.S.ESPHealthBased)
                         HealthBasedCheck.CheckState = CheckState.Unchecked;
                     break;
+                case "ESP Teammates":
+                    HealthBasedCheck.Hide();
+                    PanelColor.BackColor = Main.S.ESPColorTeammates;
+                    TrackBarColorRed.Value = Main.S.ESPColorTeammates.R;
+                    TrackBarColorGreen.Value = Main.S.ESPColorTeammates.G;
+                    TrackBarColorBlue.Value = Main.S.ESPColorTeammates.B;
+                    break;
                 case "SnapLines Enemies":
                     HealthBasedCheck.Show();
                     PanelColor.BackColor = Main.S.SnapLinesColorEnemies;
@@ -977,6 +984,13 @@ namespace ZBase.Forms
                         HealthBasedCheck.CheckState = CheckState.Checked;
                     if (!Main.S.SnaplinesHealthBased)
                         HealthBasedCheck.CheckState = CheckState.Unchecked;
+                    break;
+                case "SnapLines Teammates":
+                    HealthBasedCheck.Hide();
+                    PanelColor.BackColor = Main.S.SnapLinesColorTeammates;
+                    TrackBarColorRed.Value = Main.S.SnapLinesColorTeammates.R;
+                    TrackBarColorGreen.Value = Main.S.SnapLinesColorTeammates.G;
+                    TrackBarColorBlue.Value = Main.S.SnapLinesColorTeammates.B;
                     break;
                 case "Glow Enemies":
                     HealthBasedCheck.Show();
@@ -989,6 +1003,13 @@ namespace ZBase.Forms
                     if (!Main.S.GlowHealthBased)
                         HealthBasedCheck.CheckState = CheckState.Unchecked;
                     break;
+                case "Glow Teammates":
+                    HealthBasedCheck.Hide();
+                    PanelColor.BackColor = Main.S.GlowColorTeammates;
+                    TrackBarColorRed.Value = Main.S.GlowColorTeammates.R;
+                    TrackBarColorGreen.Value = Main.S.GlowColorTeammates.G;
+                    TrackBarColorBlue.Value = Main.S.GlowColorTeammates.B;
+                    break;
                 case "Chams Enemies":
                     HealthBasedCheck.Show();
                     PanelColor.BackColor = Main.S.ChamsColorEnemies;
@@ -999,6 +1020,55 @@ namespace ZBase.Forms
                         HealthBasedCheck.CheckState = CheckState.Checked;
                     if (!Main.S.ChamsHealthBased)
                         HealthBasedCheck.CheckState = CheckState.Unchecked;
+                    break;
+                case "Chams Teammates":
+                    HealthBasedCheck.Hide();
+                    PanelColor.BackColor = Main.S.ChamsColorTeammates;
+                    TrackBarColorRed.Value = Main.S.ChamsColorTeammates.R;
+                    TrackBarColorGreen.Value = Main.S.ChamsColorTeammates.G;
+                    TrackBarColorBlue.Value = Main.S.ChamsColorTeammates.B;
+                    break;
+                case "Rifles":
+                    HealthBasedCheck.Hide();
+                    PanelColor.BackColor = Main.S.ESPColorRifles;
+                    TrackBarColorRed.Value = Main.S.ESPColorRifles.R;
+                    TrackBarColorGreen.Value = Main.S.ESPColorRifles.G;
+                    TrackBarColorBlue.Value = Main.S.ESPColorRifles.B;
+                    break;
+                case "Pistols":
+                    HealthBasedCheck.Hide();
+                    PanelColor.BackColor = Main.S.ESPColorPistols;
+                    TrackBarColorRed.Value = Main.S.ESPColorPistols.R;
+                    TrackBarColorGreen.Value = Main.S.ESPColorPistols.G;
+                    TrackBarColorBlue.Value = Main.S.ESPColorPistols.B;
+                    break;
+                case "Snipers":
+                    HealthBasedCheck.Hide();
+                    PanelColor.BackColor = Main.S.ESPColorSnipers;
+                    TrackBarColorRed.Value = Main.S.ESPColorSnipers.R;
+                    TrackBarColorGreen.Value = Main.S.ESPColorSnipers.G;
+                    TrackBarColorBlue.Value = Main.S.ESPColorSnipers.B;
+                    break;
+                case "ShotGuns":
+                    HealthBasedCheck.Hide();
+                    PanelColor.BackColor = Main.S.ESPColorShotGuns;
+                    TrackBarColorRed.Value = Main.S.ESPColorShotGuns.R;
+                    TrackBarColorGreen.Value = Main.S.ESPColorShotGuns.G;
+                    TrackBarColorBlue.Value = Main.S.ESPColorShotGuns.B;
+                    break;
+                case "MachineGuns":
+                    HealthBasedCheck.Hide();
+                    PanelColor.BackColor = Main.S.ESPColorMachineGuns;
+                    TrackBarColorRed.Value = Main.S.ESPColorMachineGuns.R;
+                    TrackBarColorGreen.Value = Main.S.ESPColorMachineGuns.G;
+                    TrackBarColorBlue.Value = Main.S.ESPColorMachineGuns.B;
+                    break;
+                case "SMG":
+                    HealthBasedCheck.Hide();
+                    PanelColor.BackColor = Main.S.ESPColorSMG;
+                    TrackBarColorRed.Value = Main.S.ESPColorSMG.R;
+                    TrackBarColorGreen.Value = Main.S.ESPColorSMG.G;
+                    TrackBarColorBlue.Value = Main.S.ESPColorSMG.B;
                     break;
                 default:
                     HealthBasedCheck.Hide();

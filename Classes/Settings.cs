@@ -38,6 +38,8 @@ namespace ZBase.Classes
         public bool CrosshairSniperEnabled { get; set; }
         public bool DrawDistanceString { get; set; }
         public bool DebugEnabled { get; set; }
+        public bool ShowRanksEnabled { get; set; }
+        public bool ShowWinsEnabled { get; set; }
         ///////////////////////////////////////////////////////
         public Color ESPColorEnemies { get; set; }
         public Color ESPColorTeammates { get; set; }

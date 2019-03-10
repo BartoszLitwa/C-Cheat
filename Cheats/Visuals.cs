@@ -83,16 +83,19 @@ namespace ZBase.Cheats
                 Color CrosshairColor = Color.Green;
                 int PlayerHealth = 100;
                 int TypeOfGun = (int)G.Engine.LocalPlayer.WeaponID;
-                DrawTextWithBackground("CRNYY's Cheat", 10, 0, 10, Color.Maroon, Color.Black);
+                DrawTextWithBackground("CRNYY's Cheat", 10, 0, 16, Color.Maroon, Color.Black);
                 if (Main.S.ESP)
                 {
                     if (Main.S.DebugEnabled)
                     {
-
-                            //DrawTextWithBackground(.ToString(), Main.MidScreen.X, 0, 10, Color.Maroon, Color.White);
-                           // DrawTextWithBackground(Chestdis.ToString(), Main.MidScreen.X, 20, 10, Color.Maroon, Color.White);
-                           // DrawTextWithBackground(Stomachdis.ToString(), Main.MidScreen.X, 40, 10, Color.Maroon, Color.White);
-
+                        for(int i = 0;i<10;i++)
+                        {
+                            int PlayerResource = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwPlayerResource);
+                            Ranks Ranks = (Ranks)Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveRanking + i * 4);
+                            int wins = Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveWins + i * 4);
+                            DrawText(wins.ToString(), Main.MidScreen.X, i * 15, 10, Color.White);
+                            DrawText(Ranks.ToString(), Main.MidScreen.X + 20, i * 15, 10, Color.White);
+                        }
                     }
                     //////////
                     if (!Main.S.RageBotEnabled)
@@ -203,6 +206,7 @@ namespace ZBase.Cheats
                             Vector2 pos02 = new Vector2(0, 0);
                             Vector3 entitypos = Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin);
                             Vector2 entityw2spos = Tools.WorldToScreen(entitypos);
+                            int font = 13;
                             if (entitypos != pos0 && Tools.InScreenPos(entityw2spos.X,entityw2spos.Y))
                             {
                                 switch (ClassID)
@@ -212,7 +216,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosAK47 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosAK47 != pos02)
-                                                DrawText("AK47", Main.I.PosAK47.X, Main.I.PosAK47.Y, 8, Color.White);
+                                                DrawText("AK47", Main.I.PosAK47.X, Main.I.PosAK47.Y, font, Color.White);
                                         }
                                         break;
                                     case 44: //Deagle
@@ -220,7 +224,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosDeagle = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosDeagle != pos02)
-                                                DrawText("Deagle", Main.I.PosDeagle.X, Main.I.PosDeagle.Y, 8, Color.White);
+                                                DrawText("Deagle", Main.I.PosDeagle.X, Main.I.PosDeagle.Y, font, Color.White);
                                         }
                                         break;
                                     case 228: //AUG
@@ -228,7 +232,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosAUG = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosAUG != pos02)
-                                                DrawText("AUG", Main.I.PosAUG.X, Main.I.PosAUG.Y, 8, Color.White);
+                                                DrawText("AUG", Main.I.PosAUG.X, Main.I.PosAUG.Y, font, Color.White);
                                         }
                                         break;
                                     case 229: //AWP
@@ -236,7 +240,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosAWP = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosAWP != pos02)
-                                                DrawText("AWP", Main.I.PosAWP.X, Main.I.PosAWP.Y, 8, Color.White);
+                                                DrawText("AWP", Main.I.PosAWP.X, Main.I.PosAWP.Y, font, Color.White);
                                         }
                                         break;
                                     case 245: //M4
@@ -244,7 +248,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosM4 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosM4 != pos02)
-                                                DrawText("M4", Main.I.PosM4.X, Main.I.PosM4.Y, 8, Color.White);
+                                                DrawText("M4", Main.I.PosM4.X, Main.I.PosM4.Y, font, Color.White);
                                         }
                                         break;
                                     case 231: //Bizon
@@ -252,7 +256,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosBizon = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosBizon != pos02)
-                                                DrawText("Bizon", Main.I.PosBizon.X, Main.I.PosBizon.Y, 8, Color.White);
+                                                DrawText("Bizon", Main.I.PosBizon.X, Main.I.PosBizon.Y, font, Color.White);
                                         }
                                         break;
                                     case 235: //Elite Berettas
@@ -260,7 +264,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosBerettas = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosBerettas != pos02)
-                                                DrawText("Berettas", Main.I.PosBerettas.X, Main.I.PosBerettas.Y, 8, Color.White);
+                                                DrawText("Berettas", Main.I.PosBerettas.X, Main.I.PosBerettas.Y, font, Color.White);
                                         }
                                         break;
                                     case 236: //Famas
@@ -268,7 +272,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosFamas = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosFamas != pos02)
-                                                DrawText("Famas", Main.I.PosFamas.X, Main.I.PosFamas.Y, 8, Color.White);
+                                                DrawText("Famas", Main.I.PosFamas.X, Main.I.PosFamas.Y, font, Color.White);
                                         }
                                         break;
                                     case 237: //Five-Seven
@@ -276,7 +280,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosFiveSeven = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosFiveSeven != pos02)
-                                                DrawText("Five-Seven", Main.I.PosFiveSeven.X, Main.I.PosFiveSeven.Y, 8, Color.White);
+                                                DrawText("Five-Seven", Main.I.PosFiveSeven.X, Main.I.PosFiveSeven.Y, font, Color.White);
                                         }
                                         break;
                                     case 238: //G3SG1
@@ -284,7 +288,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosG3SG1 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosG3SG1 != pos02)
-                                                DrawText("G3SG1", Main.I.PosG3SG1.X, Main.I.PosG3SG1.Y, 8, Color.White);
+                                                DrawText("G3SG1", Main.I.PosG3SG1.X, Main.I.PosG3SG1.Y, font, Color.White);
                                         }
                                         break;
                                     case 240: //GalilAR
@@ -292,7 +296,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosGalilAR = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosGalilAR != pos02)
-                                                DrawText("GalilAR", Main.I.PosGalilAR.X, Main.I.PosGalilAR.Y, 8, Color.White);
+                                                DrawText("GalilAR", Main.I.PosGalilAR.X, Main.I.PosGalilAR.Y, font, Color.White);
                                         }
                                         break;
                                     case 241: //Glock
@@ -300,7 +304,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosGlock = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosGlock != pos02)
-                                                DrawText("Glock-18", Main.I.PosGlock.X, Main.I.PosGlock.Y, 8, Color.White);
+                                                DrawText("Glock-18", Main.I.PosGlock.X, Main.I.PosGlock.Y, font, Color.White);
                                         }
                                         break;
                                     case 242: //P2000
@@ -308,7 +312,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosP2000 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosP2000 != pos02)
-                                                DrawText("P2000", Main.I.PosP2000.X, Main.I.PosP2000.Y, 8, Color.White);
+                                                DrawText("P2000", Main.I.PosP2000.X, Main.I.PosP2000.Y, font, Color.White);
                                         }
                                         break;
                                     case 243: //M249
@@ -316,7 +320,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosM249 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosM249 != pos02)
-                                                DrawText("M249", Main.I.PosM249.X, Main.I.PosM249.Y, 8, Color.White);
+                                                DrawText("M249", Main.I.PosM249.X, Main.I.PosM249.Y, font, Color.White);
                                         }
                                         break;
                                     case 246: //Mac10
@@ -324,7 +328,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosMac10 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosMac10 != pos02)
-                                                DrawText("Mac10", Main.I.PosMac10.X, Main.I.PosMac10.Y, 8, Color.White);
+                                                DrawText("Mac10", Main.I.PosMac10.X, Main.I.PosMac10.Y, font, Color.White);
                                         }
                                         break;
                                     case 247: //Mag-7
@@ -332,7 +336,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosMag7 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosMag7 != pos02)
-                                                DrawText("Mag-7", Main.I.PosMag7.X, Main.I.PosMag7.Y, 8, Color.White);
+                                                DrawText("Mag-7", Main.I.PosMag7.X, Main.I.PosMag7.Y, font, Color.White);
                                         }
                                         break;
                                     case 249: //MP5
@@ -340,7 +344,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosMP5 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosMP5 != pos02)
-                                                DrawText("MP5", Main.I.PosMP5.X, Main.I.PosMP5.Y, 8, Color.White);
+                                                DrawText("MP5", Main.I.PosMP5.X, Main.I.PosMP5.Y, font, Color.White);
                                         }
                                         break;
                                     case 250: //MP7
@@ -348,7 +352,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosMP7 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosMP7 != pos02)
-                                                DrawText("MP7", Main.I.PosMP7.X, Main.I.PosMP7.Y, 8, Color.White);
+                                                DrawText("MP7", Main.I.PosMP7.X, Main.I.PosMP7.Y, font, Color.White);
                                         }
                                         break;
                                     case 248: //MP9
@@ -356,7 +360,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosMP9 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosMP9 != pos02)
-                                                DrawText("MP9", Main.I.PosMP9.X, Main.I.PosMP9.Y, 8, Color.White);
+                                                DrawText("MP9", Main.I.PosMP9.X, Main.I.PosMP9.Y, font, Color.White);
                                         }
                                         break;
                                     case 251: //Negev
@@ -364,7 +368,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosNegev = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosNegev != pos02)
-                                                DrawText("Negev", Main.I.PosNegev.X, Main.I.PosNegev.Y, 8, Color.White);
+                                                DrawText("Negev", Main.I.PosNegev.X, Main.I.PosNegev.Y, font, Color.White);
                                         }
                                         break;
                                     case 252: //Nova
@@ -372,7 +376,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosNova = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosNova != pos02)
-                                                DrawText("Nova", Main.I.PosNova.X, Main.I.PosNova.Y, 8, Color.White);
+                                                DrawText("Nova", Main.I.PosNova.X, Main.I.PosNova.Y, font, Color.White);
                                         }
                                         break;
                                     case 254: //CZ75
@@ -380,7 +384,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosCZ75 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosCZ75 != pos02)
-                                                DrawText("CZ75", Main.I.PosCZ75.X, Main.I.PosCZ75.Y, 8, Color.White);
+                                                DrawText("CZ75", Main.I.PosCZ75.X, Main.I.PosCZ75.Y, font, Color.White);
                                         }
                                         break;
                                     case 255: //P90
@@ -388,7 +392,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosP90 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosP90 != pos02)
-                                                DrawText("P90", Main.I.PosP90.X, Main.I.PosP90.Y, 8, Color.White);
+                                                DrawText("P90", Main.I.PosP90.X, Main.I.PosP90.Y, font, Color.White);
                                         }
                                         break;
                                     case 256: //Sawed-Off
@@ -396,7 +400,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosSawedOff = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosSawedOff != pos02)
-                                                DrawText("Sawed-Off", Main.I.PosSawedOff.X, Main.I.PosSawedOff.Y, 8, Color.White);
+                                                DrawText("Sawed-Off", Main.I.PosSawedOff.X, Main.I.PosSawedOff.Y, font, Color.White);
                                         }
                                         break;
                                     case 257: //Scar20
@@ -404,7 +408,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosScar20 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosScar20 != pos02)
-                                                DrawText("Scar20", Main.I.PosScar20.X, Main.I.PosScar20.Y, 8, Color.White);
+                                                DrawText("Scar20", Main.I.PosScar20.X, Main.I.PosScar20.Y, font, Color.White);
                                         }
                                         break;
                                     case 258: //Scout
@@ -412,7 +416,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosScout = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosScout != pos02)
-                                                DrawText("Scout", Main.I.PosScout.X, Main.I.PosScout.Y, 8, Color.White);
+                                                DrawText("Scout", Main.I.PosScout.X, Main.I.PosScout.Y, font, Color.White);
                                         }
                                         break;
                                     case 262: //SSG08
@@ -420,7 +424,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosSSG08 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosSSG08 != pos02)
-                                                DrawText("SSG08", Main.I.PosSSG08.X, Main.I.PosSSG08.Y, 8, Color.White);
+                                                DrawText("SSG08", Main.I.PosSSG08.X, Main.I.PosSSG08.Y, font, Color.White);
                                         }
                                         break;
                                     case 263: //Taser
@@ -428,7 +432,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosTaser = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosTaser != pos02)
-                                                DrawText("Taser", Main.I.PosTaser.X, Main.I.PosTaser.Y, 8, Color.White);
+                                                DrawText("Taser", Main.I.PosTaser.X, Main.I.PosTaser.Y, font, Color.White);
                                         }
                                         break;
                                     case 264: //Tec-9
@@ -436,7 +440,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosTec9 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosTec9 != pos02)
-                                                DrawText("Tec-9", Main.I.PosTec9.X, Main.I.PosTec9.Y, 8, Color.White);
+                                                DrawText("Tec-9", Main.I.PosTec9.X, Main.I.PosTec9.Y, font, Color.White);
                                         }
                                         break;
                                     case 266: //UMP45
@@ -444,7 +448,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosUMP45 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosUMP45 != pos02)
-                                                DrawText("UMP45", Main.I.PosUMP45.X, Main.I.PosUMP45.Y, 8, Color.White);
+                                                DrawText("UMP45", Main.I.PosUMP45.X, Main.I.PosUMP45.Y, font, Color.White);
                                         }
                                         break;
                                     case 267: //USP-S
@@ -452,7 +456,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosUSP = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosUSP != pos02)
-                                                DrawText("Deagle", Main.I.PosUSP.X, Main.I.PosUSP.Y, 8, Color.White);
+                                                DrawText("Deagle", Main.I.PosUSP.X, Main.I.PosUSP.Y, font, Color.White);
                                         }
                                         break;
                                     case 268: //XM1014
@@ -460,7 +464,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosXM1014 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosXM1014 != pos02)
-                                                DrawText("XM1014", Main.I.PosXM1014.X, Main.I.PosXM1014.Y, 8, Color.White);
+                                                DrawText("XM1014", Main.I.PosXM1014.X, Main.I.PosXM1014.Y, font, Color.White);
                                         }
                                         break;
                                     //////////////////////// Grenades /////////////////////////////////////////////
@@ -519,7 +523,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosC4 = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosC4 != pos02)
-                                                DrawText("C4", Main.I.PosC4.X, Main.I.PosC4.Y, 8, Color.White);
+                                                DrawText("C4", Main.I.PosC4.X, Main.I.PosC4.Y, font + 3, Color.White);
                                         }
                                         break;
                                     case 126: //Planted C4
@@ -532,7 +536,7 @@ namespace ZBase.Cheats
                                         {
                                             Main.I.PosChicken = Tools.WorldToScreen(Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecOrigin));
                                             if (Main.I.PosChicken != pos02)
-                                                DrawText("Chicken", Main.I.PosChicken.X, Main.I.PosChicken.Y, 8, Color.White);
+                                                DrawText("Chicken", Main.I.PosChicken.X, Main.I.PosChicken.Y, font, Color.White);
                                         }
                                         break;
                                 }
@@ -541,8 +545,9 @@ namespace ZBase.Cheats
                         }
                         #endregion WeaponESP
                     }
-                    foreach (Entity Player in G.EntityList)
+                    for (int i = 1; i <= 32; i++)
                     {
+                        Entity Player = new Entity(Tools.GetEntityBase(i));
                         if (Player.EntityBase != G.Engine.LocalPlayer.EntityBase)
                         {
                             Vector2 Player2DPos = Tools.WorldToScreen(Player.Position);
@@ -550,7 +555,7 @@ namespace ZBase.Cheats
                             Vector2 Player2DNeckPos = Tools.WorldToScreen(Player.GetBonePosition(7));
                             if (!Tools.IsNullVector2(Player2DPos) && !Tools.IsNullVector2(Player2DHeadPos) && Player.Valid)
                             {
-                                ///////////////////////////////////////////////
+                                #region Obliczenia
                                 float Radius = (Player2DHeadPos.Y - Player2DNeckPos.Y) / 2;
                                 float FromHeadToNeck = (Player2DNeckPos.Y - Player2DHeadPos.Y);
                                 Player2DHeadPos.Y -= FromHeadToNeck * 2.3f;
@@ -569,6 +574,7 @@ namespace ZBase.Cheats
                                 Color HealthColor = Tools.HealthGradient(Tools.HealthToPercent((int)Health));
                                 float xLeft = Player2DPos.X - (BoxWidth / 2) - 8;
                                 float xRight = Player2DPos.X + (BoxWidth / 2) + 2;
+                                float xHead = Player2DHeadPos.X;
                                 float yHead = Player2DHeadPos.Y;
                                 float yFoot = Player2DPos.Y;
                                 float yNeck = Player2DNeckPos.Y;
@@ -582,19 +588,18 @@ namespace ZBase.Cheats
                                 string EntityWeapon = Player.WeaponName;
                                 float Dis = (Player.Distance / 100);
                                 string Distance = string.Format("{0:0.##}", Dis); //Robi stringa do 2 miejsc po przecinku
-                                Main.S.WielkoscFont = (Player2DHeadPos.Y - Player2DNeckPos.Y) / 5;
-                                float fon = (8 * h) /10;
-                                string font = string.Format("{0:0}", fon);
-                                int fonth = 6;
+                                int fonth = 13;
                                 //wierd ass calculations for box height, dont judge
+                                #endregion
                                 Color drawcolor;
                                 if (Player.IsTeammate)
                                     drawcolor = Main.S.ESPColorTeammates;
                                 else
                                     drawcolor = Main.S.ESPColorEnemies;
                                 ////////////////////////////////////////////////////////////////
-                                if(Main.S.DrawAimspotEnabled)
+                                if (Main.S.DrawAimspotEnabled)
                                 {
+                                    #region Aimspot
                                     if (G.Engine.LocalPlayer.IsRifle(TypeOfGun))
                                     {
                                         if (!Player.IsTeammate)
@@ -649,6 +654,7 @@ namespace ZBase.Cheats
                                             DrawText("A", BoneAimspot.X, BoneAimspot.Y, 8, Color.Blue);
                                         }
                                     }
+                                    #endregion Aimspot
                                 }
                                 if (Main.S.DrawBoneIDs)
                                     DrawBoneIDs(Player);
@@ -864,17 +870,18 @@ namespace ZBase.Cheats
                                 ////ESP BAR health
                                 if (Main.S.DrawHealthBar)
                                 {
-                                    DrawBox(xLeft, yFoot, w, -h, Color.Black, 1);
+                                    DrawBox(xLeft, yFoot, w, -h, Color.Black, 2);
                                     DrawFilledBox(xLeft + 1, yFoot + 1, 3, -HealthHeight + 1, HealthColor);
                                 }
                                 if (Main.S.DrawArmorBar)
                                 {
-                                    DrawBox(xRight, yFoot, w, -h, Color.Black, 1);
+                                    DrawBox(xRight, yFoot, w, -h, Color.Black, 2);
                                     DrawFilledBox(xRight + 1, yFoot + 1, 3, -ArmorHeight + 1, Color.Blue);
                                 }
                                 /////ESP Boxy
                                 if (Main.S.ESPBoxEnabled)
                                 {
+                                    #region ESPBox
                                     if (Player.IsTeammate && Main.S.BoxTeammates)
                                     {
                                         if (Main.S.TypeOfESPBOX == 0)
@@ -921,6 +928,7 @@ namespace ZBase.Cheats
                                             DrawRoundedBox(Player2DPos.X - (BoxWidth / 2), Player2DHeadPos.Y, BoxWidth, BoxHeight, 30, drawcolor);
                                         }
                                     }
+                                    #endregion ESPBox
                                 }
                                 ////SnapLine
                                 if (Main.S.DrawSnaplines)
@@ -978,19 +986,27 @@ namespace ZBase.Cheats
                                 ////////// Stringi z danymi
                                 if (Main.S.DrawHealthString && Tools.InScreenPos(xx, hy))
                                 {
-                                    DrawText("Health: " + Player.Health.ToString(), xx, hy, fonth, drawcolor);
+                                    DrawText(Player.Health.ToString(), xLeft - 3, wy, fonth, Color.White);
                                 }
                                 if (Main.S.DrawWeaponString && Tools.InScreenPos(xp, wy))
                                 {
-                                    DrawText(Player.WeaponName, xp, wy, fonth, drawcolor);
+                                    DrawText(Player.WeaponName, xp, wy, fonth, Color.White);
                                 }
                                 if (Main.S.DrawDistanceString && Tools.InScreenPos(xx, by))
                                 {
-                                    DrawText(Distance + "m", xx, by, fonth, drawcolor);
+                                    DrawText(Distance + "m", xx, by, fonth, Color.White);
                                 }
                                 if (Main.S.DrawScopedEnabled && Tools.InScreenPos(xp, by) && Player.Scoped)
                                 {
-                                    DrawText("Scoped", xp, by, fonth, drawcolor);
+                                    DrawText("Scoped", xp, by, fonth, Color.White);
+                                }
+                                if (Main.S.ShowRanksEnabled)
+                                {
+                                    DrawText(Player.GetRank(i + 1).ToString(), xHead, hy, fonth, Color.White);
+                                }
+                                if (Main.S.ShowWinsEnabled)
+                                {
+                                    DrawText(Player.GetWins(i + 1).ToString(), xLeft, hy, fonth, Color.White);
                                 }
                             }
                         }
@@ -1048,7 +1064,7 @@ namespace ZBase.Cheats
                 if (Tools.InScreenPos(LeftElbow.X, LeftElbow.Y) && Tools.InScreenPos(LeftHand.X, LeftHand.Y))
                     DrawLine(LeftElbow.X, LeftElbow.Y, LeftHand.X, LeftHand.Y, Color.White, 2);
                 if (Tools.InScreenPos(RightElbow.X, RightElbow.Y) && Tools.InScreenPos(RightHand.X, RightHand.Y))
-                    DrawLine(RightElbow.X, RightElbow.Y, RightHand.X, RightHand.Y, Color.White, 2);
+                     DrawLine(RightElbow.X, RightElbow.Y, RightHand.X, RightHand.Y, Color.White, 2);
                 if (Tools.InScreenPos(Chest.X, Chest.Y) && Tools.InScreenPos(Head.X, Head.Y))
                     DrawLine(Chest.X, Chest.Y, Head.X, Head.Y, Color.White, 2);
                 if (Tools.InScreenPos(Head.X, Head.Y))
@@ -1063,7 +1079,7 @@ namespace ZBase.Cheats
             {
                 if (Tools.InScreenPos(x, y))
                 {
-                    gfx.DrawText(_graphics.CreateFont("Arial", 16, bold, italic), GetBrushColor(color), x, y, text);
+                    gfx.DrawText(_graphics.CreateFont("Impact", size, bold, italic), GetBrushColor(color), x, y, text);
                 }
             }
 
@@ -1071,7 +1087,7 @@ namespace ZBase.Cheats
             {
                 if (Tools.InScreenPos(x, y))
                 {
-                    gfx.DrawTextWithBackground(_graphics.CreateFont("Arial", 16, bold, italic), GetBrushColor(color), GetBrushColor(backcolor), x, y, text);
+                    gfx.DrawTextWithBackground(_graphics.CreateFont("Impact", size, bold, italic), GetBrushColor(color), GetBrushColor(backcolor), x, y, text);
                 }
             }
 

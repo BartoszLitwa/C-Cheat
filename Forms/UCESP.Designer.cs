@@ -61,6 +61,8 @@
             this.WeaponESPCheck = new System.Windows.Forms.CheckBox();
             this.SnapLinesPoscomboBox = new System.Windows.Forms.ComboBox();
             this.DebugCheck = new System.Windows.Forms.CheckBox();
+            this.ShowRanksCheck = new System.Windows.Forms.CheckBox();
+            this.ShowWinsCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.SnapLineThicTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -459,7 +461,7 @@
             // DebugCheck
             // 
             this.DebugCheck.AutoSize = true;
-            this.DebugCheck.Location = new System.Drawing.Point(255, 146);
+            this.DebugCheck.Location = new System.Drawing.Point(255, 253);
             this.DebugCheck.Name = "DebugCheck";
             this.DebugCheck.Size = new System.Drawing.Size(58, 17);
             this.DebugCheck.TabIndex = 150;
@@ -467,10 +469,36 @@
             this.DebugCheck.UseVisualStyleBackColor = true;
             this.DebugCheck.CheckedChanged += new System.EventHandler(this.DebugCheck_CheckedChanged);
             // 
+            // ShowRanksCheck
+            // 
+            this.ShowRanksCheck.AutoSize = true;
+            this.ShowRanksCheck.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.ShowRanksCheck.Location = new System.Drawing.Point(254, 124);
+            this.ShowRanksCheck.Name = "ShowRanksCheck";
+            this.ShowRanksCheck.Size = new System.Drawing.Size(87, 17);
+            this.ShowRanksCheck.TabIndex = 151;
+            this.ShowRanksCheck.Text = "Show Ranks";
+            this.ShowRanksCheck.UseVisualStyleBackColor = true;
+            this.ShowRanksCheck.CheckedChanged += new System.EventHandler(this.ShowRanksCheck_CheckedChanged);
+            // 
+            // ShowWinsCheck
+            // 
+            this.ShowWinsCheck.AutoSize = true;
+            this.ShowWinsCheck.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.ShowWinsCheck.Location = new System.Drawing.Point(254, 147);
+            this.ShowWinsCheck.Name = "ShowWinsCheck";
+            this.ShowWinsCheck.Size = new System.Drawing.Size(80, 17);
+            this.ShowWinsCheck.TabIndex = 152;
+            this.ShowWinsCheck.Text = "Show Wins";
+            this.ShowWinsCheck.UseVisualStyleBackColor = true;
+            this.ShowWinsCheck.CheckedChanged += new System.EventHandler(this.ShowWinsCheck_CheckedChanged);
+            // 
             // UCESP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ShowWinsCheck);
+            this.Controls.Add(this.ShowRanksCheck);
             this.Controls.Add(this.DebugCheck);
             this.Controls.Add(this.SnapLinesPoscomboBox);
             this.Controls.Add(this.WeaponESPCheck);
@@ -547,5 +575,7 @@
         private System.Windows.Forms.CheckBox WeaponESPCheck;
         private System.Windows.Forms.ComboBox SnapLinesPoscomboBox;
         private System.Windows.Forms.CheckBox DebugCheck;
+        private System.Windows.Forms.CheckBox ShowRanksCheck;
+        private System.Windows.Forms.CheckBox ShowWinsCheck;
     }
 }

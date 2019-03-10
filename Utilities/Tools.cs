@@ -109,14 +109,6 @@ namespace ZBase.Utilities
             {
                 vec.Y += 360.0f;
             }
-            if (vec.X > 89.0f)
-            {
-                vec.X -= 178.0f;
-            }
-            if (vec.X < -89.0f)
-            {
-                vec.X += 178.0f;
-            }
             return vec;
         }
 
@@ -124,12 +116,12 @@ namespace ZBase.Utilities
         {
                 if (angle.Y > 180.0f)
                     angle.Y = 180.0f;
-                if (angle.Y < -180.0f)
+                else if (angle.Y < -180.0f)
                     angle.Y = -180.0f;
 
                 if (angle.X > 89.0f)
                     angle.X = 89.0f;
-                if (angle.X < -89.0f)
+                else if (angle.X < -89.0f)
                     angle.X = -89.0f;
             return angle;
         }
@@ -137,6 +129,11 @@ namespace ZBase.Utilities
         public static int GetEntityBase(int PlayerLoopID)
         {
             return Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + (PlayerLoopID * 0x10));
+        }
+
+        public static int GetPlayerIndex(int PlayerLoopID)
+        {
+            return PlayerLoopID;
         }
 
         public static int GetEntityBaseFromCrosshair(int CrosshairID)

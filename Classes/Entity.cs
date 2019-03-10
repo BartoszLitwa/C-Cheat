@@ -18,6 +18,14 @@ namespace ZBase.Classes
             EntityBase = Base;
         }
 
+        public int Index
+        {
+            get
+            {
+                return Memory.ReadMemory<int>((EntityBase / 0x10) - (int)Memory.Client - Main.O.signatures.dwEntityList);
+            }
+        }
+
         public int Health
         {
             get
@@ -250,22 +258,16 @@ namespace ZBase.Classes
             }
         }
 
-        public int GetRank
+        public Ranks GetRank(int PlayerIndex)
         {
-            get
-            {
-                IntPtr Playerresource = Memory.ReadMemory<IntPtr>((int)Memory.Client + Main.O.signatures.dwPlayerResource);
-                return (int)Memory.ReadMemory<IntPtr>((int)Playerresource + Main.O.netvars.m_iCompetitiveRanking + (int)EntityBase * 10);
-            }
+                int PlayerResource = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwPlayerResource);
+                return (Ranks)Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveRanking + PlayerIndex * 4);
         }
 
-        public int GetWins
+        public int GetWins(int PlayerIndex)
         {
-            get
-            {
-                int Playerresource = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwPlayerResource);
-                return Memory.ReadMemory<int>(Playerresource + Main.O.netvars.m_iCompetitiveWins + (int)EntityBase * 16);
-            }
+                int PlayerResource = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwPlayerResource);
+                return Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveWins + PlayerIndex * 4);
         }
 
         public WeaponID WeaponID
