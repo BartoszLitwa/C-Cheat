@@ -124,6 +124,10 @@ namespace ZBase.Forms
                 ShowRanksCheck.CheckState = CheckState.Checked;
             if (!Main.S.ShowRanksEnabled)
                 ShowRanksCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.ShowNamesEnabled)
+                ShowNamesCheck.CheckState = CheckState.Checked;
+            if (!Main.S.ShowNamesEnabled)
+                ShowNamesCheck.CheckState = CheckState.Unchecked;
             //////////////////////////////////////////////////////////////
             if (Main.S.SnaplinesValue > 0 && Main.S.SnaplinesValue < 16)
                 SnapLineThicTrackBar.Value = Main.S.SnaplinesValue;
@@ -622,6 +626,14 @@ namespace ZBase.Forms
                 Main.S.ShowWinsEnabled = true;
             else
                 Main.S.ShowWinsEnabled = false;
+        }
+
+        private void ShowNamesCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ShowNamesCheck.Checked)
+                Main.S.ShowNamesEnabled = true;
+            else
+                Main.S.ShowNamesEnabled = false;
         }
     }
 }

@@ -109,6 +109,14 @@ namespace ZBase.Utilities
             {
                 vec.Y += 360.0f;
             }
+            if (vec.X > 89.0f)
+            {
+                vec.X -= 178.0f;
+            }
+            if (vec.X < -89.0f)
+            {
+                vec.X += 178;
+            }
             return vec;
         }
 
@@ -116,12 +124,12 @@ namespace ZBase.Utilities
         {
                 if (angle.Y > 180.0f)
                     angle.Y = 180.0f;
-                else if (angle.Y < -180.0f)
+                if (angle.Y < -180.0f)
                     angle.Y = -180.0f;
 
                 if (angle.X > 89.0f)
                     angle.X = 89.0f;
-                else if (angle.X < -89.0f)
+                if (angle.X < -89.0f)
                     angle.X = -89.0f;
             return angle;
         }

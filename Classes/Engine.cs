@@ -26,6 +26,14 @@ namespace ZBase.Classes
             }
         }
 
+        public GameState GameState
+        {
+            get
+            {
+                return (GameState)Memory.ReadMemory<int>(Memory.ReadMemory<int>((int)Memory.Engine + Main.O.signatures.dwClientState) + Main.O.signatures.dwClientState_State);
+            }
+        }
+
         public int FixMovement
         {
             get

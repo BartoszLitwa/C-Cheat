@@ -63,6 +63,7 @@
             this.DebugCheck = new System.Windows.Forms.CheckBox();
             this.ShowRanksCheck = new System.Windows.Forms.CheckBox();
             this.ShowWinsCheck = new System.Windows.Forms.CheckBox();
+            this.ShowNamesCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.SnapLineThicTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -256,7 +257,7 @@
             // 
             this.ChamsCheck.AutoSize = true;
             this.ChamsCheck.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ChamsCheck.Location = new System.Drawing.Point(3, 254);
+            this.ChamsCheck.Location = new System.Drawing.Point(1, 254);
             this.ChamsCheck.Name = "ChamsCheck";
             this.ChamsCheck.Size = new System.Drawing.Size(58, 17);
             this.ChamsCheck.TabIndex = 126;
@@ -267,7 +268,7 @@
             // RadarHackCheck
             // 
             this.RadarHackCheck.AutoSize = true;
-            this.RadarHackCheck.Location = new System.Drawing.Point(3, 231);
+            this.RadarHackCheck.Location = new System.Drawing.Point(1, 233);
             this.RadarHackCheck.Name = "RadarHackCheck";
             this.RadarHackCheck.Size = new System.Drawing.Size(81, 17);
             this.RadarHackCheck.TabIndex = 125;
@@ -278,7 +279,7 @@
             // GlowCheck
             // 
             this.GlowCheck.AutoSize = true;
-            this.GlowCheck.Location = new System.Drawing.Point(3, 208);
+            this.GlowCheck.Location = new System.Drawing.Point(1, 210);
             this.GlowCheck.Name = "GlowCheck";
             this.GlowCheck.Size = new System.Drawing.Size(50, 17);
             this.GlowCheck.TabIndex = 124;
@@ -431,7 +432,7 @@
             // WeaponESPCheck
             // 
             this.WeaponESPCheck.AutoSize = true;
-            this.WeaponESPCheck.Location = new System.Drawing.Point(255, 170);
+            this.WeaponESPCheck.Location = new System.Drawing.Point(1, 193);
             this.WeaponESPCheck.Name = "WeaponESPCheck";
             this.WeaponESPCheck.Size = new System.Drawing.Size(88, 17);
             this.WeaponESPCheck.TabIndex = 148;
@@ -493,10 +494,23 @@
             this.ShowWinsCheck.UseVisualStyleBackColor = true;
             this.ShowWinsCheck.CheckedChanged += new System.EventHandler(this.ShowWinsCheck_CheckedChanged);
             // 
+            // ShowNamesCheck
+            // 
+            this.ShowNamesCheck.AutoSize = true;
+            this.ShowNamesCheck.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.ShowNamesCheck.Location = new System.Drawing.Point(254, 170);
+            this.ShowNamesCheck.Name = "ShowNamesCheck";
+            this.ShowNamesCheck.Size = new System.Drawing.Size(89, 17);
+            this.ShowNamesCheck.TabIndex = 153;
+            this.ShowNamesCheck.Text = "Show Names";
+            this.ShowNamesCheck.UseVisualStyleBackColor = true;
+            this.ShowNamesCheck.CheckedChanged += new System.EventHandler(this.ShowNamesCheck_CheckedChanged);
+            // 
             // UCESP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ShowNamesCheck);
             this.Controls.Add(this.ShowWinsCheck);
             this.Controls.Add(this.ShowRanksCheck);
             this.Controls.Add(this.DebugCheck);
@@ -577,5 +591,6 @@
         private System.Windows.Forms.CheckBox DebugCheck;
         private System.Windows.Forms.CheckBox ShowRanksCheck;
         private System.Windows.Forms.CheckBox ShowWinsCheck;
+        private System.Windows.Forms.CheckBox ShowNamesCheck;
     }
 }

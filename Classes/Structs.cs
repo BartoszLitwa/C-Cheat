@@ -66,6 +66,18 @@ namespace ZBase.Classes
         public int left, top, right, bottom;
     }
 
+    public enum GameState
+    {
+        STATE_NONE = 0,
+        CHALLENGE = 1,
+        CONNECTED = 2,
+        NEW = 3,
+        PRESPAWN = 4,
+        SPAWN = 5,
+        FULL_CONNECTED = 6,
+        CHANGELEVEL = 7
+    }
+
     public enum Ranks
     {
         Unranked = 0,

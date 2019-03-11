@@ -108,5 +108,17 @@ namespace ZBase.Utilities
 
             return arr;
         }
+
+        public static string ReadString(int address, int bufferSize, Encoding enc)
+        {
+            var buffer = new byte[bufferSize];
+            var lpNumberOfBytesRead = 64;
+            ReadProcessMemory((int)ProcessHandle, address, buffer, (int)bufferSize, ref lpNumberOfBytesRead);
+            var text = enc.GetString(buffer);
+            if (text.Contains('\0'))
+                text = text.Substring(0, text.IndexOf('\0'));
+
+            return text;
+        }
     }
 }

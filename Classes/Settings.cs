@@ -40,6 +40,7 @@ namespace ZBase.Classes
         public bool DebugEnabled { get; set; }
         public bool ShowRanksEnabled { get; set; }
         public bool ShowWinsEnabled { get; set; }
+        public bool ShowNamesEnabled { get; set; }
         ///////////////////////////////////////////////////////
         public Color ESPColorEnemies { get; set; }
         public Color ESPColorTeammates { get; set; }

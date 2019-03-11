@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using System.Text;
 using GameOverlay.Drawing;
 using GameOverlay.Windows;
 using ZBase.Classes;
@@ -29,7 +30,7 @@ namespace ZBase.Cheats
                 PerPrimitiveAntiAliasing = true,
                 TextAntiAliasing = true,
                 UseMultiThreadedFactories = false,
-                VSync = true,
+                VSync = false,
                 Width = _window.Width,
                 WindowHandle = IntPtr.Zero
             };
@@ -81,20 +82,19 @@ namespace ZBase.Cheats
                 gfx.ClearScene();
                 // start drawings here
                 Color CrosshairColor = Color.Green;
-                int PlayerHealth = 100;
                 int TypeOfGun = (int)G.Engine.LocalPlayer.WeaponID;
                 DrawTextWithBackground("CRNYY's Cheat", 10, 0, 16, Color.Maroon, Color.Black);
-                if (Main.S.ESP)
+                if (Main.S.ESP && G.Engine.GameState == GameState.FULL_CONNECTED)
                 {
                     if (Main.S.DebugEnabled)
                     {
-                        for(int i = 0;i<10;i++)
+                        for(int i = 1;i<10;i++)
                         {
                             int PlayerResource = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwPlayerResource);
-                            Ranks Ranks = (Ranks)Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveRanking + i * 4);
-                            int wins = Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveWins + i * 4);
-                            DrawText(wins.ToString(), Main.MidScreen.X, i * 15, 10, Color.White);
-                            DrawText(Ranks.ToString(), Main.MidScreen.X + 20, i * 15, 10, Color.White);
+                            Ranks Ranks = (Ranks)Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveRanking + (i + 1) * 4);
+                            int wins = Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveWins + (i + 1) * 4);
+                            DrawText(wins.ToString(), Main.MidScreen.X * 2 - 160, i * 15, 13, Color.White);
+                            DrawText(Ranks.ToString(), Main.MidScreen.X * 2 - 160 + 20, i * 15, 13, Color.White);
                         }
                     }
                     //////////
@@ -575,6 +575,7 @@ namespace ZBase.Cheats
                                 float xLeft = Player2DPos.X - (BoxWidth / 2) - 8;
                                 float xRight = Player2DPos.X + (BoxWidth / 2) + 2;
                                 float xHead = Player2DHeadPos.X;
+                                float xMid = Player2DHeadPos.X - (BoxWidth / 10);
                                 float yHead = Player2DHeadPos.Y;
                                 float yFoot = Player2DPos.Y;
                                 float yNeck = Player2DNeckPos.Y;
@@ -583,7 +584,7 @@ namespace ZBase.Cheats
                                 float HealthHeight = (Health * h) / 100;
                                 int Armor = Player.Armor;
                                 float ArmorHeight = (Armor * h) / 100;
-                                PlayerHealth = Player.Health;
+                                int PlayerHealth = Player.Health;
                                 string EntityHealth = Player.Health.ToString();
                                 string EntityWeapon = Player.WeaponName;
                                 float Dis = (Player.Distance / 100);
@@ -1002,11 +1003,18 @@ namespace ZBase.Cheats
                                 }
                                 if (Main.S.ShowRanksEnabled)
                                 {
-                                    DrawText(Player.GetRank(i + 1).ToString(), xHead, hy, fonth, Color.White);
+                                    DrawText(Player.GetRank(i + 1).ToString(), xRight, hy, fonth, Color.White);
                                 }
                                 if (Main.S.ShowWinsEnabled)
                                 {
                                     DrawText(Player.GetWins(i + 1).ToString(), xLeft, hy, fonth, Color.White);
+                                }
+                                if (Main.S.ShowNamesEnabled)
+                                {
+                                    var radarbase = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwRadarBase);
+                                    var CHudRadar = Memory.ReadMemory<int>(radarbase + 0x74);
+                                    var Name = Memory.ReadString(CHudRadar + 0x2E8 + 0x168 * i,64,Encoding.UTF8);
+                                    DrawText(Name, xMid, hy, fonth, Color.White);
                                 }
                             }
                         }
@@ -1022,9 +1030,8 @@ namespace ZBase.Cheats
                 for (int i = 0; i < 100; i++)
                 {
                     Vector2 Bonei = Tools.WorldToScreen(Player.GetBonePosition(i));
-                    string ii = i.ToString();
                     if (Tools.InScreenPos(Bonei.X, Bonei.Y))
-                        DrawText(ii, Bonei.X, Bonei.Y, 9, Color.White);
+                        DrawText(i.ToString(), Bonei.X, Bonei.Y, 9, Color.White);
                 }
             }
             void DrawBoneESP(Entity Player, int LFoot, int RFoot, int LKnee, int RKnee, int Pelviss, int Chestt, int LArm, int RArm, int LElbow, int RElbow, int LHand, int RHand, int Headd)
@@ -1070,6 +1077,7 @@ namespace ZBase.Cheats
                 if (Tools.InScreenPos(Head.X, Head.Y))
                     DrawCircle(Head.X, Head.Y, Headradius, Color.White);
             }
+
             void DrawBoxEdge(float x, float y, float width, float height, Color color, float thiccness = 2.0f)
             {
                 gfx.DrawRectangleEdges(GetBrushColor(color), x, y, x + width, y + height, thiccness);
