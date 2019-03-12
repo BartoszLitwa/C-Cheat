@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Numerics;
 using System.Text;
 using System.Threading;
@@ -23,6 +24,7 @@ namespace ZBase.Cheats
         public static Vector2 oldPunch;
         public static void Run()
         {
+            int[] stats = new int[2];
             while (true)
             {
                 if (G.Engine.GameState == GameState.FULL_CONNECTED)
@@ -66,12 +68,36 @@ namespace ZBase.Cheats
                         //    }
                         //}
                     }
+                    if (Main.S.HitmarkerEnabled)
+                    {
+                        int hits = 0;
+                        var crosshairEntity = Tools.GetEntityBaseFromCrosshair(G.Engine.LocalPlayer.CrosshairID);
+                        int health = Memory.ReadMemory<int>(crosshairEntity + Main.O.netvars.m_iHealth);
+                        if (health > 0 && health < 1337)
+                        {
+                            stats[0] = crosshairEntity;
+                            stats[1] = health;
+                            while(Tools.GetEntityBaseFromCrosshair(G.Engine.LocalPlayer.CrosshairID) == stats[0] || Memory.ReadMemory<int>(crosshairEntity + Main.O.netvars.m_iHealth) > 0)
+                            {
+                                if (Memory.ReadMemory<int>(Tools.GetEntityBaseFromCrosshair(G.Engine.LocalPlayer.CrosshairID) + Main.O.netvars.m_iHealth) > 0 && Tools.GetEntityBaseFromCrosshair(G.Engine.LocalPlayer.CrosshairID) != stats[0])
+                                    break;
+
+                                health = Memory.ReadMemory<int>(crosshairEntity + Main.O.netvars.m_iHealth);
+                                if (health < stats[1])
+                                {
+                                    hitSound(hits);
+                                    hits += 1;
+                                    stats[1] = health;
+                                }
+
+                            }
+                            stats[0] = -1;
+                            stats[1] = -1;
+                        }
+                    }
                     if (Main.S.TriggerbotEnabled)
                     {
-                        int myteam = G.Engine.LocalPlayer.Team;
-                        var crosshairEntity = Tools.GetEntityBaseFromCrosshair(G.Engine.LocalPlayer.CrosshairID);
-                        int EntityTeam = Memory.ReadMemory<int>(crosshairEntity + Main.O.netvars.m_iTeamNum);
-                        if (EntityTeam != myteam && crosshairEntity < 64 && crosshairEntity != 0)
+                        if (Main.I.TriggerBotOn)
                         {
                             Thread.Sleep(Main.S.TriggerbotValue);
                             G.Engine.Shoot();
@@ -243,6 +269,23 @@ namespace ZBase.Cheats
                 }
                 Thread.Sleep(1);
             }
+        }
+        public static void hitSound(int hits)
+        {
+            //Needed for autorifle weapons.
+            if (hits % 3 == 0)
+                PlaySong();
+            if (hits % 4 == 1)
+                PlaySong();
+            if (hits % 4 == 2)
+                PlaySong();
+            if (hits % 4 == 3)
+                PlaySong();
+        }
+        public static void PlaySong()
+        {
+            SoundPlayer Player = new SoundPlayer("skeethitmarker.wav");
+            Player.Play();
         }
     }
 }

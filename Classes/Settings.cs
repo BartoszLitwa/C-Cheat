@@ -129,6 +129,7 @@ namespace ZBase.Classes
         public bool AutoPistolEnabled { get; set; }
         public bool DrawScopedEnabled { get; set; }
         public bool NightMode { get; set; }
+        public bool HitmarkerEnabled { get; set; }
         public bool AntiAimEnabled { get; set; }
         public int AimbotTypeofGun { get; set; }
         public bool KnifeBotEnabled { get; set; }

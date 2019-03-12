@@ -14,6 +14,7 @@ namespace ZBase.Classes
         public int SelectedKnife;
         public string ChoosenSettings;
         public bool SetColor;
+        public bool TriggerBotOn;
         public Color ColorRGB;
         public Vector2 PosAK47;
         public Vector2 PosDeagle;

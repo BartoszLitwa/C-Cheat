@@ -101,21 +101,21 @@ namespace ZBase.Utilities
 
         public static Vector2 NormalizeAngles(Vector2 vec)
         {
-            if (vec.Y > 180.0f)
+            if (vec.Y >= 180.0f)
             {
                 vec.Y -= 360.0f;
             }
-            if (vec.Y < -180.0f)
+            if (vec.Y <= -180.0f)
             {
                 vec.Y += 360.0f;
             }
-            if (vec.X > 89.0f)
+            if (vec.X >= 180.0f)
             {
-                vec.X -= 178.0f;
+                vec.X -= 360.0f;
             }
-            if (vec.X < -89.0f)
+            if (vec.X <= -180.0f)
             {
-                vec.X += 178;
+                vec.X += 360.0f;
             }
             return vec;
         }
@@ -126,11 +126,10 @@ namespace ZBase.Utilities
                     angle.Y = 180.0f;
                 if (angle.Y < -180.0f)
                     angle.Y = -180.0f;
-
-                if (angle.X > 89.0f)
-                    angle.X = 89.0f;
-                if (angle.X < -89.0f)
-                    angle.X = -89.0f;
+            if (angle.X > 89.0f)
+                angle.X = 89.0f;
+            if (angle.X < -89.0f)
+                angle.X = -89.0f;
             return angle;
         }
 

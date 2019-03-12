@@ -95,6 +95,7 @@ namespace ZBase.Cheats
                             int wins = Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveWins + (i + 1) * 4);
                             DrawText(wins.ToString(), Main.MidScreen.X * 2 - 160, i * 15, 13, Color.White);
                             DrawText(Ranks.ToString(), Main.MidScreen.X * 2 - 160 + 20, i * 15, 13, Color.White);
+                            DrawText(G.Engine.GameState.ToString(), Main.MidScreen.X , 50, 16, Color.White);
                         }
                     }
                     //////////
@@ -124,7 +125,7 @@ namespace ZBase.Cheats
                         {
                             DrawCircle(Main.MidScreen.X, Main.MidScreen.Y, Main.S.DrawDisplayFovAimbotValueSMG, Color.White);
                         }
-                    }
+                    } //Weapon fov circle
                     if (Main.S.DrawSmartCrosshairEnabled)
                     {
                         int myteam = G.Engine.LocalPlayer.Team;
@@ -132,14 +133,17 @@ namespace ZBase.Cheats
                         int EntityTeam = Memory.ReadMemory<int>(crosshairEntity + Main.O.netvars.m_iTeamNum);
                         if (EntityTeam != myteam)
                         {
+                            Main.I.TriggerBotOn = true;
                             CrosshairColor = Color.Red;
                         }
                         if (EntityTeam == myteam)
                         {
+                            Main.I.TriggerBotOn = false;
                             CrosshairColor = Color.Blue;
                         }
                         if (EntityTeam != myteam && EntityTeam != 2 && EntityTeam != 3)
-                            CrosshairColor = Color.Green;
+                            Main.I.TriggerBotOn = false;
+                        CrosshairColor = Color.Green;
                     }
                     if (Main.S.RecoilCrosshairEnabled)
                     {

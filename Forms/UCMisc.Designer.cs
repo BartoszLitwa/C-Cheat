@@ -40,6 +40,7 @@
             this.FOVChangerCheck = new System.Windows.Forms.CheckBox();
             this.BunnyhopCheck = new System.Windows.Forms.CheckBox();
             this.AntiAimCheck = new System.Windows.Forms.CheckBox();
+            this.HitMarkerCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.AntiFlashTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -175,10 +176,22 @@
             this.AntiAimCheck.UseVisualStyleBackColor = true;
             this.AntiAimCheck.CheckedChanged += new System.EventHandler(this.AntiAimCheck_CheckedChanged);
             // 
+            // HitMarkerCheck
+            // 
+            this.HitMarkerCheck.AutoSize = true;
+            this.HitMarkerCheck.Location = new System.Drawing.Point(131, 72);
+            this.HitMarkerCheck.Name = "HitMarkerCheck";
+            this.HitMarkerCheck.Size = new System.Drawing.Size(71, 17);
+            this.HitMarkerCheck.TabIndex = 126;
+            this.HitMarkerCheck.Text = "Hitmarker";
+            this.HitMarkerCheck.UseVisualStyleBackColor = true;
+            this.HitMarkerCheck.CheckedChanged += new System.EventHandler(this.HitMarkerCheck_CheckedChanged);
+            // 
             // UCMisc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.HitMarkerCheck);
             this.Controls.Add(this.AntiAimCheck);
             this.Controls.Add(this.FakeLagTXT);
             this.Controls.Add(this.FOVChangerTXT);
@@ -213,5 +226,6 @@
         private System.Windows.Forms.CheckBox FOVChangerCheck;
         private System.Windows.Forms.CheckBox BunnyhopCheck;
         private System.Windows.Forms.CheckBox AntiAimCheck;
+        private System.Windows.Forms.CheckBox HitMarkerCheck;
     }
 }

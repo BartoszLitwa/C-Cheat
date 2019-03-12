@@ -159,5 +159,13 @@ namespace ZBase.Forms
             else
                 Main.S.AntiAimEnabled = false;
         }
+
+        private void HitMarkerCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (HitMarkerCheck.Checked)
+                Main.S.HitmarkerEnabled = true;
+            else
+                Main.S.HitmarkerEnabled = false;
+        }
     }
 }
