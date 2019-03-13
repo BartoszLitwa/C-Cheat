@@ -635,5 +635,13 @@ namespace ZBase.Forms
             else
                 Main.S.ShowNamesEnabled = false;
         }
+
+        private void SpectatorsListCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (SpectatorsListCheck.Checked)
+                Main.S.SpectatorsListEnabled = true;
+            else
+                Main.S.SpectatorsListEnabled = false;
+        }
     }
 }

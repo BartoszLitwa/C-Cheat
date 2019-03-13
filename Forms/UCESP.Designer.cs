@@ -64,6 +64,7 @@
             this.ShowRanksCheck = new System.Windows.Forms.CheckBox();
             this.ShowWinsCheck = new System.Windows.Forms.CheckBox();
             this.ShowNamesCheck = new System.Windows.Forms.CheckBox();
+            this.SpectatorsListCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.SnapLineThicTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -506,10 +507,23 @@
             this.ShowNamesCheck.UseVisualStyleBackColor = true;
             this.ShowNamesCheck.CheckedChanged += new System.EventHandler(this.ShowNamesCheck_CheckedChanged);
             // 
+            // SpectatorsListCheck
+            // 
+            this.SpectatorsListCheck.AutoSize = true;
+            this.SpectatorsListCheck.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.SpectatorsListCheck.Location = new System.Drawing.Point(254, 193);
+            this.SpectatorsListCheck.Name = "SpectatorsListCheck";
+            this.SpectatorsListCheck.Size = new System.Drawing.Size(96, 17);
+            this.SpectatorsListCheck.TabIndex = 154;
+            this.SpectatorsListCheck.Text = "Spectators List";
+            this.SpectatorsListCheck.UseVisualStyleBackColor = true;
+            this.SpectatorsListCheck.CheckedChanged += new System.EventHandler(this.SpectatorsListCheck_CheckedChanged);
+            // 
             // UCESP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.SpectatorsListCheck);
             this.Controls.Add(this.ShowNamesCheck);
             this.Controls.Add(this.ShowWinsCheck);
             this.Controls.Add(this.ShowRanksCheck);
@@ -592,5 +606,6 @@
         private System.Windows.Forms.CheckBox ShowRanksCheck;
         private System.Windows.Forms.CheckBox ShowWinsCheck;
         private System.Windows.Forms.CheckBox ShowNamesCheck;
+        private System.Windows.Forms.CheckBox SpectatorsListCheck;
     }
 }

@@ -85,6 +85,7 @@ namespace ZBase.Cheats
                                 health = Memory.ReadMemory<int>(crosshairEntity + Main.O.netvars.m_iHealth);
                                 if (health < stats[1])
                                 {
+                                    Main.I.ShowCrosshair = true;
                                     hitSound(hits);
                                     hits += 1;
                                     stats[1] = health;
@@ -93,6 +94,7 @@ namespace ZBase.Cheats
                             }
                             stats[0] = -1;
                             stats[1] = -1;
+                            Main.I.ShowCrosshair = false;
                         }
                     }
                     if (Main.S.TriggerbotEnabled)

@@ -25,7 +25,7 @@ namespace ZBase.Cheats
             _window.SizeChanged += _window_SizeChanged;
             _graphics = new Graphics()
             {
-                MeasureFPS = true,
+                MeasureFPS = false,
                 Height = _window.Height,
                 PerPrimitiveAntiAliasing = true,
                 TextAntiAliasing = true,
@@ -144,6 +144,11 @@ namespace ZBase.Cheats
                         if (EntityTeam != myteam && EntityTeam != 2 && EntityTeam != 3)
                             Main.I.TriggerBotOn = false;
                         CrosshairColor = Color.Green;
+                    }
+                    if (Main.I.ShowCrosshair)
+                    {
+                        for(int i =0; i < 100; i++)
+                        DrawCrosshair(CrosshairStyle.Cross, Main.MidScreen.X, Main.MidScreen.Y, 14, 2, Color.White);
                     }
                     if (Main.S.RecoilCrosshairEnabled)
                     {
@@ -549,7 +554,7 @@ namespace ZBase.Cheats
                         }
                         #endregion WeaponESP
                     }
-                    for (int i = 1; i <= 32; i++)
+                    for (int i = 0; i <= 32; i++)
                     {
                         Entity Player = new Entity(Tools.GetEntityBase(i));
                         if (Player.EntityBase != G.Engine.LocalPlayer.EntityBase)
@@ -601,7 +606,17 @@ namespace ZBase.Cheats
                                     drawcolor = Main.S.ESPColorTeammates;
                                 else
                                     drawcolor = Main.S.ESPColorEnemies;
+                                var radarbase = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwRadarBase);
+                                var CHudRadar = Memory.ReadMemory<int>(radarbase + 0x74);
+                                var Name = Memory.ReadString(CHudRadar + 0x2E8 + 0x168 * i, 64, Encoding.UTF8);
                                 ////////////////////////////////////////////////////////////////
+                                if (Main.S.SpectatorsListEnabled)
+                                {
+                                        int hand = Memory.ReadMemory<int>(Player.EntityBase + Main.O.netvars.m_hObserverTarget);
+                                        var ObserverTarget = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + ((hand + 0xFFF) - 1) * 0x10);
+                                        var Name2 = Memory.ReadString(CHudRadar + 0x2E8 + 0x168 * ObserverTarget, 64, Encoding.UTF8);
+                                        DrawText(Name + " => " + Name2, Main.ScreenSize.Width - 500, Main.MidScreen.Y - i * 15, 15, Color.White);
+                                }
                                 if (Main.S.DrawAimspotEnabled)
                                 {
                                     #region Aimspot
@@ -1015,9 +1030,6 @@ namespace ZBase.Cheats
                                 }
                                 if (Main.S.ShowNamesEnabled)
                                 {
-                                    var radarbase = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwRadarBase);
-                                    var CHudRadar = Memory.ReadMemory<int>(radarbase + 0x74);
-                                    var Name = Memory.ReadString(CHudRadar + 0x2E8 + 0x168 * i,64,Encoding.UTF8);
                                     DrawText(Name, xMid, hy, fonth, Color.White);
                                 }
                             }

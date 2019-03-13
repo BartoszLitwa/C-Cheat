@@ -15,6 +15,7 @@ namespace ZBase.Classes
         public string ChoosenSettings;
         public bool SetColor;
         public bool TriggerBotOn;
+        public bool ShowCrosshair;
         public Color ColorRGB;
         public Vector2 PosAK47;
         public Vector2 PosDeagle;

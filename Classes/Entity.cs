@@ -18,14 +18,6 @@ namespace ZBase.Classes
             EntityBase = Base;
         }
 
-        public int Index
-        {
-            get
-            {
-                return Memory.ReadMemory<int>((EntityBase / 0x10) - (int)Memory.Client - Main.O.signatures.dwEntityList);
-            }
-        }
-
         public int Health
         {
             get
