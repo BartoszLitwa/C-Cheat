@@ -54,6 +54,12 @@ namespace ZBase
                 new Thread(() =>
                 {
                     Thread.CurrentThread.IsBackground = true;
+                    Skinchanger.Run();
+                }).Start();
+
+                new Thread(() =>
+                {
+                    Thread.CurrentThread.IsBackground = true;
                     Misc.Run();
                 }).Start();
 
@@ -71,6 +77,7 @@ namespace ZBase
                     v.Run();
                 }).Start();
                 #endregion
+                Memory.WriteMemory<IntPtr>(Memory.ReadMemory<int>((int)Memory.Engine + Main.O.signatures.dwClientState) + 0x174, -1);
             }
         }
 

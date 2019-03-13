@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using ZBase.Utilities;
+using ZBase.Classes;
 
 namespace ZBase.Forms
 {
@@ -26,11 +27,15 @@ namespace ZBase.Forms
                 SkinChangerCheck.CheckState = CheckState.Checked;
             if (Main.S.KnifeChangerEnabled)
                 KnifeChangerCheck.CheckState = CheckState.Checked;
+            if (Main.S.FasterChangersEnabled)
+                FasterChangersCheck.CheckState = CheckState.Checked;
             //////////////////////////////////////////////////////
             if (!Main.S.SkinChangerEnabled)
                 SkinChangerCheck.CheckState = CheckState.Unchecked;
             if (!Main.S.KnifeChangerEnabled)
                 KnifeChangerCheck.CheckState = CheckState.Unchecked;
+            if (!Main.S.FasterChangersEnabled)
+                FasterChangersCheck.CheckState = CheckState.Unchecked;
 
             switch (Main.S.SelectedKnife)
             {
@@ -78,6 +83,331 @@ namespace ZBase.Forms
                     break;
                 case "Fists":
                     KnifeChangerComboBox.SelectedIndex = 14;
+                    break;
+                default:
+                    break;
+            }
+
+            KnifeSkinsComboBox.Items.Clear();
+            KnifeSkinsComboBox.Items.Add("Fade");
+            KnifeSkinsComboBox.Items.Add("CrimsonWeb");
+            KnifeSkinsComboBox.Items.Add("Marble_Fade");
+            KnifeSkinsComboBox.Items.Add("CaseHardened");
+            KnifeSkinsComboBox.Items.Add("TigerTooth");
+            KnifeSkinsComboBox.Items.Add("Doppler_SAPPHIRE");
+            KnifeSkinsComboBox.Items.Add("Doppler_RUBY");
+            KnifeSkinsComboBox.Items.Add("Doppler_BLACKPEARL");
+            KnifeSkinsComboBox.Items.Add("Doppler_1");
+            KnifeSkinsComboBox.Items.Add("Doppler_2");
+            KnifeSkinsComboBox.Items.Add("Doppler_3");
+            KnifeSkinsComboBox.Items.Add("Doppler_PHASE1");
+            KnifeSkinsComboBox.Items.Add("Doppler_PHASE2");
+            KnifeSkinsComboBox.Items.Add("Doppler_PHASE3");
+            KnifeSkinsComboBox.Items.Add("Doppler_PHASE4");
+            KnifeSkinsComboBox.Items.Add("GammaDoppler_EMERALD");
+            KnifeSkinsComboBox.Items.Add("GammaDoppler_PHASE1");
+            KnifeSkinsComboBox.Items.Add("GammaDoppler_PHASE2");
+            KnifeSkinsComboBox.Items.Add("GammaDoppler_PHASE3");
+            KnifeSkinsComboBox.Items.Add("GammaDoppler_PHASE4");
+            KnifeSkinsComboBox.Items.Add("Slaughter");
+            KnifeSkinsComboBox.Items.Add("Ultraviolet");
+            KnifeSkinsComboBox.Items.Add("Ultraviolet_1");
+            KnifeSkinsComboBox.Items.Add("Ultraviolet_2");
+            KnifeSkinsComboBox.Items.Add("Lore_M9BAYONET");
+            KnifeSkinsComboBox.Items.Add("Lore_KARAMBIT");
+            KnifeSkinsComboBox.Items.Add("Lore_GUT");
+            KnifeSkinsComboBox.Items.Add("Lore_FLIP");
+            KnifeSkinsComboBox.Items.Add("Lore_BAYONET");
+            KnifeSkinsComboBox.Items.Add("Autotronic_M9BAYONET");
+            KnifeSkinsComboBox.Items.Add("Autotronic_KARAMBIT");
+            KnifeSkinsComboBox.Items.Add("Autotronic_GUT");
+            KnifeSkinsComboBox.Items.Add("Autotronic_FLIP");
+            KnifeSkinsComboBox.Items.Add("Autotronic_BAYONET");
+            KnifeSkinsComboBox.Items.Add("Freehand_M9BAYONET");
+            KnifeSkinsComboBox.Items.Add("Freehand_KARAMBIT");
+            KnifeSkinsComboBox.Items.Add("Freehand");
+            KnifeSkinsComboBox.Items.Add("BrightWater_M9BAYONET");
+            KnifeSkinsComboBox.Items.Add("BrightWater");
+            KnifeSkinsComboBox.Items.Add("RustCoat");
+            KnifeSkinsComboBox.Items.Add("RustCoat_2");
+            KnifeSkinsComboBox.Items.Add("RustCoat_3");
+            KnifeSkinsComboBox.Items.Add("ForestDDPAT");
+            KnifeSkinsComboBox.Items.Add("SafariMesh");
+            KnifeSkinsComboBox.Items.Add("Stained");
+
+            switch (Main.S.SelectedKnifeSkin)
+            {
+                case 0:
+                    KnifeSkinsComboBox.SelectedIndex = 0;
+                    break;
+                case 1:
+                    KnifeSkinsComboBox.SelectedIndex = 1;
+                    break;
+                case 2:
+                    KnifeSkinsComboBox.SelectedIndex = 2;
+                    break;
+                case 3:
+                    KnifeSkinsComboBox.SelectedIndex = 3;
+                    break;
+                case 4:
+                    KnifeSkinsComboBox.SelectedIndex = 4;
+                    break;
+                case 5:
+                    KnifeSkinsComboBox.SelectedIndex = 5;
+                    break;
+                case 6:
+                    KnifeSkinsComboBox.SelectedIndex = 6;
+                    break;
+                case 7:
+                    KnifeSkinsComboBox.SelectedIndex = 7;
+                    break;
+                case 8:
+                    KnifeSkinsComboBox.SelectedIndex = 8;
+                    break;
+                case 9:
+                    KnifeSkinsComboBox.SelectedIndex = 9;
+                    break;
+                case 10:
+                    KnifeSkinsComboBox.SelectedIndex = 10;
+                    break;
+                case 11:
+                    KnifeSkinsComboBox.SelectedIndex = 11;
+                    break;
+                case 12:
+                    KnifeSkinsComboBox.SelectedIndex = 12;
+                    break;
+                case 13:
+                    KnifeSkinsComboBox.SelectedIndex = 13;
+                    break;
+                case 14:
+                    KnifeSkinsComboBox.SelectedIndex = 14;
+                    break;
+                case 15:
+                    KnifeSkinsComboBox.SelectedIndex = 15;
+                    break;
+                case 16:
+                    KnifeSkinsComboBox.SelectedIndex = 16;
+                    break;
+                case 17:
+                    KnifeSkinsComboBox.SelectedIndex = 17;
+                    break;
+                case 18:
+                    KnifeSkinsComboBox.SelectedIndex = 18;
+                    break;
+                case 19:
+                    KnifeSkinsComboBox.SelectedIndex = 19;
+                    break;
+                case 20:
+                    KnifeSkinsComboBox.SelectedIndex = 20;
+                    break;
+                case 21:
+                    KnifeSkinsComboBox.SelectedIndex = 21;
+                    break;
+                case 22:
+                    KnifeSkinsComboBox.SelectedIndex = 22;
+                    break;
+                case 23:
+                    KnifeSkinsComboBox.SelectedIndex = 23;
+                    break;
+                case 24:
+                    KnifeSkinsComboBox.SelectedIndex = 24;
+                    break;
+                case 25:
+                    KnifeSkinsComboBox.SelectedIndex = 25;
+                    break;
+                case 26:
+                    KnifeSkinsComboBox.SelectedIndex = 26;
+                    break;
+                case 27:
+                    KnifeSkinsComboBox.SelectedIndex = 27;
+                    break;
+                case 28:
+                    KnifeSkinsComboBox.SelectedIndex = 28;
+                    break;
+                case 29:
+                    KnifeSkinsComboBox.SelectedIndex = 29;
+                    break;
+                case 30:
+                    KnifeSkinsComboBox.SelectedIndex = 30;
+                    break;
+                case 31:
+                    KnifeSkinsComboBox.SelectedIndex = 31;
+                    break;
+                case 32:
+                    KnifeSkinsComboBox.SelectedIndex = 32;
+                    break;
+                case 33:
+                    KnifeSkinsComboBox.SelectedIndex = 33;
+                    break;
+                case 34:
+                    KnifeSkinsComboBox.SelectedIndex = 34;
+                    break;
+                case 35:
+                    KnifeSkinsComboBox.SelectedIndex = 35;
+                    break;
+                case 36:
+                    KnifeSkinsComboBox.SelectedIndex = 36;
+                    break;
+                case 37:
+                    KnifeSkinsComboBox.SelectedIndex = 37;
+                    break;
+                case 38:
+                    KnifeSkinsComboBox.SelectedIndex = 38;
+                    break;
+                case 39:
+                    KnifeSkinsComboBox.SelectedIndex = 39;
+                    break;
+                case 40:
+                    KnifeSkinsComboBox.SelectedIndex = 40;
+                    break;
+                case 41:
+                    KnifeSkinsComboBox.SelectedIndex = 41;
+                    break;
+                case 42:
+                    KnifeSkinsComboBox.SelectedIndex = 42;
+                    break;
+                case 43:
+                    KnifeSkinsComboBox.SelectedIndex = 43;
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void KnifeSkinsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (KnifeSkinsComboBox.SelectedItem.ToString())
+            {
+                case "Fade":
+                    Main.S.SelectedKnifeSkin = 0;
+                    break;
+                case "CrimsonWeb":
+                    Main.S.SelectedKnifeSkin = 1;
+                    break;
+                case "Marble_Fade":
+                    Main.S.SelectedKnifeSkin = 2;
+                    break;
+                case "CaseHardened":
+                    Main.S.SelectedKnifeSkin = 3;
+                    break;
+                case "TigerTooth":
+                    Main.S.SelectedKnifeSkin = 4;
+                    break;
+                case "Doppler_SAPPHIRE":
+                    Main.S.SelectedKnifeSkin = 5;
+                    break;
+                case "Doppler_RUBY":
+                    Main.S.SelectedKnifeSkin = 6;
+                    break;
+                case "Doppler_BLACKPEARL":
+                    Main.S.SelectedKnifeSkin = 7;
+                    break;
+                case "Doppler_1":
+                    Main.S.SelectedKnifeSkin = 8;
+                    break;
+                case "Doppler_2":
+                    Main.S.SelectedKnifeSkin = 9;
+                    break;
+                case "Doppler_3":
+                    Main.S.SelectedKnifeSkin = 10;
+                    break;
+                case "Doppler_PHASE1":
+                    Main.S.SelectedKnifeSkin = 11;
+                    break;
+                case "Doppler_PHASE2":
+                    Main.S.SelectedKnifeSkin = 12;
+                    break;
+                case "Doppler_PHASE3":
+                    Main.S.SelectedKnifeSkin = 13;
+                    break;
+                case "Doppler_PHASE4":
+                    Main.S.SelectedKnifeSkin = 14;
+                    break;
+                case "GammaDoppler_EMERALD":
+                    Main.S.SelectedKnifeSkin = 15;
+                    break;
+                case "GammaDoppler_PHASE1":
+                    Main.S.SelectedKnifeSkin = 16;
+                    break;
+                case "GammaDoppler_PHASE2":
+                    Main.S.SelectedKnifeSkin = 17;
+                    break;
+                case "GammaDoppler_PHASE3":
+                    Main.S.SelectedKnifeSkin = 18;
+                    break;
+                case "GammaDoppler_PHASE4":
+                    Main.S.SelectedKnifeSkin = 19;
+                    break;
+                case "Slaughter":
+                    Main.S.SelectedKnifeSkin = 20;
+                    break;
+                case "Ultraviolet":
+                    Main.S.SelectedKnifeSkin = 21;
+                    break;
+                case "Ultraviolet_1":
+                    Main.S.SelectedKnifeSkin = 22;
+                    break;
+                case "Ultraviolet_2":
+                    Main.S.SelectedKnifeSkin = 23;
+                    break;
+                case "Lore_M9BAYONET":
+                    Main.S.SelectedKnifeSkin = 24;
+                    break;
+                case "Lore_KARAMBIT":
+                    Main.S.SelectedKnifeSkin = 25;
+                    break;
+                case "Lore_GUT":
+                    Main.S.SelectedKnifeSkin = 26;
+                    break;
+                case "Lore_FLIP":
+                    Main.S.SelectedKnifeSkin = 27;
+                    break;
+                case "Lore_BAYONET":
+                    Main.S.SelectedKnifeSkin = 28;
+                    break;
+                case "Autotronic_M9BAYONET":
+                    Main.S.SelectedKnifeSkin = 29;
+                    break;
+                case "Autotronic_KARAMBIT":
+                    Main.S.SelectedKnifeSkin = 30;
+                    break;
+                case "Autotronic_GUT":
+                    Main.S.SelectedKnifeSkin = 31;
+                    break;
+                case "Autotronic_FLIP":
+                    Main.S.SelectedKnifeSkin = 32;
+                    break;
+                case "Autotronic_BAYONET":
+                    Main.S.SelectedKnifeSkin = 33;
+                    break;
+                case "Freehand_M9BAYONET":
+                    Main.S.SelectedKnifeSkin = 34;
+                    break;
+                case "Freehand":
+                    Main.S.SelectedKnifeSkin = 35;
+                    break;
+                case "BrightWater_M9BAYONET":
+                    Main.S.SelectedKnifeSkin = 36;
+                    break;
+                case "BrightWater":
+                    Main.S.SelectedKnifeSkin = 37;
+                    break;
+                case "RustCoat":
+                    Main.S.SelectedKnifeSkin = 38;
+                    break;
+                case "RustCoat_2":
+                    Main.S.SelectedKnifeSkin = 39;
+                    break;
+                case "RustCoat_3":
+                    Main.S.SelectedKnifeSkin = 40;
+                    break;
+                case "ForestDDPAT":
+                    Main.S.SelectedKnifeSkin = 41;
+                    break;
+                case "SafariMesh":
+                    Main.S.SelectedKnifeSkin = 42;
+                    break;
+                case "Stained":
+                    Main.S.SelectedKnifeSkin = 43;
                     break;
                 default:
                     break;
@@ -806,58 +1136,72 @@ namespace ZBase.Forms
             switch (KnifeChangerComboBox.SelectedItem.ToString())
             {
                 case "Bayonet":
+                    Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_BAYONET;
                     Main.I.SelectedKnife = 63;
                     Main.S.SelectedKnife = "Bayonet";
                     break;
                 case "Flip Knife":
+                    Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_FLIP_KNIFE;
                     Main.I.SelectedKnife = 66;
                     Main.S.SelectedKnife = "Flip Knife";
                     break;
                 case "Karambit":
+                    Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_KARAMBIT;
                     Main.I.SelectedKnife = 72;
                     Main.S.SelectedKnife = "Karambit";
                     break;
                 case "M9 Bayonet":
+                    Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_M9_BAYONET;
                     Main.I.SelectedKnife = 75;
                     Main.S.SelectedKnife = "M9 Bayonet";
                     break;
                 case "Butterfly":
+                    Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_BUTTERFLY_KNIFE;
                     Main.I.SelectedKnife = 87;
                     Main.S.SelectedKnife = "Butterfly";
                     break;
                 case "Falchion":
+                    Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_FALCHION_KNIFE;
                     Main.I.SelectedKnife = 81;
                     Main.S.SelectedKnife = "Falchion";
                     break;
                 case "Bowie":
+                    Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_BOWIE_KNIFE;
                     Main.I.SelectedKnife = 84;
                     Main.S.SelectedKnife = "Bowie";
                     break;
                 case "Gut Knife":
+                    Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_GUT_KNIFE;
                     Main.I.SelectedKnife = 69;
                     Main.S.SelectedKnife = "Gut Knife";
                     break;
                 case "Talon":
+                    Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_TALON_KNIFE;
                     Main.I.SelectedKnife = 103;
                     Main.S.SelectedKnife = "Talon";
                     break;
                 case "Stiletto":
+                    Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_STILETTO_KNIFE;
                     Main.I.SelectedKnife = 100;
                     Main.S.SelectedKnife = "Stiletto";
                     break;
                 case "Ursus":
+                    Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_URSUS_KNIFE;
                     Main.I.SelectedKnife = 94;
                     Main.S.SelectedKnife = "Ursus";
                     break;
                 case "Shadow Daggers":
+                    Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_SHADOW_DAGGERS;
                     Main.I.SelectedKnife = 84;
                     Main.S.SelectedKnife = "Shadow Daggers";
                     break;
                 case "Huntsman":
+                    Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_HUNTSMAN_KNIFE;
                     Main.I.SelectedKnife = 78;
                     Main.S.SelectedKnife = "Huntsman";
                     break;
                 case "Navaja":
+                    Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_NAVAJA_KNIFE;
                     Main.I.SelectedKnife = 97;
                     Main.S.SelectedKnife = "Navaja";
                     break;
@@ -868,6 +1212,14 @@ namespace ZBase.Forms
                 default:
                     break;
             }
+        }
+
+        private void FasterChangersCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FasterChangersCheck.Checked)
+                Main.S.FasterChangersEnabled = true;
+            else
+                Main.S.FasterChangersEnabled = false;
         }
     }
 }

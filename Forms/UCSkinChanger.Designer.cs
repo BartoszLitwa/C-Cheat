@@ -37,6 +37,10 @@
             this.SetSkinButton = new System.Windows.Forms.Button();
             this.KnifeChangerCheck = new System.Windows.Forms.CheckBox();
             this.KnifeChangerComboBox = new System.Windows.Forms.ComboBox();
+            this.FasterChangersCheck = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.KnifeSkinsComboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label5
@@ -111,9 +115,9 @@
             "USP-S",
             "CZ75",
             "R8 Revolver"});
-            this.WeaponNameComboBox.Location = new System.Drawing.Point(3, 134);
+            this.WeaponNameComboBox.Location = new System.Drawing.Point(3, 174);
             this.WeaponNameComboBox.Name = "WeaponNameComboBox";
-            this.WeaponNameComboBox.Size = new System.Drawing.Size(121, 21);
+            this.WeaponNameComboBox.Size = new System.Drawing.Size(131, 21);
             this.WeaponNameComboBox.TabIndex = 134;
             this.WeaponNameComboBox.SelectedIndexChanged += new System.EventHandler(this.WeaponNameComboBox_SelectedIndexChanged);
             // 
@@ -121,7 +125,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(3, 113);
+            this.label1.Location = new System.Drawing.Point(3, 153);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 18);
             this.label1.TabIndex = 135;
@@ -312,7 +316,7 @@
             "GLOCK18 | Death Rattle - 293",
             "GLOCK18 | Groundwater - 2",
             "GLOCK18 | Sand Dune - 208"});
-            this.listBox1.Location = new System.Drawing.Point(133, 3);
+            this.listBox1.Location = new System.Drawing.Point(140, 3);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(243, 277);
             this.listBox1.TabIndex = 136;
@@ -320,7 +324,7 @@
             // 
             // SetSkinButton
             // 
-            this.SetSkinButton.Location = new System.Drawing.Point(3, 161);
+            this.SetSkinButton.Location = new System.Drawing.Point(3, 201);
             this.SetSkinButton.Name = "SetSkinButton";
             this.SetSkinButton.Size = new System.Drawing.Size(75, 23);
             this.SetSkinButton.TabIndex = 137;
@@ -364,14 +368,61 @@
             "Fists"});
             this.KnifeChangerComboBox.Location = new System.Drawing.Point(3, 89);
             this.KnifeChangerComboBox.Name = "KnifeChangerComboBox";
-            this.KnifeChangerComboBox.Size = new System.Drawing.Size(121, 21);
+            this.KnifeChangerComboBox.Size = new System.Drawing.Size(131, 21);
             this.KnifeChangerComboBox.TabIndex = 139;
             this.KnifeChangerComboBox.SelectedIndexChanged += new System.EventHandler(this.KnifeChangerComboBox_SelectedIndexChanged);
+            // 
+            // FasterChangersCheck
+            // 
+            this.FasterChangersCheck.AutoSize = true;
+            this.FasterChangersCheck.Location = new System.Drawing.Point(3, 263);
+            this.FasterChangersCheck.Name = "FasterChangersCheck";
+            this.FasterChangersCheck.Size = new System.Drawing.Size(103, 17);
+            this.FasterChangersCheck.TabIndex = 140;
+            this.FasterChangersCheck.Text = "Faster Changers";
+            this.FasterChangersCheck.UseVisualStyleBackColor = true;
+            this.FasterChangersCheck.CheckedChanged += new System.EventHandler(this.FasterChangersCheck_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 247);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.TabIndex = 141;
+            this.label2.Text = "Only for good PC";
+            // 
+            // KnifeSkinsComboBox
+            // 
+            this.KnifeSkinsComboBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "Full Box",
+            "Edge Box"});
+            this.KnifeSkinsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.KnifeSkinsComboBox.FormattingEnabled = true;
+            this.KnifeSkinsComboBox.Location = new System.Drawing.Point(3, 134);
+            this.KnifeSkinsComboBox.Name = "KnifeSkinsComboBox";
+            this.KnifeSkinsComboBox.Size = new System.Drawing.Size(131, 21);
+            this.KnifeSkinsComboBox.TabIndex = 142;
+            this.KnifeSkinsComboBox.SelectedIndexChanged += new System.EventHandler(this.KnifeSkinsComboBox_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(3, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 18);
+            this.label3.TabIndex = 143;
+            this.label3.Text = "Knife\'s Skins";
             // 
             // UCSkinChanger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.KnifeSkinsComboBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.FasterChangersCheck);
             this.Controls.Add(this.KnifeChangerComboBox);
             this.Controls.Add(this.KnifeChangerCheck);
             this.Controls.Add(this.SetSkinButton);
@@ -399,5 +450,9 @@
         private System.Windows.Forms.Button SetSkinButton;
         private System.Windows.Forms.CheckBox KnifeChangerCheck;
         private System.Windows.Forms.ComboBox KnifeChangerComboBox;
+        private System.Windows.Forms.CheckBox FasterChangersCheck;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox KnifeSkinsComboBox;
+        private System.Windows.Forms.Label label3;
     }
 }

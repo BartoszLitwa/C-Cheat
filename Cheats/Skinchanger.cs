@@ -1,0 +1,281 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using ZBase.Classes;
+using ZBase.Utilities;
+
+namespace ZBase.Cheats
+{
+    class Skinchanger
+    {
+        public static int m_hViewModel = 0x32F8;
+        public static int m_bClientSideAnimation = 0x289C;
+        public static int m_nModelIndex = 0x258;
+        public static int m_iViewModelIndex = 0x3220;
+        public static int m_iWorldModelIndex = 0x3224;
+        public static int m_iWorldDroppedModelIndex = 0x3228;
+        public static int m_hWeaponWorldModel = 0x3234;
+        public static int Knife = 0;
+        public static int KnifeModelIndex = 0;
+        public static int KnifeViewModelIndex = 0;
+        public static void Run()
+        {
+            while (true)
+            {
+                if (Main.S.ForceFullUpdate || Tools.HoldingKey(Keys.VK_END))
+                {
+                    Memory.WriteMemory<IntPtr>(Memory.ReadMemory<int>((int)Memory.Engine + Main.O.signatures.dwClientState) + 0x174, -1);
+
+                }
+                if (Main.S.KnifeChangerEnabled)
+                {
+                    int activeWeapon = Memory.ReadMemory<int>(G.Engine.LocalPlayer.EntityBase + Main.O.netvars.m_hActiveWeapon) & 0xfff;
+                    activeWeapon = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + (activeWeapon - 1) * 0x10);
+                    short weaponID2 = Memory.ReadMemory<short>(activeWeapon + Main.O.netvars.m_iItemDefinitionIndex);
+
+                    if (weaponID2 == (int)WeaponsID.KNIFE || weaponID2 == (int)WeaponsID.KNIFE_T)
+                    {
+                        Knife = Memory.ReadMemory<int>(G.Engine.LocalPlayer.EntityBase + m_hViewModel) & 0xfff;
+                        Knife = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + (Knife - 1) * 0x10);
+                        KnifeModelIndex = Memory.ReadMemory<int>(Knife + m_nModelIndex);
+                        KnifeViewModelIndex = Memory.ReadMemory<int>(Knife + m_iViewModelIndex);
+
+                        if (KnifeModelIndex > 0)
+                        {
+                            int precache = 0;
+                            bool IsCT = false;
+                            if (G.Engine.LocalPlayer.Team == 3)
+                                IsCT = true;
+
+                            KnifeModelIndex = IsCT ? KnifeModelIndex + Main.I.SelectedKnife + 24 : KnifeModelIndex + Main.I.SelectedKnife;
+                        }
+
+                        if (KnifeModelIndex > 0)
+                        {
+                            Memory.WriteMemory<short>(Knife + m_nModelIndex, KnifeModelIndex);
+                            Memory.WriteMemory<short>(activeWeapon + m_nModelIndex, KnifeModelIndex);
+                            Memory.WriteMemory<short>(activeWeapon + Main.O.netvars.m_iItemDefinitionIndex, Main.I.SelectedKnifeID);
+                            Memory.WriteMemory<IntPtr>(activeWeapon + m_iViewModelIndex, KnifeModelIndex);
+                        }
+                    }
+                    else if (weaponID2 == Main.I.SelectedKnifeID)
+                    {
+                        if (KnifeModelIndex > 0)
+                        {
+                            Memory.WriteMemory<short>(Knife + m_nModelIndex, KnifeModelIndex);
+                            Memory.WriteMemory<short>(activeWeapon + m_nModelIndex, KnifeModelIndex);
+                            Memory.WriteMemory<short>(activeWeapon + Main.O.netvars.m_iItemDefinitionIndex, Main.I.SelectedKnifeID);
+                            Memory.WriteMemory<IntPtr>(activeWeapon + m_iViewModelIndex, KnifeModelIndex);
+                        }
+                    }
+                    if (Main.S.SkinChangerEnabled)
+                    {
+                        for (int i = 0; i < 8; i++)
+                        {
+                            int weaponbase = Memory.ReadMemory<int>(G.Engine.LocalPlayer.EntityBase + Main.O.netvars.m_hMyWeapons + i * 0x4) & 0xFFF;
+                            weaponbase = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + (weaponbase - 1) * 16);
+                            int weaponIDD = Memory.ReadMemory<int>(weaponbase + Main.O.netvars.m_iItemDefinitionIndex);
+                            //SkinsId https://totalcsgo.com/skin-ids WeaponID https://tf2b.com/itemlist.php?gid=730
+                            const int itemIDHigh = -1;
+                            const int entityQuality = 3;
+                            const float fallbackWear = 0.0001f;
+                            int myWeapons = Memory.ReadMemory<int>(G.Engine.LocalPlayer.EntityBase + Main.O.netvars.m_hMyWeapons + i * 0x4) & 0xfff;
+                            int weaponEntity = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + (myWeapons - 1) * 0x10);
+                            if (weaponEntity == 0) { continue; }
+                            int weaponID = weaponIDD;
+                            int fallbackPaint = 0;
+                            if (weaponID == 1) { fallbackPaint = Main.S.SkinDeasertEagle; } /* Desert Eagle | Blaze */
+                            else if (weaponID == 2) { fallbackPaint = Main.S.SkinDualBerettas; } /* Dual Berettas | Cobra Strike */
+                            else if (weaponID == 3) { fallbackPaint = Main.S.SkinFiveSeven; } /* Five-SeveN | Hyper Beast */
+                            else if (weaponID == 4) { fallbackPaint = Main.S.SkinGlock18; } /* Glock-18 | Fade */
+                            else if (weaponID == 7) { fallbackPaint = Main.S.SkinAK47; } /* AK-47 | Empress */
+                            else if (weaponID == 8) { fallbackPaint = Main.S.SkinAUG; } /* AUG | Akihabara Accept */
+                            else if (weaponID == 9) { fallbackPaint = Main.S.SkinAWP; } /* AWP | Asiimov */
+                            else if (weaponID == 10) { fallbackPaint = Main.S.SkinFamas; } /* FAMAS | Eye of Athena */
+                            else if (weaponID == 11) { fallbackPaint = Main.S.SkinG3SG1; } /* G3SG1 | Flux */
+                            else if (weaponID == 13) { fallbackPaint = Main.S.SkinGalilAR; } /* Galil AR | Chatterbox */
+                            else if (weaponID == 14) { fallbackPaint = Main.S.SkinM249; } /* M249 | System Lock */
+                            else if (weaponID == 16) { fallbackPaint = Main.S.SkinM4A4; } /* M4A4 - Howl */
+                            else if (weaponID == 17) { fallbackPaint = Main.S.SkinMac10; } /* MAC-10 | Neon Rider */
+                            else if (weaponID == 19) { fallbackPaint = Main.S.SkinP90; } /* P90 | Shallow Grave */
+                            else if (weaponID == 23) { fallbackPaint = Main.S.SkinUMP45; } /* UMP-45 | Arctic Wolf */
+                            else if (weaponID == 24) { fallbackPaint = Main.S.SkinMP5; } /* MP5| Arctic Wolf */
+                            else if (weaponID == 25) { fallbackPaint = Main.S.SkinXM1014; } /* XM1014 | Tranquility */
+                            else if (weaponID == 26) { fallbackPaint = Main.S.SkinPPBizon; } /* PP-Bizon | Judgement of Anubis */
+                            else if (weaponID == 27) { fallbackPaint = Main.S.SkinMag7; } /* MP7 | Bloodsport */
+                            else if (weaponID == 28) { fallbackPaint = Main.S.SkinNegev; } /* Negev | Power Loader */
+                            else if (weaponID == 29) { fallbackPaint = Main.S.SkinSawedOff; } /* Sawed-Off | Devourer */
+                            else if (weaponID == 30) { fallbackPaint = Main.S.SkinTec9; } /* Tec-9 | Fuel Injector */
+                            else if (weaponID == 32) { fallbackPaint = Main.S.SkinP2000; } /* P2000 | Imperial Dragon */
+                            else if (weaponID == 33) { fallbackPaint = Main.S.SkinMP7; } /* MP7 | Bloodsport */
+                            else if (weaponID == 34) { fallbackPaint = Main.S.SkinMP9; } /* MP9 | Rose Iron */
+                            else if (weaponID == 35) { fallbackPaint = Main.S.SkinNova; } /* Nova | Hyper Beast */
+                            else if (weaponID == 36) { fallbackPaint = Main.S.SkinP250; } /* P250 | See Ya Later */
+                            else if (weaponID == 38) { fallbackPaint = Main.S.SkinSCAR20; } /* SCAR-20 | Cyrex */
+                            else if (weaponID == 39) { fallbackPaint = Main.S.SkinSG553; } /* SG 553 | Integrale */
+                            else if (weaponID == 40) { fallbackPaint = Main.S.SkinSSG08; } /* SSG 08 | Dragonfire */
+                            else if (weaponID == 60) { fallbackPaint = Main.S.SkinM4A1S; } /* M4A1-S | Hot Rod */
+                            else if (weaponID == 61) { fallbackPaint = Main.S.SkinUSPS; } /* USP-S | Neo-Noir */
+                            else if (weaponID == 63) { fallbackPaint = Main.S.SkinCZ75; } /* CZ75-Auto | Neo-Noir */
+                            else if (weaponID == 41 || weaponID == 42 || weaponID == 59 || weaponID == Main.I.SelectedKnifeID)
+                            {
+                                switch (Main.S.SelectedKnifeSkin)
+                                {
+                                    case 0:
+                                        fallbackPaint = (int)Skins.Fade;
+                                        break;
+                                    case 1:
+                                        fallbackPaint = (int)Skins.CrimsonWeb;
+                                        break;
+                                    case 2:
+                                        fallbackPaint = (int)Skins.Marble_Fade;
+                                        break;
+                                    case 3:
+                                        fallbackPaint = (int)Skins.CaseHardened;
+                                        break;
+                                    case 4:
+                                        fallbackPaint = (int)Skins.TigerTooth;
+                                        break;
+                                    case 5:
+                                        fallbackPaint = (int)Skins.Doppler_SAPPHIRE;
+                                        break;
+                                    case 6:
+                                        fallbackPaint = (int)Skins.Doppler_RUBY;
+                                        break;
+                                    case 7:
+                                        fallbackPaint = (int)Skins.Doppler_BLACKPEARL;
+                                        break;
+                                    case 8:
+                                        fallbackPaint = (int)Skins.Doppler_1;
+                                        break;
+                                    case 9:
+                                        fallbackPaint = (int)Skins.Doppler_2;
+                                        break;
+                                    case 10:
+                                        fallbackPaint = (int)Skins.Doppler_3;
+                                        break;
+                                    case 11:
+                                        fallbackPaint = (int)Skins.Doppler_PHASE1;
+                                        break;
+                                    case 12:
+                                        fallbackPaint = (int)Skins.Doppler_PHASE2;
+                                        break;
+                                    case 13:
+                                        fallbackPaint = (int)Skins.Doppler_PHASE3;
+                                        break;
+                                    case 14:
+                                        fallbackPaint = (int)Skins.Doppler_PHASE4;
+                                        break;
+                                    case 15:
+                                        fallbackPaint = (int)Skins.GammaDoppler_EMERALD;
+                                        break;
+                                    case 16:
+                                        fallbackPaint = (int)Skins.GammaDoppler_PHASE1;
+                                        break;
+                                    case 17:
+                                        fallbackPaint = (int)Skins.GammaDoppler_PHASE2;
+                                        break;
+                                    case 18:
+                                        fallbackPaint = (int)Skins.GammaDoppler_PHASE3;
+                                        break;
+                                    case 19:
+                                        fallbackPaint = (int)Skins.GammaDoppler_PHASE4;
+                                        break;
+                                    case 20:
+                                        fallbackPaint = (int)Skins.Slaughter;
+                                        break;
+                                    case 21:
+                                        fallbackPaint = (int)Skins.Ultraviolet;
+                                        break;
+                                    case 22:
+                                        fallbackPaint = (int)Skins.Ultraviolet_1;
+                                        break;
+                                    case 23:
+                                        fallbackPaint = (int)Skins.Ultraviolet_2;
+                                        break;
+                                    case 24:
+                                        fallbackPaint = (int)Skins.Lore_M9BAYONET;
+                                        break;
+                                    case 25:
+                                        fallbackPaint = (int)Skins.Lore_KARAMBIT;
+                                        break;
+                                    case 26:
+                                        fallbackPaint = (int)Skins.Lore_GUT;
+                                        break;
+                                    case 27:
+                                        fallbackPaint = (int)Skins.Lore_FLIP;
+                                        break;
+                                    case 28:
+                                        fallbackPaint = (int)Skins.Lore_BAYONET;
+                                        break;
+                                    case 29:
+                                        fallbackPaint = (int)Skins.Autotronic_M9BAYONET;
+                                        break;
+                                    case 30:
+                                        fallbackPaint = (int)Skins.Autotronic_KARAMBIT;
+                                        break;
+                                    case 31:
+                                        fallbackPaint = (int)Skins.Autotronic_GUT;
+                                        break;
+                                    case 32:
+                                        fallbackPaint = (int)Skins.Autotronic_FLIP;
+                                        break;
+                                    case 33:
+                                        fallbackPaint = (int)Skins.Autotronic_BAYONET;
+                                        break;
+                                    case 34:
+                                        fallbackPaint = (int)Skins.Freehand_M9BAYONET;
+                                        break;
+                                    case 35:
+                                        fallbackPaint = (int)Skins.Freehand;
+                                        break;
+                                    case 36:
+                                        fallbackPaint = (int)Skins.BrightWater_M9BAYONET;
+                                        break;
+                                    case 37:
+                                        fallbackPaint = (int)Skins.BrightWater;
+                                        break;
+                                    case 38:
+                                        fallbackPaint = (int)Skins.RustCoat;
+                                        break;
+                                    case 39:
+                                        fallbackPaint = (int)Skins.RustCoat_2;
+                                        break;
+                                    case 40:
+                                        fallbackPaint = (int)Skins.RustCoat_3;
+                                        break;
+                                    case 41:
+                                        fallbackPaint = (int)Skins.ForestDDPAT;
+                                        break;
+                                    case 42:
+                                        fallbackPaint = (int)Skins.SafariMesh;
+                                        break;
+                                    case 43:
+                                        fallbackPaint = (int)Skins.Stained;
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                Memory.WriteMemory<int>(myWeapons + m_nModelIndex, KnifeModelIndex);
+                                Memory.WriteMemory<int>(myWeapons + m_iViewModelIndex, KnifeModelIndex);
+                                Memory.WriteMemory<int>(myWeapons + Main.O.netvars.m_iItemDefinitionIndex, Main.I.SelectedKnifeID);
+                            }
+                            else
+                            {
+                                Memory.WriteMemory<IntPtr>(weaponEntity + Main.O.netvars.m_iEntityQuality, entityQuality);
+                            }
+                            Memory.WriteMemory<IntPtr>(weaponEntity + Main.O.netvars.m_iItemIDHigh, itemIDHigh);
+                            Memory.WriteMemory<IntPtr>(weaponEntity + Main.O.netvars.m_nFallbackPaintKit, fallbackPaint);
+                            Memory.WriteMemory<float>(weaponEntity + Main.O.netvars.m_flFallbackWear, fallbackWear);
+                        }
+                    }
+                }
+                if (!Main.S.FasterChangersEnabled)
+                    Thread.Sleep(1);
+            }
+        }
+    }
+}

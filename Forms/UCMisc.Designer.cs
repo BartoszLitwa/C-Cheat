@@ -41,6 +41,7 @@
             this.BunnyhopCheck = new System.Windows.Forms.CheckBox();
             this.AntiAimCheck = new System.Windows.Forms.CheckBox();
             this.HitMarkerCheck = new System.Windows.Forms.CheckBox();
+            this.ColoredHandsCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.AntiFlashTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,7 +169,7 @@
             // 
             this.AntiAimCheck.AutoSize = true;
             this.AntiAimCheck.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.AntiAimCheck.Location = new System.Drawing.Point(3, 72);
+            this.AntiAimCheck.Location = new System.Drawing.Point(278, 72);
             this.AntiAimCheck.Name = "AntiAimCheck";
             this.AntiAimCheck.Size = new System.Drawing.Size(61, 17);
             this.AntiAimCheck.TabIndex = 125;
@@ -187,10 +188,23 @@
             this.HitMarkerCheck.UseVisualStyleBackColor = true;
             this.HitMarkerCheck.CheckedChanged += new System.EventHandler(this.HitMarkerCheck_CheckedChanged);
             // 
+            // ColoredHandsCheck
+            // 
+            this.ColoredHandsCheck.AutoSize = true;
+            this.ColoredHandsCheck.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.ColoredHandsCheck.Location = new System.Drawing.Point(3, 72);
+            this.ColoredHandsCheck.Name = "ColoredHandsCheck";
+            this.ColoredHandsCheck.Size = new System.Drawing.Size(96, 17);
+            this.ColoredHandsCheck.TabIndex = 127;
+            this.ColoredHandsCheck.Text = "Colored Hands";
+            this.ColoredHandsCheck.UseVisualStyleBackColor = true;
+            this.ColoredHandsCheck.CheckedChanged += new System.EventHandler(this.ColoredHandsCheck_CheckedChanged);
+            // 
             // UCMisc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ColoredHandsCheck);
             this.Controls.Add(this.HitMarkerCheck);
             this.Controls.Add(this.AntiAimCheck);
             this.Controls.Add(this.FakeLagTXT);
@@ -227,5 +241,6 @@
         private System.Windows.Forms.CheckBox BunnyhopCheck;
         private System.Windows.Forms.CheckBox AntiAimCheck;
         private System.Windows.Forms.CheckBox HitMarkerCheck;
+        private System.Windows.Forms.CheckBox ColoredHandsCheck;
     }
 }

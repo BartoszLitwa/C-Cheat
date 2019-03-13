@@ -12,6 +12,7 @@ namespace ZBase.Classes
     {
         public int Selectedskin;
         public int SelectedKnife;
+        public int SelectedKnifeID;
         public string ChoosenSettings;
         public bool SetColor;
         public bool TriggerBotOn;

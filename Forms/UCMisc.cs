@@ -53,6 +53,14 @@ namespace ZBase.Forms
                 AntiAimCheck.CheckState = CheckState.Unchecked;
             if (Main.S.AntiAimEnabled)
                 AntiAimCheck.CheckState = CheckState.Checked;
+            if (!Main.S.HitmarkerEnabled)
+                HitMarkerCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.HitmarkerEnabled)
+                HitMarkerCheck.CheckState = CheckState.Checked;
+            if (!Main.S.ColoredHands)
+                ColoredHandsCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.ColoredHands)
+                ColoredHandsCheck.CheckState = CheckState.Checked;
             //////////////////////////////////////////////////////
             if (Main.S.AntiFlashAlpha >= 0 && Main.S.AntiFlashAlpha < 256)
                 AntiFlashTrackBar.Value = Main.S.AntiFlashAlpha;
@@ -166,6 +174,14 @@ namespace ZBase.Forms
                 Main.S.HitmarkerEnabled = true;
             else
                 Main.S.HitmarkerEnabled = false;
+        }
+
+        private void ColoredHandsCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ColoredHandsCheck.Checked)
+                Main.S.ColoredHands = true;
+            else
+                Main.S.ColoredHands = false;
         }
     }
 }

@@ -14,6 +14,46 @@ namespace ZBase.Cheats
 {
     class Misc
     {
+        //public static byte[] Shellcode = {
+        //                         0xBA,0x67,0x45,0x23,0x01,
+        //                         0xB9,0x67,0x45,0x23,0x01,
+        //                         0xB8,0x67,0x45,0x23,0x01,
+        //                         0xFF,0xD0,
+        //                         0xC3,
+        //                         0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,
+        //                         0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12
+        //                         };
+        //public static int Size = Shellcode.Length;
+        //public static IntPtr Address;
+        //public static Int32 dwChangeClanTag;
+        //public static void Do(string tag, string name)
+        //{
+        //    dwChangeClanTag = Offsets.dwSetClanTag;
+        //    dwChangeClanTag += (int)Memory.g_pEngine;
+        //    if (Address == IntPtr.Zero)
+        //    {
+        //        Alloc();
+        //        if (Address == IntPtr.Zero)
+        //            return;
+        //        int tag_addr = (int)Address + 18;
+        //        int name_addr = tag_addr + 16;
+        //        Buffer.BlockCopy(BitConverter.GetBytes(name_addr), 0, Shellcode, 1, 4);
+        //        Buffer.BlockCopy(BitConverter.GetBytes(tag_addr), 0, Shellcode, 6, 4);
+        //        Buffer.BlockCopy(BitConverter.GetBytes(dwChangeClanTag), 0, Shellcode, 11, 4);
+        //    }
+        //    var tag_bytes = Encoding.UTF8.GetBytes(tag + "\0");
+        //    var name_bytes = Encoding.UTF8.GetBytes(name + "\0");
+        //    Buffer.BlockCopy(tag_bytes, 0, Shellcode, 18, tag_bytes.Length);
+        //    Buffer.BlockCopy(name_bytes, 0, Shellcode, 34, name_bytes.Length);
+        //    WinAPI.WriteProcessMemory(Memory.g_pProcessHandle, Address, Shellcode, Shellcode.Length, 0);
+        //    IntPtr Thread = WinAPI.CreateRemoteThread(Memory.g_pProcessHandle, (IntPtr)null, IntPtr.Zero, Address, (IntPtr)null, 0, (IntPtr)null);
+        //    WinAPI.WaitForSingleObject(Thread, 0xFFFFFFFF);
+        //    WinAPI.CloseHandle(Thread);
+        //}
+        //public static void Alloc()
+        //{
+        //    Address = Globals.SmartAllocator.SmartAlloc(Size);
+        //}
         public static int m_hViewModel = 0x32F8;
         public static int m_bClientSideAnimation = 0x289C;
         public static int m_nModelIndex = 0x258;
@@ -21,6 +61,9 @@ namespace ZBase.Cheats
         public static int m_iWorldModelIndex = 0x3224;
         public static int m_iWorldDroppedModelIndex = 0x3228;
         public static int m_hWeaponWorldModel = 0x3234;
+        public static int Knife = 0;
+        public static int KnifeModelIndex = 0;
+        public static int KnifeViewModelIndex = 0;
         public static Vector2 oldPunch;
         public static void Run()
         {
@@ -29,7 +72,43 @@ namespace ZBase.Cheats
             {
                 if (G.Engine.GameState == GameState.FULL_CONNECTED)
                 {
-                    int BaseAddress = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwLocalPlayer);
+                    if (Main.S.NightMode || Main.S.ColoredHands)
+                    {
+                        for (int i = 0; i < 600; i++)
+                        {
+                            int Ent = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + i * 0x10);
+                            int EntityClassID = Memory.ReadMemory<int>(Memory.ReadMemory<int>(Memory.ReadMemory<int>(Memory.ReadMemory<int>(Ent + 0x8) + 0x8) + 0x1) + 0x14);
+                            if (EntityClassID == 67 && Main.S.NightMode) // CEnvTonemapController
+                            {
+                                Memory.WriteMemory<int>(Ent + 0x9D8, 1);
+                                Memory.WriteMemory<int>(Ent + 0x9D9, 1);
+                                Memory.WriteMemory<byte>(Ent + 0x9DC, 0.085f);
+                                Memory.WriteMemory<byte>(Ent + 0x9E0, 0.085f);
+                            }
+                            if (EntityClassID == 136 && Main.S.ColoredHands) //Predicted viewmodel
+                            {
+                                Memory.WriteMemory<int>(Ent + Main.O.netvars.m_clrRender, Main.S.ColorHands.R);             //r
+                                Memory.WriteMemory<int>(Ent + Main.O.netvars.m_clrRender + 1, Main.S.ColorHands.G);         //g
+                                Memory.WriteMemory<int>(Ent + Main.O.netvars.m_clrRender + 2, Main.S.ColorHands.B);    //b
+                                Memory.WriteMemory<int>(Ent + Main.O.netvars.m_clrRender + 3, 255);         //alpha
+                            }
+                            if (EntityClassID == 67 && !Main.S.NightMode) // CEnvTonemapController
+                            {
+                                Memory.WriteMemory<int>(Ent + 0x9D8, 1);
+                                Memory.WriteMemory<int>(Ent + 0x9D9, 1);
+                                Memory.WriteMemory<byte>(Ent + 0x9DC, 1);
+                                Memory.WriteMemory<byte>(Ent + 0x9E0, 1);
+                            }
+                            if (EntityClassID == 136 && !Main.S.ColoredHands) //Predicted viewmodel
+                            {
+                                Memory.WriteMemory<int>(Ent + Main.O.netvars.m_clrRender, 255);             //r
+                                Memory.WriteMemory<int>(Ent + Main.O.netvars.m_clrRender + 1, 255);         //g
+                                Memory.WriteMemory<int>(Ent + Main.O.netvars.m_clrRender + 2, 255);    //b
+                                Memory.WriteMemory<int>(Ent + Main.O.netvars.m_clrRender + 3, 255);         //alpha
+                            }
+                        }
+                        int BaseAddress = G.Engine.LocalPlayer.EntityBase;
+                    }
                     if (Main.S.AntiAimEnabled)
                     {
                         Memory.WriteMemory<float>(G.Engine.LocalPlayer.EntityBase + Main.O.netvars.m_viewPunchAngle + 0x4, 180);
@@ -119,120 +198,34 @@ namespace ZBase.Cheats
                     {
                         Memory.WriteMemory<bool>(G.Engine.LocalPlayer.EntityBase + Main.O.netvars.m_iObserverMode, false);
                     }
-                    if (Main.S.ForceFullUpdate || Tools.HoldingKey(Keys.VK_END))
-                    {
-                        bool knife = Main.S.KnifeChangerEnabled;
-                        if (knife)
-                            Main.S.KnifeChangerEnabled = false;
-                        //Thread.Sleep(100);
-                        Memory.WriteMemory<IntPtr>(Memory.ReadMemory<int>((int)Memory.Engine + Main.O.signatures.dwClientState) + 0x174, -1);
-                        //Thread.Sleep(100);
-                        Main.S.KnifeChangerEnabled = knife;
-                    }
-                    int modelIndex = 0;
-                    if (Main.S.KnifeChangerEnabled)
-                    {
-                        int activeWeapon = Memory.ReadMemory<int>(BaseAddress + Main.O.netvars.m_hActiveWeapon) & 0xfff;
-                        int weaponEntity2 = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + (activeWeapon - 1) * 0x10);
-                        if (weaponEntity2 == 0) { continue; }
+                   
+                        //        int activeWeapon = Memory.ReadMemory<int>(BaseAddress + Main.O.netvars.m_hActiveWeapon) & 0xfff;
+                        //int weaponEntity2 = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + (activeWeapon - 1) * 0x10);
+                        //if (weaponEntity2 == 0) { continue; }
 
-                        short weaponID2 = Memory.ReadMemory<short>(weaponEntity2 + Main.O.netvars.m_iItemDefinitionIndex);
+                        //short weaponID2 = Memory.ReadMemory<short>(weaponEntity2 + Main.O.netvars.m_iItemDefinitionIndex);
 
-                        int weaponViewModelID = Memory.ReadMemory<int>(weaponEntity2 + m_iViewModelIndex);
+                        //int weaponViewModelID = Memory.ReadMemory<int>(weaponEntity2 + m_iViewModelIndex);
 
-                        if (weaponID2 == 41 && weaponViewModelID > 0)
-                        {
-                            modelIndex = weaponViewModelID + Main.I.SelectedKnife + 24;
-                        }
-                        if (weaponID2 == 42 && weaponViewModelID > 0)
-                        {
-                            modelIndex = weaponViewModelID + Main.I.SelectedKnife + 24;
-                        }
-                        else if (weaponID2 == 59 && weaponViewModelID > 0)
-                        {
-                            modelIndex = weaponViewModelID + Main.I.SelectedKnife;
-                        }
-                        else if (weaponID2 != modelIndex || modelIndex == 0) { continue; }
+                        //if (weaponID2 == 42 && weaponViewModelID > 0)
+                        //{
+                        //    modelIndex = weaponViewModelID + Main.I.SelectedKnife + 24;
+                        //}
+                        //else if (weaponID2 == 59 && weaponViewModelID > 0)
+                        //{
+                        //    modelIndex = weaponViewModelID + Main.I.SelectedKnife;
+                        //}
 
-                        int knifeViewmodel = Memory.ReadMemory<int>(BaseAddress + m_hViewModel) & 0xfff; //Mysle ze m_hViewModel jest zly
-                        int knifeEntity = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + (knifeViewmodel - 1) * 0x10);
-                        if (knifeEntity == 0) { continue; }
-                        if (weaponID2 == 41 || weaponID2 == 42 || weaponID2 == 59)
-                        {
-                            Memory.WriteMemory<short>(knifeEntity + m_nModelIndex, modelIndex);
-                            Memory.WriteMemory<short>(activeWeapon + m_nModelIndex, modelIndex);
-                            Memory.WriteMemory<short>(activeWeapon + Main.O.netvars.m_iItemDefinitionIndex, 500);
-                            Memory.WriteMemory<IntPtr>(activeWeapon + m_iViewModelIndex, modelIndex);
-                        }
-                    }
-                    if (Main.S.SkinChangerEnabled)
-                    {
-                        for (int i = 0; i < 8; i++)
-                        {
-                            int weaponbase = Memory.ReadMemory<int>(BaseAddress + Main.O.netvars.m_hMyWeapons + i * 0x4);
-                            int yes = weaponbase & 0xFFF;
-                            int ok = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + (yes - 1) * 16);
-                            int weaponIDD = Memory.ReadMemory<int>(ok + Main.O.netvars.m_iItemDefinitionIndex);
-
-                            //SkinsId https://totalcsgo.com/skin-ids
-                            // WeaponID https://tf2b.com/itemlist.php?gid=730
-                            const int itemIDHigh = -1;
-                            const int entityQuality = 3;
-                            const float fallbackWear = 0.0001f;
-                            int myWeapons = Memory.ReadMemory<int>(BaseAddress + Main.O.netvars.m_hMyWeapons + i * 0x4) & 0xfff;
-                            int weaponEntity = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + (myWeapons - 1) * 0x10);
-                            if (weaponEntity == 0) { continue; }
-                            int weaponID = weaponIDD;
-                            int fallbackPaint = 0;
-                            if (weaponID == 1) { fallbackPaint = Main.S.SkinDeasertEagle; } /* Desert Eagle | Blaze */
-                            else if (weaponID == 2) { fallbackPaint = Main.S.SkinDualBerettas; } /* Dual Berettas | Cobra Strike */
-                            else if (weaponID == 3) { fallbackPaint = Main.S.SkinFiveSeven; } /* Five-SeveN | Hyper Beast */
-                            else if (weaponID == 4) { fallbackPaint = Main.S.SkinGlock18; } /* Glock-18 | Fade */
-                            else if (weaponID == 7) { fallbackPaint = Main.S.SkinAK47; } /* AK-47 | Empress */
-                            else if (weaponID == 8) { fallbackPaint = Main.S.SkinAUG; } /* AUG | Akihabara Accept */
-                            else if (weaponID == 9) { fallbackPaint = Main.S.SkinAWP; } /* AWP | Asiimov */
-                            else if (weaponID == 10) { fallbackPaint = Main.S.SkinFamas; } /* FAMAS | Eye of Athena */
-                            else if (weaponID == 11) { fallbackPaint = Main.S.SkinG3SG1; } /* G3SG1 | Flux */
-                            else if (weaponID == 13) { fallbackPaint = Main.S.SkinGalilAR; } /* Galil AR | Chatterbox */
-                            else if (weaponID == 14) { fallbackPaint = Main.S.SkinM249; } /* M249 | System Lock */
-                            else if (weaponID == 16) { fallbackPaint = Main.S.SkinM4A4; } /* M4A4 - Howl */
-                            else if (weaponID == 17) { fallbackPaint = Main.S.SkinMac10; } /* MAC-10 | Neon Rider */
-                            else if (weaponID == 19) { fallbackPaint = Main.S.SkinP90; } /* P90 | Shallow Grave */
-                            else if (weaponID == 23) { fallbackPaint = Main.S.SkinUMP45; } /* UMP-45 | Arctic Wolf */
-                            else if (weaponID == 24) { fallbackPaint = Main.S.SkinMP5; } /* MP5| Arctic Wolf */
-                            else if (weaponID == 25) { fallbackPaint = Main.S.SkinXM1014; } /* XM1014 | Tranquility */
-                            else if (weaponID == 26) { fallbackPaint = Main.S.SkinPPBizon; } /* PP-Bizon | Judgement of Anubis */
-                            else if (weaponID == 27) { fallbackPaint = Main.S.SkinMag7; } /* MP7 | Bloodsport */
-                            else if (weaponID == 28) { fallbackPaint = Main.S.SkinNegev; } /* Negev | Power Loader */
-                            else if (weaponID == 29) { fallbackPaint = Main.S.SkinSawedOff; } /* Sawed-Off | Devourer */
-                            else if (weaponID == 30) { fallbackPaint = Main.S.SkinTec9; } /* Tec-9 | Fuel Injector */
-                            else if (weaponID == 32) { fallbackPaint = Main.S.SkinP2000; } /* P2000 | Imperial Dragon */
-                            else if (weaponID == 33) { fallbackPaint = Main.S.SkinMP7; } /* MP7 | Bloodsport */
-                            else if (weaponID == 34) { fallbackPaint = Main.S.SkinMP9; } /* MP9 | Rose Iron */
-                            else if (weaponID == 35) { fallbackPaint = Main.S.SkinNova; } /* Nova | Hyper Beast */
-                            else if (weaponID == 36) { fallbackPaint = Main.S.SkinP250; } /* P250 | See Ya Later */
-                            else if (weaponID == 38) { fallbackPaint = Main.S.SkinSCAR20; } /* SCAR-20 | Cyrex */
-                            else if (weaponID == 39) { fallbackPaint = Main.S.SkinSG553; } /* SG 553 | Integrale */
-                            else if (weaponID == 40) { fallbackPaint = Main.S.SkinSSG08; } /* SSG 08 | Dragonfire */
-                            else if (weaponID == 60) { fallbackPaint = Main.S.SkinM4A1S; } /* M4A1-S | Hot Rod */
-                            else if (weaponID == 61) { fallbackPaint = Main.S.SkinUSPS; } /* USP-S | Neo-Noir */
-                            else if (weaponID == 63) { fallbackPaint = Main.S.SkinCZ75; } /* CZ75-Auto | Neo-Noir */
-                            else if (weaponID == 41 || weaponID == 42 || weaponID == 59)
-                            {
-                                Memory.WriteMemory<int>(myWeapons + m_nModelIndex, modelIndex);
-                                Memory.WriteMemory<int>(myWeapons + m_iViewModelIndex, modelIndex);
-                                Memory.WriteMemory<int>(myWeapons + Main.O.netvars.m_iItemDefinitionIndex, 500);
-                            }
-                            else
-                            {
-
-                                Memory.WriteMemory<IntPtr>(weaponEntity + Main.O.netvars.m_iEntityQuality, entityQuality);
-                            }
-                            Memory.WriteMemory<IntPtr>(weaponEntity + Main.O.netvars.m_iItemIDHigh, itemIDHigh);
-                            Memory.WriteMemory<IntPtr>(weaponEntity + Main.O.netvars.m_nFallbackPaintKit, fallbackPaint);
-                            Memory.WriteMemory<float>(weaponEntity + Main.O.netvars.m_flFallbackWear, fallbackWear);
-                        }
-                    }
+                        //int knifeViewmodel = Memory.ReadMemory<int>(BaseAddress + m_hViewModel) & 0xfff;
+                        //int knifeEntity = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + (knifeViewmodel - 1) * 0x10);
+                        //if (knifeEntity == 0) { continue; }
+                        //if (weaponID2 == 41 || weaponID2 == 42 || weaponID2 == 59 || weaponID2 == 500)
+                        //{
+                        //    Memory.WriteMemory<short>(knifeEntity + m_nModelIndex, modelIndex);
+                        //    Memory.WriteMemory<short>(activeWeapon + m_nModelIndex, modelIndex);
+                        //    Memory.WriteMemory<short>(activeWeapon + Main.O.netvars.m_iItemDefinitionIndex, 500);
+                        //    Memory.WriteMemory<IntPtr>(activeWeapon + m_iViewModelIndex, modelIndex);
+                        //}
                     if (Main.S.RCSEnabled)
                     {
                         Vector2 punchVector;
@@ -269,7 +262,7 @@ namespace ZBase.Cheats
                         }
                     }
                 }
-                Thread.Sleep(1);
+                //Thread.Sleep(1);
             }
         }
         public static void hitSound(int hits)

@@ -939,6 +939,8 @@ namespace ZBase.Forms
                 ComboBoxESPColors.Items.Add("MachineGuns");
             if (!ComboBoxESPColors.Items.Contains("SMG"))
                 ComboBoxESPColors.Items.Add("SMG");
+            if (!ComboBoxESPColors.Items.Contains("Colored Hands"))
+                ComboBoxESPColors.Items.Add("Colored Hands");
             if (!ComboBoxESPColors.Items.Contains("Nothing"))
                 ComboBoxESPColors.Items.Add("Nothing");
         }
@@ -1070,6 +1072,13 @@ namespace ZBase.Forms
                     TrackBarColorGreen.Value = Main.S.ESPColorSMG.G;
                     TrackBarColorBlue.Value = Main.S.ESPColorSMG.B;
                     break;
+                case "Colored Hands":
+                    HealthBasedCheck.Hide();
+                    PanelColor.BackColor = Main.S.ColorHands;
+                    TrackBarColorRed.Value = Main.S.ColorHands.R;
+                    TrackBarColorGreen.Value = Main.S.ColorHands.G;
+                    TrackBarColorBlue.Value = Main.S.ColorHands.B;
+                    break;
                 default:
                     HealthBasedCheck.Hide();
                     break;
@@ -1119,6 +1128,9 @@ namespace ZBase.Forms
                         break;
                     case "SMG":
                         Main.S.ESPColorSMG = Main.I.ColorRGB;
+                        break;
+                    case "Colored Hands":
+                        Main.S.ColorHands = Main.I.ColorRGB;
                         break;
                     default:
                         break;

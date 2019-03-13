@@ -93,9 +93,10 @@ namespace ZBase.Cheats
                             int PlayerResource = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwPlayerResource);
                             Ranks Ranks = (Ranks)Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveRanking + (i + 1) * 4);
                             int wins = Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveWins + (i + 1) * 4);
+                            int ObjectCount = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwGlowObjectManager + 0x4);
                             DrawText(wins.ToString(), Main.MidScreen.X * 2 - 160, i * 15, 13, Color.White);
                             DrawText(Ranks.ToString(), Main.MidScreen.X * 2 - 160 + 20, i * 15, 13, Color.White);
-                            DrawText(G.Engine.GameState.ToString(), Main.MidScreen.X , 50, 16, Color.White);
+                            DrawText(ObjectCount.ToString(), Main.MidScreen.X , 50, 16, Color.White);
                         }
                     }
                     //////////
@@ -144,11 +145,6 @@ namespace ZBase.Cheats
                         if (EntityTeam != myteam && EntityTeam != 2 && EntityTeam != 3)
                             Main.I.TriggerBotOn = false;
                         CrosshairColor = Color.Green;
-                    }
-                    if (Main.I.ShowCrosshair)
-                    {
-                        for(int i =0; i < 100; i++)
-                        DrawCrosshair(CrosshairStyle.Cross, Main.MidScreen.X, Main.MidScreen.Y, 14, 2, Color.White);
                     }
                     if (Main.S.RecoilCrosshairEnabled)
                     {

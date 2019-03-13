@@ -61,6 +61,7 @@ namespace ZBase.Classes
         public Color ESPColorShotGuns { get; set; }
         public Color ESPColorMachineGuns { get; set; }
         public Color ESPColorSMG { get; set; }
+        public Color ColorHands { get; set; }
         ///////////////////////////////////////////////////////
         public bool GlowEnabled { get; set; }
         public int GlowValue { get; set; }
@@ -106,9 +107,12 @@ namespace ZBase.Classes
         public bool GlowFlash { get; set; }
         ///////////////////////////////////////////////////////
         public bool NoHandsEnabled { get; set; }
+        public bool ColoredHands { get; set; }
         public bool SkinChangerEnabled { get; set; }
         public bool KnifeChangerEnabled { get; set; }
+        public bool FasterChangersEnabled { get; set; }
         public string SelectedKnife { get; set; }
+        public int SelectedKnifeSkin { get; set; }
         public bool RecoilCrosshairEnabled { get; set; }
         public bool RecoilControlSystemEnabled { get; set; }
         public bool ForceFullUpdate { get; set; }

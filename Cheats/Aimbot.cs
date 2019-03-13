@@ -42,7 +42,7 @@ namespace ZBase.Cheats
                     }
                     if (Main.S.KnifeBotEnabled)
                     {
-                        if (activeweapon == "Knife")
+                        if (WeaponID == (int)WeaponsID.KNIFE || WeaponID == (int)WeaponsID.KNIFE_T || WeaponID == Main.I.SelectedKnifeID)
                         {
                             Entity Player = Tools.GetPlayerbyDistance();
                             if (Player != null)

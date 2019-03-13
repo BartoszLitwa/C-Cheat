@@ -128,6 +128,10 @@ namespace ZBase.Forms
                 ShowNamesCheck.CheckState = CheckState.Checked;
             if (!Main.S.ShowNamesEnabled)
                 ShowNamesCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.SpectatorsListEnabled)
+                SpectatorsListCheck.CheckState = CheckState.Checked;
+            if (!Main.S.SpectatorsListEnabled)
+                SpectatorsListCheck.CheckState = CheckState.Unchecked;
             //////////////////////////////////////////////////////////////
             if (Main.S.SnaplinesValue > 0 && Main.S.SnaplinesValue < 16)
                 SnapLineThicTrackBar.Value = Main.S.SnaplinesValue;
