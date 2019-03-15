@@ -14,46 +14,46 @@ namespace ZBase.Cheats
 {
     class Misc
     {
-        //public static byte[] Shellcode = {
-        //                         0xBA,0x67,0x45,0x23,0x01,
-        //                         0xB9,0x67,0x45,0x23,0x01,
-        //                         0xB8,0x67,0x45,0x23,0x01,
-        //                         0xFF,0xD0,
-        //                         0xC3,
-        //                         0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,
-        //                         0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12
-        //                         };
-        //public static int Size = Shellcode.Length;
-        //public static IntPtr Address;
-        //public static Int32 dwChangeClanTag;
-        //public static void Do(string tag, string name)
-        //{
-        //    dwChangeClanTag = Offsets.dwSetClanTag;
-        //    dwChangeClanTag += (int)Memory.g_pEngine;
-        //    if (Address == IntPtr.Zero)
-        //    {
-        //        Alloc();
-        //        if (Address == IntPtr.Zero)
-        //            return;
-        //        int tag_addr = (int)Address + 18;
-        //        int name_addr = tag_addr + 16;
-        //        Buffer.BlockCopy(BitConverter.GetBytes(name_addr), 0, Shellcode, 1, 4);
-        //        Buffer.BlockCopy(BitConverter.GetBytes(tag_addr), 0, Shellcode, 6, 4);
-        //        Buffer.BlockCopy(BitConverter.GetBytes(dwChangeClanTag), 0, Shellcode, 11, 4);
-        //    }
-        //    var tag_bytes = Encoding.UTF8.GetBytes(tag + "\0");
-        //    var name_bytes = Encoding.UTF8.GetBytes(name + "\0");
-        //    Buffer.BlockCopy(tag_bytes, 0, Shellcode, 18, tag_bytes.Length);
-        //    Buffer.BlockCopy(name_bytes, 0, Shellcode, 34, name_bytes.Length);
-        //    WinAPI.WriteProcessMemory(Memory.g_pProcessHandle, Address, Shellcode, Shellcode.Length, 0);
-        //    IntPtr Thread = WinAPI.CreateRemoteThread(Memory.g_pProcessHandle, (IntPtr)null, IntPtr.Zero, Address, (IntPtr)null, 0, (IntPtr)null);
-        //    WinAPI.WaitForSingleObject(Thread, 0xFFFFFFFF);
-        //    WinAPI.CloseHandle(Thread);
-        //}
-        //public static void Alloc()
-        //{
-        //    Address = Globals.SmartAllocator.SmartAlloc(Size);
-        //}
+        public static byte[] Shellcode = {
+                                 0xBA,0x67,0x45,0x23,0x01,
+                                 0xB9,0x67,0x45,0x23,0x01,
+                                 0xB8,0x67,0x45,0x23,0x01,
+                                 0xFF,0xD0,
+                                 0xC3,
+                                 0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,
+                                 0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12
+                                 };
+        public static int Size = Shellcode.Length;
+        public static IntPtr Address;
+        public static Int32 dwChangeClanTag;
+        public static void Do(string tag, string name)
+        {
+            dwChangeClanTag = Main.O.signatures.dwSetClanTag;
+            dwChangeClanTag += (int)Memory.Engine;
+            if (Address == IntPtr.Zero)
+            {
+                Alloc();
+                if (Address == IntPtr.Zero)
+                    return;
+                int tag_addr = (int)Address + 18;
+                int name_addr = tag_addr + 16;
+                Buffer.BlockCopy(BitConverter.GetBytes(name_addr), 0, Shellcode, 1, 4);
+                Buffer.BlockCopy(BitConverter.GetBytes(tag_addr), 0, Shellcode, 6, 4);
+                Buffer.BlockCopy(BitConverter.GetBytes(dwChangeClanTag), 0, Shellcode, 11, 4);
+            }
+            var tag_bytes = Encoding.UTF8.GetBytes(tag + "\0");
+            var name_bytes = Encoding.UTF8.GetBytes(name + "\0");
+            Buffer.BlockCopy(tag_bytes, 0, Shellcode, 18, tag_bytes.Length);
+            Buffer.BlockCopy(name_bytes, 0, Shellcode, 34, name_bytes.Length);
+            WinAPI.WriteProcessMemory(Memory.ProcessHandle, Address, Shellcode, Shellcode.Length, 0);
+            IntPtr Thread = WinAPI.CreateRemoteThread(Memory.ProcessHandle, (IntPtr)null, IntPtr.Zero, Address, (IntPtr)null, 0, (IntPtr)null);
+            WinAPI.WaitForSingleObject(Thread, 0xFFFFFFFF);
+            WinAPI.CloseHandle(Thread);
+        }
+        public static void Alloc()
+        {
+            Address = G.SmartAlloc.SmartAlloc(Size);
+        }
         public static int m_hViewModel = 0x32F8;
         public static int m_bClientSideAnimation = 0x289C;
         public static int m_nModelIndex = 0x258;
@@ -65,13 +65,24 @@ namespace ZBase.Cheats
         public static int KnifeModelIndex = 0;
         public static int KnifeViewModelIndex = 0;
         public static Vector2 oldPunch;
+        public static string OldClanTag = Main.S.ClanTagString;
         public static void Run()
         {
+            if (Main.S.ClanTagChangerEnabled)
+                Do(Main.S.ClanTagString, "Elo");
+
             int[] stats = new int[2];
             while (true)
             {
                 if (G.Engine.GameState == GameState.FULL_CONNECTED)
                 {
+                    if (Main.S.ClanTagChangerEnabled)
+                        if (OldClanTag != Main.S.ClanTagString)
+                        {
+                            Do(Main.S.ClanTagString, "Elo");
+                            OldClanTag = Main.S.ClanTagString;
+                        }
+
                     if (Main.S.NightMode || Main.S.ColoredHands)
                     {
                         for (int i = 0; i < 600; i++)
@@ -175,6 +186,7 @@ namespace ZBase.Cheats
                             stats[1] = -1;
                             Main.I.ShowCrosshair = false;
                         }
+                        crosshairEntity = 0;
                     }
                     if (Main.S.TriggerbotEnabled)
                     {

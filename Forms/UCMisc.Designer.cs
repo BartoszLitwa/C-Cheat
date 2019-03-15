@@ -42,6 +42,9 @@
             this.AntiAimCheck = new System.Windows.Forms.CheckBox();
             this.HitMarkerCheck = new System.Windows.Forms.CheckBox();
             this.ColoredHandsCheck = new System.Windows.Forms.CheckBox();
+            this.AutoStrafeCheck = new System.Windows.Forms.CheckBox();
+            this.ClanTagChangerTextBox = new System.Windows.Forms.TextBox();
+            this.ClanTagChangerCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.AntiFlashTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +75,6 @@
             this.AntiFlashLabel.Size = new System.Drawing.Size(61, 13);
             this.AntiFlashLabel.TabIndex = 122;
             this.AntiFlashLabel.Text = "AntiFlash%:";
-            this.AntiFlashLabel.Click += new System.EventHandler(this.AntiFlashLabel_Click);
             // 
             // AntiFlashTrackBar
             // 
@@ -157,7 +159,7 @@
             // BunnyhopCheck
             // 
             this.BunnyhopCheck.AutoSize = true;
-            this.BunnyhopCheck.Location = new System.Drawing.Point(131, 49);
+            this.BunnyhopCheck.Location = new System.Drawing.Point(131, 72);
             this.BunnyhopCheck.Name = "BunnyhopCheck";
             this.BunnyhopCheck.Size = new System.Drawing.Size(79, 17);
             this.BunnyhopCheck.TabIndex = 114;
@@ -169,7 +171,7 @@
             // 
             this.AntiAimCheck.AutoSize = true;
             this.AntiAimCheck.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.AntiAimCheck.Location = new System.Drawing.Point(278, 72);
+            this.AntiAimCheck.Location = new System.Drawing.Point(3, 94);
             this.AntiAimCheck.Name = "AntiAimCheck";
             this.AntiAimCheck.Size = new System.Drawing.Size(61, 17);
             this.AntiAimCheck.TabIndex = 125;
@@ -180,7 +182,7 @@
             // HitMarkerCheck
             // 
             this.HitMarkerCheck.AutoSize = true;
-            this.HitMarkerCheck.Location = new System.Drawing.Point(131, 72);
+            this.HitMarkerCheck.Location = new System.Drawing.Point(131, 49);
             this.HitMarkerCheck.Name = "HitMarkerCheck";
             this.HitMarkerCheck.Size = new System.Drawing.Size(71, 17);
             this.HitMarkerCheck.TabIndex = 126;
@@ -200,10 +202,44 @@
             this.ColoredHandsCheck.UseVisualStyleBackColor = true;
             this.ColoredHandsCheck.CheckedChanged += new System.EventHandler(this.ColoredHandsCheck_CheckedChanged);
             // 
+            // AutoStrafeCheck
+            // 
+            this.AutoStrafeCheck.AutoSize = true;
+            this.AutoStrafeCheck.Location = new System.Drawing.Point(131, 95);
+            this.AutoStrafeCheck.Name = "AutoStrafeCheck";
+            this.AutoStrafeCheck.Size = new System.Drawing.Size(79, 17);
+            this.AutoStrafeCheck.TabIndex = 128;
+            this.AutoStrafeCheck.Text = "Auto Strafe";
+            this.AutoStrafeCheck.UseVisualStyleBackColor = true;
+            this.AutoStrafeCheck.CheckedChanged += new System.EventHandler(this.AutoStrafeCheck_CheckedChanged);
+            // 
+            // ClanTagChangerTextBox
+            // 
+            this.ClanTagChangerTextBox.Location = new System.Drawing.Point(280, 91);
+            this.ClanTagChangerTextBox.Name = "ClanTagChangerTextBox";
+            this.ClanTagChangerTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ClanTagChangerTextBox.TabIndex = 129;
+            this.ClanTagChangerTextBox.TextChanged += new System.EventHandler(this.ClanTagChangerTextBox_TextChanged);
+            // 
+            // ClanTagChangerCheck
+            // 
+            this.ClanTagChangerCheck.AutoSize = true;
+            this.ClanTagChangerCheck.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.ClanTagChangerCheck.Location = new System.Drawing.Point(280, 72);
+            this.ClanTagChangerCheck.Name = "ClanTagChangerCheck";
+            this.ClanTagChangerCheck.Size = new System.Drawing.Size(109, 17);
+            this.ClanTagChangerCheck.TabIndex = 130;
+            this.ClanTagChangerCheck.Text = "ClanTag Changer";
+            this.ClanTagChangerCheck.UseVisualStyleBackColor = true;
+            this.ClanTagChangerCheck.CheckedChanged += new System.EventHandler(this.ClanTagChangerCheck_CheckedChanged);
+            // 
             // UCMisc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ClanTagChangerCheck);
+            this.Controls.Add(this.ClanTagChangerTextBox);
+            this.Controls.Add(this.AutoStrafeCheck);
             this.Controls.Add(this.ColoredHandsCheck);
             this.Controls.Add(this.HitMarkerCheck);
             this.Controls.Add(this.AntiAimCheck);
@@ -242,5 +278,8 @@
         private System.Windows.Forms.CheckBox AntiAimCheck;
         private System.Windows.Forms.CheckBox HitMarkerCheck;
         private System.Windows.Forms.CheckBox ColoredHandsCheck;
+        private System.Windows.Forms.CheckBox AutoStrafeCheck;
+        private System.Windows.Forms.TextBox ClanTagChangerTextBox;
+        private System.Windows.Forms.CheckBox ClanTagChangerCheck;
     }
 }

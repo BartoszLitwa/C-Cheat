@@ -61,7 +61,16 @@ namespace ZBase.Forms
                 ColoredHandsCheck.CheckState = CheckState.Unchecked;
             if (Main.S.ColoredHands)
                 ColoredHandsCheck.CheckState = CheckState.Checked;
+            if (!Main.S.AutoStrafeEnabled)
+                AutoStrafeCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.AutoStrafeEnabled)
+                AutoStrafeCheck.CheckState = CheckState.Checked;
+            if (!Main.S.ClanTagChangerEnabled)
+                ClanTagChangerCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.ClanTagChangerEnabled)
+                ClanTagChangerCheck.CheckState = CheckState.Checked;
             //////////////////////////////////////////////////////
+            ClanTagChangerTextBox.Text = Main.S.ClanTagString;
             if (Main.S.AntiFlashAlpha >= 0 && Main.S.AntiFlashAlpha < 256)
                 AntiFlashTrackBar.Value = Main.S.AntiFlashAlpha;
             if (Main.S.FOVValue >= 0)
@@ -80,12 +89,13 @@ namespace ZBase.Forms
 
         private void FOVChangerTXT_TextChanged(object sender, EventArgs e)
         {
+            try { 
             Main.S.FOVValue = int.Parse(FOVChangerTXT.Text);
-        }
+            }
+            catch (Exception ex)
+            {
 
-        private void AntiFlashLabel_Click(object sender, EventArgs e)
-        {
-
+            }
         }
 
         private void AntiFlashTrackBar_Scroll(object sender, EventArgs e)
@@ -145,7 +155,13 @@ namespace ZBase.Forms
 
         private void FakeLagTXT_TextChanged(object sender, EventArgs e)
         {
+            try { 
             Main.S.FAKELAGValue = int.Parse(FakeLagTXT.Text);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void BunnyhopCheck_CheckedChanged(object sender, EventArgs e)
@@ -182,6 +198,31 @@ namespace ZBase.Forms
                 Main.S.ColoredHands = true;
             else
                 Main.S.ColoredHands = false;
+        }
+
+        private void AutoStrafeCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (AutoStrafeCheck.Checked)
+                Main.S.AutoStrafeEnabled = true;
+            else
+                Main.S.AutoStrafeEnabled = false;
+        }
+
+        private void ClanTagChangerCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ClanTagChangerCheck.Checked)
+                Main.S.ClanTagChangerEnabled = true;
+            else
+                Main.S.ClanTagChangerEnabled = false;
+        }
+
+        private void ClanTagChangerTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Main.S.ClanTagString = ClanTagChangerTextBox.Text.ToString();
+            }
+            catch(Exception ex) { }
         }
     }
 }

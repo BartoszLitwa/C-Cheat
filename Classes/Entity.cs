@@ -476,6 +476,15 @@ namespace ZBase.Classes
                 return Memory.ReadMemory<Vector3>(EntityBase + Main.O.netvars.m_vecVelocity);
             }
         }
+
+        public byte MouseEnable
+        {
+            get
+            {
+                return Memory.ReadMemory<byte>((int)Memory.Client + Main.O.signatures.dwMouseEnable);
+            }
+        }
+
         public bool Scoped
         {
             get

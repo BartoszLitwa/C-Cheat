@@ -12,5 +12,6 @@ namespace ZBase.Utilities
     {
         public static List<Entity> EntityList = new List<Entity>();
         public static Engine Engine;
+        public static SmartAllocator_t SmartAlloc = new SmartAllocator_t();
     }
 }

@@ -11,6 +11,7 @@ namespace ZBase.Classes
     public class Settings
     {
         public bool BunnyhopEnabled { get; set; }
+        public bool AutoStrafeEnabled { get; set; }
         public bool ESP { get; set; }
         public float WielkoscFont { get; set; }
         public bool ESPBoxEnabled { get; set; }
@@ -42,6 +43,7 @@ namespace ZBase.Classes
         public bool ShowWinsEnabled { get; set; }
         public bool ShowNamesEnabled { get; set; }
         public bool SpectatorsListEnabled { get; set; }
+        public bool OffScreenESPEnabled { get; set; }
         ///////////////////////////////////////////////////////
         public Color ESPColorEnemies { get; set; }
         public Color ESPColorTeammates { get; set; }
@@ -113,6 +115,7 @@ namespace ZBase.Classes
         public bool FasterChangersEnabled { get; set; }
         public string SelectedKnife { get; set; }
         public int SelectedKnifeSkin { get; set; }
+        public int StatTrakValue { get; set; }
         public bool RecoilCrosshairEnabled { get; set; }
         public bool RecoilControlSystemEnabled { get; set; }
         public bool ForceFullUpdate { get; set; }
@@ -129,6 +132,8 @@ namespace ZBase.Classes
         public bool ChamsTeammates { get; set; }
         public bool AntiFlashEnabled { get; set; }
         public int AntiFlashAlpha { get; set; }
+        public bool ClanTagChangerEnabled { get; set; }
+        public string ClanTagString { get; set; }
         public bool FOVEnabled { get; set; }
         public int FOVValue { get; set; }
         public bool AutoPistolEnabled { get; set; }

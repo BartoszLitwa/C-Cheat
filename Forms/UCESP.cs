@@ -247,7 +247,13 @@ namespace ZBase.Forms
 
         private void ChamsValueTXT_TextChanged(object sender, EventArgs e)
         {
+            try { 
             Main.S.ChamsValue = int.Parse(ChamsValueTXT.Text);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void comboBoxCrosshair_SelectedIndexChanged(object sender, EventArgs e)
@@ -462,7 +468,13 @@ namespace ZBase.Forms
 
         private void GlowValueTXT_TextChanged(object sender, EventArgs e)
         {
+            try { 
             Main.S.GlowValue = int.Parse(GlowValueTXT.Text);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void DrawBondeIdsCheck_CheckedChanged(object sender, EventArgs e)
@@ -646,6 +658,14 @@ namespace ZBase.Forms
                 Main.S.SpectatorsListEnabled = true;
             else
                 Main.S.SpectatorsListEnabled = false;
+        }
+
+        private void OffScreenESPCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (OffScreenESPCheck.Checked)
+                Main.S.OffScreenESPEnabled = true;
+            else
+                Main.S.OffScreenESPEnabled = false;
         }
     }
 }

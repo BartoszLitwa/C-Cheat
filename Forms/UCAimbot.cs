@@ -558,7 +558,14 @@ namespace ZBase.Forms
         }
         private void TriggerBotTXT_TextChanged(object sender, EventArgs e)
         {
+            try
+            { 
             Main.S.TriggerbotValue = int.Parse(TriggerBotTXT.Text);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
         private void TriggerBotCheck_CheckedChanged(object sender, EventArgs e)
         {
@@ -571,7 +578,13 @@ namespace ZBase.Forms
         }
         private void RCSTXT_TextChanged(object sender, EventArgs e)
         {
+            try { 
             Main.S.RCSValue = int.Parse(RCSTXT.Text);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
         private void RCSCheck_CheckedChanged(object sender, EventArgs e)
         {
@@ -1030,29 +1043,36 @@ namespace ZBase.Forms
         }
         private void AimbotSmoothTXT_TextChanged(object sender, EventArgs e)
         {
-            if (Main.S.AimbotTypeofGun == 0)
-            {
-                Main.S.aimbotSmoothValueRifle = int.Parse(AimbotSmoothTXT.Text);
+            try
+            { 
+                 if (Main.S.AimbotTypeofGun == 0)
+                 {
+                     Main.S.aimbotSmoothValueRifle = int.Parse(AimbotSmoothTXT.Text);
+                 }
+                 if (Main.S.AimbotTypeofGun == 1)
+                 {
+                     Main.S.aimbotSmoothValuePistols = int.Parse(AimbotSmoothTXT.Text);
+                 }
+                 if (Main.S.AimbotTypeofGun == 2)
+                 {
+                     Main.S.aimbotSmoothValueSnipers = int.Parse(AimbotSmoothTXT.Text);
+                 }
+                 if (Main.S.AimbotTypeofGun == 3)
+                 {
+                     Main.S.aimbotSmoothValueShotGuns = int.Parse(AimbotSmoothTXT.Text);
+                 }
+                 if (Main.S.AimbotTypeofGun == 4)
+                 {
+                     Main.S.aimbotSmoothValueMachineGuns = int.Parse(AimbotSmoothTXT.Text);
+                 }
+                 if (Main.S.AimbotTypeofGun == 5)
+                 {
+                     Main.S.aimbotSmoothValueSMG = int.Parse(AimbotSmoothTXT.Text);
+                 }
             }
-            if (Main.S.AimbotTypeofGun == 1)
+            catch (Exception ex)
             {
-                Main.S.aimbotSmoothValuePistols = int.Parse(AimbotSmoothTXT.Text);
-            }
-            if (Main.S.AimbotTypeofGun == 2)
-            {
-                Main.S.aimbotSmoothValueSnipers = int.Parse(AimbotSmoothTXT.Text);
-            }
-            if (Main.S.AimbotTypeofGun == 3)
-            {
-                Main.S.aimbotSmoothValueShotGuns = int.Parse(AimbotSmoothTXT.Text);
-            }
-            if (Main.S.AimbotTypeofGun == 4)
-            {
-                Main.S.aimbotSmoothValueMachineGuns = int.Parse(AimbotSmoothTXT.Text);
-            }
-            if (Main.S.AimbotTypeofGun == 5)
-            {
-                Main.S.aimbotSmoothValueSMG = int.Parse(AimbotSmoothTXT.Text);
+
             }
         }
         private void IfSpottedCheck_CheckedChanged(object sender, EventArgs e)

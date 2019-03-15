@@ -29,6 +29,7 @@ namespace ZBase.Forms
                 KnifeChangerCheck.CheckState = CheckState.Checked;
             if (Main.S.FasterChangersEnabled)
                 FasterChangersCheck.CheckState = CheckState.Checked;
+            StatTrakValueTextBox.Text = Main.S.StatTrakValue.ToString();
             //////////////////////////////////////////////////////
             if (!Main.S.SkinChangerEnabled)
                 SkinChangerCheck.CheckState = CheckState.Unchecked;
@@ -1220,6 +1221,18 @@ namespace ZBase.Forms
                 Main.S.FasterChangersEnabled = true;
             else
                 Main.S.FasterChangersEnabled = false;
+        }
+
+        private void StatTrakValueTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Main.S.StatTrakValue = int.Parse(StatTrakValueTextBox.Text);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

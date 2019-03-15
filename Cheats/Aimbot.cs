@@ -14,6 +14,11 @@ namespace ZBase.Cheats
     {
         public static void Run()
         {
+            Vector3 BH = new Vector3(0, 0, 0);
+            Vector2 MoveL = new Vector2(Main.MidScreen.X + 150, Main.MidScreen.Y);
+            Vector2 MoveR = new Vector2(Main.MidScreen.X - 150, Main.MidScreen.Y);
+            bool strafing = false;
+            Vector2 prevAngle = new Vector2(0,0);
             while (true)
             {
                 if (G.Engine.GameState == GameState.FULL_CONNECTED)
@@ -122,8 +127,29 @@ namespace ZBase.Cheats
                         {
                             if (G.Engine.LocalPlayer.Flags == 257 || G.Engine.LocalPlayer.Flags == 263)
                             {
+                                
                                 G.Engine.Jump();
                             }
+                            if (Main.S.AutoStrafeEnabled && G.Engine.LocalPlayer.Flags != 257 && G.Engine.LocalPlayer.Flags != 263)
+                            {
+                                Vector2 ang = G.Engine.ViewAngles;
+                                if (strafing)
+                                {
+                                    prevAngle = ang;
+                                }
+                                strafing = true;
+                                if(ang.Y > prevAngle.Y)
+                                {
+                                    G.Engine.MoveRight(5);
+                                }
+                                else if (ang.Y < prevAngle.Y)
+                                {
+                                    G.Engine.MoveLeft(5);
+                                }
+                                prevAngle = ang;
+                            }
+                            prevAngle = G.Engine.ViewAngles;
+                            strafing = false;
                         }
                     }
                     if (Main.S.AutoPistolEnabled)

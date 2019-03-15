@@ -137,7 +137,9 @@
     <Compile Include="Utilities\Memory.cs" />
     <Compile Include="Utilities\OffsetUpdater.cs" />
     <Compile Include="Utilities\SettingsUpdater.cs" />
+    <Compile Include="Utilities\SmartAllocator_t.cs" />
     <Compile Include="Utilities\Tools.cs" />
+    <Compile Include="Utilities\WinApi.cs" />
     <EmbeddedResource Include="Forms\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>

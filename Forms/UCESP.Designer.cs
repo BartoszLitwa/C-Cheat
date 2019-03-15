@@ -65,6 +65,7 @@
             this.ShowWinsCheck = new System.Windows.Forms.CheckBox();
             this.ShowNamesCheck = new System.Windows.Forms.CheckBox();
             this.SpectatorsListCheck = new System.Windows.Forms.CheckBox();
+            this.OffScreenESPCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.SnapLineThicTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -519,10 +520,23 @@
             this.SpectatorsListCheck.UseVisualStyleBackColor = true;
             this.SpectatorsListCheck.CheckedChanged += new System.EventHandler(this.SpectatorsListCheck_CheckedChanged);
             // 
+            // OffScreenESPCheck
+            // 
+            this.OffScreenESPCheck.AutoSize = true;
+            this.OffScreenESPCheck.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.OffScreenESPCheck.Location = new System.Drawing.Point(129, 187);
+            this.OffScreenESPCheck.Name = "OffScreenESPCheck";
+            this.OffScreenESPCheck.Size = new System.Drawing.Size(98, 17);
+            this.OffScreenESPCheck.TabIndex = 155;
+            this.OffScreenESPCheck.Text = "OffScreen ESP";
+            this.OffScreenESPCheck.UseVisualStyleBackColor = true;
+            this.OffScreenESPCheck.CheckedChanged += new System.EventHandler(this.OffScreenESPCheck_CheckedChanged);
+            // 
             // UCESP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.OffScreenESPCheck);
             this.Controls.Add(this.SpectatorsListCheck);
             this.Controls.Add(this.ShowNamesCheck);
             this.Controls.Add(this.ShowWinsCheck);
@@ -607,5 +621,6 @@
         private System.Windows.Forms.CheckBox ShowWinsCheck;
         private System.Windows.Forms.CheckBox ShowNamesCheck;
         private System.Windows.Forms.CheckBox SpectatorsListCheck;
+        private System.Windows.Forms.CheckBox OffScreenESPCheck;
     }
 }

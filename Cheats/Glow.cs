@@ -30,11 +30,11 @@ namespace ZBase.Cheats
             {
                 if (G.Engine.GameState == GameState.FULL_CONNECTED)
                 {
-                    if (Main.S.FOVEnabled && G.Engine.LocalPlayer.WeaponName != "AWP" && G.Engine.LocalPlayer.WeaponName != "SSG 08" && G.Engine.LocalPlayer.WeaponName != "SCAR-20" && G.Engine.LocalPlayer.WeaponName != "G3SG1")
+                    if (Main.S.FOVEnabled && G.Engine.LocalPlayer.WeaponName != "AWP" && G.Engine.LocalPlayer.WeaponName != "SSG 08" && G.Engine.LocalPlayer.WeaponName != "SCAR-20" && G.Engine.LocalPlayer.WeaponName != "G3SG1" && !G.Engine.LocalPlayer.Dead)
                     {
                         Memory.WriteMemory<int>(G.Engine.LocalPlayer.EntityBase + Main.O.netvars.m_iFOV, Main.S.FOVValue);
                     }
-                    if (!Main.S.FOVEnabled && (G.Engine.LocalPlayer.WeaponName == "AWP" || G.Engine.LocalPlayer.WeaponName == "SSG 08" || G.Engine.LocalPlayer.WeaponName == "SCAR-20" || G.Engine.LocalPlayer.WeaponName == "G3SG1"))
+                    if (!Main.S.FOVEnabled && (G.Engine.LocalPlayer.WeaponName == "AWP" || G.Engine.LocalPlayer.WeaponName == "SSG 08" || G.Engine.LocalPlayer.WeaponName == "SCAR-20" || G.Engine.LocalPlayer.WeaponName == "G3SG1") || G.Engine.LocalPlayer.Dead)
                     {
                         Memory.WriteMemory<int>(G.Engine.LocalPlayer.EntityBase + Main.O.netvars.m_iFOVStart, 1);
                     }

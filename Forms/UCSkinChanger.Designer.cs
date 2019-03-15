@@ -41,16 +41,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.KnifeSkinsComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.StatTrakValueTextBox = new System.Windows.Forms.TextBox();
+            this.StatTrak = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 50);
+            this.label5.Location = new System.Drawing.Point(84, 29);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 13);
+            this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 91;
-            this.label5.Text = "Bind VK_END";
+            this.label5.Text = "VK_END";
             // 
             // ForceFullUpdateCheck
             // 
@@ -115,7 +117,7 @@
             "USP-S",
             "CZ75",
             "R8 Revolver"});
-            this.WeaponNameComboBox.Location = new System.Drawing.Point(3, 174);
+            this.WeaponNameComboBox.Location = new System.Drawing.Point(3, 71);
             this.WeaponNameComboBox.Name = "WeaponNameComboBox";
             this.WeaponNameComboBox.Size = new System.Drawing.Size(131, 21);
             this.WeaponNameComboBox.TabIndex = 134;
@@ -125,7 +127,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(3, 153);
+            this.label1.Location = new System.Drawing.Point(3, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 18);
             this.label1.TabIndex = 135;
@@ -318,13 +320,13 @@
             "GLOCK18 | Sand Dune - 208"});
             this.listBox1.Location = new System.Drawing.Point(140, 3);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(243, 277);
+            this.listBox1.Size = new System.Drawing.Size(243, 199);
             this.listBox1.TabIndex = 136;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // SetSkinButton
             // 
-            this.SetSkinButton.Location = new System.Drawing.Point(3, 201);
+            this.SetSkinButton.Location = new System.Drawing.Point(3, 98);
             this.SetSkinButton.Name = "SetSkinButton";
             this.SetSkinButton.Size = new System.Drawing.Size(75, 23);
             this.SetSkinButton.TabIndex = 137;
@@ -335,7 +337,7 @@
             // KnifeChangerCheck
             // 
             this.KnifeChangerCheck.AutoSize = true;
-            this.KnifeChangerCheck.Location = new System.Drawing.Point(3, 66);
+            this.KnifeChangerCheck.Location = new System.Drawing.Point(3, 155);
             this.KnifeChangerCheck.Name = "KnifeChangerCheck";
             this.KnifeChangerCheck.Size = new System.Drawing.Size(90, 17);
             this.KnifeChangerCheck.TabIndex = 138;
@@ -366,7 +368,7 @@
             "Huntsman",
             "Navaja",
             "Fists"});
-            this.KnifeChangerComboBox.Location = new System.Drawing.Point(3, 89);
+            this.KnifeChangerComboBox.Location = new System.Drawing.Point(3, 178);
             this.KnifeChangerComboBox.Name = "KnifeChangerComboBox";
             this.KnifeChangerComboBox.Size = new System.Drawing.Size(131, 21);
             this.KnifeChangerComboBox.TabIndex = 139;
@@ -399,7 +401,7 @@
             "Edge Box"});
             this.KnifeSkinsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.KnifeSkinsComboBox.FormattingEnabled = true;
-            this.KnifeSkinsComboBox.Location = new System.Drawing.Point(3, 134);
+            this.KnifeSkinsComboBox.Location = new System.Drawing.Point(3, 223);
             this.KnifeSkinsComboBox.Name = "KnifeSkinsComboBox";
             this.KnifeSkinsComboBox.Size = new System.Drawing.Size(131, 21);
             this.KnifeSkinsComboBox.TabIndex = 142;
@@ -409,16 +411,35 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(3, 113);
+            this.label3.Location = new System.Drawing.Point(3, 202);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 18);
             this.label3.TabIndex = 143;
             this.label3.Text = "Knife\'s Skins";
             // 
+            // StatTrakValueTextBox
+            // 
+            this.StatTrakValueTextBox.Location = new System.Drawing.Point(3, 128);
+            this.StatTrakValueTextBox.Name = "StatTrakValueTextBox";
+            this.StatTrakValueTextBox.Size = new System.Drawing.Size(75, 20);
+            this.StatTrakValueTextBox.TabIndex = 144;
+            this.StatTrakValueTextBox.TextChanged += new System.EventHandler(this.StatTrakValueTextBox_TextChanged);
+            // 
+            // StatTrak
+            // 
+            this.StatTrak.AutoSize = true;
+            this.StatTrak.Location = new System.Drawing.Point(87, 131);
+            this.StatTrak.Name = "StatTrak";
+            this.StatTrak.Size = new System.Drawing.Size(48, 13);
+            this.StatTrak.TabIndex = 145;
+            this.StatTrak.Text = "StatTrak";
+            // 
             // UCSkinChanger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.StatTrak);
+            this.Controls.Add(this.StatTrakValueTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.KnifeSkinsComboBox);
             this.Controls.Add(this.label2);
@@ -454,5 +475,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox KnifeSkinsComboBox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox StatTrakValueTextBox;
+        private System.Windows.Forms.Label StatTrak;
     }
 }

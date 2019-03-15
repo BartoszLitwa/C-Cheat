@@ -76,6 +76,7 @@ namespace ZBase.Cheats
             }
             #endregion
             #region Draw
+            int sizeofradar = 200;
             while (true)
             {
                 gfx.BeginScene();
@@ -93,10 +94,12 @@ namespace ZBase.Cheats
                             int PlayerResource = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwPlayerResource);
                             Ranks Ranks = (Ranks)Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveRanking + (i + 1) * 4);
                             int wins = Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveWins + (i + 1) * 4);
-                            int ObjectCount = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwGlowObjectManager + 0x4);
-                            DrawText(wins.ToString(), Main.MidScreen.X * 2 - 160, i * 15, 13, Color.White);
-                            DrawText(Ranks.ToString(), Main.MidScreen.X * 2 - 160 + 20, i * 15, 13, Color.White);
-                            DrawText(ObjectCount.ToString(), Main.MidScreen.X , 50, 16, Color.White);
+                            var radarbase = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwRadarBase);
+                            var CHudRadar = Memory.ReadMemory<int>(radarbase + 0x74);
+                            var Name = Memory.ReadString(CHudRadar + 0x2E8 + 0x168 * i, 64, Encoding.UTF8);
+                            DrawText(wins.ToString(), Main.MidScreen.X * 2 - 120, i * 15, 13, Color.White);
+                            DrawText(Ranks.ToString(), Main.MidScreen.X * 2 - 120 + 20, i * 15, 13, Color.White);
+                            DrawText(Name, Main.MidScreen.X * 2 - 220, i * 15, 13, Color.White);
                         }
                     }
                     //////////
@@ -549,6 +552,13 @@ namespace ZBase.Cheats
                             }
                         }
                         #endregion WeaponESP
+                    }
+                    if (Main.S.OffScreenESPEnabled)
+                    {
+                        DrawFillOutlineBox(100, 100, sizeofradar, sizeofradar, Color.Red, Color.Black);
+                        DrawFillOutlineBox(100 + sizeofradar / 2 - 3, 100 + sizeofradar / 2 - 3, 6, 6, Color.Red, Color.Black);
+                        DrawLine(100 + sizeofradar / 2 - 3, 100 + sizeofradar / 2 - 3, 100, 100, Color.White);
+                        DrawLine(100 + sizeofradar / 2 - 3, 100 + sizeofradar / 2 - 3, 100 + sizeofradar, 100, Color.White);
                     }
                     for (int i = 0; i <= 32; i++)
                     {
@@ -1027,6 +1037,14 @@ namespace ZBase.Cheats
                                 if (Main.S.ShowNamesEnabled)
                                 {
                                     DrawText(Name, xMid, hy, fonth, Color.White);
+                                }
+                                if (Main.S.OffScreenESPEnabled)
+                                {
+                                    if (Dis > 25f) Dis = 25; Dis *= 4; 
+                                    if (Player.IsTeammate)
+                                        DrawFillOutlineBox(100 + sizeofradar / 2 - Dis, 100 + sizeofradar / 2 - 3, 6, 6, Color.Blue, Color.Blue);
+                                    else
+                                        DrawFillOutlineBox(100 + sizeofradar / 2 - Dis, 100 + sizeofradar / 2 - 3, 6, 6, Color.Red, Color.Red);
                                 }
                             }
                         }

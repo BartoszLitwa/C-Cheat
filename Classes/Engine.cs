@@ -173,5 +173,15 @@ namespace ZBase.Classes
         {
             Memory.WriteMemory<int>((int)Memory.Client + Main.O.signatures.dwForceJump, 6);
         }
+
+        public void MoveLeft(int left)
+        {
+            Memory.WriteMemory<int>((int)Memory.Client + Main.O.signatures.dwForceLeft, left);
+        }
+
+        public void MoveRight(int right)
+        {
+            Memory.WriteMemory<int>((int)Memory.Client + Main.O.signatures.dwForceRight, right);
+        }
     }
 }
