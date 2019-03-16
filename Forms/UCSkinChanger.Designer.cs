@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label5 = new System.Windows.Forms.Label();
             this.ForceFullUpdateCheck = new System.Windows.Forms.Button();
             this.SkinChangerCheck = new System.Windows.Forms.CheckBox();
@@ -43,6 +44,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.StatTrakValueTextBox = new System.Windows.Forms.TextBox();
             this.StatTrak = new System.Windows.Forms.Label();
+            this.FloatValueTrackBar = new System.Windows.Forms.TrackBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.FloatWear = new System.Windows.Forms.Label();
+            this.FloatWearValue = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.FloatValueTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -419,7 +425,7 @@
             // 
             // StatTrakValueTextBox
             // 
-            this.StatTrakValueTextBox.Location = new System.Drawing.Point(3, 128);
+            this.StatTrakValueTextBox.Location = new System.Drawing.Point(140, 231);
             this.StatTrakValueTextBox.Name = "StatTrakValueTextBox";
             this.StatTrakValueTextBox.Size = new System.Drawing.Size(75, 20);
             this.StatTrakValueTextBox.TabIndex = 144;
@@ -428,18 +434,54 @@
             // StatTrak
             // 
             this.StatTrak.AutoSize = true;
-            this.StatTrak.Location = new System.Drawing.Point(87, 131);
+            this.StatTrak.Location = new System.Drawing.Point(221, 234);
             this.StatTrak.Name = "StatTrak";
             this.StatTrak.Size = new System.Drawing.Size(48, 13);
             this.StatTrak.TabIndex = 145;
             this.StatTrak.Text = "StatTrak";
             // 
+            // FloatValueTrackBar
+            // 
+            this.FloatValueTrackBar.Location = new System.Drawing.Point(140, 202);
+            this.FloatValueTrackBar.Maximum = 1000;
+            this.FloatValueTrackBar.Minimum = 1;
+            this.FloatValueTrackBar.Name = "FloatValueTrackBar";
+            this.FloatValueTrackBar.Size = new System.Drawing.Size(152, 45);
+            this.FloatValueTrackBar.TabIndex = 146;
+            this.FloatValueTrackBar.Value = 1;
+            this.FloatValueTrackBar.Scroll += new System.EventHandler(this.FloatValueTrackBar_Scroll);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // FloatWear
+            // 
+            this.FloatWear.AutoSize = true;
+            this.FloatWear.Location = new System.Drawing.Point(282, 205);
+            this.FloatWear.Name = "FloatWear";
+            this.FloatWear.Size = new System.Drawing.Size(56, 13);
+            this.FloatWear.TabIndex = 147;
+            this.FloatWear.Text = "FloatWear";
+            // 
+            // FloatWearValue
+            // 
+            this.FloatWearValue.AutoSize = true;
+            this.FloatWearValue.Location = new System.Drawing.Point(282, 218);
+            this.FloatWearValue.Name = "FloatWearValue";
+            this.FloatWearValue.Size = new System.Drawing.Size(0, 13);
+            this.FloatWearValue.TabIndex = 148;
+            // 
             // UCSkinChanger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.FloatWearValue);
+            this.Controls.Add(this.FloatWear);
             this.Controls.Add(this.StatTrak);
             this.Controls.Add(this.StatTrakValueTextBox);
+            this.Controls.Add(this.FloatValueTrackBar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.KnifeSkinsComboBox);
             this.Controls.Add(this.label2);
@@ -455,6 +497,7 @@
             this.Controls.Add(this.SkinChangerCheck);
             this.Name = "UCSkinChanger";
             this.Size = new System.Drawing.Size(452, 317);
+            ((System.ComponentModel.ISupportInitialize)(this.FloatValueTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,5 +520,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox StatTrakValueTextBox;
         private System.Windows.Forms.Label StatTrak;
+        private System.Windows.Forms.TrackBar FloatValueTrackBar;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label FloatWear;
+        private System.Windows.Forms.Label FloatWearValue;
     }
 }

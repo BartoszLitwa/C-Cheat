@@ -30,6 +30,9 @@ namespace ZBase.Forms
             if (Main.S.FasterChangersEnabled)
                 FasterChangersCheck.CheckState = CheckState.Checked;
             StatTrakValueTextBox.Text = Main.S.StatTrakValue.ToString();
+            FloatWearValue.Text = Main.S.FloatWearValue.ToString();
+            if (Main.S.FloatWearValue == 0) Main.S.FloatWearValue = 1;
+            FloatValueTrackBar.Value = (int)(Main.S.FloatWearValue * 1000);
             //////////////////////////////////////////////////////
             if (!Main.S.SkinChangerEnabled)
                 SkinChangerCheck.CheckState = CheckState.Unchecked;
@@ -1233,6 +1236,18 @@ namespace ZBase.Forms
             {
 
             }
+        }
+
+        private void FloatValueTrackBar_Scroll(object sender, EventArgs e)
+        {
+            try{
+                Main.S.FloatWearValue = (float)FloatValueTrackBar.Value / 1000f;
+            }catch (Exception ex) { }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            FloatWearValue.Text = Main.S.FloatWearValue.ToString();
         }
     }
 }

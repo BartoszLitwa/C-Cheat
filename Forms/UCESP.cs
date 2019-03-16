@@ -132,6 +132,10 @@ namespace ZBase.Forms
                 SpectatorsListCheck.CheckState = CheckState.Checked;
             if (!Main.S.SpectatorsListEnabled)
                 SpectatorsListCheck.CheckState = CheckState.Unchecked;
+            if (Main.S.OffScreenESPEnabled)
+                OffScreenESPCheck.CheckState = CheckState.Checked;
+            if (!Main.S.OffScreenESPEnabled)
+                OffScreenESPCheck.CheckState = CheckState.Unchecked;
             //////////////////////////////////////////////////////////////
             if (Main.S.SnaplinesValue > 0 && Main.S.SnaplinesValue < 16)
                 SnapLineThicTrackBar.Value = Main.S.SnaplinesValue;

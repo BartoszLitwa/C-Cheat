@@ -123,7 +123,7 @@ namespace ZBase.Cheats
                     }
                     if (Main.S.BunnyhopEnabled)
                     {
-                        if (Tools.HoldingKey(Keys.VK_SPACE))
+                        if (Tools.HoldingKey(Keys.VK_SPACE) && G.Engine.LocalPlayer.Velocity.Length() > 20)
                         {
                             if (G.Engine.LocalPlayer.Flags == 257 || G.Engine.LocalPlayer.Flags == 263)
                             {

@@ -49,6 +49,7 @@ namespace ZBase.Utilities
         public static IntPtr ProcessHandle;
         public static IntPtr Client;
         public static IntPtr Engine;
+        public static IntPtr vstdlib;
         public static int m_iBytesRead = 0;
         public static int m_iBytesWrite = 0;
 
@@ -119,6 +120,51 @@ namespace ZBase.Utilities
                 text = text.Substring(0, text.IndexOf('\0'));
 
             return text;
+        }
+    }
+
+    public class CConVarManager
+    {
+        public static int pThis;
+        public static CharCodes codes;
+        public CConVarManager()
+        {
+            codes = Memory.ReadMemory<CharCodes>((int)Memory.vstdlib + 0x2E000); //8B 3C 85 + 3 vstdlib
+            pThis = Memory.ReadMemory<int>((int)Memory.vstdlib + 0x3D8F4); //8B 0D ? ? ? ? C7 05 + 2 vstdlib
+        }
+
+        public IntPtr GetConVarAddress(string name)
+        {
+            var hash = (IntPtr)GetStringHash(name);
+
+            int Pointer = Memory.ReadMemory<int>(Memory.ReadMemory<int>(pThis + 0x34) + ((byte)hash * 4));
+            while (Pointer != null)
+            {
+                if (Memory.ReadMemory<IntPtr>(Pointer) == hash)
+                {
+                    IntPtr ConVarPointer = Memory.ReadMemory<IntPtr>(Pointer + 0x4);
+
+                    if (Memory.ReadString(Memory.ReadMemory<int>((int)ConVarPointer + 0xC), 64, Encoding.UTF8) == name)
+                        return ConVarPointer;
+                }
+                Pointer = Memory.ReadMemory<int>(Pointer + 0xC);
+            }
+            return IntPtr.Zero;
+        }
+
+
+        public int GetStringHash(string name)
+        {
+            int v2 = 0;
+            int v3 = 0;
+            for (int i = 0; i < name.Length; i += 2)
+            {
+                v3 = codes.tab[v2 ^ char.ToUpper(name[i])];
+                if (i + 1 == name.Length)
+                    break;
+                v2 = codes.tab[v3 ^ char.ToUpper(name[i + 1])];
+            }
+            return v2 | (v3 << 8);
         }
     }
 }

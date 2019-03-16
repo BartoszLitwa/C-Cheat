@@ -116,6 +116,7 @@ namespace ZBase.Classes
         public string SelectedKnife { get; set; }
         public int SelectedKnifeSkin { get; set; }
         public int StatTrakValue { get; set; }
+        public float FloatWearValue { get; set; }
         public bool RecoilCrosshairEnabled { get; set; }
         public bool RecoilControlSystemEnabled { get; set; }
         public bool ForceFullUpdate { get; set; }

@@ -62,6 +62,56 @@ namespace ZBase.Utilities
             return vAngle;
         }
 
+        public static Vector2 RotatePoint( Vector2 pointToRotate, Vector2 centerpoint, float angle, bool angleInRadians = false)
+        {
+            if (!angleInRadians)
+                angle = (float)(angle * (Math.PI / 180f));
+            float cosTheta = -(float)Math.Cos(angle);
+            float sinTheta = (float)Math.Sin(angle);
+            Vector2 returnVec = new Vector2(
+                cosTheta * (pointToRotate.X - centerpoint.X) - sinTheta * (pointToRotate.Y - centerpoint.Y),
+                -(sinTheta * (pointToRotate.X - centerpoint.X) + cosTheta * (pointToRotate.Y - centerpoint.Y))
+                );
+            returnVec += centerpoint;
+            return returnVec;
+        }
+
+        public static float DegreeToRadian(float angle)
+        {
+            return (float)(Math.PI * angle / 180f);
+        }
+
+        public static Vector2 WorldToRadar(Vector3 Location, float PosX, float PosY, int Size)
+        {
+            /*Credits to uc-forum community | xCyniu | r4z8r when you use this ;)*/
+            Vector2 Coord;
+            Vector2 Return;
+
+            float cY = (float)Math.Cos(DegreeToRadian(G.Engine.ViewAngles.Y - 180f));
+            float sY = (float)Math.Sin(DegreeToRadian(G.Engine.ViewAngles.Y - 180f));
+
+            float dX = Location.X - G.Engine.LocalPlayer.Position.X;
+            float dY = Location.Y - G.Engine.LocalPlayer.Position.Y;
+
+            Coord.X = (dY * cY - dX * sY) / 20.0f;
+            Coord.Y = (dX * cY + dY * sY) / 20.0f;
+
+            Return.X = Coord.X + PosX + (Size / 2.0f);
+            Return.Y = Coord.Y + PosY + (Size / 2.0f);
+            /*Thanks to r4z8r for clamp :)*/
+            if (Return.X > (PosX + Size))
+                Return.X = (PosX + Size);
+            else if (Return.X < (PosX))
+                Return.X = PosX;
+
+            if (Return.Y > (PosY + Size))
+                Return.Y = (PosY + Size);
+            else if (Return.Y < (PosY))
+                Return.Y = PosY;
+
+            return Return;
+        }
+
         public static Vector2 WorldToScreen(Vector3 target)
         {
             Vector2 _worldToScreenPos;

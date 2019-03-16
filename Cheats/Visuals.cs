@@ -556,9 +556,11 @@ namespace ZBase.Cheats
                     if (Main.S.OffScreenESPEnabled)
                     {
                         DrawFillOutlineBox(100, 100, sizeofradar, sizeofradar, Color.Red, Color.Black);
-                        DrawFillOutlineBox(100 + sizeofradar / 2 - 3, 100 + sizeofradar / 2 - 3, 6, 6, Color.Red, Color.Black);
-                        DrawLine(100 + sizeofradar / 2 - 3, 100 + sizeofradar / 2 - 3, 100, 100, Color.White);
-                        DrawLine(100 + sizeofradar / 2 - 3, 100 + sizeofradar / 2 - 3, 100 + sizeofradar, 100, Color.White);
+                        DrawFillOutlineBox(100 + sizeofradar / 2 - 3, 100 + sizeofradar / 2 - 3, 6, 6, Color.Green, Color.Green);
+                        DrawFillOutlineBox(100, 80, sizeofradar, 20, Color.Red, Color.Black);
+                        DrawText("Radar 2D", 100 + sizeofradar / 3, 82, 16, Color.White);
+                        DrawLine(100 + sizeofradar / 2, 100 + sizeofradar / 2, 100, 100, Color.White);
+                        DrawLine(100 + sizeofradar / 2, 100 + sizeofradar / 2, 100 + sizeofradar, 100, Color.White);
                     }
                     for (int i = 0; i <= 32; i++)
                     {
@@ -568,6 +570,20 @@ namespace ZBase.Cheats
                             Vector2 Player2DPos = Tools.WorldToScreen(Player.Position);
                             Vector2 Player2DHeadPos = Tools.WorldToScreen(Player.HeadPosition);
                             Vector2 Player2DNeckPos = Tools.WorldToScreen(Player.GetBonePosition(7));
+                            float Distancee = Player.Distance / 100f;
+                            if (Main.S.OffScreenESPEnabled)
+                            {
+                                Vector2 w2sRadar = new Vector2(0,0);
+                                if (Player.Position.X != 0 && Player.Position.Y != 0 && !Player.Dead)
+                                {
+                                    w2sRadar = Tools.WorldToRadar(Player.Position, 100, 100, 190);
+                                    if (Player.IsTeammate)
+                                        DrawFillOutlineBox(w2sRadar.X, w2sRadar.Y, 6, 6, Color.Blue, Color.Blue);
+                                    else
+                                        DrawFillOutlineBox(w2sRadar.X, w2sRadar.Y, 6, 6, Color.Red, Color.Red);
+                                }
+                            }
+
                             if (!Tools.IsNullVector2(Player2DPos) && !Tools.IsNullVector2(Player2DHeadPos) && Player.Valid)
                             {
                                 #region Obliczenia
@@ -1038,14 +1054,6 @@ namespace ZBase.Cheats
                                 {
                                     DrawText(Name, xMid, hy, fonth, Color.White);
                                 }
-                                if (Main.S.OffScreenESPEnabled)
-                                {
-                                    if (Dis > 25f) Dis = 25; Dis *= 4; 
-                                    if (Player.IsTeammate)
-                                        DrawFillOutlineBox(100 + sizeofradar / 2 - Dis, 100 + sizeofradar / 2 - 3, 6, 6, Color.Blue, Color.Blue);
-                                    else
-                                        DrawFillOutlineBox(100 + sizeofradar / 2 - Dis, 100 + sizeofradar / 2 - 3, 6, 6, Color.Red, Color.Red);
-                                }
                             }
                         }
                     }
@@ -1167,6 +1175,11 @@ namespace ZBase.Cheats
             void DrawRoundedBox(float x, float y, float width, float height, float radius, Color color, float thiccness = 2.0f)
             {
                 gfx.DrawRoundedRectangle(GetBrushColor(color), x, y, x + width, y + height, radius, thiccness);
+            }
+
+            void DrawImage(Image image, float x, float y, float opacity = 1)
+            {
+                gfx.DrawImage(image, x, y, opacity);
             }
             #endregion
         }

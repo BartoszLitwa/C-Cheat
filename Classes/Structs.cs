@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using ZBase.Utilities;
 
 namespace ZBase.Classes
 {
@@ -72,6 +73,13 @@ namespace ZBase.Classes
         public int[] m_dwCustomFiles;
         public char m_FilesDownloaded;
     }
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public struct CharCodes
+    {
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 255)]
+        public int[] tab;
+    };
 
     public struct RECT
     {
