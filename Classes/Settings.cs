@@ -44,6 +44,9 @@ namespace ZBase.Classes
         public bool ShowNamesEnabled { get; set; }
         public bool SpectatorsListEnabled { get; set; }
         public bool OffScreenESPEnabled { get; set; }
+        public int sizeofradar { get; set; }
+        public int radarX { get; set; }
+        public int radarY { get; set; }
         ///////////////////////////////////////////////////////
         public Color ESPColorEnemies { get; set; }
         public Color ESPColorTeammates { get; set; }

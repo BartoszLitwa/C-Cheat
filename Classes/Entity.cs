@@ -282,10 +282,10 @@ namespace ZBase.Classes
 
         public bool IsRifle(int id)
             => id == (int)WeaponsID.M4A1S || id == (int)WeaponsID.M4A1SOnline || id == (int)WeaponsID.M4A1SOnline2 || id == (int)WeaponsID.M4A4 || id == (int)WeaponsID.SG556
-            || id == (int)WeaponsID.AUG || id == (int)WeaponsID.GALILAR || id == (int)WeaponsID.FAMAS || id == (int)WeaponsID.AK47;
+            || id == (int)WeaponsID.AUG || id == (int)WeaponsID.GALILAR || id == (int)WeaponsID.FAMAS || id == (int)WeaponsID.AK47 || id == (int)WeaponsID.AK47oNLINE;
 
         public bool IsSniper(int id)
-            => id == (int)WeaponsID.AWP || id == (int)WeaponsID.SCAR20 || id == (int)WeaponsID.SSG08 || id == (int)WeaponsID.G3SG1;
+            => id == (int)WeaponsID.AWP || id == (int)WeaponsID.AWPOnline || id == (int)WeaponsID.SCAR20 || id == (int)WeaponsID.SSG08 || id == (int)WeaponsID.G3SG1;
 
         public bool IsC4(int id)
             => id == (int)WeaponsID.C4;
@@ -326,9 +326,13 @@ namespace ZBase.Classes
                         return "Glock-18";
                     case WeaponsID.AK47:
                         return "AK-47";
+                    case WeaponsID.AK47oNLINE:
+                        return "AK-47";
                     case WeaponsID.AUG:
                         return "AUG";
                     case WeaponsID.AWP:
+                        return "AWP";
+                    case WeaponsID.AWPOnline:
                         return "AWP";
                     case WeaponsID.FAMAS:
                         return "FAMAS";

@@ -76,9 +76,14 @@ namespace ZBase.Cheats
             }
             #endregion
             #region Draw
-            int sizeofradar = 200;
+            int sizeofradar = Main.S.sizeofradar;
+            int radarX = Main.S.radarX;
+            int radarY = Main.S.radarY;
             while (true)
             {
+                sizeofradar = Main.S.sizeofradar;
+                radarX = Main.S.radarX;
+                radarY = Main.S.radarY;
                 gfx.BeginScene();
                 gfx.ClearScene();
                 // start drawings here
@@ -97,9 +102,10 @@ namespace ZBase.Cheats
                             var radarbase = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwRadarBase);
                             var CHudRadar = Memory.ReadMemory<int>(radarbase + 0x74);
                             var Name = Memory.ReadString(CHudRadar + 0x2E8 + 0x168 * i, 64, Encoding.UTF8);
-                            DrawText(wins.ToString(), Main.MidScreen.X * 2 - 120, i * 15, 13, Color.White);
+                            DrawText(wins.ToString(), Main.MidScreen.X * 2 - 130, i * 15, 13, Color.White);
                             DrawText(Ranks.ToString(), Main.MidScreen.X * 2 - 120 + 20, i * 15, 13, Color.White);
-                            DrawText(Name, Main.MidScreen.X * 2 - 220, i * 15, 13, Color.White);
+                            DrawText(Name, Main.MidScreen.X * 2 - 250, i * 15, 13, Color.White);
+                            DrawTextWithBackground(TypeOfGun.ToString(), Main.MidScreen.X, 0, 16, Color.Red, Color.Black);
                         }
                     }
                     //////////
@@ -555,12 +561,12 @@ namespace ZBase.Cheats
                     }
                     if (Main.S.OffScreenESPEnabled)
                     {
-                        DrawFillOutlineBox(100, 100, sizeofradar, sizeofradar, Color.Red, Color.Black);
-                        DrawFillOutlineBox(100 + sizeofradar / 2 - 3, 100 + sizeofradar / 2 - 3, 6, 6, Color.Green, Color.Green);
-                        DrawFillOutlineBox(100, 80, sizeofradar, 20, Color.Red, Color.Black);
-                        DrawText("Radar 2D", 100 + sizeofradar / 3, 82, 16, Color.White);
-                        DrawLine(100 + sizeofradar / 2, 100 + sizeofradar / 2, 100, 100, Color.White);
-                        DrawLine(100 + sizeofradar / 2, 100 + sizeofradar / 2, 100 + sizeofradar, 100, Color.White);
+                        DrawFillOutlineBox(radarX, radarY, sizeofradar, sizeofradar, Color.Red, Color.Black);
+                        DrawFillOutlineBox(radarX + sizeofradar / 2 - 3, radarY + sizeofradar / 2 - 3, 6, 6, Color.Green, Color.Green);
+                        DrawFillOutlineBox(radarX, radarY - 20, sizeofradar, 20, Color.Red, Color.Black);
+                        DrawText("Radar 2D", radarX + sizeofradar / 3 + sizeofradar / 10, radarY - 18, 16, Color.White);
+                        DrawLine(radarX + sizeofradar / 2, radarY + sizeofradar / 2, radarX, radarY, Color.White);
+                        DrawLine(radarX + sizeofradar / 2, radarY + sizeofradar / 2, radarX + sizeofradar, radarY, Color.White);
                     }
                     for (int i = 0; i <= 32; i++)
                     {
@@ -570,78 +576,76 @@ namespace ZBase.Cheats
                             Vector2 Player2DPos = Tools.WorldToScreen(Player.Position);
                             Vector2 Player2DHeadPos = Tools.WorldToScreen(Player.HeadPosition);
                             Vector2 Player2DNeckPos = Tools.WorldToScreen(Player.GetBonePosition(7));
-                            float Distancee = Player.Distance / 100f;
                             if (Main.S.OffScreenESPEnabled)
                             {
                                 Vector2 w2sRadar = new Vector2(0,0);
                                 if (Player.Position.X != 0 && Player.Position.Y != 0 && !Player.Dead)
                                 {
-                                    w2sRadar = Tools.WorldToRadar(Player.Position, 100, 100, 190);
+                                    w2sRadar = Tools.WorldToRadar(Player.Position, radarX, radarY, sizeofradar - 10);
                                     if (Player.IsTeammate)
                                         DrawFillOutlineBox(w2sRadar.X, w2sRadar.Y, 6, 6, Color.Blue, Color.Blue);
                                     else
                                         DrawFillOutlineBox(w2sRadar.X, w2sRadar.Y, 6, 6, Color.Red, Color.Red);
                                 }
                             }
-
                             if (!Tools.IsNullVector2(Player2DPos) && !Tools.IsNullVector2(Player2DHeadPos) && Player.Valid)
                             {
-                                #region Obliczenia
-                                float Radius = (Player2DHeadPos.Y - Player2DNeckPos.Y) / 2;
-                                float FromHeadToNeck = (Player2DNeckPos.Y - Player2DHeadPos.Y);
-                                Player2DHeadPos.Y -= FromHeadToNeck * 2.3f;
-                                Player2DPos.Y += FromHeadToNeck;
-                                float BoxHeight = Player2DPos.Y - Player2DHeadPos.Y;
-                                float BoxHeight2 = Player2DHeadPos.Y - Player2DPos.Y;
-                                float BoxWidth = (BoxHeight / 2);
-                                float BoxWidth2 = (BoxHeight2 / 2);
-                                float xx = Player2DPos.X - (BoxWidth / 2);
-                                float xp = Player2DPos.X + (BoxWidth / 2);
-                                float hy = Player2DHeadPos.Y - 12;
-                                float wy = Player2DNeckPos.Y;
-                                float dy = Player2DNeckPos.Y - 3;
-                                float by = Player2DPos.Y;
-                                float Health = Player.Health;
-                                Color HealthColor = Tools.HealthGradient(Tools.HealthToPercent((int)Health));
-                                float xLeft = Player2DPos.X - (BoxWidth / 2) - 8;
-                                float xRight = Player2DPos.X + (BoxWidth / 2) + 2;
-                                float xHead = Player2DHeadPos.X;
-                                float xMid = Player2DHeadPos.X - (BoxWidth / 10);
-                                float yHead = Player2DHeadPos.Y;
-                                float yFoot = Player2DPos.Y;
-                                float yNeck = Player2DNeckPos.Y;
-                                float w = 4;
-                                float h = BoxHeight;
-                                float HealthHeight = (Health * h) / 100;
-                                int Armor = Player.Armor;
-                                float ArmorHeight = (Armor * h) / 100;
-                                int PlayerHealth = Player.Health;
-                                string EntityHealth = Player.Health.ToString();
-                                string EntityWeapon = Player.WeaponName;
-                                float Dis = (Player.Distance / 100);
-                                string Distance = string.Format("{0:0.##}", Dis); //Robi stringa do 2 miejsc po przecinku
-                                int fonth = 13;
-                                //wierd ass calculations for box height, dont judge
-                                #endregion
-                                Color drawcolor;
-                                if (Player.IsTeammate)
-                                    drawcolor = Main.S.ESPColorTeammates;
-                                else
-                                    drawcolor = Main.S.ESPColorEnemies;
-                                var radarbase = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwRadarBase);
-                                var CHudRadar = Memory.ReadMemory<int>(radarbase + 0x74);
-                                var Name = Memory.ReadString(CHudRadar + 0x2E8 + 0x168 * i, 64, Encoding.UTF8);
-                                ////////////////////////////////////////////////////////////////
-                                if (Main.S.SpectatorsListEnabled)
-                                {
-                                        int hand = Memory.ReadMemory<int>(Player.EntityBase + Main.O.netvars.m_hObserverTarget);
-                                        var ObserverTarget = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + ((hand + 0xFFF) - 1) * 0x10);
-                                        var Name2 = Memory.ReadString(CHudRadar + 0x2E8 + 0x168 * ObserverTarget, 64, Encoding.UTF8);
-                                        DrawText(Name + " => " + Name2, Main.ScreenSize.Width - 500, Main.MidScreen.Y - i * 15, 15, Color.White);
-                                }
-                                if (Main.S.DrawAimspotEnabled)
-                                {
-                                    #region Aimspot
+                            #region Obliczenia
+                            float Radius = (Player2DHeadPos.Y - Player2DNeckPos.Y) / 2;
+                            float FromHeadToNeck = (Player2DNeckPos.Y - Player2DHeadPos.Y);
+                            Player2DHeadPos.Y -= FromHeadToNeck * 2.3f;
+                            Player2DPos.Y += FromHeadToNeck;
+                            float BoxHeight = Player2DPos.Y - Player2DHeadPos.Y;
+                            float BoxHeight2 = Player2DHeadPos.Y - Player2DPos.Y;
+                            float BoxWidth = (BoxHeight / 2);
+                            float BoxWidth2 = (BoxHeight2 / 2);
+                            float xx = Player2DPos.X - (BoxWidth / 2);
+                            float xp = Player2DPos.X + (BoxWidth / 2);
+                            float hy = Player2DHeadPos.Y - 12;
+                            float wy = Player2DNeckPos.Y;
+                            float dy = Player2DNeckPos.Y - 3;
+                            float by = Player2DPos.Y;
+                            float Health = Player.Health;
+                            Color HealthColor = Tools.HealthGradient(Tools.HealthToPercent((int)Health));
+                            float xLeft = Player2DPos.X - (BoxWidth / 2) - 8;
+                            float xRight = Player2DPos.X + (BoxWidth / 2) + 2;
+                            float xHead = Player2DHeadPos.X;
+                            float xMid = Player2DHeadPos.X - (BoxWidth / 10);
+                            float yHead = Player2DHeadPos.Y;
+                            float yFoot = Player2DPos.Y;
+                            float yNeck = Player2DNeckPos.Y;
+                            float w = 4;
+                            float h = BoxHeight;
+                            float HealthHeight = (Health * h) / 100;
+                            int Armor = Player.Armor;
+                            float ArmorHeight = (Armor * h) / 100;
+                            int PlayerHealth = Player.Health;
+                            string EntityHealth = Player.Health.ToString();
+                            string EntityWeapon = Player.WeaponName;
+                            float Dis = (Player.Distance / 100);
+                            string Distance = string.Format("{0:0.##}", Dis); //Robi stringa do 2 miejsc po przecinku
+                            int fonth = 13;
+                            //wierd ass calculations for box height, dont judge
+                            #endregion
+                            Color drawcolor;
+                            if (Player.IsTeammate)
+                                drawcolor = Main.S.ESPColorTeammates;
+                            else
+                                drawcolor = Main.S.ESPColorEnemies;
+                            var radarbase = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwRadarBase);
+                            var CHudRadar = Memory.ReadMemory<int>(radarbase + 0x74);
+                            var Name = Memory.ReadString(CHudRadar + 0x2E8 + 0x168 * i, 64, Encoding.UTF8);
+                            ////////////////////////////////////////////////////////////////
+                            if (Main.S.SpectatorsListEnabled)
+                            {
+                                    int hand = Memory.ReadMemory<int>(Player.EntityBase + Main.O.netvars.m_hObserverTarget);
+                                    var ObserverTarget = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + ((hand + 0xFFF) - 1) * 0x10);
+                                    var Name2 = Memory.ReadString(CHudRadar + 0x2E8 + 0x168 * ObserverTarget, 64, Encoding.UTF8);
+                                    DrawText(Name + " => " + Name2, Main.ScreenSize.Width - 500, Main.MidScreen.Y - i * 15, 15, Color.White);
+                            }
+                            if (Main.S.DrawAimspotEnabled)
+                            {
+                                #region Aimspot
                                     if (G.Engine.LocalPlayer.IsRifle(TypeOfGun))
                                     {
                                         if (!Player.IsTeammate)
@@ -697,12 +701,12 @@ namespace ZBase.Cheats
                                         }
                                     }
                                     #endregion Aimspot
-                                }
-                                if (Main.S.DrawBoneIDs)
-                                    DrawBoneIDs(Player);
-                                if (Main.S.BoneEnabled) //kazdy model postaci ma inne bone id
-                                {
-                                    #region BoneESP
+                            }
+                            if (Main.S.DrawBoneIDs)
+                                DrawBoneIDs(Player);
+                            if (Main.S.BoneEnabled) //kazdy model postaci ma inne bone id
+                            {
+                                #region BoneESP
                                     if (Player.IsTeammate && Main.S.BoneTeammates)
                                     {
                                         if (Main.S.BoneESPMap == 0) //Mirage
@@ -908,22 +912,22 @@ namespace ZBase.Cheats
                                         }
                                     }
                                     #endregion
-                                }
-                                ////ESP BAR health
-                                if (Main.S.DrawHealthBar)
-                                {
-                                    DrawBox(xLeft, yFoot, w, -h, Color.Black, 2);
-                                    DrawFilledBox(xLeft + 1, yFoot + 1, 3, -HealthHeight + 1, HealthColor);
-                                }
-                                if (Main.S.DrawArmorBar)
-                                {
-                                    DrawBox(xRight, yFoot, w, -h, Color.Black, 2);
-                                    DrawFilledBox(xRight + 1, yFoot + 1, 3, -ArmorHeight + 1, Color.Blue);
-                                }
-                                /////ESP Boxy
-                                if (Main.S.ESPBoxEnabled)
-                                {
-                                    #region ESPBox
+                            }
+                            ////ESP BAR health
+                            if (Main.S.DrawHealthBar)
+                            {
+                                DrawBox(xLeft, yFoot, w, -h, Color.Black, 2);
+                                DrawFilledBox(xLeft + 1, yFoot + 1, 3, -HealthHeight + 1, HealthColor);
+                            }
+                            if (Main.S.DrawArmorBar)
+                            {
+                                DrawBox(xRight, yFoot, w, -h, Color.Black, 2);
+                                DrawFilledBox(xRight + 1, yFoot + 1, 3, -ArmorHeight + 1, Color.Blue);
+                            }
+                            /////ESP Boxy
+                            if (Main.S.ESPBoxEnabled)
+                            {
+                                #region ESPBox
                                     if (Player.IsTeammate && Main.S.BoxTeammates)
                                     {
                                         if (Main.S.TypeOfESPBOX == 0)
@@ -971,13 +975,13 @@ namespace ZBase.Cheats
                                         }
                                     }
                                     #endregion ESPBox
-                                }
-                                ////SnapLine
-                                if (Main.S.DrawSnaplines)
-                                {
-                                    if (!Main.S.SnaplinesHealthBased)
-                                        HealthColor = Main.S.SnapLinesColorEnemies;
-                                    #region Snaplines
+                            }
+                            ////SnapLine
+                            if (Main.S.DrawSnaplines)
+                            {
+                                if (!Main.S.SnaplinesHealthBased)
+                                    HealthColor = Main.S.SnapLinesColorEnemies;
+                                #region Snaplines
                                     switch (Main.S.SnapLinesPos)
                                     {
                                         case "Top":
@@ -1024,36 +1028,36 @@ namespace ZBase.Cheats
                                             break;
                                     }
                                     #endregion
-                                }
-                                ////////// Stringi z danymi
-                                if (Main.S.DrawHealthString && Tools.InScreenPos(xx, hy))
-                                {
-                                    DrawText(Player.Health.ToString(), xLeft - 3, wy, fonth, Color.White);
-                                }
-                                if (Main.S.DrawWeaponString && Tools.InScreenPos(xp, wy))
-                                {
-                                    DrawText(Player.WeaponName, xp, wy, fonth, Color.White);
-                                }
-                                if (Main.S.DrawDistanceString && Tools.InScreenPos(xx, by))
-                                {
-                                    DrawText(Distance + "m", xx, by, fonth, Color.White);
-                                }
-                                if (Main.S.DrawScopedEnabled && Tools.InScreenPos(xp, by) && Player.Scoped)
-                                {
-                                    DrawText("Scoped", xp, by, fonth, Color.White);
-                                }
-                                if (Main.S.ShowRanksEnabled)
-                                {
-                                    DrawText(Player.GetRank(i + 1).ToString(), xRight, hy, fonth, Color.White);
-                                }
-                                if (Main.S.ShowWinsEnabled)
-                                {
-                                    DrawText(Player.GetWins(i + 1).ToString(), xLeft, hy, fonth, Color.White);
-                                }
-                                if (Main.S.ShowNamesEnabled)
-                                {
-                                    DrawText(Name, xMid, hy, fonth, Color.White);
-                                }
+                            }
+                            ////////// Stringi z danymi
+                            if (Main.S.DrawHealthString && Tools.InScreenPos(xx, hy))
+                            {
+                                DrawText(Player.Health.ToString(), xLeft - 3, wy, fonth, Color.White);
+                            }
+                            if (Main.S.DrawWeaponString && Tools.InScreenPos(xp, wy))
+                            {
+                                DrawText(Player.WeaponName, xp, wy, fonth, Color.White);
+                            }
+                            if (Main.S.DrawDistanceString && Tools.InScreenPos(xx, by))
+                            {
+                                DrawText(Distance + "m", xx, by, fonth, Color.White);
+                            }
+                            if (Main.S.DrawScopedEnabled && Tools.InScreenPos(xp, by) && Player.Scoped)
+                            {
+                                DrawText("Scoped", xp, by, fonth, Color.White);
+                            }
+                            if (Main.S.ShowRanksEnabled)
+                            {
+                                DrawText(Player.GetRank(i + 1).ToString(), xRight, hy, fonth, Color.White);
+                            }
+                            if (Main.S.ShowWinsEnabled)
+                            {
+                                DrawText(Player.GetWins(i + 1).ToString(), xLeft, hy, fonth, Color.White);
+                            }
+                            if (Main.S.ShowNamesEnabled)
+                            {
+                                DrawText(Name, xMid, hy, fonth, Color.White);
+                            }
                             }
                         }
                     }
