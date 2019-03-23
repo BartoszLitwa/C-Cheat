@@ -89,12 +89,19 @@ namespace ZBase.Forms
 
         private void FOVChangerTXT_TextChanged(object sender, EventArgs e)
         {
+            int result;
+            if (int.TryParse(FOVChangerTXT.Text, out result))
+            {
+                Main.S.FOVValue = result;
+            }
+            else
+                Main.S.FOVValue = 0;
             try { 
             Main.S.FOVValue = int.Parse(FOVChangerTXT.Text);
             }
             catch (Exception ex)
             {
-
+                
             }
         }
 

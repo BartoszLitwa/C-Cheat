@@ -48,23 +48,27 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.FloatWear = new System.Windows.Forms.Label();
             this.FloatWearValue = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.FloatValueTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(84, 29);
+            this.label5.Location = new System.Drawing.Point(112, 36);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.Size = new System.Drawing.Size(63, 17);
             this.label5.TabIndex = 91;
             this.label5.Text = "VK_END";
             // 
             // ForceFullUpdateCheck
             // 
-            this.ForceFullUpdateCheck.Location = new System.Drawing.Point(6, 24);
+            this.ForceFullUpdateCheck.Location = new System.Drawing.Point(8, 30);
+            this.ForceFullUpdateCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ForceFullUpdateCheck.Name = "ForceFullUpdateCheck";
-            this.ForceFullUpdateCheck.Size = new System.Drawing.Size(75, 23);
+            this.ForceFullUpdateCheck.Size = new System.Drawing.Size(100, 28);
             this.ForceFullUpdateCheck.TabIndex = 90;
             this.ForceFullUpdateCheck.Text = "ForceFullUpdate";
             this.ForceFullUpdateCheck.UseVisualStyleBackColor = true;
@@ -73,9 +77,10 @@
             // SkinChangerCheck
             // 
             this.SkinChangerCheck.AutoSize = true;
-            this.SkinChangerCheck.Location = new System.Drawing.Point(3, 3);
+            this.SkinChangerCheck.Location = new System.Drawing.Point(4, 4);
+            this.SkinChangerCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SkinChangerCheck.Name = "SkinChangerCheck";
-            this.SkinChangerCheck.Size = new System.Drawing.Size(87, 17);
+            this.SkinChangerCheck.Size = new System.Drawing.Size(111, 21);
             this.SkinChangerCheck.TabIndex = 89;
             this.SkinChangerCheck.Text = "SkinChanger";
             this.SkinChangerCheck.UseVisualStyleBackColor = true;
@@ -123,9 +128,10 @@
             "USP-S",
             "CZ75",
             "R8 Revolver"});
-            this.WeaponNameComboBox.Location = new System.Drawing.Point(3, 71);
+            this.WeaponNameComboBox.Location = new System.Drawing.Point(4, 87);
+            this.WeaponNameComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.WeaponNameComboBox.Name = "WeaponNameComboBox";
-            this.WeaponNameComboBox.Size = new System.Drawing.Size(131, 21);
+            this.WeaponNameComboBox.Size = new System.Drawing.Size(173, 24);
             this.WeaponNameComboBox.TabIndex = 134;
             this.WeaponNameComboBox.SelectedIndexChanged += new System.EventHandler(this.WeaponNameComboBox_SelectedIndexChanged);
             // 
@@ -133,15 +139,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(3, 50);
+            this.label1.Location = new System.Drawing.Point(4, 62);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 18);
+            this.label1.Size = new System.Drawing.Size(88, 24);
             this.label1.TabIndex = 135;
             this.label1.Text = "Weapon";
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
             this.listBox1.Items.AddRange(new object[] {
             "-------Skins AK47-----------",
             "AK47 | Neon Rider - 707",
@@ -324,17 +332,19 @@
             "GLOCK18 | Death Rattle - 293",
             "GLOCK18 | Groundwater - 2",
             "GLOCK18 | Sand Dune - 208"});
-            this.listBox1.Location = new System.Drawing.Point(140, 3);
+            this.listBox1.Location = new System.Drawing.Point(187, 4);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(243, 199);
+            this.listBox1.Size = new System.Drawing.Size(323, 244);
             this.listBox1.TabIndex = 136;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // SetSkinButton
             // 
-            this.SetSkinButton.Location = new System.Drawing.Point(3, 98);
+            this.SetSkinButton.Location = new System.Drawing.Point(4, 121);
+            this.SetSkinButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SetSkinButton.Name = "SetSkinButton";
-            this.SetSkinButton.Size = new System.Drawing.Size(75, 23);
+            this.SetSkinButton.Size = new System.Drawing.Size(100, 28);
             this.SetSkinButton.TabIndex = 137;
             this.SetSkinButton.Text = "Set Skin";
             this.SetSkinButton.UseVisualStyleBackColor = true;
@@ -343,9 +353,10 @@
             // KnifeChangerCheck
             // 
             this.KnifeChangerCheck.AutoSize = true;
-            this.KnifeChangerCheck.Location = new System.Drawing.Point(3, 155);
+            this.KnifeChangerCheck.Location = new System.Drawing.Point(4, 191);
+            this.KnifeChangerCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.KnifeChangerCheck.Name = "KnifeChangerCheck";
-            this.KnifeChangerCheck.Size = new System.Drawing.Size(90, 17);
+            this.KnifeChangerCheck.Size = new System.Drawing.Size(116, 21);
             this.KnifeChangerCheck.TabIndex = 138;
             this.KnifeChangerCheck.Text = "KnifeChanger";
             this.KnifeChangerCheck.UseVisualStyleBackColor = true;
@@ -374,18 +385,20 @@
             "Huntsman",
             "Navaja",
             "Fists"});
-            this.KnifeChangerComboBox.Location = new System.Drawing.Point(3, 178);
+            this.KnifeChangerComboBox.Location = new System.Drawing.Point(4, 219);
+            this.KnifeChangerComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.KnifeChangerComboBox.Name = "KnifeChangerComboBox";
-            this.KnifeChangerComboBox.Size = new System.Drawing.Size(131, 21);
+            this.KnifeChangerComboBox.Size = new System.Drawing.Size(173, 24);
             this.KnifeChangerComboBox.TabIndex = 139;
             this.KnifeChangerComboBox.SelectedIndexChanged += new System.EventHandler(this.KnifeChangerComboBox_SelectedIndexChanged);
             // 
             // FasterChangersCheck
             // 
             this.FasterChangersCheck.AutoSize = true;
-            this.FasterChangersCheck.Location = new System.Drawing.Point(3, 263);
+            this.FasterChangersCheck.Location = new System.Drawing.Point(4, 324);
+            this.FasterChangersCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FasterChangersCheck.Name = "FasterChangersCheck";
-            this.FasterChangersCheck.Size = new System.Drawing.Size(103, 17);
+            this.FasterChangersCheck.Size = new System.Drawing.Size(135, 21);
             this.FasterChangersCheck.TabIndex = 140;
             this.FasterChangersCheck.Text = "Faster Changers";
             this.FasterChangersCheck.UseVisualStyleBackColor = true;
@@ -394,9 +407,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 247);
+            this.label2.Location = new System.Drawing.Point(4, 304);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.Size = new System.Drawing.Size(116, 17);
             this.label2.TabIndex = 141;
             this.label2.Text = "Only for good PC";
             // 
@@ -407,9 +421,10 @@
             "Edge Box"});
             this.KnifeSkinsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.KnifeSkinsComboBox.FormattingEnabled = true;
-            this.KnifeSkinsComboBox.Location = new System.Drawing.Point(3, 223);
+            this.KnifeSkinsComboBox.Location = new System.Drawing.Point(4, 274);
+            this.KnifeSkinsComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.KnifeSkinsComboBox.Name = "KnifeSkinsComboBox";
-            this.KnifeSkinsComboBox.Size = new System.Drawing.Size(131, 21);
+            this.KnifeSkinsComboBox.Size = new System.Drawing.Size(173, 24);
             this.KnifeSkinsComboBox.TabIndex = 142;
             this.KnifeSkinsComboBox.SelectedIndexChanged += new System.EventHandler(this.KnifeSkinsComboBox_SelectedIndexChanged);
             // 
@@ -417,36 +432,40 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(3, 202);
+            this.label3.Location = new System.Drawing.Point(4, 249);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 18);
+            this.label3.Size = new System.Drawing.Size(128, 24);
             this.label3.TabIndex = 143;
             this.label3.Text = "Knife\'s Skins";
             // 
             // StatTrakValueTextBox
             // 
-            this.StatTrakValueTextBox.Location = new System.Drawing.Point(140, 231);
+            this.StatTrakValueTextBox.Location = new System.Drawing.Point(187, 284);
+            this.StatTrakValueTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.StatTrakValueTextBox.Name = "StatTrakValueTextBox";
-            this.StatTrakValueTextBox.Size = new System.Drawing.Size(75, 20);
+            this.StatTrakValueTextBox.Size = new System.Drawing.Size(99, 22);
             this.StatTrakValueTextBox.TabIndex = 144;
             this.StatTrakValueTextBox.TextChanged += new System.EventHandler(this.StatTrakValueTextBox_TextChanged);
             // 
             // StatTrak
             // 
             this.StatTrak.AutoSize = true;
-            this.StatTrak.Location = new System.Drawing.Point(221, 234);
+            this.StatTrak.Location = new System.Drawing.Point(295, 288);
+            this.StatTrak.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StatTrak.Name = "StatTrak";
-            this.StatTrak.Size = new System.Drawing.Size(48, 13);
+            this.StatTrak.Size = new System.Drawing.Size(62, 17);
             this.StatTrak.TabIndex = 145;
             this.StatTrak.Text = "StatTrak";
             // 
             // FloatValueTrackBar
             // 
-            this.FloatValueTrackBar.Location = new System.Drawing.Point(140, 202);
+            this.FloatValueTrackBar.Location = new System.Drawing.Point(187, 249);
+            this.FloatValueTrackBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FloatValueTrackBar.Maximum = 1000;
             this.FloatValueTrackBar.Minimum = 1;
             this.FloatValueTrackBar.Name = "FloatValueTrackBar";
-            this.FloatValueTrackBar.Size = new System.Drawing.Size(152, 45);
+            this.FloatValueTrackBar.Size = new System.Drawing.Size(203, 56);
             this.FloatValueTrackBar.TabIndex = 146;
             this.FloatValueTrackBar.Value = 1;
             this.FloatValueTrackBar.Scroll += new System.EventHandler(this.FloatValueTrackBar_Scroll);
@@ -459,24 +478,45 @@
             // FloatWear
             // 
             this.FloatWear.AutoSize = true;
-            this.FloatWear.Location = new System.Drawing.Point(282, 205);
+            this.FloatWear.Location = new System.Drawing.Point(376, 252);
+            this.FloatWear.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FloatWear.Name = "FloatWear";
-            this.FloatWear.Size = new System.Drawing.Size(56, 13);
+            this.FloatWear.Size = new System.Drawing.Size(73, 17);
             this.FloatWear.TabIndex = 147;
             this.FloatWear.Text = "FloatWear";
             // 
             // FloatWearValue
             // 
             this.FloatWearValue.AutoSize = true;
-            this.FloatWearValue.Location = new System.Drawing.Point(282, 218);
+            this.FloatWearValue.Location = new System.Drawing.Point(376, 268);
+            this.FloatWearValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FloatWearValue.Name = "FloatWearValue";
-            this.FloatWearValue.Size = new System.Drawing.Size(0, 13);
+            this.FloatWearValue.Size = new System.Drawing.Size(0, 17);
             this.FloatWearValue.TabIndex = 148;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(187, 321);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(240, 24);
+            this.comboBox1.TabIndex = 149;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(472, 274);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 150;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // UCSkinChanger
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.FloatWearValue);
             this.Controls.Add(this.FloatWear);
             this.Controls.Add(this.StatTrak);
@@ -495,8 +535,9 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ForceFullUpdateCheck);
             this.Controls.Add(this.SkinChangerCheck);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UCSkinChanger";
-            this.Size = new System.Drawing.Size(452, 317);
+            this.Size = new System.Drawing.Size(603, 390);
             ((System.ComponentModel.ISupportInitialize)(this.FloatValueTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -524,5 +565,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label FloatWear;
         private System.Windows.Forms.Label FloatWearValue;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

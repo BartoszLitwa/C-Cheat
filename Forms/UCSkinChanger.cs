@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Threading;
 using ZBase.Utilities;
 using ZBase.Classes;
+using System.Windows.Controls;
 
 namespace ZBase.Forms
 {
@@ -1248,6 +1249,17 @@ namespace ZBase.Forms
         private void timer1_Tick(object sender, EventArgs e)
         {
             FloatWearValue.Text = Main.S.FloatWearValue.ToString();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string textboxvalue = textBox1.Text;
+            foreach (var item in listBox1.Items)
+            {
+                ListBoxItem t = (ListBoxItem)item;
+               if (!t.Name.Contains(textboxvalue))
+                    t.
+            }
         }
     }
 }

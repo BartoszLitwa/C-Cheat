@@ -19,6 +19,7 @@ namespace ZBase
     {
         public Menu()
         {
+            DateTime.
             InitializeComponent();
             if (Main.RunStartup())
             {
@@ -191,6 +192,11 @@ namespace ZBase
         }
 
         private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ucColors1_Load(object sender, EventArgs e)
         {
 
         }
