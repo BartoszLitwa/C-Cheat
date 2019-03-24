@@ -82,10 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cheats\Aimbot.cs" />
+    <Compile Include="Cheats\CheckCheatstatus.cs" />
     <Compile Include="Cheats\Glow.cs" />
     <Compile Include="Cheats\Misc.cs" />
     <Compile Include="Cheats\Skinchanger.cs" />
     <Compile Include="Cheats\Visuals.cs" />
+    <Compile Include="Classes\Configs.cs" />
     <Compile Include="Classes\Engine.cs" />
     <Compile Include="Classes\Entity.cs" />
     <Compile Include="Classes\Informations.cs" />

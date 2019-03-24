@@ -16,16 +16,36 @@ namespace ZBase.Utilities
     {
         public static void GetOffsetsFromFile()
         {
-            string json = File.ReadAllText($@"{Application.StartupPath}\csgo.json");
+            string json = File.ReadAllText("csgo.json");
             Main.O = JsonConvert.DeserializeObject<RootObject>(json);
         }
+        public static void GetConfigFromFile()
+        {
+            Configs defaultConfigs = new Configs();
+
+            string DefConfigs = JsonConvert.SerializeObject(defaultConfigs, Formatting.Indented);
+            if (File.Exists("configs.json") == false)
+            {
+                File.WriteAllText("configs.json", DefConfigs);
+            }
+            string json2 = File.ReadAllText("configs.json");
+            Main.C = JsonConvert.DeserializeObject<Configs>(json2);
+        }
+
         public static void UpdateOffsets()
         {
             System.Net.WebClient wc = new System.Net.WebClient();
             byte[] raw = wc.DownloadData("https://raw.githubusercontent.com/frk1/hazedumper/master/csgo.json");
             string webData = Encoding.UTF8.GetString(raw);
-            File.WriteAllText($@"{Application.StartupPath}\csgo.json", webData);
+            File.WriteAllText("csgo.json", webData);
             GetOffsetsFromFile();
+        }
+        public static void UpdateCheatStatus()
+        {
+            System.Net.WebClient WClient = new System.Net.WebClient();
+            byte[] raw = WClient.DownloadData("https://raw.githubusercontent.com/CRNYY/CRNYY-s-Cheat-Users/master/Users.json");
+            string webdata = Encoding.UTF8.GetString(raw);
+            File.WriteAllText("configs.json", webdata);
         }
     }
 }

@@ -19,6 +19,7 @@ namespace ZBase
         public static RECT ScreenRect;
 
         public static RootObject O;
+        public static Configs C;
         public static Settings S = new Settings();
         public static Informations I = new Informations();
         public static bool RunStartup()
@@ -32,7 +33,7 @@ namespace ZBase
                 {
                     if ((Module.ModuleName == "client_panorama.dll"))
                         Memory.Client = Module.BaseAddress;
-
+            
                     if ((Module.ModuleName == "engine.dll"))
                     {
                         Memory.Engine = Module.BaseAddress;

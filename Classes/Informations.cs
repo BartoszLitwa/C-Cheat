@@ -17,6 +17,8 @@ namespace ZBase.Classes
         public bool SetColor;
         public bool TriggerBotOn;
         public bool ShowCrosshair;
+        public List<string> Config;
+        public List<bool> CheatEnabled;
         public Color ColorRGB;
         public Vector2 PosAK47;
         public Vector2 PosDeagle;

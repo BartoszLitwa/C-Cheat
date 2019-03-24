@@ -45,5 +45,11 @@ namespace ZBase.Utilities
             string settings = JsonConvert.SerializeObject(set, Formatting.Indented);
             File.WriteAllText("SettingsRage.json", settings);
         }
+        public static void GetFiles()
+        {
+            string Path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            //Main.I.Config = from file in Directory.EnumerateFiles(Path, "*.json");
+
+        }
     }
 }

@@ -14,9 +14,6 @@ namespace ZBase.Cheats
     {
         public static void Run()
         {
-            Vector3 BH = new Vector3(0, 0, 0);
-            Vector2 MoveL = new Vector2(Main.MidScreen.X + 150, Main.MidScreen.Y);
-            Vector2 MoveR = new Vector2(Main.MidScreen.X - 150, Main.MidScreen.Y);
             bool strafing = false;
             Vector2 prevAngle = new Vector2(0,0);
             while (true)
@@ -183,19 +180,28 @@ namespace ZBase.Cheats
                 }
             }
 
+            bool AimbotAllowed(bool AimbotEnabled, bool HoldingKey, string ActiveWeapon)
+            {
+                if (AimbotEnabled && !HoldingKey && ActiveWeapon != "Knife" && ActiveWeapon != "C4" && ActiveWeapon != "Incendiary Grenade"
+                           && ActiveWeapon != "Molotov" && ActiveWeapon != "Decoy" && ActiveWeapon != "Smoke Grenade" && ActiveWeapon != "Grenade" && ActiveWeapon != "Flashbang")
+                    return false;
+
+                if (Main.S.CheckInAirEnabled)
+                    if (G.Engine.LocalPlayer.Flags != 263 && G.Engine.LocalPlayer.Flags != 257)
+                        return false;
+
+                if (Main.S.CheckFlashedEnabled)
+                    if (G.Engine.LocalPlayer.FlashDuration > 1)
+                        return false;
+
+                return true;
+            }
+
             void UseAimbot(string activeweapon, bool aimbotenabled, bool AimbotSpottedByMask, bool RecoilPredictionEnabled, bool aimbotSmooth, bool smartaimbot, bool SilentAim, bool ShootTeammates,
                             bool closestbone, int DrawDisplayFovAimbotValue, int AimbotBoneID, int aimbotSmoothValue)
             {
-                if (aimbotenabled && Tools.HoldingKey(Keys.VK_LBUTTON) && activeweapon != "Knife" && activeweapon != "C4" && activeweapon != "Incendiary Grenade"
-                            && activeweapon != "Molotov" && activeweapon != "Decoy" && activeweapon != "Smoke Grenade" && activeweapon != "Grenade" && activeweapon != "Flashbang")
+                if (AimbotAllowed(aimbotenabled, Tools.HoldingKey(Keys.VK_LBUTTON) ,activeweapon))
                 {
-                if (Main.S.CheckInAirEnabled)
-                    if (G.Engine.LocalPlayer.Flags != 263 && G.Engine.LocalPlayer.Flags != 257)
-                     { goto End; }
-                if (Main.S.CheckFlashedEnabled)
-                    if (G.Engine.LocalPlayer.FlashDuration > 1)
-                    { goto End; }
-                
                     Entity Player = null;
                     if (ShootTeammates)
                     {
@@ -298,7 +304,6 @@ namespace ZBase.Cheats
                             G.Engine.ViewAngles = OldAngle;
                         }
                     }
-                    End: { }
                 }
             }
         }

@@ -20,65 +20,90 @@ namespace ZBase
         public Menu()
         {
             InitializeComponent();
-            if (Main.RunStartup())
+
+            OffsetUpdater.UpdateCheatStatus();
+            OffsetUpdater.GetConfigFromFile();
+            Thread.Sleep(100);
+            if (Main.C.MyCheat)
             {
                 OffsetUpdater.UpdateOffsets();
                 SettingsUpdater.GetSettingsFromFileLegit();
-                ChoosenSettingsComboBox.SelectedIndex = 0;
-                Menu_Load();
-                ucesp1.UCESP_Load();
-                ucAimbot1.UCAimbot_Load();
-                ucMisc1.UCMisc_Load();
-                ucSkinChanger1.UCSkinChanger_Load();
-                ucColors1.UCColors_Load();
-                ///////////////////////////////////////
-                LeftSidePanel.Height = ESPButton.Height;
-                ucesp1.BringToFront();
-                ucesp1.Show();
-                //////////////////////////////////////
-                ucAimbot1.Hide();
-                ucMisc1.Hide();
-                ucSkinChanger1.Hide();
-                ucColors1.Hide();
-                #region Start Threads
-                // found the process and everything, lets start our cheats in a new thread
-
-                Tools.InitializeG();
-
-                new Thread(() =>
+                DateTime Time = UnixTimeStampToDateTime(Main.O.timestamp);
+                LatesOffsetUpdateTXT.Text = Time.ToLongDateString();
+                if (Main.RunStartup())
                 {
-                    Thread.CurrentThread.IsBackground = true;
-                    Glow.Run();
-                }).Start();
+                    ChoosenSettingsComboBox.SelectedIndex = 0;
+                    Menu_Load();
+                    ucesp1.UCESP_Load();
+                    ucAimbot1.UCAimbot_Load();
+                    ucMisc1.UCMisc_Load();
+                    ucSkinChanger1.UCSkinChanger_Load();
+                    ucColors1.UCColors_Load();
+                    ///////////////////////////////////////
+                    LeftSidePanel.Height = ESPButton.Height;
+                    ucesp1.BringToFront();
+                    ucesp1.Show();
+                    //////////////////////////////////////
+                    ucAimbot1.Hide();
+                    ucMisc1.Hide();
+                    ucSkinChanger1.Hide();
+                    ucColors1.Hide();
+                    #region Start Threads
+                    // found the process and everything, lets start our cheats in a new thread
 
-                new Thread(() =>
-                {
-                    Thread.CurrentThread.IsBackground = true;
-                    Skinchanger.Run();
-                }).Start();
+                    Tools.InitializeG();
 
-                new Thread(() =>
-                {
-                    Thread.CurrentThread.IsBackground = true;
-                    Misc.Run();
-                }).Start();
+                    new Thread(() =>
+                    {
+                        Thread.CurrentThread.IsBackground = true;
+                        CheckCheatstatus.Run();
+                    }).Start();
 
-                new Thread(() =>
-                {
-                    Thread.CurrentThread.IsBackground = true;
-                    Aimbot.Run();
-                }).Start();
+                    new Thread(() =>
+                    {
+                        Thread.CurrentThread.IsBackground = true;
+                        Glow.Run();
+                    }).Start();
 
-                new Thread(() =>
-                {
-                    Thread.CurrentThread.IsBackground = true;
-                    Visuals v = new Visuals();
-                    v.Initialize();
-                    v.Run();
-                }).Start();
-                #endregion
-                Memory.WriteMemory<IntPtr>(Memory.ReadMemory<int>((int)Memory.Engine + Main.O.signatures.dwClientState) + 0x174, -1);
+                    new Thread(() =>
+                    {
+                        Thread.CurrentThread.IsBackground = true;
+                        Skinchanger.Run();
+                    }).Start();
+
+                    new Thread(() =>
+                    {
+                        Thread.CurrentThread.IsBackground = true;
+                        Misc.Run();
+                    }).Start();
+
+                    new Thread(() =>
+                    {
+                        Thread.CurrentThread.IsBackground = true;
+                        Aimbot.Run();
+                    }).Start();
+
+                    new Thread(() =>
+                    {
+                        Thread.CurrentThread.IsBackground = true;
+                        Visuals v = new Visuals();
+                        v.Initialize();
+                        v.Run();
+                    }).Start();
+                    #endregion
+                    Memory.WriteMemory<IntPtr>(Memory.ReadMemory<int>((int)Memory.Engine + Main.O.signatures.dwClientState) + 0x174, -1);
+                }
             }
+            else
+                Environment.Exit(1);
+        }
+
+        public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
+        {
+            // Unix timestamp is seconds past epoch
+            System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToUniversalTime();
+            return dtDateTime;
         }
 
         private void Menu_Load()
