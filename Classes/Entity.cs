@@ -281,8 +281,8 @@ namespace ZBase.Classes
         }
 
         public bool IsRifle(int id)
-            => id == (int)WeaponsID.M4A1S || id == (int)WeaponsID.M4A1SOnline || id == (int)WeaponsID.M4A1SOnline2 || id == (int)WeaponsID.M4A4 || id == (int)WeaponsID.SG556
-            || id == (int)WeaponsID.AUG || id == (int)WeaponsID.GALILAR || id == (int)WeaponsID.FAMAS || id == (int)WeaponsID.AK47 || id == (int)WeaponsID.AK47oNLINE;
+            => id == (int)WeaponsID.M4A1S || id == (int)WeaponsID.M4A1SOnline || id == (int)WeaponsID.M4A1SOnline2 || id == (int)WeaponsID.M4A4 || id == (int)WeaponsID.M4A4Online || id == (int)WeaponsID.SG556
+            || id == (int)WeaponsID.AUG || id == (int)WeaponsID.GALILAR || id == (int)WeaponsID.FAMAS || id == (int)WeaponsID.AK47 || id == (int)WeaponsID.AK47Online;
 
         public bool IsSniper(int id)
             => id == (int)WeaponsID.AWP || id == (int)WeaponsID.AWPOnline || id == (int)WeaponsID.SCAR20 || id == (int)WeaponsID.SSG08 || id == (int)WeaponsID.G3SG1;
@@ -291,8 +291,8 @@ namespace ZBase.Classes
             => id == (int)WeaponsID.C4;
 
         public bool IsPistol(int id)
-            => id == (int)WeaponsID.DEAGLE || id == (int)WeaponsID.FIVESEVEN || id == (int)WeaponsID.TEC9 || id == (int)WeaponsID.USPS || id == (int)WeaponsID.USPSOnline 
-            || id == (int)WeaponsID.USPSOnline2 || id == (int)WeaponsID.P2000|| id == (int)WeaponsID.P250 || id == (int)WeaponsID.GLOCK || id == (int)WeaponsID.BERETTAS
+            => id == (int)WeaponsID.DEAGLE || id == (int)WeaponsID.DEAGLEOnline || id == (int)WeaponsID.FIVESEVEN || id == (int)WeaponsID.TEC9 || id == (int)WeaponsID.USPS || id == (int)WeaponsID.USPSOnline 
+            || id == (int)WeaponsID.USPSOnline2 || id == (int)WeaponsID.P2000 || id == (int)WeaponsID.P2000Online || id == (int)WeaponsID.P250 || id == (int)WeaponsID.GLOCK || id == (int)WeaponsID.BERETTAS
             || id == (int)WeaponsID.CZ75A || id == (int)WeaponsID.CZ75AOnline || id == (int)WeaponsID.CZ75AOnline2 || id == (int)WeaponsID.REVOLVER || id == (int)WeaponsID.REVOLVEROnline
             || id == (int)WeaponsID.REVOLVEROnline2;
 
@@ -318,6 +318,8 @@ namespace ZBase.Classes
                 {
                     case WeaponsID.DEAGLE:
                         return "Desert Eagle";
+                    case WeaponsID.DEAGLEOnline:
+                        return "Desert Eagle";
                     case WeaponsID.BERETTAS:
                         return "Dual Berettas";
                     case WeaponsID.FIVESEVEN:
@@ -326,7 +328,7 @@ namespace ZBase.Classes
                         return "Glock-18";
                     case WeaponsID.AK47:
                         return "AK-47";
-                    case WeaponsID.AK47oNLINE:
+                    case WeaponsID.AK47Online:
                         return "AK-47";
                     case WeaponsID.AUG:
                         return "AUG";
@@ -343,6 +345,8 @@ namespace ZBase.Classes
                     case WeaponsID.M249:
                         return "M249";
                     case WeaponsID.M4A4:
+                        return "M4A1";
+                    case WeaponsID.M4A4Online:
                         return "M4A1";
                     case WeaponsID.MAC10:
                         return "MAC-10";
@@ -367,6 +371,8 @@ namespace ZBase.Classes
                     case WeaponsID.TASEROnline:
                         return "Taser";
                     case WeaponsID.P2000:
+                        return "P2000";
+                    case WeaponsID.P2000Online:
                         return "P2000";
                     case WeaponsID.MP7:
                         return "MP7";

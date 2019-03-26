@@ -14,16 +14,14 @@ namespace ZBase.Cheats
         {
             while (true)
             {
-                OffsetUpdater.UpdateCheatStatus();
-                OffsetUpdater.GetConfigFromFile();
+                Thread.Sleep(60000);
+                PCInformation.UpdateCheatStatus();
                 if (Main.C.MyCheat)
-                { }
-                if(!Main.C.MyCheat)
+                { break; }
+                else
                 {
                     Environment.Exit(1);
                 }
-
-                Thread.Sleep(10000);
             }
         }
     }

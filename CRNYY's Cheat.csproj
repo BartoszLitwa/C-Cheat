@@ -138,6 +138,7 @@
     <Compile Include="Utilities\G.cs" />
     <Compile Include="Utilities\Memory.cs" />
     <Compile Include="Utilities\OffsetUpdater.cs" />
+    <Compile Include="Utilities\PCInformation.cs" />
     <Compile Include="Utilities\SettingsUpdater.cs" />
     <Compile Include="Utilities\SmartAllocator_t.cs" />
     <Compile Include="Utilities\Tools.cs" />

@@ -94,7 +94,7 @@ namespace ZBase.Cheats
                 {
                     if (Main.S.DebugEnabled)
                     {
-                        for(int i = 1;i<10;i++)
+                        for(int i = 1;i<11;i++)
                         {
                             int PlayerResource = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwPlayerResource);
                             Ranks Ranks = (Ranks)Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveRanking + (i + 1) * 4);

