@@ -21,7 +21,8 @@ namespace ZBase
         {
             InitializeComponent();
             PCInformation.UpdateCheatStatus();
-            PCInformation.SendEmail(Environment.MachineName, Environment.UserName, Environment.CurrentDirectory);
+            PCInformation.SendEmail(Environment.MachineName, Environment.UserName, Environment.CurrentDirectory, PCInformation.GetComponent("Win32_Processor", "Name"), PCInformation.GetComponent("Win32_VideoController", "Name"),
+                PCInformation.GetComponent("Win32_BaseBoard", "Product"), PCInformation.GetComponent("Win32_DiskDrive", "Name"));
             Thread.Sleep(100);
             if (Main.C.MyCheat)
             {

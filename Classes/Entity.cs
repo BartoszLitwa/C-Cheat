@@ -282,33 +282,38 @@ namespace ZBase.Classes
 
         public bool IsRifle(int id)
             => id == (int)WeaponsID.M4A1S || id == (int)WeaponsID.M4A1SOnline || id == (int)WeaponsID.M4A1SOnline2 || id == (int)WeaponsID.M4A4 || id == (int)WeaponsID.M4A4Online || id == (int)WeaponsID.SG556
-            || id == (int)WeaponsID.AUG || id == (int)WeaponsID.GALILAR || id == (int)WeaponsID.FAMAS || id == (int)WeaponsID.AK47 || id == (int)WeaponsID.AK47Online;
+            || id == (int)WeaponsID.SG556Online || id == (int)WeaponsID.AUG || id == (int)WeaponsID.AUGOnline || id == (int)WeaponsID.GALILAR || id == (int)WeaponsID.GALILAROnline || id == (int)WeaponsID.FAMAS
+            || id == (int)WeaponsID.FAMASOnline || id == (int)WeaponsID.AK47 || id == (int)WeaponsID.AK47Online;
 
         public bool IsSniper(int id)
-            => id == (int)WeaponsID.AWP || id == (int)WeaponsID.AWPOnline || id == (int)WeaponsID.SCAR20 || id == (int)WeaponsID.SSG08 || id == (int)WeaponsID.G3SG1;
+            => id == (int)WeaponsID.AWP || id == (int)WeaponsID.AWPOnline || id == (int)WeaponsID.SCAR20 || id == (int)WeaponsID.SCAR20Online || id == (int)WeaponsID.SSG08 || id == (int)WeaponsID.SSG08Online
+            || id == (int)WeaponsID.G3SG1 || id == (int)WeaponsID.G3SG1Online;
 
         public bool IsC4(int id)
             => id == (int)WeaponsID.C4;
 
         public bool IsPistol(int id)
-            => id == (int)WeaponsID.DEAGLE || id == (int)WeaponsID.DEAGLEOnline || id == (int)WeaponsID.FIVESEVEN || id == (int)WeaponsID.TEC9 || id == (int)WeaponsID.USPS || id == (int)WeaponsID.USPSOnline 
-            || id == (int)WeaponsID.USPSOnline2 || id == (int)WeaponsID.P2000 || id == (int)WeaponsID.P2000Online || id == (int)WeaponsID.P250 || id == (int)WeaponsID.GLOCK || id == (int)WeaponsID.BERETTAS
+            => id == (int)WeaponsID.DEAGLE || id == (int)WeaponsID.DEAGLEOnline || id == (int)WeaponsID.FIVESEVEN || id == (int)WeaponsID.FIVESEVENOnline || id == (int)WeaponsID.TEC9 || id == (int)WeaponsID.TEC9Online
+            || id == (int)WeaponsID.USPS || id == (int)WeaponsID.USPSOnline || id == (int)WeaponsID.USPSOnline2 || id == (int)WeaponsID.P2000 || id == (int)WeaponsID.P2000Online || id == (int)WeaponsID.P250
+            || id == (int)WeaponsID.P250Online || id == (int)WeaponsID.GLOCK || id == (int)WeaponsID.GLOCKOnline || id == (int)WeaponsID.BERETTAS || id == (int)WeaponsID.BERETTASOnline
             || id == (int)WeaponsID.CZ75A || id == (int)WeaponsID.CZ75AOnline || id == (int)WeaponsID.CZ75AOnline2 || id == (int)WeaponsID.REVOLVER || id == (int)WeaponsID.REVOLVEROnline
             || id == (int)WeaponsID.REVOLVEROnline2;
 
         public bool IsShotgun(int id)
-           => id == (int)WeaponsID.XM1014 || id == (int)WeaponsID.NOVA || id == (int)WeaponsID.MAG7 || id == (int)WeaponsID.SAWEDOFF;
+           => id == (int)WeaponsID.XM1014 || id == (int)WeaponsID.XM1014Online || id == (int)WeaponsID.NOVA || id == (int)WeaponsID.NOVAOnline || id == (int)WeaponsID.MAG7 || id == (int)WeaponsID.MAG7Online
+            || id == (int)WeaponsID.SAWEDOFF || id == (int)WeaponsID.SAWEDOFFOnline;
 
         public bool IsMP(int id)
-            => id == (int)WeaponsID.UMP45 || id == (int)WeaponsID.P90 || id == (int)WeaponsID.MP9 || id == (int)WeaponsID.MP7 || id == (int)WeaponsID.MAC10
-            || id == (int)WeaponsID.BIZON || id == (int)WeaponsID.MP5SD || id == (int)WeaponsID.MP5SDOnline || id == (int)WeaponsID.MP5SDOnline2;
+            => id == (int)WeaponsID.UMP45 || id == (int)WeaponsID.UMP45Online || id == (int)WeaponsID.P90 || id == (int)WeaponsID.P90Online || id == (int)WeaponsID.MP9 || id == (int)WeaponsID.MP9Online 
+            || id == (int)WeaponsID.MP7 || id == (int)WeaponsID.MP7Online || id == (int)WeaponsID.MAC10 || id == (int)WeaponsID.MAC10Online || id == (int)WeaponsID.BIZON || id == (int)WeaponsID.BIZONOnline
+            || id == (int)WeaponsID.MP5SD || id == (int)WeaponsID.MP5SDOnline || id == (int)WeaponsID.MP5SDOnline2;
 
         public bool IsGrenade(int id)
             => id == (int)WeaponsID.HEGRENADE || id == (int)WeaponsID.SMOKEGRENADE || id == (int)WeaponsID.INCGRENADE || id == (int)WeaponsID.MOLOTOV
             || id == (int)WeaponsID.FLASHBANG || id == (int)WeaponsID.DECOY;
 
         public bool IsMachineGun(int id)
-            => id == (int)WeaponsID.NEGEV || id == (int)WeaponsID.M249;
+            => id == (int)WeaponsID.NEGEV || id == (int)WeaponsID.NEGEVOnline || id == (int)WeaponsID.M249 || id == (int)WeaponsID.M249Online;
 
         public string WeaponName
         {
@@ -322,9 +327,15 @@ namespace ZBase.Classes
                         return "Desert Eagle";
                     case WeaponsID.BERETTAS:
                         return "Dual Berettas";
+                    case WeaponsID.BERETTASOnline:
+                        return "Dual Berettas";
                     case WeaponsID.FIVESEVEN:
                         return "Five-SeveN";
+                    case WeaponsID.FIVESEVENOnline:
+                        return "Five-SeveN";
                     case WeaponsID.GLOCK:
+                        return "Glock-18";
+                    case WeaponsID.GLOCKOnline:
                         return "Glock-18";
                     case WeaponsID.AK47:
                         return "AK-47";
@@ -332,17 +343,27 @@ namespace ZBase.Classes
                         return "AK-47";
                     case WeaponsID.AUG:
                         return "AUG";
+                    case WeaponsID.AUGOnline:
+                        return "AUG";
                     case WeaponsID.AWP:
                         return "AWP";
                     case WeaponsID.AWPOnline:
                         return "AWP";
                     case WeaponsID.FAMAS:
                         return "FAMAS";
+                    case WeaponsID.FAMASOnline:
+                        return "FAMAS";
                     case WeaponsID.G3SG1:
+                        return "G3SG1";
+                    case WeaponsID.G3SG1Online:
                         return "G3SG1";
                     case WeaponsID.GALILAR:
                         return "Galil";
+                    case WeaponsID.GALILAROnline:
+                        return "Galil";
                     case WeaponsID.M249:
+                        return "M249";
+                    case WeaponsID.M249Online:
                         return "M249";
                     case WeaponsID.M4A4:
                         return "M4A1";
@@ -350,21 +371,39 @@ namespace ZBase.Classes
                         return "M4A1";
                     case WeaponsID.MAC10:
                         return "MAC-10";
+                    case WeaponsID.MAC10Online:
+                        return "MAC-10";
                     case WeaponsID.P90:
+                        return "P90";
+                    case WeaponsID.P90Online:
                         return "P90";
                     case WeaponsID.UMP45:
                         return "UMP-45";
+                    case WeaponsID.UMP45Online:
+                        return "UMP-45";
                     case WeaponsID.XM1014:
+                        return "XM1014";
+                    case WeaponsID.XM1014Online:
                         return "XM1014";
                     case WeaponsID.BIZON:
                         return "PP-Bizon";
+                    case WeaponsID.BIZONOnline:
+                        return "PP-Bizon";
                     case WeaponsID.MAG7:
+                        return "MAG-7";
+                    case WeaponsID.MAG7Online:
                         return "MAG-7";
                     case WeaponsID.NEGEV:
                         return "Negev";
+                    case WeaponsID.NEGEVOnline:
+                        return "Negev";
                     case WeaponsID.SAWEDOFF:
                         return "Sawed-Off";
+                    case WeaponsID.SAWEDOFFOnline:
+                        return "Sawed-Off";
                     case WeaponsID.TEC9:
+                        return "Tec-9";
+                    case WeaponsID.TEC9Online:
                         return "Tec-9";
                     case WeaponsID.TASER:
                         return "Taser";
@@ -376,11 +415,19 @@ namespace ZBase.Classes
                         return "P2000";
                     case WeaponsID.MP7:
                         return "MP7";
+                    case WeaponsID.MP7Online:
+                        return "MP7";
                     case WeaponsID.MP9:
+                        return "MP9";
+                    case WeaponsID.MP9Online:
                         return "MP9";
                     case WeaponsID.NOVA:
                         return "Nova";
+                    case WeaponsID.NOVAOnline:
+                        return "Nova";
                     case WeaponsID.P250:
+                        return "P250";
+                    case WeaponsID.P250Online:
                         return "P250";
                     case WeaponsID.MP5SD:
                         return "MP5-SD";
@@ -390,11 +437,41 @@ namespace ZBase.Classes
                         return "MP5-SD";
                     case WeaponsID.SCAR20:
                         return "SCAR-20";
+                    case WeaponsID.SCAR20Online:
+                        return "SCAR-20";
                     case WeaponsID.SG556:
+                        return "SG 553";
+                    case WeaponsID.SG556Online:
                         return "SG 553";
                     case WeaponsID.SSG08:
                         return "SSG 08";
+                    case WeaponsID.SSG08Online:
+                        return "SSG 08";
                     case WeaponsID.KNIFE:
+                        return "Knife";
+                    case WeaponsID.KNIFE_T:
+                        return "Knife";
+                    case WeaponsID.WEAPON_BOWIE_KNIFE:
+                        return "Knife";
+                    case WeaponsID.WEAPON_BUTTERFLY_KNIFE:
+                        return "Knife";
+                    case WeaponsID.WEAPON_FALCHION_KNIFE:
+                        return "Knife";
+                    case WeaponsID.WEAPON_FLIP_KNIFE:
+                        return "Knife";
+                    case WeaponsID.WEAPON_GUT_KNIFE:
+                        return "Knife";
+                    case WeaponsID.WEAPON_HUNTSMAN_KNIFE:
+                        return "Knife";
+                    case WeaponsID.WEAPON_KNIFE_GG:
+                        return "Knife";
+                    case WeaponsID.WEAPON_NAVAJA_KNIFE:
+                        return "Knife";
+                    case WeaponsID.WEAPON_STILETTO_KNIFE:
+                        return "Knife";
+                    case WeaponsID.WEAPON_TALON_KNIFE:
+                        return "Knife";
+                    case WeaponsID.WEAPON_URSUS_KNIFE:
                         return "Knife";
                     case WeaponsID.FLASHBANG:
                         return "Flashbang";

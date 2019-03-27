@@ -89,40 +89,40 @@ namespace ZBase.Cheats
                                 if (weaponEntity == 0) { continue; }
                                 int weaponID = weaponIDD;
                                 int fallbackPaint = 0;
-                                if (weaponID == (int)WeaponsID.DEAGLE) { fallbackPaint = Main.S.SkinDeasertEagle; } /* Desert Eagle | Blaze */
-                                else if (weaponID == (int)WeaponsID.BERETTAS) { fallbackPaint = Main.S.SkinDualBerettas; } /* Dual Berettas | Cobra Strike */
-                                else if (weaponID == (int)WeaponsID.FIVESEVEN) { fallbackPaint = Main.S.SkinFiveSeven; } /* Five-SeveN | Hyper Beast */
-                                else if (weaponID == (int)WeaponsID.GLOCK) { fallbackPaint = Main.S.SkinGlock18; } /* Glock-18 | Fade */
-                                else if (weaponID == (int)WeaponsID.AK47) { fallbackPaint = Main.S.SkinAK47; } /* AK-47 | Empress */
-                                else if (weaponID == (int)WeaponsID.AUG) { fallbackPaint = Main.S.SkinAUG; } /* AUG | Akihabara Accept */
-                                else if (weaponID == (int)WeaponsID.AWP) { fallbackPaint = Main.S.SkinAWP; } /* AWP | Asiimov */
-                                else if (weaponID == (int)WeaponsID.FAMAS) { fallbackPaint = Main.S.SkinFamas; } /* FAMAS | Eye of Athena */
-                                else if (weaponID == (int)WeaponsID.G3SG1) { fallbackPaint = Main.S.SkinG3SG1; } /* G3SG1 | Flux */
-                                else if (weaponID == (int)WeaponsID.GALILAR) { fallbackPaint = Main.S.SkinGalilAR; } /* Galil AR | Chatterbox */
-                                else if (weaponID == (int)WeaponsID.M249) { fallbackPaint = Main.S.SkinM249; } /* M249 | System Lock */
-                                else if (weaponID == (int)WeaponsID.M4A4) { fallbackPaint = Main.S.SkinM4A4; } /* M4A4 - Howl */
-                                else if (weaponID == (int)WeaponsID.MAC10) { fallbackPaint = Main.S.SkinMac10; } /* MAC-10 | Neon Rider */
-                                else if (weaponID == (int)WeaponsID.P90) { fallbackPaint = Main.S.SkinP90; } /* P90 | Shallow Grave */
-                                else if (weaponID == (int)WeaponsID.UMP45) { fallbackPaint = Main.S.SkinUMP45; } /* UMP-45 | Arctic Wolf */
+                                if (weaponID == (int)WeaponsID.DEAGLE || weaponID == (int)WeaponsID.DEAGLEOnline) { fallbackPaint = Main.S.SkinDeasertEagle; } /* Desert Eagle | Blaze */
+                                else if (weaponID == (int)WeaponsID.BERETTAS || weaponID == (int)WeaponsID.BERETTASOnline) { fallbackPaint = Main.S.SkinDualBerettas; } /* Dual Berettas | Cobra Strike */
+                                else if (weaponID == (int)WeaponsID.FIVESEVEN || weaponID == (int)WeaponsID.FIVESEVENOnline) { fallbackPaint = Main.S.SkinFiveSeven; } /* Five-SeveN | Hyper Beast */
+                                else if (weaponID == (int)WeaponsID.GLOCK || weaponID == (int)WeaponsID.GLOCKOnline) { fallbackPaint = Main.S.SkinGlock18; } /* Glock-18 | Fade */
+                                else if (weaponID == (int)WeaponsID.AK47 || weaponID == (int)WeaponsID.AK47Online) { fallbackPaint = Main.S.SkinAK47; } /* AK-47 | Empress */
+                                else if (weaponID == (int)WeaponsID.AUG || weaponID == (int)WeaponsID.AUGOnline) { fallbackPaint = Main.S.SkinAUG; } /* AUG | Akihabara Accept */
+                                else if (weaponID == (int)WeaponsID.AWP || weaponID == (int)WeaponsID.AWPOnline) { fallbackPaint = Main.S.SkinAWP; } /* AWP | Asiimov */
+                                else if (weaponID == (int)WeaponsID.FAMAS || weaponID == (int)WeaponsID.FAMASOnline) { fallbackPaint = Main.S.SkinFamas; } /* FAMAS | Eye of Athena */
+                                else if (weaponID == (int)WeaponsID.G3SG1 || weaponID == (int)WeaponsID.G3SG1Online) { fallbackPaint = Main.S.SkinG3SG1; } /* G3SG1 | Flux */
+                                else if (weaponID == (int)WeaponsID.GALILAR || weaponID == (int)WeaponsID.GALILAROnline) { fallbackPaint = Main.S.SkinGalilAR; } /* Galil AR | Chatterbox */
+                                else if (weaponID == (int)WeaponsID.M249 || weaponID == (int)WeaponsID.M249Online) { fallbackPaint = Main.S.SkinM249; } /* M249 | System Lock */
+                                else if (weaponID == (int)WeaponsID.M4A4 || weaponID == (int)WeaponsID.M4A4Online) { fallbackPaint = Main.S.SkinM4A4; } /* M4A4 - Howl */
+                                else if (weaponID == (int)WeaponsID.MAC10 || weaponID == (int)WeaponsID.MAC10Online) { fallbackPaint = Main.S.SkinMac10; } /* MAC-10 | Neon Rider */
+                                else if (weaponID == (int)WeaponsID.P90 || weaponID == (int)WeaponsID.P90Online) { fallbackPaint = Main.S.SkinP90; } /* P90 | Shallow Grave */
+                                else if (weaponID == (int)WeaponsID.UMP45 || weaponID == (int)WeaponsID.UMP45Online) { fallbackPaint = Main.S.SkinUMP45; } /* UMP-45 | Arctic Wolf */
                                 else if (weaponID == (int)WeaponsID.MP5SD || weaponID == (int)WeaponsID.MP5SDOnline || weaponID == (int)WeaponsID.MP5SDOnline2) { fallbackPaint = Main.S.SkinMP5; } /* MP5| Arctic Wolf */
-                                else if (weaponID == (int)WeaponsID.XM1014) { fallbackPaint = Main.S.SkinXM1014; } /* XM1014 | Tranquility */
-                                else if (weaponID == (int)WeaponsID.BIZON) { fallbackPaint = Main.S.SkinPPBizon; } /* PP-Bizon | Judgement of Anubis */
-                                else if (weaponID == (int)WeaponsID.MAG7) { fallbackPaint = Main.S.SkinMag7; } /* MP7 | Bloodsport */
-                                else if (weaponID == (int)WeaponsID.NEGEV) { fallbackPaint = Main.S.SkinNegev; } /* Negev | Power Loader */
-                                else if (weaponID == (int)WeaponsID.SAWEDOFF) { fallbackPaint = Main.S.SkinSawedOff; } /* Sawed-Off | Devourer */
-                                else if (weaponID == (int)WeaponsID.TEC9) { fallbackPaint = Main.S.SkinTec9; } /* Tec-9 | Fuel Injector */
-                                else if (weaponID == (int)WeaponsID.P2000) { fallbackPaint = Main.S.SkinP2000; } /* P2000 | Imperial Dragon */
-                                else if (weaponID == (int)WeaponsID.MP7) { fallbackPaint = Main.S.SkinMP7; } /* MP7 | Bloodsport */
-                                else if (weaponID == (int)WeaponsID.MP9) { fallbackPaint = Main.S.SkinMP9; } /* MP9 | Rose Iron */
-                                else if (weaponID == (int)WeaponsID.NOVA) { fallbackPaint = Main.S.SkinNova; } /* Nova | Hyper Beast */
-                                else if (weaponID == (int)WeaponsID.P250) { fallbackPaint = Main.S.SkinP250; } /* P250 | See Ya Later */
-                                else if (weaponID == (int)WeaponsID.SCAR20) { fallbackPaint = Main.S.SkinSCAR20; } /* SCAR-20 | Cyrex */
-                                else if (weaponID == (int)WeaponsID.SG556) { fallbackPaint = Main.S.SkinSG553; } /* SG 553 | Integrale */
-                                else if (weaponID == (int)WeaponsID.SSG08) { fallbackPaint = Main.S.SkinSSG08; } /* SSG 08 | Dragonfire */
+                                else if (weaponID == (int)WeaponsID.XM1014 || weaponID == (int)WeaponsID.XM1014Online) { fallbackPaint = Main.S.SkinXM1014; } /* XM1014 | Tranquility */
+                                else if (weaponID == (int)WeaponsID.BIZON || weaponID == (int)WeaponsID.BIZONOnline) { fallbackPaint = Main.S.SkinPPBizon; } /* PP-Bizon | Judgement of Anubis */
+                                else if (weaponID == (int)WeaponsID.MAG7 || weaponID == (int)WeaponsID.MAG7Online) { fallbackPaint = Main.S.SkinMag7; } /* MP7 | Bloodsport */
+                                else if (weaponID == (int)WeaponsID.NEGEV || weaponID == (int)WeaponsID.NEGEVOnline) { fallbackPaint = Main.S.SkinNegev; } /* Negev | Power Loader */
+                                else if (weaponID == (int)WeaponsID.SAWEDOFF || weaponID == (int)WeaponsID.SAWEDOFFOnline) { fallbackPaint = Main.S.SkinSawedOff; } /* Sawed-Off | Devourer */
+                                else if (weaponID == (int)WeaponsID.TEC9 || weaponID == (int)WeaponsID.TEC9Online) { fallbackPaint = Main.S.SkinTec9; } /* Tec-9 | Fuel Injector */
+                                else if (weaponID == (int)WeaponsID.P2000 || weaponID == (int)WeaponsID.P2000Online) { fallbackPaint = Main.S.SkinP2000; } /* P2000 | Imperial Dragon */
+                                else if (weaponID == (int)WeaponsID.MP7 || weaponID == (int)WeaponsID.MP7Online) { fallbackPaint = Main.S.SkinMP7; } /* MP7 | Bloodsport */
+                                else if (weaponID == (int)WeaponsID.MP9 || weaponID == (int)WeaponsID.MP9Online) { fallbackPaint = Main.S.SkinMP9; } /* MP9 | Rose Iron */
+                                else if (weaponID == (int)WeaponsID.NOVA || weaponID == (int)WeaponsID.NOVAOnline) { fallbackPaint = Main.S.SkinNova; } /* Nova | Hyper Beast */
+                                else if (weaponID == (int)WeaponsID.P250 || weaponID == (int)WeaponsID.P250Online) { fallbackPaint = Main.S.SkinP250; } /* P250 | See Ya Later */
+                                else if (weaponID == (int)WeaponsID.SCAR20 || weaponID == (int)WeaponsID.SCAR20Online) { fallbackPaint = Main.S.SkinSCAR20; } /* SCAR-20 | Cyrex */
+                                else if (weaponID == (int)WeaponsID.SG556 || weaponID == (int)WeaponsID.SG556Online) { fallbackPaint = Main.S.SkinSG553; } /* SG 553 | Integrale */
+                                else if (weaponID == (int)WeaponsID.SSG08 || weaponID == (int)WeaponsID.SSG08Online) { fallbackPaint = Main.S.SkinSSG08; } /* SSG 08 | Dragonfire */
                                 else if (weaponID == (int)WeaponsID.M4A1S || weaponID == (int)WeaponsID.M4A1SOnline || weaponID == (int)WeaponsID.M4A1SOnline2) { fallbackPaint = Main.S.SkinM4A1S; } /* M4A1-S | Hot Rod */
                                 else if (weaponID == (int)WeaponsID.USPS || weaponID == (int)WeaponsID.USPSOnline || weaponID == (int)WeaponsID.USPSOnline2) { fallbackPaint = Main.S.SkinUSPS; } /* USP-S | Neo-Noir */
                                 else if (weaponID == (int)WeaponsID.CZ75A || weaponID == (int)WeaponsID.CZ75AOnline || weaponID == (int)WeaponsID.CZ75AOnline2) { fallbackPaint = Main.S.SkinCZ75; } /* CZ75-Auto | Neo-Noir */
-                                else if (weaponID == 41 || weaponID == 42 || weaponID == 59 || weaponID == Main.I.SelectedKnifeID)
+                                else if (weaponID == (int)WeaponsID.WEAPON_KNIFE_GG || weaponID == (int)WeaponsID.KNIFE || weaponID == (int)WeaponsID.KNIFE_T || weaponID == Main.I.SelectedKnifeID)
                                 {
                                     switch (Main.S.SelectedKnifeSkin)
                                     {
