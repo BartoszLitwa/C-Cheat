@@ -60,7 +60,7 @@ namespace ZBase.Cheats
                                 Memory.WriteMemory<short>(Knife + m_nModelIndex, KnifeModelIndex);
                                 Memory.WriteMemory<short>(activeWeapon + m_nModelIndex, KnifeModelIndex);
                                 Memory.WriteMemory<short>(activeWeapon + Main.O.netvars.m_iItemDefinitionIndex, Main.I.SelectedKnifeID);
-                                Memory.WriteMemory<IntPtr>(activeWeapon + m_iViewModelIndex, KnifeModelIndex);
+                                Memory.WriteMemory<short>(activeWeapon + m_iViewModelIndex, KnifeModelIndex);
                             }
                         }
                         else if (weaponID2 == Main.I.SelectedKnifeID)
@@ -70,7 +70,7 @@ namespace ZBase.Cheats
                                 Memory.WriteMemory<short>(Knife + m_nModelIndex, KnifeModelIndex);
                                 Memory.WriteMemory<short>(activeWeapon + m_nModelIndex, KnifeModelIndex);
                                 Memory.WriteMemory<short>(activeWeapon + Main.O.netvars.m_iItemDefinitionIndex, Main.I.SelectedKnifeID);
-                                Memory.WriteMemory<IntPtr>(activeWeapon + m_iViewModelIndex, KnifeModelIndex);
+                                Memory.WriteMemory<short>(activeWeapon + m_iViewModelIndex, KnifeModelIndex);
                             }
                         }
                         if (Main.S.SkinChangerEnabled)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,121 @@ using ZBase.Utilities;
 
 namespace ZBase.Classes
 {
+    [StructLayout(LayoutKind.Sequential)]
+    public struct NetChannel
+    {
+        public IntPtr VTable;
+
+        public IntPtr MsgBinder1;
+        public IntPtr MsgBinder2;
+        public IntPtr MsgBinder3;
+        public IntPtr MsgBinder4;
+
+        public byte IsProcessingMessages;
+        public byte ShouldDelete;
+
+        public byte Unknown1;
+        public byte Unknown2;
+
+        public int OutSequenceNumber;
+        public int InSequenceNumber;
+        public int OutSequenceNumberAck;
+        public int OutReliableState;
+        public int InReliableState;
+        public int ChokedPackets;
+    }
+
+    [StructLayout(LayoutKind.Explicit)]
+    public struct Input
+    {
+        [FieldOffset(0x00)] public IntPtr m_pVTable;
+
+        [FieldOffset(0x04)] public bool m_bTrackIRAvailable;
+
+        [FieldOffset(0x05)] public bool m_bMouseInitialized;
+
+        [FieldOffset(0x06)] public bool m_bMouseActive;
+
+        [FieldOffset(0x07)] public bool m_bJoystickAdvancedInit;
+
+        [FieldOffset(0x34)] public uint m_pKeys;
+
+        [FieldOffset(0xA4)] public bool m_bCameraInterceptingMouse;
+
+        [FieldOffset(0xA5)] public bool m_bCameraInThirdPerson;
+
+        [FieldOffset(0xA6)] public bool m_bCameraMovingWithMouse;
+
+        [FieldOffset(0xA8)] public Vector3 m_vecCameraOffset;
+
+        [FieldOffset(0xB7)] public bool m_bCameraDistanceMove;
+
+        [FieldOffset(0xB8)] public int m_nCameraOldX;
+
+        [FieldOffset(0xBC)] public int m_nCameraOldY;
+
+        [FieldOffset(0xC0)] public int m_nCameraX;
+
+        [FieldOffset(0xC4)] public int m_nCameraY;
+
+        [FieldOffset(0xC8)] public bool m_bCameraIsOrthographic;
+
+        [FieldOffset(0xC9)] public Vector3 m_vecPreviousViewAngles;
+
+        [FieldOffset(0xD4)] public Vector3 m_vecPreviousViewAnglesTilt;
+
+        [FieldOffset(0xE0)] public float m_flLastForwardMove;
+
+        [FieldOffset(0xE4)] public int m_nClearInputState;
+
+        [FieldOffset(0xF4)] public IntPtr m_pCommands;
+
+        [FieldOffset(0xF8)] public IntPtr m_pVerifiedCommands;
+    }
+
+    [StructLayout(LayoutKind.Explicit, Size = 0x64)]
+    public struct UserCmd
+    {
+        [FieldOffset(0x00)] public IntPtr m_pVTable;
+
+        [FieldOffset(0x04)] public int m_iCmdNumber;
+
+        [FieldOffset(0x08)] public int m_iTickCount;
+
+        [FieldOffset(0x0C)] public Vector3 m_vecViewAngles;
+
+        [FieldOffset(0x18)] public Vector3 m_vecAimDirection;
+
+        [FieldOffset(0x24)] public float m_flForwardMove;
+
+        [FieldOffset(0x28)] public float m_flSideMove;
+
+        [FieldOffset(0x2C)] public float m_flUpMove;
+
+        [FieldOffset(0x30)] public int m_iButtons;
+
+        [FieldOffset(0x34)] public bool m_bImpulse;
+
+        [FieldOffset(0x38)] public int m_iWeaponSelect;
+
+        [FieldOffset(0x3C)] public int m_iWeaonSubtype;
+
+        [FieldOffset(0x40)] public int m_iRandomSeed;
+
+        [FieldOffset(0x44)] public short m_siMouseDx;
+
+        [FieldOffset(0x46)] public short m_siMouseDy;
+
+        [FieldOffset(0x48)] public bool m_bHasBeenPredicted;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct VerifiedUserCmd
+    {
+        public UserCmd m_UserCmd;
+        public uint m_dwCRC32;
+    }
+
     [StructLayout(LayoutKind.Explicit)]
     public struct Nightmode
     {

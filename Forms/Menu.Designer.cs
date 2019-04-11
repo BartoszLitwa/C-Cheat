@@ -39,12 +39,12 @@
             this.ESPButton = new System.Windows.Forms.Button();
             this.ColorButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LatesOffsetUpdateTXT = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LoadSettingsButton = new System.Windows.Forms.Button();
             this.SaveSettingsButton = new System.Windows.Forms.Button();
             this.ChoosenSettingsComboBox = new System.Windows.Forms.ComboBox();
-            this.LatesOffsetUpdateTXT = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.ucColors1 = new ZBase.Forms.UCColors();
             this.ucSkinChanger1 = new ZBase.Forms.UCSkinChanger();
             this.ucMisc1 = new ZBase.Forms.UCMisc();
@@ -171,6 +171,31 @@
             this.panel1.Size = new System.Drawing.Size(386, 50);
             this.panel1.TabIndex = 14;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(241, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(145, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Recent Offset Update:";
+            // 
+            // LatesOffsetUpdateTXT
+            // 
+            this.LatesOffsetUpdateTXT.AutoSize = true;
+            this.LatesOffsetUpdateTXT.BackColor = System.Drawing.Color.Transparent;
+            this.LatesOffsetUpdateTXT.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LatesOffsetUpdateTXT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LatesOffsetUpdateTXT.Location = new System.Drawing.Point(240, 16);
+            this.LatesOffsetUpdateTXT.Name = "LatesOffsetUpdateTXT";
+            this.LatesOffsetUpdateTXT.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LatesOffsetUpdateTXT.Size = new System.Drawing.Size(123, 16);
+            this.LatesOffsetUpdateTXT.TabIndex = 1;
+            this.LatesOffsetUpdateTXT.Text = "LatesOffsetUpdate";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -218,31 +243,6 @@
             this.ChoosenSettingsComboBox.TabIndex = 150;
             this.ChoosenSettingsComboBox.SelectedIndexChanged += new System.EventHandler(this.ChoosenSettingsComboBox_SelectedIndexChanged);
             // 
-            // LatesOffsetUpdateTXT
-            // 
-            this.LatesOffsetUpdateTXT.AutoSize = true;
-            this.LatesOffsetUpdateTXT.BackColor = System.Drawing.Color.Transparent;
-            this.LatesOffsetUpdateTXT.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LatesOffsetUpdateTXT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LatesOffsetUpdateTXT.Location = new System.Drawing.Point(240, 16);
-            this.LatesOffsetUpdateTXT.Name = "LatesOffsetUpdateTXT";
-            this.LatesOffsetUpdateTXT.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LatesOffsetUpdateTXT.Size = new System.Drawing.Size(123, 16);
-            this.LatesOffsetUpdateTXT.TabIndex = 1;
-            this.LatesOffsetUpdateTXT.Text = "LatesOffsetUpdate";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(241, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Recent Offset Update:";
-            // 
             // ucColors1
             // 
             this.ucColors1.Location = new System.Drawing.Point(127, 52);
@@ -254,7 +254,7 @@
             // 
             this.ucSkinChanger1.Location = new System.Drawing.Point(129, 52);
             this.ucSkinChanger1.Name = "ucSkinChanger1";
-            this.ucSkinChanger1.Size = new System.Drawing.Size(386, 279);
+            this.ucSkinChanger1.Size = new System.Drawing.Size(386, 283);
             this.ucSkinChanger1.TabIndex = 121;
             // 
             // ucMisc1

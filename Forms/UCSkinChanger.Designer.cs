@@ -48,6 +48,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.FloatWear = new System.Windows.Forms.Label();
             this.FloatWearValue = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.FloatValueTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -324,7 +326,7 @@
             "GLOCK18 | Death Rattle - 293",
             "GLOCK18 | Groundwater - 2",
             "GLOCK18 | Sand Dune - 208"});
-            this.listBox1.Location = new System.Drawing.Point(140, 3);
+            this.listBox1.Location = new System.Drawing.Point(140, 29);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(243, 199);
             this.listBox1.TabIndex = 136;
@@ -425,7 +427,7 @@
             // 
             // StatTrakValueTextBox
             // 
-            this.StatTrakValueTextBox.Location = new System.Drawing.Point(140, 231);
+            this.StatTrakValueTextBox.Location = new System.Drawing.Point(140, 260);
             this.StatTrakValueTextBox.Name = "StatTrakValueTextBox";
             this.StatTrakValueTextBox.Size = new System.Drawing.Size(75, 20);
             this.StatTrakValueTextBox.TabIndex = 144;
@@ -434,7 +436,7 @@
             // StatTrak
             // 
             this.StatTrak.AutoSize = true;
-            this.StatTrak.Location = new System.Drawing.Point(221, 234);
+            this.StatTrak.Location = new System.Drawing.Point(221, 263);
             this.StatTrak.Name = "StatTrak";
             this.StatTrak.Size = new System.Drawing.Size(48, 13);
             this.StatTrak.TabIndex = 145;
@@ -442,7 +444,7 @@
             // 
             // FloatValueTrackBar
             // 
-            this.FloatValueTrackBar.Location = new System.Drawing.Point(140, 202);
+            this.FloatValueTrackBar.Location = new System.Drawing.Point(140, 229);
             this.FloatValueTrackBar.Maximum = 1000;
             this.FloatValueTrackBar.Minimum = 1;
             this.FloatValueTrackBar.Name = "FloatValueTrackBar";
@@ -459,7 +461,7 @@
             // FloatWear
             // 
             this.FloatWear.AutoSize = true;
-            this.FloatWear.Location = new System.Drawing.Point(282, 205);
+            this.FloatWear.Location = new System.Drawing.Point(221, 243);
             this.FloatWear.Name = "FloatWear";
             this.FloatWear.Size = new System.Drawing.Size(56, 13);
             this.FloatWear.TabIndex = 147;
@@ -468,15 +470,36 @@
             // FloatWearValue
             // 
             this.FloatWearValue.AutoSize = true;
-            this.FloatWearValue.Location = new System.Drawing.Point(282, 218);
+            this.FloatWearValue.Location = new System.Drawing.Point(283, 243);
             this.FloatWearValue.Name = "FloatWearValue";
-            this.FloatWearValue.Size = new System.Drawing.Size(0, 13);
+            this.FloatWearValue.Size = new System.Drawing.Size(83, 13);
             this.FloatWearValue.TabIndex = 148;
+            this.FloatWearValue.Text = "FloatWearValue";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(140, 6);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(137, 20);
+            this.textBox1.TabIndex = 149;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(283, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(106, 20);
+            this.label4.TabIndex = 150;
+            this.label4.Text = "Search Skin";
             // 
             // UCSkinChanger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.FloatWearValue);
             this.Controls.Add(this.FloatWear);
             this.Controls.Add(this.StatTrak);
@@ -497,6 +520,7 @@
             this.Controls.Add(this.SkinChangerCheck);
             this.Name = "UCSkinChanger";
             this.Size = new System.Drawing.Size(452, 317);
+            this.Load += new System.EventHandler(this.UCSkinChanger_Load);
             ((System.ComponentModel.ISupportInitialize)(this.FloatValueTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -524,5 +548,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label FloatWear;
         private System.Windows.Forms.Label FloatWearValue;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
     }
 }

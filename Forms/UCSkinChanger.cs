@@ -10,12 +10,14 @@ using System.Windows.Forms;
 using System.Threading;
 using ZBase.Utilities;
 using ZBase.Classes;
+using System.Linq;
 
 namespace ZBase.Forms
 {
     public partial class UCSkinChanger : UserControl
     {
         public bool SetSkin = false;
+        public List<string> items = new List<string>();
         public UCSkinChanger()
         {
             InitializeComponent();
@@ -40,6 +42,9 @@ namespace ZBase.Forms
                 KnifeChangerCheck.CheckState = CheckState.Unchecked;
             if (!Main.S.FasterChangersEnabled)
                 FasterChangersCheck.CheckState = CheckState.Unchecked;
+
+            foreach (string item in listBox1.Items)
+                items.Add(item);
 
             switch (Main.S.SelectedKnife)
             {
@@ -1248,6 +1253,23 @@ namespace ZBase.Forms
         private void timer1_Tick(object sender, EventArgs e)
         {
             FloatWearValue.Text = Main.S.FloatWearValue.ToString();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            foreach(string stringitem in items)
+            {
+                if(stringitem.Contains(textBox1.Text))
+                {
+                    listBox1.Items.Add(stringitem);
+                }
+            }
+        }
+
+        private void UCSkinChanger_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
