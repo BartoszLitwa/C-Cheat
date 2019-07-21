@@ -224,5 +224,14 @@ namespace ZBase.Forms
             }
             catch(Exception ex) { }
         }
+
+        private void textBoxTest_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Main.I.Fortesting = int.Parse(textBoxTest.Text);
+            }
+            catch { }
+        }
     }
 }

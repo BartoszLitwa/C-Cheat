@@ -45,6 +45,8 @@
             this.AutoStrafeCheck = new System.Windows.Forms.CheckBox();
             this.ClanTagChangerTextBox = new System.Windows.Forms.TextBox();
             this.ClanTagChangerCheck = new System.Windows.Forms.CheckBox();
+            this.textBoxTest = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AntiFlashTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -233,10 +235,29 @@
             this.ClanTagChangerCheck.UseVisualStyleBackColor = true;
             this.ClanTagChangerCheck.CheckedChanged += new System.EventHandler(this.ClanTagChangerCheck_CheckedChanged);
             // 
+            // textBoxTest
+            // 
+            this.textBoxTest.Location = new System.Drawing.Point(278, 159);
+            this.textBoxTest.Name = "textBoxTest";
+            this.textBoxTest.Size = new System.Drawing.Size(100, 20);
+            this.textBoxTest.TabIndex = 132;
+            this.textBoxTest.TextChanged += new System.EventHandler(this.textBoxTest_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(275, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.TabIndex = 133;
+            this.label1.Text = "ForTesting";
+            // 
             // UCMisc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxTest);
             this.Controls.Add(this.ClanTagChangerCheck);
             this.Controls.Add(this.ClanTagChangerTextBox);
             this.Controls.Add(this.AutoStrafeCheck);
@@ -281,5 +302,7 @@
         private System.Windows.Forms.CheckBox AutoStrafeCheck;
         private System.Windows.Forms.TextBox ClanTagChangerTextBox;
         private System.Windows.Forms.CheckBox ClanTagChangerCheck;
+        private System.Windows.Forms.TextBox textBoxTest;
+        private System.Windows.Forms.Label label1;
     }
 }

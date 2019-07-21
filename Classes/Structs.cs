@@ -847,8 +847,8 @@ public enum Ranks
          Silver2 = 2,
          Silver3 = 3,
          Silver4 = 4,
-         Silver5  = 5 ,
-         Silver6 =    6  ,   
+         Silver5  = 5,
+         Silver6 = 6,   
          Gold1 =7,
          Gold2  =8,
          Gold3  =9,
@@ -860,7 +860,7 @@ public enum Ranks
          LE  = 15,
          LEM  = 16,
          Supreme  =17,
-         TheGlobalElite = 18,
+         GlobalElite = 18,
     }
 
     public enum WeaponsID

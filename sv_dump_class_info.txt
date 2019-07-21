@@ -34,7 +34,7 @@
 	CChicken(DT_CChicken):3 111
 	CColorCorrection(DT_ColorCorrection):12 12
 	CColorCorrectionVolume(DT_ColorCorrectionVolume):2 2
-	CCSGameRulesProxy(DT_CSGameRulesProxy):2 1119
+	CCSGameRulesProxy(DT_CSGameRulesProxy):2 1117
 	CCSPlayer(DT_CSPlayer):122 1726
 	CCSPlayerResource(DT_CSPlayerResource):53 3368
 	CCSRagdoll(DT_CSRagdoll):13 13

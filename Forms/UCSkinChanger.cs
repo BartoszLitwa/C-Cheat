@@ -1146,72 +1146,72 @@ namespace ZBase.Forms
             {
                 case "Bayonet":
                     Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_BAYONET;
-                    Main.I.SelectedKnife = 63;
+                    Main.I.SelectedKnife = 65;
                     Main.S.SelectedKnife = "Bayonet";
                     break;
                 case "Flip Knife":
                     Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_FLIP_KNIFE;
-                    Main.I.SelectedKnife = 66;
+                    Main.I.SelectedKnife = 68;
                     Main.S.SelectedKnife = "Flip Knife";
                     break;
                 case "Karambit":
                     Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_KARAMBIT;
-                    Main.I.SelectedKnife = 72;
+                    Main.I.SelectedKnife = 74;
                     Main.S.SelectedKnife = "Karambit";
                     break;
                 case "M9 Bayonet":
                     Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_M9_BAYONET;
-                    Main.I.SelectedKnife = 75;
+                    Main.I.SelectedKnife = 77;
                     Main.S.SelectedKnife = "M9 Bayonet";
                     break;
                 case "Butterfly":
                     Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_BUTTERFLY_KNIFE;
-                    Main.I.SelectedKnife = 87;
+                    Main.I.SelectedKnife = 89;
                     Main.S.SelectedKnife = "Butterfly";
                     break;
                 case "Falchion":
                     Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_FALCHION_KNIFE;
-                    Main.I.SelectedKnife = 81;
+                    Main.I.SelectedKnife = 83;
                     Main.S.SelectedKnife = "Falchion";
                     break;
                 case "Bowie":
                     Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_BOWIE_KNIFE;
-                    Main.I.SelectedKnife = 84;
+                    Main.I.SelectedKnife = 86;
                     Main.S.SelectedKnife = "Bowie";
                     break;
                 case "Gut Knife":
                     Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_GUT_KNIFE;
-                    Main.I.SelectedKnife = 69;
+                    Main.I.SelectedKnife = 71;
                     Main.S.SelectedKnife = "Gut Knife";
                     break;
                 case "Talon":
                     Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_TALON_KNIFE;
-                    Main.I.SelectedKnife = 103;
+                    Main.I.SelectedKnife = 105;
                     Main.S.SelectedKnife = "Talon";
                     break;
                 case "Stiletto":
                     Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_STILETTO_KNIFE;
-                    Main.I.SelectedKnife = 100;
+                    Main.I.SelectedKnife = 102;
                     Main.S.SelectedKnife = "Stiletto";
                     break;
                 case "Ursus":
                     Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_URSUS_KNIFE;
-                    Main.I.SelectedKnife = 94;
+                    Main.I.SelectedKnife = 96;
                     Main.S.SelectedKnife = "Ursus";
                     break;
                 case "Shadow Daggers":
                     Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_SHADOW_DAGGERS;
-                    Main.I.SelectedKnife = 84;
+                    Main.I.SelectedKnife = 90;
                     Main.S.SelectedKnife = "Shadow Daggers";
                     break;
                 case "Huntsman":
                     Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_HUNTSMAN_KNIFE;
-                    Main.I.SelectedKnife = 78;
+                    Main.I.SelectedKnife = 80;
                     Main.S.SelectedKnife = "Huntsman";
                     break;
                 case "Navaja":
                     Main.I.SelectedKnifeID = (int)WeaponsID.WEAPON_NAVAJA_KNIFE;
-                    Main.I.SelectedKnife = 97;
+                    Main.I.SelectedKnife = 99;
                     Main.S.SelectedKnife = "Navaja";
                     break;
                 case "Fists":

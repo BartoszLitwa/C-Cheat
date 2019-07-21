@@ -42,17 +42,16 @@ namespace ZBase.Cheats
                         {
                             Knife = Memory.ReadMemory<int>(G.Engine.LocalPlayer.EntityBase + m_hViewModel) & 0xfff;
                             Knife = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwEntityList + (Knife - 1) * 0x10);
-                            KnifeModelIndex = Memory.ReadMemory<int>(Knife + m_nModelIndex);
+                            KnifeModelIndex = Memory.ReadMemory<int>(Knife + m_nModelIndex) ;
                             KnifeViewModelIndex = Memory.ReadMemory<int>(Knife + m_iViewModelIndex);
 
                             if (KnifeModelIndex > 0)
                             {
-                                int precache = 0;
                                 bool IsCT = false;
                                 if (G.Engine.LocalPlayer.Team == 3)
                                     IsCT = true;
 
-                                KnifeModelIndex = IsCT ? KnifeModelIndex + Main.I.SelectedKnife + 24 : KnifeModelIndex + Main.I.SelectedKnife;
+                                KnifeModelIndex = IsCT ? KnifeModelIndex + Main.I.SelectedKnife + 24: KnifeModelIndex + Main.I.SelectedKnife;
                             }
 
                             if (KnifeModelIndex > 0)

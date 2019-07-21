@@ -11,6 +11,7 @@ namespace ZBase.Classes
     public class Informations
     {
         public int Selectedskin;
+        public int Fortesting;
         public int SelectedKnife;
         public int SelectedKnifeID;
         public string ChoosenSettings;

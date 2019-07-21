@@ -100,8 +100,8 @@ namespace ZBase.Cheats
                             Ranks Ranks = (Ranks)Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveRanking + (i + 1) * 4);
                             int wins = Memory.ReadMemory<int>(PlayerResource + Main.O.netvars.m_iCompetitiveWins + (i + 1) * 4);
                             var radarbase = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwRadarBase);
-                            var CHudRadar = Memory.ReadMemory<int>(radarbase + 0x74);
-                            var Name = Memory.ReadString(CHudRadar + 0x2E8 + 0x168 * i, 64, Encoding.UTF8);
+                            var CHudRadar = Memory.ReadMemory<int>(radarbase + 0x78);
+                            var Name = Memory.ReadString(CHudRadar + 0x300 + 0x174 * i, 64, Encoding.UTF8);
                             DrawText(wins.ToString(), Main.MidScreen.X * 2 - 130, i * 15, 13, Color.White);
                             DrawText(Ranks.ToString(), Main.MidScreen.X * 2 - 120 + 20, i * 15, 13, Color.White);
                             DrawText(Name, Main.MidScreen.X * 2 - 250, i * 15, 13, Color.White);
@@ -633,8 +633,8 @@ namespace ZBase.Cheats
                             else
                                 drawcolor = Main.S.ESPColorEnemies;
                             var radarbase = Memory.ReadMemory<int>((int)Memory.Client + Main.O.signatures.dwRadarBase);
-                            var CHudRadar = Memory.ReadMemory<int>(radarbase + 0x74);
-                            var Name = Memory.ReadString(CHudRadar + 0x2E8 + 0x168 * i, 64, Encoding.UTF8);
+                            var CHudRadar = Memory.ReadMemory<int>(radarbase + 0x78);
+                            var Name = Memory.ReadString(CHudRadar + 0x300 + 0x174 * i, 64, Encoding.UTF8);
                             ////////////////////////////////////////////////////////////////
                             if (Main.S.SpectatorsListEnabled)
                             {
